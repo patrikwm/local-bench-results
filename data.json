@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T23:00",
+ "generated": "2026-10-20T23:13+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -73,6 +73,36 @@
    "quant": "Q4_K_M",
    "size_gb": 14,
    "engine": "llama.cpp b11685"
+  },
+  "qwen38fn-iq2xs-llama-64k": {
+   "name": "Qwen3.8-Flash-Next (same files as Strata IQ2_XS)",
+   "quant": "IQ2_XS",
+   "size_gb": 64,
+   "engine": "llama.cpp b11685"
+  },
+  "strata-iq3s-64k": {
+   "name": "Strata (Qwen3.8-Flash-Next, all experts)",
+   "quant": "IQ3_S",
+   "size_gb": 84,
+   "engine": "Strata 0.1.44.1"
+  },
+  "strata-qwen36-q4kxl-64k": {
+   "name": "Qwen3.6-35B-A3B",
+   "quant": "UD-Q4_K_XL",
+   "size_gb": 23,
+   "engine": "Strata 0.1.44.1"
+  },
+  "qwen36-35b-q4kxl-llama-64k": {
+   "name": "Qwen3.6-35B-A3B",
+   "quant": "UD-Q4_K_XL",
+   "size_gb": 23,
+   "engine": "llama.cpp b11685"
+  },
+  "laguna-s21-iq4xs-64k": {
+   "name": "Laguna S 2.1 (Poolside)",
+   "quant": "UD-IQ4_XS",
+   "size_gb": 58,
+   "engine": "llama.cpp b11685"
   }
  },
  "variants": {
@@ -82,6 +112,288 @@
   "mk-readme": "maker's + readme-first prompt",
   "mk-plan": "maker's + plan-first prompt"
  },
+ "tasks": [
+  {
+   "id": "l0-qualify",
+   "level": 0,
+   "language": "python",
+   "kind": "bugfix",
+   "summary": "Fix count_words and top_words in a tiny library so they follow README.md; the agent must read, edit, run the failing tests and pass them.",
+   "timeout_min": 15
+  },
+  {
+   "id": "l1-cpp-bugfix-bytesize",
+   "level": 1,
+   "language": "cpp",
+   "kind": "bugfix",
+   "summary": "Fix a byte-size formatter that prints 1024 as '1024 B' and gets unit boundaries wrong.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cpp-bugfix-recentfiles",
+   "level": 1,
+   "language": "cpp",
+   "kind": "bugfix",
+   "summary": "Fix an 'Open recent' list that duplicates files differing in case or slash style and trims too little when the capacity shrinks (two interacting bugs).",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cpp-feature-mdtable",
+   "level": 1,
+   "language": "cpp",
+   "kind": "feature",
+   "summary": "Add a Markdown renderer (alignment, escaping, minimum widths) to a small table library.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cpp-tests-shipping",
+   "level": 1,
+   "language": "cpp",
+   "kind": "tests",
+   "summary": "Write a test suite for a shop shipping-fee calculator that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cs-bugfix-csvquote",
+   "level": 1,
+   "language": "csharp",
+   "kind": "bugfix",
+   "summary": "Fix CsvWriter: quote doubling instead of backslashes, CRLF row endings, and quoting of line breaks and edge spaces.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cs-bugfix-invoiceno",
+   "level": 1,
+   "language": "csharp",
+   "kind": "bugfix",
+   "summary": "Fix invoice numbering: the fiscal year must start on 1 July and Next must continue after the highest number, not the count.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cs-feature-discounts",
+   "level": 1,
+   "language": "csharp",
+   "kind": "feature",
+   "summary": "Add Checkout.Total: per-line volume discounts, then a coupon (SAVE5, TENOFF) with half-up cent rounding.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-cs-tests-daybook",
+   "level": 1,
+   "language": "csharp",
+   "kind": "tests",
+   "summary": "Write an xunit suite for a one-day room booking class that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-go-bugfix-backoff",
+   "level": 1,
+   "language": "go",
+   "kind": "bugfix",
+   "summary": "Fix backoff.Delay: the first retry waits base, and large attempts must not overflow.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-go-bugfix-logfmt",
+   "level": 1,
+   "language": "go",
+   "kind": "bugfix",
+   "summary": "Fix logfmt.Parse: escaped quotes/backslashes in quoted values and a key without value at the end of the line.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-go-feature-cfgdiff",
+   "level": 1,
+   "language": "go",
+   "kind": "feature",
+   "summary": "Add cfgdiff.Diff: compare two nested configs and list added, removed and changed paths.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-go-tests-inventory",
+   "level": 1,
+   "language": "go",
+   "kind": "tests",
+   "summary": "Write a Go test suite for a warehouse stock model (reserve/release/ship) that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-java-bugfix-isbn",
+   "level": 1,
+   "language": "java",
+   "kind": "bugfix",
+   "summary": "Fix Isbn: ISBN-10 with an X check digit (any case) is rejected, and toIsbn13 emits 10 as a check digit instead of 0.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-java-bugfix-semver",
+   "level": 1,
+   "language": "java",
+   "kind": "bugfix",
+   "summary": "Fix Version.compareTo: a release must beat its prerelease, numeric prerelease identifiers compare as numbers, more identifiers win on a shared prefix.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-java-feature-wordfreq",
+   "level": 1,
+   "language": "java",
+   "kind": "feature",
+   "summary": "Add WordStats.top(text, n, stopWords): most frequent words, stop words skipped, ties alphabetical.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-java-tests-jobqueue",
+   "level": 1,
+   "language": "java",
+   "kind": "tests",
+   "summary": "Write a JUnit suite for a bounded priority job queue (submit/next/peek/cancel/bump/position) that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-py-bugfix-duration-ms",
+   "level": 1,
+   "language": "python",
+   "kind": "bugfix",
+   "summary": "Fix parse_duration so millisecond parts (250ms, 2m500ms) are not read as minutes.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-py-bugfix-prorate",
+   "level": 1,
+   "language": "python",
+   "kind": "bugfix",
+   "summary": "Fix prorated_charge: the start day must count and halves must round up.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-py-feature-changelog",
+   "level": 1,
+   "language": "python",
+   "kind": "feature",
+   "summary": "Add render_changelog, which groups commit lines into ordered Markdown sections.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-py-tests-roombook",
+   "level": 1,
+   "language": "python",
+   "kind": "tests",
+   "summary": "Write a unittest suite for a meeting-room booking calendar that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-rs-bugfix-duration-units",
+   "level": 1,
+   "language": "rust",
+   "kind": "bugfix",
+   "summary": "Fix a duration parser that treats the millisecond unit as minutes.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-rs-bugfix-token-bucket",
+   "level": 1,
+   "language": "rust",
+   "kind": "bugfix",
+   "summary": "Fix a token-bucket rate limiter whose refill bookkeeping loses partial intervals and ignores the capacity.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-rs-feature-unique-slug",
+   "level": 1,
+   "language": "rust",
+   "kind": "feature",
+   "summary": "Implement unique_slug (length-limited, collision-free URL slugs) next to an existing slugify.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-rs-tests-shipping-rates",
+   "level": 1,
+   "language": "rust",
+   "kind": "tests",
+   "summary": "Write an integration test suite for a shipping price calculator that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-ts-bugfix-pager",
+   "level": 1,
+   "language": "typescript",
+   "kind": "bugfix",
+   "summary": "Fix pageButtons: a total equal to maxButtons must show all pages and the last-pages layout must start at the right page.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-ts-bugfix-splitbill",
+   "level": 1,
+   "language": "typescript",
+   "kind": "bugfix",
+   "summary": "Fix splitBill: leftover cents must go to the largest fractional parts, ties to the earlier person.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-ts-feature-wraptext",
+   "level": 1,
+   "language": "typescript",
+   "kind": "feature",
+   "summary": "Add wrapText(text, width) to text.ts: greedy wrapping, paragraphs kept, over-long words cut.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l1-ts-tests-lrucache",
+   "level": 1,
+   "language": "typescript",
+   "kind": "tests",
+   "summary": "Write a node:test suite for an LRU cache that catches seeded bugs.",
+   "timeout_min": 20
+  },
+  {
+   "id": "l2-cpp-bugfix-cli11-underscore",
+   "level": 2,
+   "language": "cpp",
+   "kind": "bugfix",
+   "summary": "CLI11: ignore_underscore() also ignores letter case in validators, option names and subcommands; find and fix the shared cause.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-cpp-feature-cli11-multipleof",
+   "level": 2,
+   "language": "cpp",
+   "kind": "feature",
+   "summary": "CLI11: add a public validator CLI::MultipleOf(divisor) with exact rules, docs in README and the book, and own tests.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-py-bugfix-tenacity-retrystate",
+   "level": 2,
+   "language": "python",
+   "kind": "bugfix",
+   "summary": "tenacity: stop_before_delay lets a retry through that would run past its limit (regression in the retry loop, not in the stop module).",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-py-feature-tenacity-stopidle",
+   "level": 2,
+   "language": "python",
+   "kind": "feature",
+   "summary": "tenacity: add a public stop condition stop_before_idle (limit on total sleeping time), with docs and tests.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-rs-bugfix-clap-lexfind",
+   "level": 2,
+   "language": "rust",
+   "kind": "bugfix",
+   "summary": "clap_lex: a long flag with an empty value (`--name=`) is parsed as having no value; the cause sits in another module than the symptom.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-rs-feature-clap-rsplit",
+   "level": 2,
+   "language": "rust",
+   "kind": "feature",
+   "summary": "clap_lex: add OsStrExt::rsplit_once and ParsedArg::to_long_rsplit (split at the last match), with docs and tests.",
+   "timeout_min": 45
+  }
+ ],
  "rows": [
   {
    "model": "gptoss120b-a2-128k",
@@ -287,7 +599,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 24,
-   "attempts": 35,
+   "attempts": 36,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -335,16 +647,16 @@
     },
     "l1-rs-tests-shipping-rates": {
      "solved": 1,
-     "attempts": 2
+     "attempts": 3
     }
    },
    "median_s": 122.0,
-   "median_read": 72623,
-   "median_written": 3185,
+   "median_read": 71242.0,
+   "median_written": 3218.5,
    "decode_tok_s": 31.8,
    "gpu_w": 59.8,
-   "cpu_w": 142.8,
-   "wh_per_solved": 16.29,
+   "cpu_w": 143.0,
+   "wh_per_solved": 25.03,
    "agent_version": "1.3.0"
   },
   {

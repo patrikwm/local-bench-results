@@ -63,12 +63,21 @@ ul.log { padding-left: 0; }
 .levels td:first-child { font-family: var(--hud); font-size: 20px; color: var(--red); }
 .tag { display: inline-block; border: 1px solid var(--red-dim); padding: 0 6px; font-size: 12px; color: var(--red-hi); }
 .tag.off { color: var(--red-dim); }
+.copybar { display: flex; justify-content: flex-end; gap: 10px; align-items: center; margin-bottom: 10px; }
+.copy { font: 400 20px var(--hud); letter-spacing: .08em; color: var(--bg); background: var(--red); border: 0; padding: 6px 14px; cursor: pointer; box-shadow: 0 0 10px rgba(255,43,43,.6); }
+.copy:hover, .copy:focus-visible { background: var(--red-hi); outline: 2px solid var(--ink); outline-offset: 2px; }
+#copied { color: var(--red-hi); font-family: var(--hud); font-size: 18px; }
+#copybox { width: 100%; height: 200px; background: var(--panel); color: var(--ink); border: 1px solid var(--red-dim); font: 12px var(--mono); display: none; margin-bottom: 10px; }
 footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--red-faint); padding-top: 12px; }
 @media (prefers-reduced-motion: reduce) { .boot .cur { animation: none; } }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="copybar"><span id="updated" class="pending" style="margin-right:auto">LAST UPDATED: …</span><span id="copied" aria-live="polite"></span>
+    <button class="copy" id="copy" title="Copies the whole page as Markdown, ready to paste into an AI">COPY PAGE FOR AI</button></div>
+  <textarea id="copybox" aria-label="Page as Markdown (copy by hand if the button cannot)"></textarea>
+  <main id="page">
   <header class="hud">
     <h1>LOCAL BENCH</h1>
     <div class="sub">MODEL ANALYSIS TERMINAL // CYBERNETIC CODING EVALUATION</div>
@@ -80,6 +89,28 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <p>Can open-weight AI models, running on one gaming PC, replace a paid cloud AI subscription for real programming work?
      Every model gets the same coding tasks through two open-source terminal agents, <strong>Pi</strong> and <strong>OpenCode</strong>.
      Each task runs <strong>3 times</strong>; a hidden test suite decides pass or fail. No judges, no vibes.</p>
+
+  <h2>TEST SETUP</h2>
+  <div class="hud">
+    <ul class="log">
+      <li><strong>Languages (7):</strong> Python, TypeScript, Java, C#, C++, Rust, Go. Each gets 4 tasks at L1 (fix a bug ×2, add a feature, write tests) and 2 at L2 (a bug across files and a new feature in a real open-source project).</li>
+      <li><strong>Agents:</strong> Pi 1.3.0 and OpenCode 2.0.32, both open source, pinned. Every task runs with both. They run inside a WSL sandbox with no network except the model.</li>
+      <li><strong>Engines:</strong> Strata 0.1.44.1 (for the biggest MoE models, experts streamed from RAM) and llama.cpp b11685 (build 11685, commit 13de11e). Every result records the engine, its version, every flag, the quant and the exact model files.</li>
+      <li><strong>Sampling:</strong> each model runs with its maker's recommended settings (temperature, top_p, top_k, penalties), copied from the model card with source and quote. The agents send no settings of their own, which would otherwise mean greedy decoding on Strata.</li>
+      <li><strong>Grading:</strong> hidden tests in a clean copy of the repo, plus the project's own test suite at L2. Build warnings and lint (ruff, tsc, eslint, javac -Xlint, dotnet format, gofmt/go vet, clippy/rustfmt, gcc -Wall, clang-format) and scope checks are recorded too. A task counts as solved only if every hidden check passes. Failed attempts keep their partial score.</li>
+      <li><strong>Ladder rules:</strong> a model passes a level when it solves at least half of its task-and-agent pairs, a pair counting when 2 of 3 attempts pass. It stops after two failed levels in a row. The next level is first tried with 1 attempt per task, and attempts 2–3 run only if at least 25 % solved. Runs stuck in a loop, or making requests without changing any file, are stopped early; slow runs are not.</li>
+      <li><strong>Limits:</strong> L1 20 min per attempt, L2 45 min, L3 3 h. Up to 32K tokens per model answer.</li>
+      <li><strong>Measured per attempt:</strong> wall time, requests, tokens read and written, cache hits, decode speed, GPU power (nvidia-smi), CPU package power (Intel RAPL), VRAM, RAM, and energy (GPU + CPU) per solved task.</li>
+      <li><strong>Hardware:</strong> one PC: Intel i7-13700KF, 64 GB DDR5-5600, NVIDIA RTX 4080 16 GB, Windows 11 + WSL2. A MacBook Pro M1 Max 64 GB comes later, and rented GPUs after that.</li>
+    </ul>
+  </div>
+
+  <h2>MODELS ON DISK</h2>
+  <div class="hud scroll"><table id="models"><thead><tr><th>Model</th><th>Quant</th><th class="num">Size</th><th>Engine</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+
+  <h2>TASKS</h2>
+  <p class="note">Every task is proven before it runs: the starting code fails, our reference fix passes, and at least two typical wrong fixes are caught.</p>
+  <div class="hud scroll"><table id="tasks"><thead><tr><th>Level</th><th>Language</th><th>Task</th><th>Kind</th><th>What the agent must do</th></tr></thead><tbody></tbody></table></div>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
   <p class="note">L1 = 12 small tasks in Python, C++ and Rust: fix a bug, add a feature, write tests. Each model runs with its maker's recommended sampling settings. Both agents together: 72 attempts per model.</p>
@@ -109,10 +140,11 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <h2>LEVELS</h2>
   <div class="hud scroll"><table class="levels"><thead><tr><th>Level</th><th>What the agent must do</th><th class="num">Tasks</th><th>Status</th></tr></thead><tbody>
     <tr><td>L0</td><td>Qualify: a tiny repo, one fix. Shows the agent and model can work together</td><td class="num">1</td><td><span class="tag">ONLINE</span></td></tr>
-    <tr><td>L1</td><td>Easy: one function or one file. Bugfix, feature, write tests</td><td class="num">12</td><td><span class="tag">RUNNING</span></td></tr>
-    <tr><td>L2</td><td>Medium: several files in a real open-source project</td><td class="num">8</td><td><span class="tag off">IN BUILD</span></td></tr>
+    <tr><td>L1</td><td>Easy: one function or one file, in 7 languages. Bugfix, feature, write tests</td><td class="num">28</td><td><span class="tag">RUNNING</span></td></tr>
+    <tr><td>L2</td><td>Medium: several files in a real open-source project (tenacity, CLI11, clap_lex, and more)</td><td class="num">14</td><td><span class="tag off">IN BUILD</span></td></tr>
     <tr><td>L3</td><td>Hard: concurrency, lifecycle, cancellation; fresh tasks</td><td class="num">8</td><td><span class="tag off">PLANNED</span></td></tr>
     <tr><td>L4</td><td>Extreme: build a crash-safe event relay, 5 milestones, one night</td><td class="num">1×5</td><td><span class="tag off">PLANNED</span></td></tr>
+    <tr><td>S1–S3</td><td>Sysadmin track: Bash, PowerShell, OpenTofu, Ansible, Packer, SSH, against containers in the sandbox, never a real cloud</td><td class="num">12</td><td><span class="tag off">PLANNED</span></td></tr>
   </tbody></table></div>
 
   <h2>MISSION LOG</h2>
@@ -121,9 +153,10 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <h2>SPECS</h2>
   <div class="hud">
     <p id="hw"></p>
-    <p class="note">Engines: Strata 0.1.44.1 and llama.cpp b11685, pinned. Agents: Pi 1.3.0 and OpenCode 2.0.32, pinned, sandboxed in WSL with no network but the model. Grading: hidden tests in a clean copy, plus build, lint and scope checks. Results are objective (tests), never judged by an AI. Cloud models (Claude, GPT, Gemini, Mistral) come later on the same tasks.</p>
+    <p class="note">Results are objective: they come from tests, never from an AI judge. Cloud models (Claude, GPT, Gemini, Mistral, each in its own vendor's agent) come later, on the same tasks.</p>
   </div>
 
+  </main>
   <footer>Data: <a href="data.json">data.json</a> · updated <span id="gen"></span> · from the Local Bench YouTube channel.</footer>
 </div>
 <script>
@@ -222,10 +255,47 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
       .map(r => `<tr><td>${esc(D.models[k].name)}</td><td>${esc(D.variants[v] || v)}</td><td>${r.agent === "pi" ? "Pi" : "OpenCode"}</td>
         <td class="num">${r.solved}/${r.attempts}</td><td class="num">${fmt(r.median_s)} s</td><td class="num">${fmt(r.median_written)}</td></tr>`))).join("");
 
+  const LANG = { python: "Python", typescript: "TypeScript", java: "Java", csharp: "C#", cpp: "C++", rust: "Rust", go: "Go" };
+  $("#models tbody").innerHTML = keys.map(k => {
+    const m = D.models[k], r = by[k];
+    const st = !r ? "waiting" : (rows.find(x => x.k === k)?.run ? "running L1" : "L1 done");
+    return `<tr><td>${esc(m.name)}</td><td>${m.quant}</td><td class="num">${m.size_gb} GB</td><td>${esc(m.engine)}</td><td>${st}</td></tr>`;
+  }).join("");
+  $("#tasks tbody").innerHTML = (D.tasks || []).map(t =>
+    `<tr><td>L${t.level}</td><td>${LANG[t.language] || t.language}</td><td>${esc(t.id)}</td><td>${t.kind}</td><td style="white-space:normal">${esc(t.summary || "")}</td></tr>`).join("");
   $("#log").innerHTML = D.log.map(e => `<li><span class="d">[${e.date}]</span> ${esc(e.text)}</li>`).join("");
   $("#hw").textContent = "HARDWARE: " + D.hardware;
-  $("#gen").textContent = D.generated.replace("T", " ");
+  const g = new Date(D.generated), tz = D.generated.slice(16) || "";
+  const stamp = isNaN(g) ? D.generated : D.generated.slice(0, 16).replace("T", " ") + (tz ? ` (UTC${tz})` : "");
+  $("#gen").textContent = stamp;
+  $("#updated").textContent = `LAST UPDATED: ${stamp}`;
 }).catch(e => { $("#boot").textContent = "> DATA LINK FAILURE: " + e; });
+
+// One click: the whole page as Markdown (headings, paragraphs, lists, tables), for an AI to read.
+function toMarkdown(root) {
+  const cell = el => el.innerText.replace(/\s+/g, " ").replace(/\|/g, "\\|").trim();
+  const out = ["# Local Bench: results page", document.querySelector("#updated").textContent, `Source: ${location.href}`, `Raw data: ${new URL("data.json", location.href)}`, ""];
+  for (const el of root.querySelectorAll("h2, p, ul, table, .stats")) {
+    if (el.tagName === "H2") out.push(`## ${el.innerText.replace(/^▶\s*/, "")}`, "");
+    else if (el.classList.contains("stats")) {
+      out.push(...[...el.querySelectorAll(".stat")].map(s => `- ${s.querySelector(".k").innerText}: ${s.querySelector(".v").innerText}`), "");
+    } else if (el.tagName === "P") { if (el.innerText.trim()) out.push(el.innerText.trim(), ""); }
+    else if (el.tagName === "UL") out.push(...[...el.children].map(li => `- ${li.innerText.replace(/\s+/g, " ").trim()}`), "");
+    else if (el.tagName === "TABLE") {
+      const rs = [...el.rows].map(r => [...r.cells].map(cell)).filter(r => r.length);
+      if (!rs.length) continue;
+      const w = Math.max(...rs.map(r => r.length));
+      const line = r => `| ${[...r, ...Array(w - r.length).fill("")].join(" | ")} |`;
+      out.push(line(rs[0]), `|${" --- |".repeat(w)}`, ...rs.slice(1).map(line), "");
+    }
+  }
+  return out.join("\n");
+}
+document.querySelector("#copy").addEventListener("click", async () => {
+  const md = toMarkdown(document.querySelector("#page"));
+  try { await navigator.clipboard.writeText(md); document.querySelector("#copied").textContent = `COPIED ${md.length.toLocaleString("en-US")} CHARS`; }
+  catch { const b = document.querySelector("#copybox"); b.style.display = "block"; b.value = md; b.select(); document.querySelector("#copied").textContent = "SELECT ALL + COPY BELOW"; }
+});
 </script>
 </body>
 </html>
