@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T23:13+02:00",
+ "generated": "2026-10-20T23:30+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -362,6 +362,30 @@
    "timeout_min": 45
   },
   {
+   "id": "l2-go-bugfix-humanize-ftoa",
+   "level": 2,
+   "language": "go",
+   "kind": "bugfix",
+   "summary": "Fix go-humanize: the *WithDigits functions (SIWithDigits, CommafWithDigits, FtoaWithDigits) cut one decimal too many.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-go-feature-humanize-rate",
+   "level": 2,
+   "language": "go",
+   "kind": "feature",
+   "summary": "Add humanize.Rate and humanize.IRate: bytes per duration as a throughput string, exact integer math, with docs and own tests.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-java-bugfix-picocli-digitnames",
+   "level": 2,
+   "language": "java",
+   "kind": "bugfix",
+   "summary": "Fix picocli: option names that start with a digit or underscore (-1, --3d, --_x) lose their prefix-stripped form, which breaks description keys, findOption/hasMatchedOption and help ordering.",
+   "timeout_min": 45
+  },
+  {
    "id": "l2-py-bugfix-tenacity-retrystate",
    "level": 2,
    "language": "python",
@@ -391,6 +415,22 @@
    "language": "rust",
    "kind": "feature",
    "summary": "clap_lex: add OsStrExt::rsplit_once and ParsedArg::to_long_rsplit (split at the last match), with docs and tests.",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-ts-bugfix-rfc6902-escape",
+   "level": 2,
+   "language": "typescript",
+   "kind": "bugfix",
+   "summary": "rfc6902: createPatch writes wrong paths for object keys containing a slash (regression in the JSON Pointer escaping, not in the diff code).",
+   "timeout_min": 45
+  },
+  {
+   "id": "l2-ts-feature-rfc6902-touchedpaths",
+   "level": 2,
+   "language": "typescript",
+   "kind": "feature",
+   "summary": "rfc6902: add touchedPaths(patch), the minimal sorted list of JSON Pointer paths a patch changes, with README section and own tests.",
    "timeout_min": 45
   }
  ],
