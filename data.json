@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T00:30+02:00",
+ "generated": "2026-10-21T00:37+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1028,8 +1028,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 37,
-   "attempts": 38,
+   "solved": 38,
+   "attempts": 39,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1052,6 +1052,10 @@
      "attempts": 1
     },
     "l1-cs-bugfix-invoiceno": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-feature-discounts": {
      "solved": 1,
      "attempts": 1
     },
@@ -1088,13 +1092,13 @@
      "attempts": 3
     }
    },
-   "median_s": 109.0,
-   "median_read": 166981.5,
-   "median_written": 9761.5,
-   "decode_tok_s": 104.1,
-   "gpu_w": 180.5,
-   "cpu_w": 181.8,
-   "wh_per_solved": 7.64,
+   "median_s": 108.0,
+   "median_read": 166639,
+   "median_written": 9101,
+   "decode_tok_s": 104.0,
+   "gpu_w": 180.3,
+   "cpu_w": 182.5,
+   "wh_per_solved": 8.11,
    "agent_version": "2.0.32"
   },
   {
@@ -1573,6 +1577,14 @@
   }
  ],
  "log": [
+  {
+   "date": "2026-10-21",
+   "text": "All 42 coding tasks are built and proven: 28 at L1 and 14 at L2, in 7 languages (Python, TypeScript, Java, C#, C++, Rust, Go). L2 uses real open-source projects: tenacity, CLI11, clap_lex, rfc6902, go-humanize, picocli, Cronos."
+  },
+  {
+   "date": "2026-10-20",
+   "text": "CPU package power is measured now. Models that run their experts on the CPU draw as much from the CPU as from the GPU (about 160 W): about 25 Wh per solved L1 task for Qwen3-Coder-30B."
+  },
   {
    "date": "2026-10-20",
    "text": "Strata IQ2_XS (Qwen3.8-Flash-Next, 64 GB, 2-bit) solves all 72 L1 attempts with its maker's sampling settings."
