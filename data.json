@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T20:08",
+ "generated": "2026-10-20T20:30",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -216,76 +216,16 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 8,
-   "attempts": 11,
+   "solved": 11,
+   "attempts": 14,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cpp-bugfix-recentfiles": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cpp-feature-mdtable": {
-     "solved": 0,
-     "attempts": 1
-    },
-    "l1-cpp-tests-shipping": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-py-bugfix-duration-ms": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-py-bugfix-prorate": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-py-feature-changelog": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-py-tests-roombook": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-rs-bugfix-duration-units": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-rs-bugfix-token-bucket": {
-     "solved": 0,
-     "attempts": 1
-    },
-    "l1-rs-feature-unique-slug": {
-     "solved": 0,
-     "attempts": 1
-    }
-   },
-   "median_s": 112.0,
-   "median_read": 115210,
-   "median_written": 3012,
-   "decode_tok_s": 31.5,
-   "gpu_w": 65.7,
-   "agent_version": "2.0.32"
-  },
-  {
-   "model": "qwen3coder30b-a3-128k",
-   "variant": "mk",
-   "agent": "pi",
-   "level": 1,
-   "solved": 9,
-   "attempts": 12,
-   "tasks": {
-    "l1-cpp-bugfix-bytesize": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cpp-bugfix-recentfiles": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cpp-feature-mdtable": {
      "solved": 0,
@@ -328,11 +268,75 @@
      "attempts": 1
     }
    },
-   "median_s": 125.0,
-   "median_read": 87508.0,
-   "median_written": 3464.0,
-   "decode_tok_s": 32.2,
-   "gpu_w": 61.2,
+   "median_s": 106.0,
+   "median_read": 117555.0,
+   "median_written": 2850.5,
+   "decode_tok_s": 31.5,
+   "gpu_w": 65.9,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 12,
+   "attempts": 15,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 2,
+     "attempts": 2
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 2,
+     "attempts": 2
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 1,
+     "attempts": 2
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-feature-changelog": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-tests-roombook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 124.0,
+   "median_read": 80952,
+   "median_written": 3422,
+   "decode_tok_s": 32.4,
+   "gpu_w": 60.9,
    "agent_version": "1.3.0"
   },
   {
