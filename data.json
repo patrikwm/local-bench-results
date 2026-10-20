@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T20:06",
+ "generated": "2026-10-20T20:08",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
