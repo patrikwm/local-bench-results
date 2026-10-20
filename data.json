@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T21:00",
+ "generated": "2026-10-20T21:30",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -220,8 +220,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 14,
-   "attempts": 18,
+   "solved": 17,
+   "attempts": 22,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -248,20 +248,20 @@
      "attempts": 2
     },
     "l1-py-feature-changelog": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-py-tests-roombook": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-rs-bugfix-duration-units": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-rs-bugfix-token-bucket": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-rs-feature-unique-slug": {
      "solved": 0,
@@ -272,13 +272,13 @@
      "attempts": 1
     }
    },
-   "median_s": 124.0,
-   "median_read": 114980.5,
-   "median_written": 3260.5,
+   "median_s": 110.0,
+   "median_read": 117555.0,
+   "median_written": 2868.5,
    "decode_tok_s": 31.2,
    "gpu_w": 65.7,
-   "cpu_w": 165.2,
-   "wh_per_solved": 15.03,
+   "cpu_w": 159.8,
+   "wh_per_solved": 12.07,
    "agent_version": "2.0.32"
   },
   {
@@ -286,8 +286,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 14,
-   "attempts": 19,
+   "solved": 16,
+   "attempts": 23,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -318,33 +318,33 @@
      "attempts": 2
     },
     "l1-py-tests-roombook": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-rs-bugfix-duration-units": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-rs-bugfix-token-bucket": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-rs-feature-unique-slug": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-rs-tests-shipping-rates": {
      "solved": 1,
      "attempts": 1
     }
    },
-   "median_s": 122.0,
-   "median_read": 80952,
-   "median_written": 3185,
+   "median_s": 108.0,
+   "median_read": 75086,
+   "median_written": 2876,
    "decode_tok_s": 32.0,
    "gpu_w": 60.9,
-   "cpu_w": 164.9,
-   "wh_per_solved": 14.14,
+   "cpu_w": 152.6,
+   "wh_per_solved": 18.9,
    "agent_version": "1.3.0"
   },
   {
