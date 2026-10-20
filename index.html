@@ -85,8 +85,9 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <p class="note">L1 = 12 small tasks in Python, C++ and Rust: fix a bug, add a feature, write tests. Each model runs with its maker's recommended sampling settings. Both agents together: 72 attempts per model.</p>
   <div class="hud scroll"><table id="rank"><thead><tr>
     <th class="num">#</th><th>Model</th><th>Quant</th><th class="num">Size</th><th>Solve rate</th><th class="num">Solved</th>
-    <th class="num">Pi</th><th class="num">OpenCode</th><th class="num">Median time</th><th class="num">Decode</th><th class="num">GPU power</th>
+    <th class="num">Pi</th><th class="num">OpenCode</th><th class="num">Median time</th><th class="num">Decode</th><th class="num">GPU power</th><th class="num">CPU power</th><th class="num">Energy / solved</th>
   </tr></thead><tbody></tbody></table></div>
+  <p class="note">Power: GPU (nvidia-smi) and CPU package (Intel RAPL), means over each attempt. Energy per solved task = all attempts' GPU + CPU energy, failed ones included, divided by the tasks solved. Not wall power: RAM, board and PSU losses are not in it. CPU power is measured from 2026-10-20 21:00 on.</p>
 
   <h2>THREAT MATRIX · TASKS × MODELS</h2>
   <p class="note">Attempts solved per task, both agents together (out of 6). Brighter red means more misses: the threats.</p>
@@ -173,17 +174,20 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     const m = D.models[k], p = by[k]?.pi, o = by[k]?.opencode;
     if (!(p && o)) return { k, m, rate: -1 };
     const s = p.solved + o.solved, n = p.attempts + o.attempts;
-    return { k, m, p, o, s, n, run: n < 72, rate: s / n, t: (p.median_s + o.median_s) / 2, dec: p.decode_tok_s, w: p.gpu_w };
+    const avg = (a, b) => a == null || b == null ? (a ?? b) : (a + b) / 2;
+    return { k, m, p, o, s, n, run: n < 72, rate: s / n, t: (p.median_s + o.median_s) / 2, dec: p.decode_tok_s, w: p.gpu_w,
+             cw: avg(p.cpu_w, o.cpu_w), wh: avg(p.wh_per_solved, o.wh_per_solved) };
   }).sort((a, b) => b.rate - a.rate || (a.t ?? 1e9) - (b.t ?? 1e9));
   let rank = 0;
   $("#rank tbody").innerHTML = rows.map(r => {
     const head = `<td>${esc(r.m.name)}</td><td>${r.m.quant}</td><td class="num">${r.m.size_gb} GB</td>`;
-    if (r.rate < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="7" class="pending">AWAITING ANALYSIS</td></tr>`;
+    if (r.rate < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="9" class="pending">AWAITING ANALYSIS</td></tr>`;
     const pct = Math.round(100 * r.rate);
     return `<tr title="${esc(r.m.name)}: ${r.s} of ${r.n} attempts solved (${pct}%)"><td class="num rank">${++rank}</td>${head}
       <td><span class="bar" role="img" aria-label="${pct}% solved"><i style="width:${pct}%"></i></span> ${pct}%</td>
       <td class="num">${r.s}/${r.n}${r.run ? ' <span class="tag">RUNNING</span>' : ""}</td><td class="num">${r.p.solved}/${r.p.attempts}</td><td class="num">${r.o.solved}/${r.o.attempts}</td>
-      <td class="num">${fmt(r.t)} s</td><td class="num">${fmt(r.dec)} tok/s</td><td class="num">${fmt(r.w)} W</td></tr>`;
+      <td class="num">${fmt(r.t)} s</td><td class="num">${fmt(r.dec)} tok/s</td><td class="num">${fmt(r.w)} W</td><td class="num">${r.cw == null ? "–" : fmt(r.cw) + " W"}</td>
+      <td class="num">${r.wh == null ? "–" : fmt(r.wh, 1) + " Wh"}</td></tr>`;
   }).join("");
 
   // matrix: tasks x analyzed models
