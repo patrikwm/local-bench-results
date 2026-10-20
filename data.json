@@ -1,0 +1,1033 @@
+{
+ "generated": "2026-10-20T19:58",
+ "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
+ "models": {
+  "strata-coder-iq1m-128k": {
+   "name": "Strata Coder (Qwen3.8-Flash-Next, coding experts)",
+   "quant": "IQ1_M",
+   "size_gb": 28,
+   "engine": "Strata 0.1.44.1"
+  },
+  "strata-iq2xs-128k": {
+   "name": "Strata (Qwen3.8-Flash-Next, all experts)",
+   "quant": "IQ2_XS",
+   "size_gb": 64,
+   "engine": "Strata 0.1.44.1"
+  },
+  "gptoss120b-a2-128k": {
+   "name": "gpt-oss-120b",
+   "quant": "MXFP4",
+   "size_gb": 60,
+   "engine": "llama.cpp b11685"
+  },
+  "qwen3coder30b-a3-128k": {
+   "name": "Qwen3-Coder-30B-A3B",
+   "quant": "Q4_K_M",
+   "size_gb": 18,
+   "engine": "llama.cpp b11685"
+  },
+  "gptoss20b-128k": {
+   "name": "gpt-oss-20b",
+   "quant": "MXFP4",
+   "size_gb": 12,
+   "engine": "llama.cpp b11685"
+  },
+  "qwen3-14b-64k": {
+   "name": "Qwen3 14B",
+   "quant": "Q4_K_M",
+   "size_gb": 9,
+   "engine": "llama.cpp b11685"
+  },
+  "qwen3codernext-q4km-128k": {
+   "name": "Qwen3-Coder-Next 80B-A3B",
+   "quant": "Q4_K_M",
+   "size_gb": 48,
+   "engine": "llama.cpp b11685"
+  },
+  "ornith35b-q8-128k": {
+   "name": "Ornith-1.5 35B-A3B",
+   "quant": "Q8_0",
+   "size_gb": 38,
+   "engine": "llama.cpp b11685"
+  },
+  "glm47flash-q8-128k": {
+   "name": "GLM-4.7-Flash",
+   "quant": "Q8_0",
+   "size_gb": 32,
+   "engine": "llama.cpp b11685"
+  },
+  "mellum21-q8-128k": {
+   "name": "Mellum 2.1 12B (JetBrains)",
+   "quant": "Q8_0",
+   "size_gb": 13,
+   "engine": "llama.cpp b11685"
+  },
+  "qwen38-27b-q4km-64k": {
+   "name": "Qwen3.8-27B (dense)",
+   "quant": "Q4_K_M",
+   "size_gb": 17,
+   "engine": "llama.cpp b11685"
+  },
+  "devstral2-q4km-64k": {
+   "name": "Devstral Small 2 24B (Mistral)",
+   "quant": "Q4_K_M",
+   "size_gb": 14,
+   "engine": "llama.cpp b11685"
+  }
+ },
+ "variants": {
+  "": "none sent (Strata: greedy)",
+  "pp15": "presence_penalty 1.5",
+  "mk": "maker's recommended",
+  "mk-readme": "maker's + readme-first prompt",
+  "mk-plan": "maker's + plan-first prompt"
+ },
+ "rows": [
+  {
+   "model": "gptoss120b-a2-128k",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 34,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 1,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 118.0,
+   "median_read": 43251.5,
+   "median_written": 1667.5,
+   "decode_tok_s": 22.9,
+   "gpu_w": 58.0,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "gptoss120b-a2-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 31,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 1,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 0,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 97.0,
+   "median_read": 18747.5,
+   "median_written": 1493.5,
+   "decode_tok_s": 22.4,
+   "gpu_w": 56.0,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 8,
+   "attempts": 11,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-feature-changelog": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-tests-roombook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 112.0,
+   "median_read": 115210,
+   "median_written": 3012,
+   "decode_tok_s": 31.5,
+   "gpu_w": 65.7,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 8,
+   "attempts": 11,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-feature-changelog": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-tests-roombook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 124.0,
+   "median_read": 80952,
+   "median_written": 3422,
+   "decode_tok_s": 32.4,
+   "gpu_w": 61.1,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "",
+   "agent": "opencode",
+   "level": 0,
+   "solved": 3,
+   "attempts": 3,
+   "tasks": {
+    "l0-qualify": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 29.4,
+   "median_read": 41322,
+   "median_written": 2208,
+   "decode_tok_s": 95.9,
+   "gpu_w": 161.9,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 34,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 1,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 114.0,
+   "median_read": 182304.0,
+   "median_written": 9904.0,
+   "decode_tok_s": 99.4,
+   "gpu_w": 169.6,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "",
+   "agent": "pi",
+   "level": 0,
+   "solved": 4,
+   "attempts": 4,
+   "tasks": {
+    "l0-qualify": {
+     "solved": 4,
+     "attempts": 4
+    }
+   },
+   "median_s": 21.4,
+   "median_read": 15554.5,
+   "median_written": 1567.0,
+   "decode_tok_s": 93.8,
+   "gpu_w": 149.4,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "",
+   "agent": "pi",
+   "level": 1,
+   "solved": 35,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 2,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 69.0,
+   "median_read": 58848.0,
+   "median_written": 5880.5,
+   "decode_tok_s": 98.5,
+   "gpu_w": 167.2,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 35,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 2,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 112.0,
+   "median_read": 166981.5,
+   "median_written": 10661.0,
+   "decode_tok_s": 104.2,
+   "gpu_w": 180.8,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 36,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 74.0,
+   "median_read": 103200.5,
+   "median_written": 6267.5,
+   "decode_tok_s": 105.2,
+   "gpu_w": 176.4,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 36,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 57.0,
+   "median_read": 121924.5,
+   "median_written": 6265.0,
+   "decode_tok_s": 138.0,
+   "gpu_w": 177.6,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "",
+   "agent": "pi",
+   "level": 1,
+   "solved": 34,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 2,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 2,
+     "attempts": 3
+    }
+   },
+   "median_s": 33.0,
+   "median_read": 37006.0,
+   "median_written": 3423.5,
+   "decode_tok_s": 138.8,
+   "gpu_w": 169.1,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 36,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 71.0,
+   "median_read": 140088.5,
+   "median_written": 8147.0,
+   "decode_tok_s": 137.6,
+   "gpu_w": 183.6,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 36,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 38.0,
+   "median_read": 49739.0,
+   "median_written": 4012.0,
+   "decode_tok_s": 138.4,
+   "gpu_w": 177.2,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "pp15",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 35,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 2,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 63.0,
+   "median_read": 136372.0,
+   "median_written": 6389.0,
+   "decode_tok_s": 136.1,
+   "gpu_w": 177.9,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "pp15",
+   "agent": "pi",
+   "level": 1,
+   "solved": 35,
+   "attempts": 36,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 2,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 45.0,
+   "median_read": 59568.5,
+   "median_written": 4885.0,
+   "decode_tok_s": 136.8,
+   "gpu_w": 172.1,
+   "agent_version": "1.3.0"
+  }
+ ],
+ "log": [
+  {
+   "date": "2026-10-20",
+   "text": "Strata IQ2_XS (Qwen3.8-Flash-Next, 64 GB, 2-bit) solves all 72 L1 attempts with its maker's sampling settings."
+  },
+  {
+   "date": "2026-10-20",
+   "text": "Sampling matters: neither agent sends settings, so Strata decoded greedy and Pi looped on 2 'write tests' tasks. A repetition penalty ended the loops but not the misses (70/72 either way). The makers' settings scored 72/72. All main results now use each maker's settings."
+  },
+  {
+   "date": "2026-10-20",
+   "text": "The token-bucket task is the hardest L1 task: 8 of 9 misses implement the README rule only on the path where tokens were earned. Every wrong fix passes the visible tests, so only reading the spec finds it."
+  },
+  {
+   "date": "2026-10-19",
+   "text": "First results: L0 qualification passed by Pi and OpenCode on Strata Coder IQ1_M. Pi reads about a third of OpenCode's tokens."
+  }
+ ]
+}

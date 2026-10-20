@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOCAL BENCH // Model Analysis Terminal</title>
+<meta name="description" content="Can open models on a gaming PC replace a paid cloud AI subscription? Live benchmark results: coding tasks graded by hidden tests.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050000; --panel: #0d0202; --red: #ff2b2b; --red-hi: #ff6a5c; --red-dim: #8c1a1a; --red-faint: #3a0909;
+  --ink: #ffd6d0; --muted: #c97c74; --ok: #ff2b2b;
+  --mono: "Share Tech Mono", ui-monospace, Consolas, monospace; --hud: "VT323", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--mono); overflow-x: hidden; }
+body::before { /* scanlines */
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.28) 2px 3px);
+}
+body::after { /* vignette */
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.65) 100%);
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
+a { color: var(--red-hi); }
+h1, h2 { font-family: var(--hud); color: var(--red); font-weight: 400; letter-spacing: .06em; text-shadow: 0 0 6px rgba(255,43,43,.7); margin: 0; }
+h1 { font-size: clamp(34px, 7vw, 64px); line-height: 1; }
+h2 { font-size: 30px; margin: 48px 0 12px; }
+h2::before { content: "▶ "; color: var(--red-dim); }
+.sub { font-family: var(--hud); font-size: 22px; color: var(--red-hi); margin-top: 6px; }
+.boot { font-family: var(--hud); font-size: 20px; color: var(--red); white-space: pre-wrap; min-height: 7.5em; margin: 18px 0 8px; }
+.boot .cur { display: inline-block; width: .6em; background: var(--red); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hud { position: relative; border: 1px solid var(--red-dim); background: linear-gradient(180deg, rgba(255,43,43,.05), rgba(0,0,0,0)); padding: 16px; }
+.hud::before, .hud::after { content: ""; position: absolute; width: 14px; height: 14px; border: 2px solid var(--red); }
+.hud::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+.hud::after { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 18px; }
+.stat .k { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.stat .v { font-family: var(--hud); font-size: 40px; color: var(--red); line-height: 1.1; text-shadow: 0 0 6px rgba(255,43,43,.6); }
+.note { color: var(--muted); font-size: 14px; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--red-faint); white-space: nowrap; vertical-align: middle; }
+th { color: var(--muted); font-weight: 400; text-transform: uppercase; font-size: 12px; letter-spacing: .08em; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr:hover td { background: rgba(255,43,43,.06); }
+.rank { font-family: var(--hud); font-size: 22px; color: var(--red); }
+.bar { display: inline-block; width: 160px; height: 10px; background: var(--red-faint); vertical-align: middle; border-radius: 0 3px 3px 0; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--red); border-radius: 0 3px 3px 0; box-shadow: 0 0 6px rgba(255,43,43,.7); }
+.pending { color: var(--red-dim); font-family: var(--hud); font-size: 18px; letter-spacing: .1em; }
+.matrix td.cell { text-align: center; font-variant-numeric: tabular-nums; min-width: 44px; color: var(--ink); border: 2px solid var(--bg); }
+.matrix th.t { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; height: 190px; padding: 6px 2px; }
+.legend { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.legend span.sw { display: inline-block; width: 22px; height: 12px; vertical-align: middle; margin-right: 4px; }
+.log li { margin: 6px 0; list-style: none; }
+.log li::before { content: "> "; color: var(--red); }
+.log .d { color: var(--red-hi); }
+ul.log { padding-left: 0; }
+.levels td:first-child { font-family: var(--hud); font-size: 20px; color: var(--red); }
+.tag { display: inline-block; border: 1px solid var(--red-dim); padding: 0 6px; font-size: 12px; color: var(--red-hi); }
+.tag.off { color: var(--red-dim); }
+footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--red-faint); padding-top: 12px; }
+@media (prefers-reduced-motion: reduce) { .boot .cur { animation: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hud">
+    <h1>LOCAL BENCH</h1>
+    <div class="sub">MODEL ANALYSIS TERMINAL // CYBERNETIC CODING EVALUATION</div>
+    <div class="boot" id="boot" aria-live="polite"></div>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <h2>MISSION</h2>
+  <p>Can open-weight AI models, running on one gaming PC, replace a paid cloud AI subscription for real programming work?
+     Every model gets the same coding tasks through two open-source terminal agents, <strong>Pi</strong> and <strong>OpenCode</strong>.
+     Each task runs <strong>3 times</strong>; a hidden test suite decides pass or fail. No judges, no vibes.</p>
+
+  <h2>TARGET RANKING · LEVEL 1</h2>
+  <p class="note">L1 = 12 small tasks in Python, C++ and Rust: fix a bug, add a feature, write tests. Each model runs with its maker's recommended sampling settings. Both agents together: 72 attempts per model.</p>
+  <div class="hud scroll"><table id="rank"><thead><tr>
+    <th class="num">#</th><th>Model</th><th>Quant</th><th class="num">Size</th><th>Solve rate</th><th class="num">Solved</th>
+    <th class="num">Pi</th><th class="num">OpenCode</th><th class="num">Median time</th><th class="num">Decode</th><th class="num">GPU power</th>
+  </tr></thead><tbody></tbody></table></div>
+
+  <h2>THREAT MATRIX · TASKS × MODELS</h2>
+  <p class="note">Attempts solved per task, both agents together (out of 6). Brighter red means more misses: the threats.</p>
+  <div class="hud scroll"><table class="matrix" id="matrix"></table>
+    <div class="legend" id="mlegend"></div></div>
+
+  <h2>AGENT COMPARISON · PI vs OPENCODE</h2>
+  <p class="note">Same model, same task, same settings: medians over all L1 attempts with makers' settings.</p>
+  <div class="hud scroll"><table id="agents"><thead><tr>
+    <th>Model</th><th>Agent</th><th class="num">Solved</th><th class="num">Median time</th><th class="num">Tokens read</th><th class="num">Tokens written</th>
+  </tr></thead><tbody></tbody></table></div>
+
+  <h2>EXPERIMENTS · SAMPLING SETTINGS</h2>
+  <p class="note">The same model and tasks with different sampling: what the agents send by default (nothing, so Strata decodes greedy), a repetition penalty, and the maker's recommended settings.</p>
+  <div class="hud scroll"><table id="exp"><thead><tr>
+    <th>Model</th><th>Sampling</th><th>Agent</th><th class="num">Solved</th><th class="num">Median time</th><th class="num">Tokens written</th>
+  </tr></thead><tbody></tbody></table></div>
+
+  <h2>LEVELS</h2>
+  <div class="hud scroll"><table class="levels"><thead><tr><th>Level</th><th>What the agent must do</th><th class="num">Tasks</th><th>Status</th></tr></thead><tbody>
+    <tr><td>L0</td><td>Qualify: a tiny repo, one fix. Shows the agent and model can work together</td><td class="num">1</td><td><span class="tag">ONLINE</span></td></tr>
+    <tr><td>L1</td><td>Easy: one function or one file. Bugfix, feature, write tests</td><td class="num">12</td><td><span class="tag">RUNNING</span></td></tr>
+    <tr><td>L2</td><td>Medium: several files in a real open-source project</td><td class="num">8</td><td><span class="tag off">IN BUILD</span></td></tr>
+    <tr><td>L3</td><td>Hard: concurrency, lifecycle, cancellation; fresh tasks</td><td class="num">8</td><td><span class="tag off">PLANNED</span></td></tr>
+    <tr><td>L4</td><td>Extreme: build a crash-safe event relay, 5 milestones, one night</td><td class="num">1×5</td><td><span class="tag off">PLANNED</span></td></tr>
+  </tbody></table></div>
+
+  <h2>MISSION LOG</h2>
+  <ul class="log" id="log"></ul>
+
+  <h2>SPECS</h2>
+  <div class="hud">
+    <p id="hw"></p>
+    <p class="note">Engines: Strata 0.1.44.1 and llama.cpp b11685, pinned. Agents: Pi 1.3.0 and OpenCode 2.0.32, pinned, sandboxed in WSL with no network but the model. Grading: hidden tests in a clean copy, plus build, lint and scope checks. Results are objective (tests), never judged by an AI. Cloud models (Claude, GPT, Gemini, Mistral) come later on the same tasks.</p>
+  </div>
+
+  <footer>Data: <a href="data.json">data.json</a> · updated <span id="gen"></span> · from the Local Bench YouTube channel.</footer>
+</div>
+<script>
+const $ = s => document.querySelector(s);
+const fmt = (x, d = 0) => x == null ? "–" : Number(x).toLocaleString("en-US", { maximumFractionDigits: d });
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const short = t => t.replace(/^l1-/, "");
+// sequential single hue: one red, light (all solved) -> dark (none solved)
+const shade = f => `rgba(255,43,43,${(0.12 + 0.78 * f).toFixed(2)})`;
+
+function boot(lines) {
+  const el = $("#boot"), reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { el.textContent = lines.join("\n"); return; }
+  let i = 0, j = 0, out = "";
+  (function tick() {
+    if (i >= lines.length) { el.innerHTML = esc(out) + '<span class="cur">&nbsp;</span>'; return; }
+    out += lines[i][j++] ?? "";
+    if (j > lines[i].length) { out += "\n"; i++; j = 0; }
+    el.innerHTML = esc(out) + '<span class="cur">&nbsp;</span>';
+    setTimeout(tick, j === 0 ? 180 : 14);
+  })();
+}
+
+fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
+  const L1 = D.rows.filter(r => r.level === 1);
+  const main = L1.filter(r => r.variant === "mk");
+  const by = {};
+  for (const r of main) (by[r.model] ??= {})[r.agent] = r;
+  const keys = Object.keys(D.models);
+  const totalAtt = D.rows.reduce((a, r) => a + r.attempts, 0);
+  const done = keys.filter(k => by[k]?.pi && by[k]?.opencode && by[k].pi.attempts + by[k].opencode.attempts >= 72);
+
+  boot([
+    "> INITIALIZING LOCAL BENCH v2 ............ OK",
+    `> HARDWARE: ${D.hardware.split(",").slice(0, 3).join(",")}`,
+    `> MODELS ON DISK: ${keys.length}   ANALYZED AT L1: ${done.length}`,
+    `> ATTEMPTS GRADED: ${totalAtt}`,
+    "> MISSION: REPLACE THE CLOUD. STATUS: IN PROGRESS",
+  ]);
+  $("#stats").innerHTML = [
+    ["Models analyzed", `${done.length}/${keys.length}`], ["Attempts graded", fmt(totalAtt)],
+    ["Best L1 score", (() => { const b = done.map(k => (by[k].pi.solved + by[k].opencode.solved) / (by[k].pi.attempts + by[k].opencode.attempts)); return b.length ? Math.round(100 * Math.max(...b)) + "%" : "–"; })()],
+    ["Levels online", "L0–L1"],
+  ].map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+
+  // ranking
+  const rows = keys.map(k => {
+    const m = D.models[k], p = by[k]?.pi, o = by[k]?.opencode;
+    if (!(p && o)) return { k, m, rate: -1 };
+    const s = p.solved + o.solved, n = p.attempts + o.attempts;
+    return { k, m, p, o, s, n, run: n < 72, rate: s / n, t: (p.median_s + o.median_s) / 2, dec: p.decode_tok_s, w: p.gpu_w };
+  }).sort((a, b) => b.rate - a.rate || (a.t ?? 1e9) - (b.t ?? 1e9));
+  let rank = 0;
+  $("#rank tbody").innerHTML = rows.map(r => {
+    const head = `<td>${esc(r.m.name)}</td><td>${r.m.quant}</td><td class="num">${r.m.size_gb} GB</td>`;
+    if (r.rate < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="7" class="pending">AWAITING ANALYSIS</td></tr>`;
+    const pct = Math.round(100 * r.rate);
+    return `<tr title="${esc(r.m.name)}: ${r.s} of ${r.n} attempts solved (${pct}%)"><td class="num rank">${++rank}</td>${head}
+      <td><span class="bar" role="img" aria-label="${pct}% solved"><i style="width:${pct}%"></i></span> ${pct}%</td>
+      <td class="num">${r.s}/${r.n}${r.run ? ' <span class="tag">RUNNING</span>' : ""}</td><td class="num">${r.p.solved}/${r.p.attempts}</td><td class="num">${r.o.solved}/${r.o.attempts}</td>
+      <td class="num">${fmt(r.t)} s</td><td class="num">${fmt(r.dec)} tok/s</td><td class="num">${fmt(r.w)} W</td></tr>`;
+  }).join("");
+
+  // matrix: tasks x analyzed models
+  const tasks = [...new Set(main.flatMap(r => Object.keys(r.tasks)))].sort();
+  const cols = rows.filter(r => r.rate >= 0);
+  if (cols.length) {
+    let h = `<thead><tr><th>Task</th>${cols.map(c => `<th class="t" title="${esc(c.m.name)}">${esc(c.m.name.split(" (")[0])} ${c.m.quant}</th>`).join("")}</tr></thead><tbody>`;
+    for (const t of tasks) {
+      h += `<tr><td>${short(t)}</td>` + cols.map(c => {
+        const a = c.p.tasks[t] || { solved: 0, attempts: 0 }, b = c.o.tasks[t] || { solved: 0, attempts: 0 };
+        const s = a.solved + b.solved, n = a.attempts + b.attempts, miss = n ? 1 - s / n : 0;
+        return `<td class="cell" style="background:${shade(miss)}" title="${esc(c.m.name)} · ${short(t)}: ${s}/${n} solved (Pi ${a.solved}/${a.attempts}, OpenCode ${b.solved}/${b.attempts})">${s}/${n}</td>`;
+      }).join("") + "</tr>";
+    }
+    $("#matrix").innerHTML = h + "</tbody>";
+    $("#mlegend").innerHTML = [[0, "all solved"], [0.5, "half"], [1, "none solved"]]
+      .map(([f, l]) => `<span><span class="sw" style="background:${shade(f)}"></span>${l}</span>`).join("");
+  }
+
+  // agents
+  $("#agents tbody").innerHTML = cols.flatMap(c => [c.p, c.o].map((r, i) =>
+    `<tr><td>${i ? "" : esc(c.m.name)}</td><td>${r.agent === "pi" ? "Pi" : "OpenCode"} ${r.agent_version || ""}</td>
+     <td class="num">${r.solved}/${r.attempts}</td><td class="num">${fmt(r.median_s)} s</td>
+     <td class="num">${fmt(r.median_read)}</td><td class="num">${fmt(r.median_written)}</td></tr>`)).join("");
+
+  // experiments: models with more than one sampling variant at L1
+  const vs = {};
+  for (const r of L1) (vs[r.model] ??= new Set()).add(r.variant);
+  const order = ["", "pp15", "mk", "mk-readme", "mk-plan"];
+  $("#exp tbody").innerHTML = Object.entries(vs).filter(([, s]) => s.size > 1).flatMap(([k]) =>
+    order.flatMap(v => ["pi", "opencode"].map(ag => L1.find(r => r.model === k && r.variant === v && r.agent === ag)).filter(Boolean)
+      .map(r => `<tr><td>${esc(D.models[k].name)}</td><td>${esc(D.variants[v] || v)}</td><td>${r.agent === "pi" ? "Pi" : "OpenCode"}</td>
+        <td class="num">${r.solved}/${r.attempts}</td><td class="num">${fmt(r.median_s)} s</td><td class="num">${fmt(r.median_written)}</td></tr>`))).join("");
+
+  $("#log").innerHTML = D.log.map(e => `<li><span class="d">[${e.date}]</span> ${esc(e.text)}</li>`).join("");
+  $("#hw").textContent = "HARDWARE: " + D.hardware;
+  $("#gen").textContent = D.generated.replace("T", " ");
+}).catch(e => { $("#boot").textContent = "> DATA LINK FAILURE: " + e; });
+</script>
+</body>
+</html>
