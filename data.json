@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T19:58",
+ "generated": "2026-10-20T20:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -276,8 +276,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 8,
-   "attempts": 11,
+   "solved": 9,
+   "attempts": 12,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -322,13 +322,17 @@
     "l1-rs-feature-unique-slug": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 124.0,
-   "median_read": 80952,
-   "median_written": 3422,
-   "decode_tok_s": 32.4,
-   "gpu_w": 61.1,
+   "median_s": 125.0,
+   "median_read": 87508.0,
+   "median_written": 3464.0,
+   "decode_tok_s": 32.2,
+   "gpu_w": 61.2,
    "agent_version": "1.3.0"
   },
   {
