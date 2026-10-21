@@ -46,6 +46,11 @@ h2::before { content: "▶ "; color: var(--red-dim); }
 .plan-bar .track { flex: 1; height: 18px; border: 1px solid var(--red-dim); background: var(--red-faint); }
 .plan-bar .fill { height: 100%; background: repeating-linear-gradient(90deg, var(--red) 0 8px, transparent 8px 11px); box-shadow: 0 0 6px rgba(255,43,43,.6); }
 .plan-bar .pct { min-width: 3.5em; text-align: right; }
+.plan-bar .track { display: flex; }
+.plan-bar .fill.cloud { background: repeating-linear-gradient(90deg, var(--red-hi) 0 4px, transparent 4px 6px); }
+.bar-key { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+.bar-key i { display: inline-block; width: 22px; height: 10px; margin: 0 4px 0 10px; vertical-align: middle; background: repeating-linear-gradient(90deg, var(--red) 0 8px, transparent 8px 11px); }
+.bar-key i.cloud { background: repeating-linear-gradient(90deg, var(--red-hi) 0 4px, transparent 4px 6px); }
 #prog-text { margin: 6px 0 0; }
 .stat .v .of { font-size: .55em; color: var(--red-hi); white-space: nowrap; }
 .scroll { overflow-x: auto; }
@@ -89,8 +94,9 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <div class="sub">MODEL ANALYSIS TERMINAL // CYBERNETIC CODING EVALUATION</div>
     <div class="boot" id="boot" aria-live="polite"></div>
     <div class="stats" id="stats"></div>
-    <div class="plan-bar" id="bar" role="progressbar" aria-label="Screening plan settled" aria-valuemin="0" aria-valuemax="100" hidden>
-      <span>[</span><div class="track"><div class="fill" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
+    <div class="plan-bar" id="bar" role="progressbar" aria-label="Screening plan settled, PC and rented GPU together" aria-valuemin="0" aria-valuemax="100" hidden>
+      <span>[</span><div class="track"><div class="fill" style="width:0"></div><div class="fill cloud" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
+    <p class="bar-key" id="bar-key" hidden><i></i>this PC<i class="cloud"></i>rented GPU *</p>
     <p class="note" id="prog-text"></p>
   </header>
 
@@ -235,7 +241,8 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   const totalAtt = D.rows.reduce((a, r) => a + r.attempts, 0);
   const sumOf = k => (D.models_summary || []).find(s => s.model === k && s.variant === "mk");
   const P = D.progress;
-  const done = keys.filter(k => { const s = sumOf(k); return s && s.l1_v2.pairs_decided === s.l1_v2.pairs_expected; });
+  const l1Done = k => { const s = sumOf(k); return s && s.l1_v2.pairs_decided === s.l1_v2.pairs_expected; };
+  const done = keys.filter(k => l1Done(k) || l1Done(k + "-upcloud"));  // a model counts once, on either front
 
   boot([
     "> INITIALIZING LOCAL BENCH v2 ............ OK",
@@ -247,7 +254,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   $("#stats").innerHTML = [
     ["Models analyzed", `${done.length}/${keys.length}`],
     ["Attempts graded", P ? `${fmt(totalAtt)}<span class="of"> / ~${fmt(P.planned_max + totalAtt - P.graded_screening)}</span>` : fmt(totalAtt)],
-    ["Best L1 score", (() => { const b = done.map(k => sumOf(k).l1_v2.pairs_passed / sumOf(k).l1_v2.pairs_expected); return b.length ? Math.round(100 * Math.max(...b)) + "%" : "–"; })()],
+    ["Best L1 score", (() => { const b = done.map(k => sumOf(l1Done(k) ? k : k + "-upcloud").l1_v2).map(v => v.pairs_passed / v.pairs_expected); return b.length ? Math.round(100 * Math.max(...b)) + "%" : "–"; })()],
     ["Levels online", "L0–L1"],
   ].map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
 
@@ -255,12 +262,16 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     const dur = h => { const d = Math.floor(h / 24), r = Math.round(h - 24 * d); return d ? `${d} d ${r} h` : `${r} h`; };
     const pct = Math.floor(100 * P.settled / P.planned_max);
     const bar = $("#bar"); bar.hidden = false; bar.setAttribute("aria-valuenow", pct);
-    bar.querySelector(".fill").style.width = pct + "%"; bar.querySelector(".pct").textContent = pct + "%";
+    const Fr = P.settled_by_front || { pc: P.settled, cloud: 0 };
+    bar.querySelector(".fill").style.width = (100 * Fr.pc / P.planned_max) + "%";
+    bar.querySelector(".fill.cloud").style.width = (100 * Fr.cloud / P.planned_max) + "%";
+    bar.querySelector(".pct").textContent = pct + "%"; $("#bar-key").hidden = false;
     const ran = (Date.now() - new Date(P.running_since)) / 3.6e6;
     const end = P.eta_hours != null ? new Date(new Date(D.generated).getTime() + P.eta_hours * 3.6e6) : null;
-    $("#prog-text").textContent = `Screening plan: ${fmt(P.settled)} of at most ${fmt(P.planned_max)} attempt slots settled ` +
-      `(graded, or skipped because 2 equal results already decided the task). Running for ${dur(ran)}. ` +
-      (end ? `Predicted finish at the pace so far (${P.pace_per_h}/h): in at most ${dur(P.eta_hours)}, ` +
+    const F = P.settled_by_front || {};
+    $("#prog-text").textContent = `Screening plan, both fronts together: ${fmt(P.settled)} of at most ${fmt(P.planned_max)} attempt slots settled ` +
+      `(graded, or skipped because 2 equal results already decided the task): ${fmt(F.pc ?? P.settled)} on this PC, ${fmt(F.cloud ?? 0)} on the rented GPU *. Running for ${dur(ran)}. ` +
+      (end ? `Predicted finish at the pace of the last ${P.pace_window_h || 6} h (${P.pace_per_h}/h, both fronts): in at most ${dur(P.eta_hours)}, ` +
              `${end.toISOString().slice(0, 10)}; up to ${dur(P.eta_l4_hours)} of that is L4 (one-night runs), which only models that pass L3 get. ` +
              `The estimate shrinks as models drop out of the ladder.` : "");
   }

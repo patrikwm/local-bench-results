@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T16:32+02:00",
+ "generated": "2026-10-21T16:34+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2441,12 +2441,17 @@
  ],
  "progress": {
   "planned_max": 6375,
-  "settled": 615,
-  "graded_screening": 560,
+  "settled": 696,
+  "graded_screening": 630,
+  "settled_by_front": {
+   "pc": 615,
+   "cloud": 81
+  },
+  "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 20.8,
-  "eta_hours": 682.7,
+  "pace_per_h": 29.6,
+  "eta_hours": 597.9,
   "eta_l4_hours": 408.0,
   "models_out": []
  },
@@ -2755,7 +2760,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-21T16:32+02:00",
+  "updated": "2026-10-21T16:34+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -2859,7 +2864,7 @@
    "16:31:00 tasks/l1-cs-feature-discounts pi rc=0 71s FAILED hidden 15/16",
    "16:32:13 tasks/l1-cs-feature-discounts opencode rc=0 72s FAILED hidden 15/16"
   ],
-  "hours_up": 1.31,
+  "hours_up": 1.33,
   "spent_eur": 1.7
  }
 }
