@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T08:32+02:00",
+ "generated": "2026-10-21T09:02+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1435,8 +1435,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 43,
-   "attempts": 43,
+   "solved": 47,
+   "attempts": 47,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1479,6 +1479,22 @@
      "attempts": 1
     },
     "l1-go-feature-cfgdiff": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-tests-inventory": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-bugfix-isbn": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-bugfix-semver": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-feature-wordfreq": {
      "solved": 1,
      "attempts": 1
     },
@@ -1516,12 +1532,12 @@
     }
    },
    "median_s": 60.0,
-   "median_read": 132958,
-   "median_written": 6498,
-   "decode_tok_s": 136.4,
-   "gpu_w": 179.2,
-   "cpu_w": 179.7,
-   "wh_per_solved": 9.64,
+   "median_read": 134378,
+   "median_written": 6623,
+   "decode_tok_s": 136.3,
+   "gpu_w": 177.5,
+   "cpu_w": 182.7,
+   "wh_per_solved": 13.16,
    "agent_version": "2.0.32"
   },
   {
@@ -1529,8 +1545,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 43,
-   "attempts": 43,
+   "solved": 47,
+   "attempts": 47,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1576,6 +1592,22 @@
      "solved": 1,
      "attempts": 1
     },
+    "l1-go-tests-inventory": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-bugfix-isbn": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-bugfix-semver": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-feature-wordfreq": {
+     "solved": 1,
+     "attempts": 1
+    },
     "l1-py-bugfix-duration-ms": {
      "solved": 3,
      "attempts": 3
@@ -1610,12 +1642,12 @@
     }
    },
    "median_s": 36.0,
-   "median_read": 47489,
-   "median_written": 3119,
-   "decode_tok_s": 137.2,
-   "gpu_w": 171.1,
-   "cpu_w": 183.3,
-   "wh_per_solved": 6.71,
+   "median_read": 51587,
+   "median_written": 3150,
+   "decode_tok_s": 136.9,
+   "gpu_w": 170.4,
+   "cpu_w": 188.7,
+   "wh_per_solved": 8.12,
    "agent_version": "1.3.0"
   },
   {
@@ -1910,16 +1942,16 @@
     "pairs_expected": 56,
     "pairs_decided": 24,
     "pairs_passed": 24,
-    "attempts": 86,
-    "attempts_solved": 86,
-    "median_s": 44.0,
-    "decode_tok_s": 136.9,
-    "gpu_w": 176.9,
-    "cpu_w": 181.2,
-    "energy_wh": 114.5,
-    "wh_per_solved": 8.18,
-    "energy_attempts": 14,
-    "side_load_attempts": 14
+    "attempts": 94,
+    "attempts_solved": 94,
+    "median_s": 46.0,
+    "decode_tok_s": 136.4,
+    "gpu_w": 174.8,
+    "cpu_w": 187.6,
+    "energy_wh": 234.1,
+    "wh_per_solved": 10.64,
+    "energy_attempts": 22,
+    "side_load_attempts": 22
    }
   }
  ],
