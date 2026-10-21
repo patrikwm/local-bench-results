@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T03:31+02:00",
+ "generated": "2026-10-21T04:01+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1043,8 +1043,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 52,
-   "attempts": 55,
+   "solved": 55,
+   "attempts": 59,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1076,19 +1076,19 @@
     },
     "l1-cs-tests-daybook": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-go-bugfix-backoff": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-go-bugfix-logfmt": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-go-feature-cfgdiff": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-go-tests-inventory": {
      "solved": 1,
@@ -1159,13 +1159,13 @@
      "attempts": 1
     }
    },
-   "median_s": 110.0,
-   "median_read": 183295,
-   "median_written": 10422,
+   "median_s": 122.0,
+   "median_read": 200640,
+   "median_written": 10714,
    "decode_tok_s": 101.4,
-   "gpu_w": 175.7,
+   "gpu_w": 177.4,
    "cpu_w": 183.2,
-   "wh_per_solved": 30.11,
+   "wh_per_solved": 31.17,
    "agent_version": "2.0.32"
   },
   {
@@ -1173,8 +1173,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 55,
-   "attempts": 56,
+   "solved": 58,
+   "attempts": 59,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1209,16 +1209,16 @@
      "attempts": 2
     },
     "l1-go-bugfix-backoff": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-go-bugfix-logfmt": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-go-feature-cfgdiff": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-go-tests-inventory": {
      "solved": 1,
@@ -1290,12 +1290,12 @@
     }
    },
    "median_s": 70.0,
-   "median_read": 83928.5,
-   "median_written": 5725.0,
-   "decode_tok_s": 101.2,
-   "gpu_w": 171.8,
-   "cpu_w": 185.4,
-   "wh_per_solved": 29.3,
+   "median_read": 91788,
+   "median_written": 5727,
+   "decode_tok_s": 100.2,
+   "gpu_w": 172.8,
+   "cpu_w": 185.0,
+   "wh_per_solved": 27.11,
    "agent_version": "1.3.0"
   },
   {
