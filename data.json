@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T17:20+02:00",
+ "generated": "2026-10-21T17:33+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1023,8 +1023,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 32,
-   "attempts": 47,
+   "solved": 33,
+   "attempts": 48,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1086,6 +1086,10 @@
      "solved": 0,
      "attempts": 1
     },
+    "l1-java-tests-jobqueue": {
+     "solved": 1,
+     "attempts": 1
+    },
     "l1-py-bugfix-duration-ms": {
      "solved": 3,
      "attempts": 3
@@ -1119,13 +1123,13 @@
      "attempts": 3
     }
    },
-   "median_s": 106.0,
-   "median_read": 114101,
-   "median_written": 2646,
+   "median_s": 107.0,
+   "median_read": 114426.0,
+   "median_written": 2667.5,
    "decode_tok_s": 30.1,
    "gpu_w": 66.1,
-   "cpu_w": 159.4,
-   "wh_per_solved": 30.38,
+   "cpu_w": 159.8,
+   "wh_per_solved": 33.87,
    "agent_version": "2.0.32"
   },
   {
@@ -2465,17 +2469,17 @@
  ],
  "progress": {
   "planned_max": 6375,
-  "settled": 789,
-  "graded_screening": 688,
+  "settled": 790,
+  "graded_screening": 689,
   "settled_by_front": {
-   "pc": 621,
+   "pc": 622,
    "cloud": 168
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 39.4,
-  "eta_hours": 548.6,
+  "pace_per_h": 38.8,
+  "eta_hours": 550.7,
   "eta_l4_hours": 408.0,
   "models_out": []
  },
@@ -2570,16 +2574,16 @@
     "pairs_expected": 56,
     "pairs_decided": 24,
     "pairs_passed": 17,
-    "attempts": 95,
-    "attempts_solved": 63,
+    "attempts": 96,
+    "attempts_solved": 64,
     "median_s": 108.0,
-    "decode_tok_s": 30.6,
-    "gpu_w": 62.4,
-    "cpu_w": 157.7,
-    "energy_wh": 1094.9,
-    "wh_per_solved": 30.41,
-    "energy_attempts": 62,
-    "side_load_attempts": 23
+    "decode_tok_s": 30.5,
+    "gpu_w": 62.8,
+    "cpu_w": 158.1,
+    "energy_wh": 1195.0,
+    "wh_per_solved": 32.3,
+    "energy_attempts": 63,
+    "side_load_attempts": 24
    }
   },
   {
@@ -2784,7 +2788,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-21T17:20+02:00",
+  "updated": "2026-10-21T17:33+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -2896,9 +2900,11 @@
    "16:44:54 tasks/l1-go-feature-cfgdiff pi rc=0 18s SOLVED hidden 11/11",
    "16:45:22 tasks/l1-go-feature-cfgdiff opencode rc=1 28s",
    "16:45:43 chain: start cloud-l1",
-   "17:20:03 chain: cloud-l1 exit 0"
+   "17:20:03 chain: cloud-l1 exit 0",
+   "17:20:09 chain: cloud-l1 saved (commit, page, backup)",
+   "17:20:10 chain: start cloud-l2"
   ],
-  "hours_up": 2.09,
+  "hours_up": 2.31,
   "spent_eur": 3.36
  }
 }
