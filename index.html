@@ -113,17 +113,20 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <div class="hud scroll"><table id="tasks"><thead><tr><th>Level</th><th>Language</th><th>Task</th><th>Kind</th><th>What the agent must do</th></tr></thead><tbody></tbody></table></div>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
-  <p class="note">L1 = 12 small tasks in Python, C++ and Rust: fix a bug, add a feature, write tests. Each model runs with its maker's recommended sampling settings. Both agents together: 72 attempts per model.</p>
+  <p class="note">L1 v2 = 28 small tasks in 7 languages (fix a bug, add a feature, write tests), each with both agents: 56 task-and-agent pairs per model. The score is the share of pairs that pass by majority (2 of 3 attempts), as the ladder decides. "Decided" shows how many of the 56 pairs have a verdict yet. Attempt success counts every single attempt. All values pool both agents. L1 v1 (the first 12 tasks) is shown for continuity with the first results.</p>
   <div class="hud scroll"><table id="rank"><thead><tr>
-    <th class="num">#</th><th>Model</th><th>Quant</th><th class="num">Size</th><th>Solve rate</th><th class="num">Solved</th>
-    <th class="num">Pi</th><th class="num">OpenCode</th><th class="num">Median time</th><th class="num">Decode</th><th class="num">GPU power</th><th class="num">CPU power</th><th class="num">Energy / solved</th>
+    <th class="num">#</th><th>Model</th><th>Quant</th><th class="num">Size</th><th>Engine</th><th>Pairs passed (L1 v2)</th><th class="num">Decided</th>
+    <th class="num">Attempts solved</th><th class="num">L1 v1 pairs</th><th class="num">Median time</th><th class="num">Decode</th>
+    <th class="num">GPU power</th><th class="num">CPU power</th><th class="num">Energy / solved</th>
   </tr></thead><tbody></tbody></table></div>
+  <p class="note">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt = all measured GPU + CPU energy, failed attempts included, divided by the solved attempts among them (CPU power is measured since 2026-10-20 21:00). Attempts that ran next to task building in the same machine are counted in the tooltip (side load: speed slightly lower, pass/fail unaffected).</p>
   <p class="note">Power: GPU (nvidia-smi) and CPU package (Intel RAPL), means over each attempt. Energy per solved task = all attempts' GPU + CPU energy, failed ones included, divided by the tasks solved. Not wall power: RAM, board and PSU losses are not in it. CPU power is measured from 2026-10-20 21:00 on.</p>
 
   <h2>THREAT MATRIX · TASKS × MODELS</h2>
   <p class="note">Attempts solved per task, both agents together (out of 6). Brighter red means more misses: the threats.</p>
   <div class="hud scroll"><table class="matrix" id="matrix"></table>
     <div class="legend" id="mlegend"></div></div>
+  <p class="note" id="families"></p>
 
   <h2>AGENT COMPARISON · PI vs OPENCODE</h2>
   <p class="note">Same model, same task, same settings: medians over all L1 attempts with makers' settings.</p>
@@ -136,6 +139,20 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <div class="hud scroll"><table id="exp"><thead><tr>
     <th>Model</th><th>Sampling</th><th>Agent</th><th class="num">Solved</th><th class="num">Median time</th><th class="num">Tokens written</th>
   </tr></thead><tbody></tbody></table></div>
+
+  <h2>WHY WE TEST THIS WAY</h2>
+  <div class="hud">
+    <ul class="log">
+      <li><strong>The result is what runs on this PC.</strong> The question is whether a normal gaming PC can replace a cloud subscription, so the main table is always this machine, within the time limits. A faster rented GPU could solve more tasks in 20 minutes with the same model files, which would answer a different question. If we ever rent hardware, those results get their own, labelled row.</li>
+      <li><strong>Every attempt costs energy, so we skip the ones that cannot change a verdict.</strong> A task-and-agent pair passes when 2 of 3 attempts pass. When attempts 1 and 2 agree, attempt 3 cannot change that, so it is not run ("majority stop"). The verdict is exactly the same; the table then says 2/2, never 3/3. This saves up to a third of the attempts.</li>
+      <li><strong>Screening first, the full measurement for the finalists.</strong> Every model first gets one attempt per task (probe); if it solves less than a quarter, the rest is skipped. Models that continue are screened with majority stop. The 4 to 6 finalists (the strongest, at least one fast or compact model, the engine comparisons, and close calls) then get 3 fresh attempts on all of L1 and L2, so their timing and energy rest on complete, unselected runs.</li>
+      <li><strong>Each model runs as its maker intends.</strong> Sampling settings (temperature, top_p, top_k, penalties) come from the maker's model card. With no settings at all, one engine decoded greedily and models looped; a repetition penalty we chose ourselves fixed the loops but not the score. Our own settings are only ever a separate experiment.</li>
+      <li><strong>Hard tasks are fresh and fixed in advance.</strong> L3 tasks were written after the models were frozen; their hashes are published before any model runs them, and the tasks themselves only afterwards.</li>
+      <li><strong>Stuck runs are stopped, slow runs are not.</strong> A model that repeats itself, or keeps making requests without changing a file, is stopped early (it saves energy and changes no verdict). A slow model that is still working may use its full time.</li>
+      <li><strong>Grading is objective and cheap.</strong> Hidden tests decide pass or fail; no AI judges. The final grading takes about 2 seconds per attempt (2 % of the time), so it stays on the PC.</li>
+      <li><strong>What we do not claim.</strong> Related tasks (listed under the matrix) are not independent evidence. Repetitions measure consistency, not breadth. A model's 28 L1 tasks say something about these tasks, not about a whole language.</li>
+    </ul>
+  </div>
 
   <h2>LEVELS</h2>
   <div class="hud scroll"><table class="levels"><thead><tr><th>Level</th><th>What the agent must do</th><th class="num">Tasks</th><th>Status</th></tr></thead><tbody>
@@ -188,11 +205,10 @@ function boot(lines) {
 fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   const L1 = D.rows.filter(r => r.level === 1);
   const main = L1.filter(r => r.variant === "mk");
-  const by = {};
-  for (const r of main) (by[r.model] ??= {})[r.agent] = r;
   const keys = Object.keys(D.models);
   const totalAtt = D.rows.reduce((a, r) => a + r.attempts, 0);
-  const done = keys.filter(k => by[k]?.pi && by[k]?.opencode && by[k].pi.attempts + by[k].opencode.attempts >= 72);
+  const sumOf = k => (D.models_summary || []).find(s => s.model === k && s.variant === "mk");
+  const done = keys.filter(k => { const s = sumOf(k); return s && s.l1_v2.pairs_decided === s.l1_v2.pairs_expected; });
 
   boot([
     "> INITIALIZING LOCAL BENCH v2 ............ OK",
@@ -203,34 +219,41 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   ]);
   $("#stats").innerHTML = [
     ["Models analyzed", `${done.length}/${keys.length}`], ["Attempts graded", fmt(totalAtt)],
-    ["Best L1 score", (() => { const b = done.map(k => (by[k].pi.solved + by[k].opencode.solved) / (by[k].pi.attempts + by[k].opencode.attempts)); return b.length ? Math.round(100 * Math.max(...b)) + "%" : "–"; })()],
+    ["Best L1 score", (() => { const b = done.map(k => sumOf(k).l1_v2.pairs_passed / sumOf(k).l1_v2.pairs_expected); return b.length ? Math.round(100 * Math.max(...b)) + "%" : "–"; })()],
     ["Levels online", "L0–L1"],
   ].map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
 
-  // ranking
+  // ranking (data.json models_summary: computed once in harness/publish_site.py)
+  const S = {};
+  for (const s of D.models_summary || []) if (s.variant === "mk") S[s.model] = s;
   const rows = keys.map(k => {
-    const m = D.models[k], p = by[k]?.pi, o = by[k]?.opencode;
-    if (!(p && o)) return { k, m, rate: -1 };
-    const s = p.solved + o.solved, n = p.attempts + o.attempts;
-    const avg = (a, b) => a == null || b == null ? (a ?? b) : (a + b) / 2;
-    return { k, m, p, o, s, n, run: n < 72, rate: s / n, t: (p.median_s + o.median_s) / 2, dec: p.decode_tok_s, w: p.gpu_w,
-             cw: avg(p.cpu_w, o.cpu_w), wh: avg(p.wh_per_solved, o.wh_per_solved) };
-  }).sort((a, b) => b.rate - a.rate || (a.t ?? 1e9) - (b.t ?? 1e9));
+    const m = D.models[k], s = S[k];
+    if (!s || !s.l1_v2.attempts) return { k, m, score: -1 };
+    const v2 = s.l1_v2, v1 = s.l1_v1;
+    const score = v2.pairs_decided ? v2.pairs_passed / v2.pairs_decided : 0;
+    return { k, m, s, v2, v1, score, run: v2.pairs_decided < v2.pairs_expected };
+  }).sort((a, b) => (b.score >= 0) - (a.score >= 0) || (a.run - b.run) || b.score - a.score || (a.v2?.median_s ?? 1e9) - (b.v2?.median_s ?? 1e9));
   let rank = 0;
   $("#rank tbody").innerHTML = rows.map(r => {
-    const head = `<td>${esc(r.m.name)}</td><td>${r.m.quant}</td><td class="num">${r.m.size_gb} GB</td>`;
-    if (r.rate < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="9" class="pending">AWAITING ANALYSIS</td></tr>`;
-    const pct = Math.round(100 * r.rate);
-    return `<tr title="${esc(r.m.name)}: ${r.s} of ${r.n} attempts solved (${pct}%)"><td class="num rank">${++rank}</td>${head}
-      <td><span class="bar" role="img" aria-label="${pct}% solved"><i style="width:${pct}%"></i></span> ${pct}%</td>
-      <td class="num">${r.s}/${r.n}${r.run ? ' <span class="tag">RUNNING</span>' : ""}</td><td class="num">${r.p.solved}/${r.p.attempts}</td><td class="num">${r.o.solved}/${r.o.attempts}</td>
-      <td class="num">${fmt(r.t)} s</td><td class="num">${fmt(r.dec)} tok/s</td><td class="num">${fmt(r.w)} W</td><td class="num">${r.cw == null ? "–" : fmt(r.cw) + " W"}</td>
-      <td class="num">${r.wh == null ? "–" : fmt(r.wh, 1) + " Wh"}</td></tr>`;
+    const head = `<td>${esc(r.m.name)}</td><td>${r.m.quant}</td><td class="num">${r.m.size_gb} GB</td><td>${esc(r.m.engine)}</td>`;
+    if (r.score < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="9" class="pending">AWAITING ANALYSIS</td></tr>`;
+    const v2 = r.v2, v1 = r.v1, pct = Math.round(100 * r.score);
+    const tip = `${esc(r.m.name)}: ${v2.pairs_passed} of ${v2.pairs_decided} decided pairs pass; ${v2.attempts_solved}/${v2.attempts} attempts solved; ${v2.side_load_attempts} attempts with side load; energy measured on ${v2.energy_attempts} attempts`;
+    return `<tr title="${tip}"><td class="num rank">${r.run ? "··" : ++rank}</td>${head}
+      <td>${v2.pairs_decided ? `<span class="bar" role="img" aria-label="${pct}% of decided pairs pass"><i style="width:${pct}%"></i></span> ${pct}%` : "– no pair decided yet"}${r.run ? ' <span class="tag">RUNNING</span>' : ""}</td>
+      <td class="num">${v2.pairs_decided}/${v2.pairs_expected}</td>
+      <td class="num">${v2.attempts_solved}/${v2.attempts}</td>
+      <td class="num">${v1.pairs_passed}/${v1.pairs_expected}</td>
+      <td class="num">${fmt(v2.median_s)} s</td><td class="num">${fmt(v2.decode_tok_s)} tok/s</td>
+      <td class="num">${fmt(v2.gpu_w)} W</td><td class="num">${v2.cpu_w == null ? "–" : fmt(v2.cpu_w) + " W"}</td>
+      <td class="num">${v2.wh_per_solved == null ? "–" : fmt(v2.wh_per_solved, 1) + " Wh"}</td></tr>`;
   }).join("");
+  const by = {};
+  for (const r of L1.filter(r => r.variant === "mk")) (by[r.model] ??= {})[r.agent] = r;
+  const cols = rows.filter(r => r.score >= 0).map(r => ({ ...r, p: by[r.k]?.pi, o: by[r.k]?.opencode })).filter(r => r.p && r.o);
 
   // matrix: tasks x analyzed models
   const tasks = [...new Set(main.flatMap(r => Object.keys(r.tasks)))].sort();
-  const cols = rows.filter(r => r.rate >= 0);
   if (cols.length) {
     let h = `<thead><tr><th>Task</th>${cols.map(c => `<th class="t" title="${esc(c.m.name)}">${esc(c.m.name.split(" (")[0])} ${c.m.quant}</th>`).join("")}</tr></thead><tbody>`;
     for (const t of tasks) {
@@ -262,8 +285,9 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
 
   const LANG = { python: "Python", typescript: "TypeScript", java: "Java", csharp: "C#", cpp: "C++", rust: "Rust", go: "Go" };
   $("#models tbody").innerHTML = keys.map(k => {
-    const m = D.models[k], r = by[k];
-    const st = !r ? "waiting" : (rows.find(x => x.k === k)?.run ? "running L1" : "L1 done");
+    const m = D.models[k];
+    const x = rows.find(x => x.k === k);
+    const st = !x || x.score < 0 ? "waiting" : x.run ? "running L1" : "L1 done";
     return `<tr><td>${esc(m.name)}</td><td>${m.quant}</td><td class="num">${m.size_gb} GB</td><td>${esc(m.engine)}</td><td>${st}</td></tr>`;
   }).join("");
   $("#tasks tbody").innerHTML = (D.tasks || []).map(t =>
@@ -273,6 +297,8 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     $("#hashes tbody").innerHTML = Object.entries(H.tasks).map(([k, v]) => `<tr><td>${esc(k)}</td><td style="font-size:12px">${v}</td></tr>`).join("");
     $("#hashmeta").textContent = `Hashed ${H.generated.replace("T", " ")} at commit ${H.commit.slice(0, 12)} of the private benchmark repo.`;
   }
+  if (D.families) $("#families").textContent = "Related tasks (not independent evidence): " +
+    Object.entries(D.families).map(([f, ids]) => `${f}: ${ids.map(short).join(" + ")}`).join("; ") + ".";
   $("#log").innerHTML = D.log.map(e => `<li><span class="d">[${e.date}]</span> ${esc(e.text)}</li>`).join("");
   $("#hw").textContent = "HARDWARE: " + D.hardware;
   const g = new Date(D.generated), tz = D.generated.slice(16) || "";

@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T07:01+02:00",
+ "generated": "2026-10-21T07:25+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1043,8 +1043,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 70,
-   "attempts": 77,
+   "solved": 74,
+   "attempts": 82,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1099,16 +1099,16 @@
      "attempts": 3
     },
     "l1-java-bugfix-semver": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l1-java-feature-wordfreq": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l1-java-tests-jobqueue": {
      "solved": 2,
-     "attempts": 2
+     "attempts": 3
     },
     "l1-py-bugfix-duration-ms": {
      "solved": 3,
@@ -1143,12 +1143,12 @@
      "attempts": 3
     },
     "l1-ts-bugfix-pager": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l1-ts-bugfix-splitbill": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l1-ts-feature-wraptext": {
      "solved": 2,
@@ -1159,13 +1159,13 @@
      "attempts": 2
     }
    },
-   "median_s": 122.0,
-   "median_read": 200640,
-   "median_written": 10673,
-   "decode_tok_s": 99.2,
-   "gpu_w": 173.9,
-   "cpu_w": 181.0,
-   "wh_per_solved": 33.38,
+   "median_s": 117.0,
+   "median_read": 195663.5,
+   "median_written": 10298.0,
+   "decode_tok_s": 99.1,
+   "gpu_w": 173.6,
+   "cpu_w": 181.1,
+   "wh_per_solved": 31.3,
    "agent_version": "2.0.32"
   },
   {
@@ -1173,8 +1173,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 75,
-   "attempts": 78,
+   "solved": 77,
+   "attempts": 82,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1233,12 +1233,12 @@
      "attempts": 3
     },
     "l1-java-feature-wordfreq": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l1-java-tests-jobqueue": {
      "solved": 2,
-     "attempts": 2
+     "attempts": 3
     },
     "l1-py-bugfix-duration-ms": {
      "solved": 3,
@@ -1274,11 +1274,11 @@
     },
     "l1-ts-bugfix-pager": {
      "solved": 2,
-     "attempts": 2
+     "attempts": 3
     },
     "l1-ts-bugfix-splitbill": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l1-ts-feature-wraptext": {
      "solved": 2,
@@ -1291,11 +1291,11 @@
    },
    "median_s": 78.0,
    "median_read": 103200.5,
-   "median_written": 6288.5,
-   "decode_tok_s": 99.6,
-   "gpu_w": 170.8,
+   "median_written": 6067.0,
+   "decode_tok_s": 99.0,
+   "gpu_w": 170.4,
    "cpu_w": 182.5,
-   "wh_per_solved": 28.09,
+   "wh_per_solved": 28.73,
    "agent_version": "1.3.0"
   },
   {
@@ -1695,6 +1695,238 @@
    "agent_version": "1.3.0"
   }
  ],
+ "models_summary": [
+  {
+   "model": "gptoss120b-a2-128k",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 24,
+    "pairs_passed": 21,
+    "attempts": 72,
+    "attempts_solved": 65,
+    "median_s": 110.0,
+    "decode_tok_s": 22.8,
+    "gpu_w": 57.7,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 24,
+    "pairs_passed": 21,
+    "attempts": 72,
+    "attempts_solved": 65,
+    "median_s": 110.0,
+    "decode_tok_s": 22.8,
+    "gpu_w": 57.7,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   }
+  },
+  {
+   "model": "gptoss20b-128k",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 22,
+    "attempts_solved": 17,
+    "median_s": 24.0,
+    "decode_tok_s": 161.4,
+    "gpu_w": 215.2,
+    "cpu_w": 176.5,
+    "energy_wh": 82.8,
+    "wh_per_solved": 4.87,
+    "energy_attempts": 22,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 22,
+    "attempts_solved": 17,
+    "median_s": 24.0,
+    "decode_tok_s": 161.4,
+    "gpu_w": 215.2,
+    "cpu_w": 176.5,
+    "energy_wh": 82.8,
+    "wh_per_solved": 4.87,
+    "energy_attempts": 22,
+    "side_load_attempts": 0
+   }
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 24,
+    "pairs_passed": 17,
+    "attempts": 72,
+    "attempts_solved": 50,
+    "median_s": 115.0,
+    "decode_tok_s": 31.1,
+    "gpu_w": 62.8,
+    "cpu_w": 142.2,
+    "energy_wh": 618.1,
+    "wh_per_solved": 26.87,
+    "energy_attempts": 39,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 24,
+    "pairs_passed": 17,
+    "attempts": 72,
+    "attempts_solved": 50,
+    "median_s": 115.0,
+    "decode_tok_s": 31.1,
+    "gpu_w": 62.8,
+    "cpu_w": 142.2,
+    "energy_wh": 618.1,
+    "wh_per_solved": 26.87,
+    "energy_attempts": 39,
+    "side_load_attempts": 0
+   }
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 24,
+    "pairs_passed": 24,
+    "attempts": 72,
+    "attempts_solved": 71,
+    "median_s": 88.0,
+    "decode_tok_s": 104.5,
+    "gpu_w": 178.4,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 54,
+    "pairs_passed": 51,
+    "attempts": 164,
+    "attempts_solved": 151,
+    "median_s": 93.0,
+    "decode_tok_s": 99.1,
+    "gpu_w": 172.5,
+    "cpu_w": 182.4,
+    "energy_wh": 2398.5,
+    "wh_per_solved": 29.98,
+    "energy_attempts": 92,
+    "side_load_attempts": 17
+   }
+  },
+  {
+   "model": "strata-iq2xs-128k",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 24,
+    "pairs_passed": 24,
+    "attempts": 72,
+    "attempts_solved": 72,
+    "median_s": 53.0,
+    "decode_tok_s": 138.2,
+    "gpu_w": 180.1,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 24,
+    "pairs_passed": 24,
+    "attempts": 72,
+    "attempts_solved": 72,
+    "median_s": 53.0,
+    "decode_tok_s": 138.2,
+    "gpu_w": 180.1,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   }
+  }
+ ],
+ "suites": {
+  "l1_v1": [
+   "l1-cpp-bugfix-bytesize",
+   "l1-cpp-bugfix-recentfiles",
+   "l1-cpp-feature-mdtable",
+   "l1-cpp-tests-shipping",
+   "l1-py-bugfix-duration-ms",
+   "l1-py-bugfix-prorate",
+   "l1-py-feature-changelog",
+   "l1-py-tests-roombook",
+   "l1-rs-bugfix-duration-units",
+   "l1-rs-bugfix-token-bucket",
+   "l1-rs-feature-unique-slug",
+   "l1-rs-tests-shipping-rates"
+  ],
+  "l1_v2": [
+   "l1-cpp-bugfix-bytesize",
+   "l1-cpp-bugfix-recentfiles",
+   "l1-cpp-feature-mdtable",
+   "l1-cpp-tests-shipping",
+   "l1-cs-bugfix-csvquote",
+   "l1-cs-bugfix-invoiceno",
+   "l1-cs-feature-discounts",
+   "l1-cs-tests-daybook",
+   "l1-go-bugfix-backoff",
+   "l1-go-bugfix-logfmt",
+   "l1-go-feature-cfgdiff",
+   "l1-go-tests-inventory",
+   "l1-java-bugfix-isbn",
+   "l1-java-bugfix-semver",
+   "l1-java-feature-wordfreq",
+   "l1-java-tests-jobqueue",
+   "l1-py-bugfix-duration-ms",
+   "l1-py-bugfix-prorate",
+   "l1-py-feature-changelog",
+   "l1-py-tests-roombook",
+   "l1-rs-bugfix-duration-units",
+   "l1-rs-bugfix-token-bucket",
+   "l1-rs-feature-unique-slug",
+   "l1-rs-tests-shipping-rates",
+   "l1-ts-bugfix-pager",
+   "l1-ts-bugfix-splitbill",
+   "l1-ts-feature-wraptext",
+   "l1-ts-tests-lrucache"
+  ]
+ },
+ "families": {
+  "duration parsing": [
+   "l1-py-bugfix-duration-ms",
+   "l1-rs-bugfix-duration-units"
+  ],
+  "shipping rates (write tests)": [
+   "l1-cpp-tests-shipping",
+   "l1-rs-tests-shipping-rates"
+  ],
+  "room booking (write tests)": [
+   "l1-py-tests-roombook",
+   "l1-cs-tests-daybook"
+  ]
+ },
  "log": [
   {
    "date": "2026-10-21",
