@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T02:31+02:00",
+ "generated": "2026-10-21T03:01+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1029,8 +1029,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 45,
-   "attempts": 47,
+   "solved": 49,
+   "attempts": 51,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1089,6 +1089,10 @@
      "attempts": 1
     },
     "l1-java-feature-wordfreq": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-java-tests-jobqueue": {
      "solved": 1,
      "attempts": 1
     },
@@ -1123,15 +1127,27 @@
     "l1-rs-tests-shipping-rates": {
      "solved": 3,
      "attempts": 3
+    },
+    "l1-ts-bugfix-pager": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-ts-bugfix-splitbill": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-ts-feature-wraptext": {
+     "solved": 1,
+     "attempts": 1
     }
    },
    "median_s": 114.0,
    "median_read": 229392,
-   "median_written": 10900,
-   "decode_tok_s": 102.8,
-   "gpu_w": 177.9,
-   "cpu_w": 183.2,
-   "wh_per_solved": 37.9,
+   "median_written": 10714,
+   "decode_tok_s": 101.9,
+   "gpu_w": 176.0,
+   "cpu_w": 183.5,
+   "wh_per_solved": 34.54,
    "agent_version": "2.0.32"
   },
   {
@@ -1139,8 +1155,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 46,
-   "attempts": 47,
+   "solved": 50,
+   "attempts": 51,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1202,6 +1218,10 @@
      "solved": 1,
      "attempts": 1
     },
+    "l1-java-tests-jobqueue": {
+     "solved": 1,
+     "attempts": 1
+    },
     "l1-py-bugfix-duration-ms": {
      "solved": 3,
      "attempts": 3
@@ -1233,15 +1253,27 @@
     "l1-rs-tests-shipping-rates": {
      "solved": 3,
      "attempts": 3
+    },
+    "l1-ts-bugfix-pager": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-ts-bugfix-splitbill": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-ts-feature-wraptext": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 78.0,
-   "median_read": 91788,
-   "median_written": 5876,
-   "decode_tok_s": 103.7,
-   "gpu_w": 173.0,
-   "cpu_w": 185.8,
-   "wh_per_solved": 31.06,
+   "median_s": 70.0,
+   "median_read": 84325,
+   "median_written": 5727,
+   "decode_tok_s": 101.8,
+   "gpu_w": 172.8,
+   "cpu_w": 187.9,
+   "wh_per_solved": 29.24,
    "agent_version": "1.3.0"
   },
   {
