@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T22:14+02:00",
+ "generated": "2026-10-21T22:22+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -899,28 +899,28 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 19,
-   "attempts": 29,
+   "solved": 22,
+   "attempts": 33,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
      "attempts": 2
     },
     "l1-cpp-bugfix-recentfiles": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cpp-feature-mdtable": {
      "solved": 1,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-cpp-tests-shipping": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-csvquote": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-invoiceno": {
      "solved": 1,
@@ -1020,8 +1020,8 @@
    "median_written": 4047,
    "decode_tok_s": 161.8,
    "gpu_w": 222.5,
-   "cpu_w": 100.3,
-   "wh_per_solved": 6.7,
+   "cpu_w": 94.7,
+   "wh_per_solved": 6.36,
    "agent_version": "2.0.32"
   },
   {
@@ -1029,28 +1029,28 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 23,
-   "attempts": 29,
+   "solved": 27,
+   "attempts": 33,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
      "attempts": 2
     },
     "l1-cpp-bugfix-recentfiles": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cpp-feature-mdtable": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cpp-tests-shipping": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-csvquote": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-invoiceno": {
      "solved": 1,
@@ -1145,13 +1145,13 @@
      "attempts": 1
     }
    },
-   "median_s": 32.0,
-   "median_read": 27999,
-   "median_written": 4662,
+   "median_s": 30.0,
+   "median_read": 29066,
+   "median_written": 4149,
    "decode_tok_s": 163.7,
-   "gpu_w": 223.1,
-   "cpu_w": 92.0,
-   "wh_per_solved": 5.44,
+   "gpu_w": 221.7,
+   "cpu_w": 91.0,
+   "wh_per_solved": 5.01,
    "agent_version": "1.3.0"
   },
   {
@@ -1549,8 +1549,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 26,
-   "attempts": 28,
+   "solved": 27,
+   "attempts": 29,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -1585,8 +1585,8 @@
      "attempts": 2
     },
     "l2-py-bugfix-tenacity-retrystate": {
-     "solved": 2,
-     "attempts": 2
+     "solved": 3,
+     "attempts": 3
     },
     "l2-py-feature-tenacity-stopidle": {
      "solved": 2,
@@ -1609,12 +1609,12 @@
      "attempts": 2
     }
    },
-   "median_s": 95.0,
-   "median_read": 1368541.0,
-   "median_written": 12260.5,
-   "decode_tok_s": 177.4,
-   "gpu_w": 60.4,
-   "cpu_w": 153.2,
+   "median_s": 100.0,
+   "median_read": 1391553,
+   "median_written": 12200,
+   "decode_tok_s": 176.6,
+   "gpu_w": 61.0,
+   "cpu_w": 152.8,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -2785,17 +2785,17 @@
  ],
  "progress": {
   "planned_max": 6330,
-  "settled": 984,
-  "graded_screening": 829,
+  "settled": 999,
+  "graded_screening": 838,
   "settled_by_front": {
-   "pc": 732,
+   "pc": 747,
    "cloud": 252
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 42.3,
-  "eta_hours": 174.1,
+  "pace_per_h": 43.1,
+  "eta_hours": 171.5,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -2839,33 +2839,33 @@
    "variant": "mk",
    "l1_v1": {
     "pairs_expected": 24,
-    "pairs_decided": 2,
-    "pairs_passed": 2,
-    "attempts": 26,
-    "attempts_solved": 21,
-    "median_s": 24.0,
-    "decode_tok_s": 161.6,
+    "pairs_decided": 7,
+    "pairs_passed": 7,
+    "attempts": 32,
+    "attempts_solved": 26,
+    "median_s": 25.0,
+    "decode_tok_s": 161.9,
     "gpu_w": 216.9,
-    "cpu_w": 155.2,
-    "energy_wh": 99.4,
-    "wh_per_solved": 4.73,
-    "energy_attempts": 26,
-    "side_load_attempts": 4
+    "cpu_w": 103.4,
+    "energy_wh": 117.4,
+    "wh_per_solved": 4.51,
+    "energy_attempts": 32,
+    "side_load_attempts": 6
    },
    "l1_v2": {
     "pairs_expected": 56,
-    "pairs_decided": 2,
-    "pairs_passed": 2,
-    "attempts": 58,
-    "attempts_solved": 42,
-    "median_s": 31.0,
-    "decode_tok_s": 162.7,
-    "gpu_w": 222.8,
-    "cpu_w": 96.4,
-    "energy_wh": 252.5,
-    "wh_per_solved": 6.01,
-    "energy_attempts": 58,
-    "side_load_attempts": 36
+    "pairs_decided": 9,
+    "pairs_passed": 9,
+    "attempts": 66,
+    "attempts_solved": 49,
+    "median_s": 30.0,
+    "decode_tok_s": 162.8,
+    "gpu_w": 222.1,
+    "cpu_w": 92.2,
+    "energy_wh": 275.3,
+    "wh_per_solved": 5.62,
+    "energy_attempts": 66,
+    "side_load_attempts": 38
    }
   },
   {
@@ -3104,7 +3104,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-21T22:14+02:00",
+  "updated": "2026-10-21T22:22+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3131,7 +3131,9 @@
    "15:43:33 fetch laguna start",
    "15:44:19 safety power-off moved to +26 h",
    "15:51:23 fetch laguna done (54G)",
-   "15:52:50 fetch laguna sha256 ok"
+   "15:52:50 fetch laguna sha256 ok",
+   "22:16:19 engine restarted with 2 slots",
+   "22:16:44 engine restarted with 2 slots"
   ],
   "run_events": [
    "15:27:02 start",
@@ -3219,9 +3221,15 @@
    "17:20:03 chain: cloud-l1 exit 0",
    "17:20:09 chain: cloud-l1 saved (commit, page, backup)",
    "17:20:10 chain: start cloud-l2",
-   "22:14:22 chain: cloud-l2 (one lane) and the re-proofs ended"
+   "22:14:22 chain: cloud-l2 (one lane) and the re-proofs ended",
+   "22:14:25 chain: cloud-l2 saved (commit, page, backup)",
+   "22:14:25 chain: engine did not come back with 2 slots",
+   "22:16:35 chain: cloud-l2 (one lane) ended",
+   "22:16:43 chain: engine: 2 slots",
+   "22:16:44 chain: start cloud-l2: pi on pve2, opencode on thinkpad",
+   "22:22:36 chain: cloud-l2 exit pi=0 opencode=0"
   ],
-  "hours_up": 7.0,
+  "hours_up": 7.14,
   "spent_eur": 11.91
  },
  "utility": []
