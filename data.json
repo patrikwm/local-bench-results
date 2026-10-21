@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T05:01+02:00",
+ "generated": "2026-10-21T05:31+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1043,8 +1043,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 58,
-   "attempts": 63,
+   "solved": 62,
+   "attempts": 67,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1107,8 +1107,8 @@
      "attempts": 2
     },
     "l1-java-tests-jobqueue": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-py-bugfix-duration-ms": {
      "solved": 3,
@@ -1143,29 +1143,29 @@
      "attempts": 3
     },
     "l1-ts-bugfix-pager": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-bugfix-splitbill": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-feature-wraptext": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-tests-lrucache": {
      "solved": 0,
      "attempts": 1
     }
    },
-   "median_s": 126.0,
-   "median_read": 229392,
-   "median_written": 10714,
-   "decode_tok_s": 100.6,
-   "gpu_w": 176.0,
+   "median_s": 122.0,
+   "median_read": 200640,
+   "median_written": 10673,
+   "decode_tok_s": 100.4,
+   "gpu_w": 174.8,
    "cpu_w": 182.5,
-   "wh_per_solved": 32.43,
+   "wh_per_solved": 32.28,
    "agent_version": "2.0.32"
   },
   {
@@ -1173,8 +1173,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 63,
-   "attempts": 64,
+   "solved": 66,
+   "attempts": 68,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1273,29 +1273,29 @@
      "attempts": 3
     },
     "l1-ts-bugfix-pager": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-bugfix-splitbill": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-feature-wraptext": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-tests-lrucache": {
      "solved": 1,
-     "attempts": 1
+     "attempts": 2
     }
    },
-   "median_s": 78.0,
-   "median_read": 99977.0,
-   "median_written": 5809.0,
-   "decode_tok_s": 100.2,
+   "median_s": 74.0,
+   "median_read": 94453.5,
+   "median_written": 5734.5,
+   "decode_tok_s": 100.1,
    "gpu_w": 171.8,
-   "cpu_w": 182.8,
-   "wh_per_solved": 30.68,
+   "cpu_w": 182.6,
+   "wh_per_solved": 29.24,
    "agent_version": "1.3.0"
   },
   {
