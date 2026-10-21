@@ -161,7 +161,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <tr><td>L2</td><td>Medium: several files in a real open-source project (tenacity, CLI11, clap_lex, rfc6902, go-humanize, picocli, Cronos)</td><td class="num">14</td><td><span class="tag">READY</span></td></tr>
     <tr><td>L3</td><td>Hard: concurrency, lifecycle, cancellation, compatibility in real projects (httpx/httpcore, go-cache, ripgrep, cpp-httplib, Stormpot, p-queue, AsyncEx); fresh tasks, hashes below</td><td class="num">8</td><td><span class="tag">READY</span></td></tr>
     <tr><td>L4</td><td>Extreme: build a crash-safe event relay, 5 milestones, one night</td><td class="num">1×5</td><td><span class="tag off">PLANNED</span></td></tr>
-    <tr><td>S1–S3</td><td>Sysadmin track: Bash, PowerShell, OpenTofu, Ansible, Packer, SSH, against containers in the sandbox, never a real cloud</td><td class="num">12</td><td><span class="tag off">PLANNED</span></td></tr>
+    <tr><td>S1–S3</td><td>Sysadmin track: Bash, PowerShell, OpenTofu, Ansible, Packer, SSH, against containers in the sandbox, never a real cloud</td><td class="num">12</td><td><span class="tag">READY</span></td></tr>
   </tbody></table></div>
 
   <h2>FRESH TASKS · L3 HASHES</h2>
@@ -283,7 +283,9 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
       .map(r => `<tr><td>${esc(D.models[k].name)}</td><td>${esc(D.variants[v] || v)}</td><td>${r.agent === "pi" ? "Pi" : "OpenCode"}</td>
         <td class="num">${r.solved}/${r.attempts}</td><td class="num">${fmt(r.median_s)} s</td><td class="num">${fmt(r.median_written)}</td></tr>`))).join("");
 
-  const LANG = { python: "Python", typescript: "TypeScript", java: "Java", csharp: "C#", cpp: "C++", rust: "Rust", go: "Go" };
+  const LANG = { python: "Python", typescript: "TypeScript", java: "Java", csharp: "C#", cpp: "C++", rust: "Rust", go: "Go",
+                 bash: "Bash", powershell: "PowerShell", opentofu: "OpenTofu", ansible: "Ansible", packer: "Packer", ssh: "SSH" };
+  const lvl = t => t.track === "sysadmin" ? `S${t.level - 10}` : `L${t.level}`;
   $("#models tbody").innerHTML = keys.map(k => {
     const m = D.models[k];
     const x = rows.find(x => x.k === k);
@@ -291,7 +293,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     return `<tr><td>${esc(m.name)}</td><td>${m.quant}</td><td class="num">${m.size_gb} GB</td><td>${esc(m.engine)}</td><td>${st}</td></tr>`;
   }).join("");
   $("#tasks tbody").innerHTML = (D.tasks || []).map(t =>
-    `<tr><td>L${t.level}</td><td>${LANG[t.language] || t.language}</td><td>${esc(t.id)}</td><td>${t.kind}</td><td style="white-space:normal">${esc(t.summary || "")}</td></tr>`).join("");
+    `<tr><td>${lvl(t)}</td><td>${LANG[t.language] || t.language}</td><td>${esc(t.id)}</td><td>${t.kind}</td><td style="white-space:normal">${esc(t.summary || "")}</td></tr>`).join("");
   const H = D.fresh_task_hashes;
   if (H) {
     $("#hashes tbody").innerHTML = Object.entries(H.tasks).map(([k, v]) => `<tr><td>${esc(k)}</td><td style="font-size:12px">${v}</td></tr>`).join("");
