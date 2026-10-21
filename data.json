@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T03:01+02:00",
+ "generated": "2026-10-21T03:06+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -458,7 +458,21 @@
    "timeout_min": 45
   }
  ],
- "fresh_task_hashes": null,
+ "fresh_task_hashes": {
+  "generated": "2026-10-21T03:06+02:00",
+  "commit": "a69fa74ab4114c8e3fcedeb04d7f49289e53b60d",
+  "method": "sha256 of `git ls-tree -r <commit> -- tasks/<id>`",
+  "tasks": {
+   "l3-cpp-lifecycle-httplib-stop": "2f032393a5cce139566ff3a918df88d2dad7026137e1912e895c801d402b2aab",
+   "l3-cs-cancel-asyncex-waitqueue": "158a9ffe31e05ec8a0e8d05da08866470213d6cc0ef27b76eba1adbc35566bb1",
+   "l3-go-lifecycle-gocache-close": "e3bf894624cc8cf656664b8b5b5786552ce8c798973f0a5bbffbdd1743c1ac56",
+   "l3-java-concurrency-stormpot-tlrclaim": "065643100f9fe025e89455a8aa7bfcaa541a73de8a98d6dd4aa1112e0a90b1ce",
+   "l3-py-compat-httpx-redirectlimit": "ff75fe26900e8b9137860c1049c4ba00e856bb1d19abfc3c8b8815e4066c1e39",
+   "l3-py-concurrency-httpx-poolwedge": "3868f83e04fe94e253ead54911651af3260601f9a6c542cfa27d890a662974a1",
+   "l3-rs-concurrency-ignore-quit": "dfb828361684761dcd9efeee33442cb1d2f0a49960efc6f5cdb5678a3a7614d8",
+   "l3-ts-cancel-pqueue-abort": "ba0b70649af9209b715e4a76a90f24c666a25c48a3c1120be7f81674ebcb5fe7"
+  }
+ },
  "rows": [
   {
    "model": "gptoss120b-a2-128k",
@@ -1029,8 +1043,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 49,
-   "attempts": 51,
+   "solved": 50,
+   "attempts": 53,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1049,8 +1063,8 @@
      "attempts": 3
     },
     "l1-cs-bugfix-csvquote": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-invoiceno": {
      "solved": 1,
@@ -1139,15 +1153,19 @@
     "l1-ts-feature-wraptext": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-ts-tests-lrucache": {
+     "solved": 0,
+     "attempts": 1
     }
    },
    "median_s": 114.0,
-   "median_read": 229392,
+   "median_read": 190687,
    "median_written": 10714,
    "decode_tok_s": 101.9,
    "gpu_w": 176.0,
    "cpu_w": 183.5,
-   "wh_per_solved": 34.54,
+   "wh_per_solved": 33.32,
    "agent_version": "2.0.32"
   },
   {
@@ -1155,8 +1173,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 50,
-   "attempts": 51,
+   "solved": 53,
+   "attempts": 54,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1175,12 +1193,12 @@
      "attempts": 3
     },
     "l1-cs-bugfix-csvquote": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-invoiceno": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-feature-discounts": {
      "solved": 1,
@@ -1265,15 +1283,19 @@
     "l1-ts-feature-wraptext": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-ts-tests-lrucache": {
+     "solved": 1,
+     "attempts": 1
     }
    },
    "median_s": 70.0,
-   "median_read": 84325,
-   "median_written": 5727,
-   "decode_tok_s": 101.8,
-   "gpu_w": 172.8,
-   "cpu_w": 187.9,
-   "wh_per_solved": 29.24,
+   "median_read": 83928.5,
+   "median_written": 5725.0,
+   "decode_tok_s": 101.6,
+   "gpu_w": 172.4,
+   "cpu_w": 186.9,
+   "wh_per_solved": 26.32,
    "agent_version": "1.3.0"
   },
   {
@@ -1674,6 +1696,10 @@
   }
  ],
  "log": [
+  {
+   "date": "2026-10-21",
+   "text": "L3 is ready: 8 fresh tasks on concurrency, lifecycle, cancellation and compatibility in real projects, every one proven deterministic 20 times in a row. Their hashes are published below before any model has run them."
+  },
   {
    "date": "2026-10-21",
    "text": "All 42 coding tasks are built and proven: 28 at L1 and 14 at L2, in 7 languages (Python, TypeScript, Java, C#, C++, Rust, Go). L2 uses real open-source projects: tenacity, CLI11, clap_lex, rfc6902, go-humanize, picocli, Cronos."

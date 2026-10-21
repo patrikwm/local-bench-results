@@ -142,10 +142,15 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <tr><td>L0</td><td>Qualify: a tiny repo, one fix. Shows the agent and model can work together</td><td class="num">1</td><td><span class="tag">ONLINE</span></td></tr>
     <tr><td>L1</td><td>Easy: one function or one file, in 7 languages. Bugfix, feature, write tests</td><td class="num">28</td><td><span class="tag">RUNNING</span></td></tr>
     <tr><td>L2</td><td>Medium: several files in a real open-source project (tenacity, CLI11, clap_lex, rfc6902, go-humanize, picocli, Cronos)</td><td class="num">14</td><td><span class="tag">READY</span></td></tr>
-    <tr><td>L3</td><td>Hard: concurrency, lifecycle, cancellation; fresh tasks</td><td class="num">8</td><td><span class="tag off">PLANNED</span></td></tr>
+    <tr><td>L3</td><td>Hard: concurrency, lifecycle, cancellation, compatibility in real projects (httpx/httpcore, go-cache, ripgrep, cpp-httplib, Stormpot, p-queue, AsyncEx); fresh tasks, hashes below</td><td class="num">8</td><td><span class="tag">READY</span></td></tr>
     <tr><td>L4</td><td>Extreme: build a crash-safe event relay, 5 milestones, one night</td><td class="num">1×5</td><td><span class="tag off">PLANNED</span></td></tr>
     <tr><td>S1–S3</td><td>Sysadmin track: Bash, PowerShell, OpenTofu, Ansible, Packer, SSH, against containers in the sandbox, never a real cloud</td><td class="num">12</td><td><span class="tag off">PLANNED</span></td></tr>
   </tbody></table></div>
+
+  <h2>FRESH TASKS · L3 HASHES</h2>
+  <p class="note">L3 tasks were written after the models were frozen. Their content stays private until every model has run them; these hashes are published first, so anyone can check later that the tasks were not changed after the results came in. Method: <code>git ls-tree -r &lt;commit&gt; -- tasks/&lt;id&gt; | sha256sum</code>.</p>
+  <div class="hud scroll"><table id="hashes"><thead><tr><th>Task</th><th>sha256</th></tr></thead><tbody></tbody></table></div>
+  <p class="note" id="hashmeta"></p>
 
   <h2>MISSION LOG</h2>
   <ul class="log" id="log"></ul>
@@ -263,6 +268,11 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   }).join("");
   $("#tasks tbody").innerHTML = (D.tasks || []).map(t =>
     `<tr><td>L${t.level}</td><td>${LANG[t.language] || t.language}</td><td>${esc(t.id)}</td><td>${t.kind}</td><td style="white-space:normal">${esc(t.summary || "")}</td></tr>`).join("");
+  const H = D.fresh_task_hashes;
+  if (H) {
+    $("#hashes tbody").innerHTML = Object.entries(H.tasks).map(([k, v]) => `<tr><td>${esc(k)}</td><td style="font-size:12px">${v}</td></tr>`).join("");
+    $("#hashmeta").textContent = `Hashed ${H.generated.replace("T", " ")} at commit ${H.commit.slice(0, 12)} of the private benchmark repo.`;
+  }
   $("#log").innerHTML = D.log.map(e => `<li><span class="d">[${e.date}]</span> ${esc(e.text)}</li>`).join("");
   $("#hw").textContent = "HARDWARE: " + D.hardware;
   const g = new Date(D.generated), tz = D.generated.slice(16) || "";
