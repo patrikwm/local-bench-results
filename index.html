@@ -142,6 +142,12 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <div class="hud scroll"><table id="tasks"><thead><tr><th>Level</th><th>Language</th><th>Task</th><th>Kind</th><th>What the agent must do</th></tr></thead><tbody></tbody></table></div>
 
 
+  <section id="utility" hidden>
+  <h2>QUICK JOBS · ROUTING</h2>
+  <p class="note">Direct jobs a small, fast model might take over: fix Markdown, extract JSON, convert formats, write a commit message, rename in code, summarise test output. One prompt, one answer, no agent; every answer is checked automatically and exactly (no AI judge; content must be preserved). Each cell: share of attempts solved and the median seconds per job on this PC. The goal is a routing table: the smallest model that is good enough for each kind of job.</p>
+  <div class="hud scroll"><table id="utility-table"><thead></thead><tbody></tbody></table></div>
+  </section>
+
   <h2>TARGET RANKING · LEVEL 1</h2>
   <p class="note">L1 v2 = 28 small tasks in 7 languages (fix a bug, add a feature, write tests), each with both agents: 56 task-and-agent pairs per model. The score is the share of pairs that pass by majority (2 of 3 attempts), as the ladder decides. "Decided" shows how many of the 56 pairs have a verdict yet. Attempt success counts every single attempt. All values pool both agents. L1 v1 (the first 12 tasks) is shown for continuity with the first results.</p>
   <div class="hud scroll"><table id="rank"><thead><tr>
@@ -295,6 +301,17 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
       `<td class="num">${r.median_s == null ? "–" : fmt(r.median_s) + " s"}</td><td class="num">${r.decode_tok_s == null ? "–" : fmt(r.decode_tok_s) + " tok/s"}</td></tr>`).join("");
     const ev = [...(C.vm_events || []).map(e => `VM  ${e}`), ...(C.run_events || []).map(e => `RUN ${e}`)];
     $("#cloud-log").textContent = ev.slice(-40).join("\n") || "no events yet";
+  }
+
+  const U = D.utility || [];
+  if (U.length) {  // utility suite (harness/publish_site.py utility())
+    $("#utility").hidden = false;
+    const kinds = [...new Set(U.map(u => u.kind))].sort(), models = [...new Set(U.map(u => u.model))];
+    $("#utility-table thead").innerHTML = `<tr><th>Model</th>${kinds.map(k => `<th class="num">${esc(k)}</th>`).join("")}</tr>`;
+    $("#utility-table tbody").innerHTML = models.map(m => `<tr><td>${esc((D.models[m] || {}).name || m)}</td>` + kinds.map(k => {
+      const u = U.find(x => x.model === m && x.kind === k);
+      return u ? `<td class="num" title="${u.solved}/${u.attempts} attempts over ${u.tasks} tasks">${Math.round(100 * u.solved / u.attempts)}% · ${fmt(u.median_s, 1)} s</td>` : `<td class="num">–</td>`;
+    }).join("") + "</tr>").join("");
   }
 
   // ranking (data.json models_summary: computed once in harness/publish_site.py)
