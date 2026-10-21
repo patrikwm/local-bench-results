@@ -94,6 +94,20 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <p class="note" id="prog-text"></p>
   </header>
 
+  <section id="cloud" hidden>
+  <h2>RENTED GPU RUN *</h2>
+  <p class="note">One model pushed through every level on a rented GPU server, to see what a complete run costs and how long it takes. Only the engine runs there; agents, tasks, hidden checks and grading stay on the PC. Same model file (SHA-256 checked), engine build, sampling and agents as the PC rows. Pass/fail is comparable; time is not (much faster GPU); energy is not measured.</p>
+  <div class="hud">
+    <div class="stats" id="cloud-stats"></div>
+    <div class="plan-bar" id="cloud-bar" role="progressbar" aria-label="Budget spent" aria-valuemin="0" aria-valuemax="100">
+      <span>[</span><div class="track"><div class="fill" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
+    <p class="note" id="cloud-text"></p>
+  </div>
+  <div class="hud scroll"><table id="cloud-levels"><thead><tr><th>Level</th><th>Agent</th><th class="num">Attempts</th><th class="num">Solved</th><th class="num">Median time</th><th class="num">Decode</th></tr></thead><tbody></tbody></table></div>
+  <h2>CLOUD EVENT LOG</h2>
+  <div class="hud scroll"><pre class="note" id="cloud-log" style="margin:0;white-space:pre-wrap"></pre></div>
+  </section>
+
   <h2>MISSION</h2>
   <p>Can open-weight AI models, running on one gaming PC, replace a paid cloud AI subscription for real programming work?
      Every model gets the same coding tasks through two open-source terminal agents, <strong>Pi</strong> and <strong>OpenCode</strong>.
@@ -121,6 +135,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <p class="note">Every task is proven before it runs: the starting code fails, our reference fix passes, and at least two typical wrong fixes are caught.</p>
   <div class="hud scroll"><table id="tasks"><thead><tr><th>Level</th><th>Language</th><th>Task</th><th>Kind</th><th>What the agent must do</th></tr></thead><tbody></tbody></table></div>
 
+
   <h2>TARGET RANKING · LEVEL 1</h2>
   <p class="note">L1 v2 = 28 small tasks in 7 languages (fix a bug, add a feature, write tests), each with both agents: 56 task-and-agent pairs per model. The score is the share of pairs that pass by majority (2 of 3 attempts), as the ladder decides. "Decided" shows how many of the 56 pairs have a verdict yet. Attempt success counts every single attempt. All values pool both agents. L1 v1 (the first 12 tasks) is shown for continuity with the first results.</p>
   <div class="hud scroll"><table id="rank"><thead><tr>
@@ -128,6 +143,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <th class="num">Attempts solved</th><th class="num">L1 v1 pairs</th><th class="num">Median time</th><th class="num">Decode</th>
     <th class="num">GPU power</th><th class="num">CPU power</th><th class="num">Energy / solved</th>
   </tr></thead><tbody></tbody></table></div>
+  <p class="note" id="rented-note">* Rented hardware: the engine ran on a rented GPU server (UpCloud, Helsinki, NVIDIA RTX PRO 6000 96 GB) with the same model file, engine build, sampling, agents and grading as the PC rows; only the engine was remote. Its pass/fail results preview a model the PC has not run yet and will be checked against the PC run. Its times are not comparable (much faster GPU) and its energy is not measured.</p>
   <p class="note">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt = all measured GPU + CPU energy, failed attempts included, divided by the solved attempts among them (CPU power is measured since 2026-10-20 21:00). Attempts that ran next to task building in the same machine are counted in the tooltip (side load: speed slightly lower, pass/fail unaffected).</p>
   <p class="note">Power: GPU (nvidia-smi) and CPU package (Intel RAPL), means over each attempt. Energy per solved task = all attempts' GPU + CPU energy, failed ones included, divided by the tasks solved. Not wall power: RAM, board and PSU losses are not in it. CPU power is measured from 2026-10-20 21:00 on.</p>
 
@@ -214,7 +230,8 @@ function boot(lines) {
 fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   const L1 = D.rows.filter(r => r.level === 1);
   const main = L1.filter(r => r.variant === "mk");
-  const keys = Object.keys(D.models);
+  const rented = D.rented || [];  // rented-GPU rows (*): in the ranking, not in the PC counts
+  const keys = Object.keys(D.models).filter(k => !rented.includes(k));
   const totalAtt = D.rows.reduce((a, r) => a + r.attempts, 0);
   const sumOf = k => (D.models_summary || []).find(s => s.model === k && s.variant === "mk");
   const P = D.progress;
@@ -248,10 +265,31 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
              `The estimate shrinks as models drop out of the ladder.` : "");
   }
 
+  const C = D.cloud;
+  if (C) {  // rented-GPU run (results/cloud-status.json via harness/publish_site.py)
+    $("#cloud").hidden = false;
+    const spent = C.spent_eur ?? 0, pct = Math.min(100, Math.round(100 * spent / C.budget_eur));
+    const cr = D.rows.filter(r => rented.includes(r.model));
+    const att = cr.reduce((a, r) => a + r.attempts, 0), sol = cr.reduce((a, r) => a + r.solved, 0);
+    $("#cloud-stats").innerHTML = [["Server", (C.state || "?").toUpperCase()], ["GPU hours", fmt(C.hours_up, 1)],
+      ["Spent", `€${fmt(spent, 2)}<span class="of"> / €${C.budget_eur}</span>`], ["Attempts solved", `${sol}<span class="of"> / ${att}</span>`]]
+      .map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+    const bar = $("#cloud-bar"); bar.setAttribute("aria-valuenow", pct);
+    bar.querySelector(".fill").style.width = pct + "%"; bar.querySelector(".pct").textContent = pct + "%";
+    $("#cloud-text").textContent = `${C.provider} ${C.zone}, ${C.plan} (${C.gpu}), €${fmt(C.price_eur_h, 2)}/h incl. disk and IP, excl. VAT. ` +
+      `Spent = the account's credit drop since the start (€${fmt(C.start_credit_eur, 2)}); the run stops by itself at the budget. Status ${C.updated}.`;
+    const lvl = l => l > 10 ? `S${l - 10}` : `L${l}`;
+    $("#cloud-levels tbody").innerHTML = cr.sort((a, b) => a.level - b.level || a.agent.localeCompare(b.agent)).map(r =>
+      `<tr><td>${lvl(r.level)}</td><td>${esc(r.agent)}</td><td class="num">${r.attempts}</td><td class="num">${r.solved} (${Math.round(100 * r.solved / r.attempts)}%)</td>` +
+      `<td class="num">${r.median_s == null ? "–" : fmt(r.median_s) + " s"}</td><td class="num">${r.decode_tok_s == null ? "–" : fmt(r.decode_tok_s) + " tok/s"}</td></tr>`).join("");
+    const ev = [...(C.vm_events || []).map(e => `VM  ${e}`), ...(C.run_events || []).map(e => `RUN ${e}`)];
+    $("#cloud-log").textContent = ev.slice(-40).join("\n") || "no events yet";
+  }
+
   // ranking (data.json models_summary: computed once in harness/publish_site.py)
   const S = {};
   for (const s of D.models_summary || []) if (s.variant === "mk") S[s.model] = s;
-  const rows = keys.map(k => {
+  const rows = [...keys, ...rented].map(k => {
     const m = D.models[k], s = S[k];
     if (!s || !s.l1_v2.attempts) return { k, m, score: -1 };
     const v2 = s.l1_v2, v1 = s.l1_v1;

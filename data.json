@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T15:32+02:00",
+ "generated": "2026-10-21T15:45+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1023,8 +1023,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 29,
-   "attempts": 39,
+   "solved": 30,
+   "attempts": 42,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1051,6 +1051,18 @@
      "attempts": 1
     },
     "l1-cs-feature-discounts": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-tests-daybook": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
      "solved": 1,
      "attempts": 1
     },
@@ -1087,13 +1099,13 @@
      "attempts": 3
     }
    },
-   "median_s": 108.0,
-   "median_read": 114751,
-   "median_written": 2689,
-   "decode_tok_s": 30.6,
-   "gpu_w": 65.9,
-   "cpu_w": 142.2,
-   "wh_per_solved": 24.14,
+   "median_s": 107.0,
+   "median_read": 114426.0,
+   "median_written": 2667.5,
+   "decode_tok_s": 30.4,
+   "gpu_w": 66.0,
+   "cpu_w": 157.1,
+   "wh_per_solved": 25.96,
    "agent_version": "2.0.32"
   },
   {
@@ -1101,8 +1113,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 28,
-   "attempts": 40,
+   "solved": 29,
+   "attempts": 42,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 3,
@@ -1133,6 +1145,14 @@
      "attempts": 1
     },
     "l1-cs-tests-daybook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
      "solved": 1,
      "attempts": 1
     },
@@ -1174,8 +1194,8 @@
    "median_written": 3030.5,
    "decode_tok_s": 31.3,
    "gpu_w": 59.8,
-   "cpu_w": 143.7,
-   "wh_per_solved": 21.53,
+   "cpu_w": 143.8,
+   "wh_per_solved": 21.0,
    "agent_version": "1.3.0"
   },
   {
@@ -1183,8 +1203,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 4,
-   "attempts": 5,
+   "solved": 8,
+   "attempts": 11,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1205,14 +1225,38 @@
     "l1-cs-bugfix-csvquote": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-cs-bugfix-invoiceno": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-feature-discounts": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-cs-tests-daybook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-feature-cfgdiff": {
+     "solved": 1,
+     "attempts": 1
     }
    },
    "median_s": 16.0,
-   "median_read": 80842,
+   "median_read": 64279,
    "median_written": 1629,
-   "decode_tok_s": 199.9,
-   "gpu_w": 83.9,
-   "cpu_w": 150.9,
+   "decode_tok_s": 200.4,
+   "gpu_w": 76.1,
+   "cpu_w": 162.5,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -1221,8 +1265,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 3,
-   "attempts": 5,
+   "solved": 6,
+   "attempts": 11,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1243,13 +1287,37 @@
     "l1-cs-bugfix-csvquote": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-cs-bugfix-invoiceno": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-feature-discounts": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-cs-tests-daybook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-feature-cfgdiff": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 16.0,
-   "median_read": 29845,
-   "median_written": 1464,
-   "decode_tok_s": 204.3,
-   "gpu_w": 68.4,
+   "median_s": 14.0,
+   "median_read": 30316,
+   "median_written": 1889,
+   "decode_tok_s": 204.1,
+   "gpu_w": 65.7,
    "cpu_w": 159.9,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
@@ -2217,12 +2285,12 @@
  ],
  "progress": {
   "planned_max": 6375,
-  "settled": 605,
-  "graded_screening": 550,
+  "settled": 610,
+  "graded_screening": 555,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 21.2,
-  "eta_hours": 678.2,
+  "eta_hours": 677.8,
   "eta_l4_hours": 408.0,
   "models_out": []
  },
@@ -2317,16 +2385,16 @@
     "pairs_expected": 56,
     "pairs_decided": 24,
     "pairs_passed": 17,
-    "attempts": 79,
-    "attempts_solved": 57,
+    "attempts": 84,
+    "attempts_solved": 59,
     "median_s": 108.0,
     "decode_tok_s": 30.9,
-    "gpu_w": 63.3,
-    "cpu_w": 143.6,
-    "energy_wh": 687.7,
-    "wh_per_solved": 22.92,
-    "energy_attempts": 46,
-    "side_load_attempts": 7
+    "gpu_w": 62.8,
+    "cpu_w": 151.3,
+    "energy_wh": 756.3,
+    "wh_per_solved": 23.63,
+    "energy_attempts": 51,
+    "side_load_attempts": 12
    }
   },
   {
@@ -2351,16 +2419,16 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 10,
-    "attempts_solved": 7,
-    "median_s": 16.0,
-    "decode_tok_s": 202.2,
+    "attempts": 22,
+    "attempts_solved": 14,
+    "median_s": 15.0,
+    "decode_tok_s": 201.9,
     "gpu_w": 68.8,
-    "cpu_w": 158.9,
+    "cpu_w": 160.4,
     "energy_wh": null,
     "wh_per_solved": null,
     "energy_attempts": 0,
-    "side_load_attempts": 10
+    "side_load_attempts": 22
    }
   },
   {
@@ -2529,5 +2597,61 @@
    "date": "2026-10-19",
    "text": "First results: L0 qualification passed by Pi and OpenCode on Strata Coder IQ1_M. Pi reads about a third of OpenCode's tokens."
   }
- ]
+ ],
+ "cloud": {
+  "updated": "2026-10-21T15:45+02:00",
+  "provider": "UpCloud",
+  "zone": "fi-hel2",
+  "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GB",
+  "state": "started",
+  "created": "2026-10-21T13:14:30+00:00",
+  "price_eur_h": 1.7,
+  "start_credit_eur": 44.36,
+  "credit_eur": 42.65808,
+  "budget_eur": 40,
+  "vm_events_clock": "local",
+  "vm_events": [
+   "15:15:46 safety power-off in 5 h armed",
+   "15:15:46 build deps",
+   "15:15:46 download start",
+   "15:15:56 nvcc: /usr/local/cuda/bin/nvcc Build cuda_13.2.r13.2/compiler.37668154_0",
+   "15:15:56 build start",
+   "15:22:31 download done",
+   "15:22:57 sha256 ok",
+   "15:24:39 build done: version: 0.7.0-dev (build 11685, commit 13de11e78)",
+   "15:24:39 setup finished",
+   "15:25:16 engine start",
+   "15:25:20 engine ready",
+   "15:43:33 fetch laguna start",
+   "15:44:19 safety power-off moved to +26 h"
+  ],
+  "run_events": [
+   "15:27:02 start",
+   "15:27:25 tasks/l1-cpp-bugfix-bytesize pi rc=0 22s SOLVED hidden 8/8",
+   "15:27:42 tasks/l1-cpp-bugfix-bytesize opencode rc=0 17s SOLVED hidden 8/8",
+   "15:27:59 tasks/l1-cpp-bugfix-recentfiles pi rc=0 17s SOLVED hidden 11/11",
+   "15:28:23 tasks/l1-cpp-bugfix-recentfiles opencode rc=0 23s SOLVED hidden 11/11",
+   "15:28:57 tasks/l1-cpp-feature-mdtable pi rc=0 34s FAILED hidden 8/12",
+   "15:29:27 tasks/l1-cpp-feature-mdtable opencode rc=0 30s FAILED hidden 9/12",
+   "15:29:59 tasks/l1-cpp-tests-shipping pi rc=0 32s SOLVED hidden 9/9",
+   "15:31:03 tasks/l1-cpp-tests-shipping opencode rc=0 64s SOLVED hidden 9/9",
+   "15:31:49 tasks/l1-cs-bugfix-csvquote pi rc=0 46s FAILED hidden 13/17",
+   "15:32:35 tasks/l1-cs-bugfix-csvquote opencode rc=0 46s SOLVED hidden 17/17",
+   "15:33:18 tasks/l1-cs-bugfix-invoiceno pi rc=0 43s SOLVED hidden 21/21",
+   "15:34:06 tasks/l1-cs-bugfix-invoiceno opencode rc=0 48s SOLVED hidden 21/21",
+   "15:34:51 tasks/l1-cs-feature-discounts pi rc=0 45s FAILED hidden 15/16",
+   "15:35:44 tasks/l1-cs-feature-discounts opencode rc=0 53s FAILED hidden 15/16",
+   "15:40:01 tasks/l1-cs-tests-daybook pi rc=0 257s SOLVED hidden 11/11",
+   "15:42:54 tasks/l1-cs-tests-daybook opencode rc=0 173s SOLVED hidden 10/11",
+   "15:43:06 tasks/l1-go-bugfix-backoff pi rc=0 12s FAILED hidden 5/8",
+   "15:43:27 tasks/l1-go-bugfix-backoff opencode rc=0 21s FAILED hidden 5/8",
+   "15:43:47 tasks/l1-go-bugfix-logfmt pi rc=0 20s FAILED hidden 9/10",
+   "15:44:11 tasks/l1-go-bugfix-logfmt opencode rc=0 24s SOLVED hidden 10/10",
+   "15:44:42 tasks/l1-go-feature-cfgdiff pi rc=0 31s SOLVED hidden 11/11",
+   "15:45:08 tasks/l1-go-feature-cfgdiff opencode rc=0 26s SOLVED hidden 11/11"
+  ],
+  "hours_up": 0.52,
+  "spent_eur": 1.7
+ }
 }
