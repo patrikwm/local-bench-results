@@ -42,6 +42,12 @@ h2::before { content: "▶ "; color: var(--red-dim); }
 .stat .k { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .stat .v { font-family: var(--hud); font-size: 40px; color: var(--red); line-height: 1.1; text-shadow: 0 0 6px rgba(255,43,43,.6); }
 .note { color: var(--muted); font-size: 14px; }
+.plan-bar { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-family: var(--hud); font-size: 24px; color: var(--red); }
+.plan-bar .track { flex: 1; height: 18px; border: 1px solid var(--red-dim); background: var(--red-faint); }
+.plan-bar .fill { height: 100%; background: repeating-linear-gradient(90deg, var(--red) 0 8px, transparent 8px 11px); box-shadow: 0 0 6px rgba(255,43,43,.6); }
+.plan-bar .pct { min-width: 3.5em; text-align: right; }
+#prog-text { margin: 6px 0 0; }
+.stat .v .of { font-size: .55em; color: var(--red-hi); white-space: nowrap; }
 .scroll { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
 th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--red-faint); white-space: nowrap; vertical-align: middle; }
@@ -83,6 +89,9 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <div class="sub">MODEL ANALYSIS TERMINAL // CYBERNETIC CODING EVALUATION</div>
     <div class="boot" id="boot" aria-live="polite"></div>
     <div class="stats" id="stats"></div>
+    <div class="plan-bar" id="bar" role="progressbar" aria-label="Screening plan settled" aria-valuemin="0" aria-valuemax="100" hidden>
+      <span>[</span><div class="track"><div class="fill" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
+    <p class="note" id="prog-text"></p>
   </header>
 
   <h2>MISSION</h2>
@@ -208,6 +217,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   const keys = Object.keys(D.models);
   const totalAtt = D.rows.reduce((a, r) => a + r.attempts, 0);
   const sumOf = k => (D.models_summary || []).find(s => s.model === k && s.variant === "mk");
+  const P = D.progress;
   const done = keys.filter(k => { const s = sumOf(k); return s && s.l1_v2.pairs_decided === s.l1_v2.pairs_expected; });
 
   boot([
@@ -218,10 +228,25 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     "> MISSION: REPLACE THE CLOUD. STATUS: IN PROGRESS",
   ]);
   $("#stats").innerHTML = [
-    ["Models analyzed", `${done.length}/${keys.length}`], ["Attempts graded", fmt(totalAtt)],
+    ["Models analyzed", `${done.length}/${keys.length}`],
+    ["Attempts graded", P ? `${fmt(totalAtt)}<span class="of"> / ~${fmt(P.planned_max + totalAtt - P.graded_screening)}</span>` : fmt(totalAtt)],
     ["Best L1 score", (() => { const b = done.map(k => sumOf(k).l1_v2.pairs_passed / sumOf(k).l1_v2.pairs_expected); return b.length ? Math.round(100 * Math.max(...b)) + "%" : "–"; })()],
     ["Levels online", "L0–L1"],
   ].map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+
+  if (P) {  // progress of the screening plan (harness/publish_site.py progress(): a maximum that shrinks as models drop out)
+    const dur = h => { const d = Math.floor(h / 24), r = Math.round(h - 24 * d); return d ? `${d} d ${r} h` : `${r} h`; };
+    const pct = Math.floor(100 * P.settled / P.planned_max);
+    const bar = $("#bar"); bar.hidden = false; bar.setAttribute("aria-valuenow", pct);
+    bar.querySelector(".fill").style.width = pct + "%"; bar.querySelector(".pct").textContent = pct + "%";
+    const ran = (Date.now() - new Date(P.running_since)) / 3.6e6;
+    const end = P.eta_hours != null ? new Date(new Date(D.generated).getTime() + P.eta_hours * 3.6e6) : null;
+    $("#prog-text").textContent = `Screening plan: ${fmt(P.settled)} of at most ${fmt(P.planned_max)} attempt slots settled ` +
+      `(graded, or skipped because 2 equal results already decided the task). Running for ${dur(ran)}. ` +
+      (end ? `Predicted finish at the pace so far (${P.pace_per_h}/h): in at most ${dur(P.eta_hours)}, ` +
+             `${end.toISOString().slice(0, 10)}; up to ${dur(P.eta_l4_hours)} of that is L4 (one-night runs), which only models that pass L3 get. ` +
+             `The estimate shrinks as models drop out of the ladder.` : "");
+  }
 
   // ranking (data.json models_summary: computed once in harness/publish_site.py)
   const S = {};
