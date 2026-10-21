@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T01:30+02:00",
+ "generated": "2026-10-21T02:01+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1029,97 +1029,7 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 40,
-   "attempts": 42,
-   "tasks": {
-    "l1-cpp-bugfix-bytesize": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-cpp-bugfix-recentfiles": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-cpp-feature-mdtable": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-cpp-tests-shipping": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-cs-bugfix-csvquote": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cs-bugfix-invoiceno": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cs-feature-discounts": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cs-tests-daybook": {
-     "solved": 0,
-     "attempts": 1
-    },
-    "l1-go-bugfix-backoff": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-go-bugfix-logfmt": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-py-bugfix-duration-ms": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-py-bugfix-prorate": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-py-feature-changelog": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-py-tests-roombook": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-rs-bugfix-duration-units": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-rs-bugfix-token-bucket": {
-     "solved": 2,
-     "attempts": 3
-    },
-    "l1-rs-feature-unique-slug": {
-     "solved": 3,
-     "attempts": 3
-    },
-    "l1-rs-tests-shipping-rates": {
-     "solved": 3,
-     "attempts": 3
-    }
-   },
-   "median_s": 112.0,
-   "median_read": 198358.0,
-   "median_written": 10661.0,
-   "decode_tok_s": 103.6,
-   "gpu_w": 178.4,
-   "cpu_w": 183.0,
-   "wh_per_solved": 34.19,
-   "agent_version": "2.0.32"
-  },
-  {
-   "model": "strata-coder-iq1m-128k",
-   "variant": "mk",
-   "agent": "pi",
-   "level": 1,
-   "solved": 42,
+   "solved": 41,
    "attempts": 43,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
@@ -1187,6 +1097,104 @@
      "attempts": 3
     },
     "l1-rs-bugfix-token-bucket": {
+     "solved": 2,
+     "attempts": 3
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 3,
+     "attempts": 3
+    }
+   },
+   "median_s": 114.0,
+   "median_read": 229392,
+   "median_written": 10900,
+   "decode_tok_s": 104.0,
+   "gpu_w": 178.4,
+   "cpu_w": 182.5,
+   "wh_per_solved": 40.77,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-coder-iq1m-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 43,
+   "attempts": 44,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-cs-bugfix-csvquote": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-bugfix-invoiceno": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-feature-discounts": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-tests-daybook": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-feature-cfgdiff": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-tests-inventory": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-feature-changelog": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-py-tests-roombook": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-duration-units": {
+     "solved": 3,
+     "attempts": 3
+    },
+    "l1-rs-bugfix-token-bucket": {
      "solved": 3,
      "attempts": 3
     },
@@ -1199,13 +1207,13 @@
      "attempts": 3
     }
    },
-   "median_s": 70.0,
-   "median_read": 84325,
-   "median_written": 5727,
-   "decode_tok_s": 104.5,
-   "gpu_w": 173.3,
-   "cpu_w": 185.0,
-   "wh_per_solved": 25.4,
+   "median_s": 74.0,
+   "median_read": 88056.5,
+   "median_written": 5801.5,
+   "decode_tok_s": 104.3,
+   "gpu_w": 173.5,
+   "cpu_w": 186.4,
+   "wh_per_solved": 39.44,
    "agent_version": "1.3.0"
   },
   {
