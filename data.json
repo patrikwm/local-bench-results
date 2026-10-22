@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T10:18+02:00",
+ "generated": "2026-10-22T10:20+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4296,7 +4296,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T10:18+02:00",
+  "updated": "2026-10-22T10:20+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -4336,7 +4336,23 @@
    "07:23:13 engine: gpt-oss-120b (2 slots)",
    "09:47:33 fetch qwen38 start",
    "09:49:46 fetch qwen38 done (16G)",
-   "09:49:57 fetch qwen38 sha256 ok"
+   "09:49:57 fetch qwen38 sha256 ok",
+   "10:18:21 speed gptoss120b start",
+   "10:18:21 speed gptoss120b exit 0",
+   "10:18:25 speed qwen38-27b start",
+   "10:18:25 speed qwen38-27b exit 0",
+   "10:18:32 speed gptoss120b start",
+   "10:18:32 speed gptoss120b exit 0",
+   "10:18:33 speed gptoss120b start",
+   "10:18:33 speed gptoss120b exit 0",
+   "10:18:36 speed qwen38-27b start",
+   "10:18:36 speed qwen38-27b exit 0",
+   "10:18:37 speed qwen38-27b start",
+   "10:18:37 speed qwen38-27b exit 0",
+   "10:18:58 speed qwen38-27b start",
+   "10:18:58 speed qwen38-27b exit 0",
+   "10:19:15 speed qwen38-27b start",
+   "10:20:14 speed qwen38-27b exit 0"
   ],
   "run_events": [
    "15:27:02 start",
@@ -4477,13 +4493,26 @@
    "08:21:59 chain: cloud-s2 saved (commit, page, backup)",
    "08:22:00 chain: stops before s3 (ladder rc=3)",
    "08:22:01 chain: start cloud-l3: pi on pve2, opencode on pve1",
-   "10:18:07 chain: cloud-l3 exit pi=0 opencode=0"
+   "10:18:07 chain: cloud-l3 exit pi=0 opencode=0",
+   "10:18:11 chain: cloud-l3 saved (commit, page, backup)",
+   "10:18:11 chain: gpt-oss chain done (L4 only by hand)"
   ],
-  "hours_up": 19.06,
+  "hours_up": 19.1,
   "spent_eur": 32.37
  },
  "utility": [],
  "speed": [
+  {
+   "machine": "pc",
+   "model": "gptoss120b",
+   "pp512": 150.7,
+   "pp4k": 680.9,
+   "pp16k": 724.5,
+   "tg": 23.3,
+   "tg_16k": 24.8,
+   "gpu_w": 102.8,
+   "build": "13de11e78"
+  },
   {
    "machine": "pc",
    "model": "gptoss20b",
@@ -4515,6 +4544,17 @@
    "tg": 34.8,
    "tg_16k": 30.7,
    "gpu_w": 131.9,
+   "build": "13de11e78"
+  },
+  {
+   "machine": "rtxpro6000",
+   "model": "qwen38-27b",
+   "pp512": 4114.3,
+   "pp4k": 4557.3,
+   "pp16k": 4385.0,
+   "tg": 70.5,
+   "tg_16k": 68.8,
+   "gpu_w": null,
    "build": "13de11e78"
   }
  ]
