@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T21:58+02:00",
+ "generated": "2026-10-22T22:07+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1946,6 +1946,28 @@
   {
    "model": "mellum21-q8-128k",
    "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 296.1,
+   "median_read": 48394,
+   "median_written": 7012,
+   "decode_tok_s": 25.5,
+   "gpu_w": 39.2,
+   "cpu_w": 161.7,
+   "wh_per_solved": 16.52,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "mellum21-q8-128k",
+   "variant": "mk",
    "agent": "pi",
    "level": 1,
    "solved": 1,
@@ -2209,7 +2231,7 @@
    "agent": "opencode",
    "level": 12,
    "solved": 1,
-   "attempts": 3,
+   "attempts": 4,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
      "solved": 0,
@@ -2222,12 +2244,16 @@
     "s2-packer-bugfix-image-appbox": {
      "solved": 0,
      "attempts": 1
+    },
+    "s2-tofu-feature-dockerstack": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 142.0,
-   "median_read": 226444,
-   "median_written": 13120,
-   "decode_tok_s": 93.5,
+   "median_s": 465.1,
+   "median_read": 1559735.5,
+   "median_written": 28854.0,
+   "decode_tok_s": 91.2,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -4542,8 +4568,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 2,
-   "solved": 26,
-   "attempts": 28,
+   "solved": 27,
+   "attempts": 29,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4566,8 +4592,8 @@
      "attempts": 2
     },
     "l2-go-feature-humanize-rate": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l2-java-bugfix-picocli-digitnames": {
      "solved": 2,
@@ -4602,9 +4628,9 @@
      "attempts": 2
     }
    },
-   "median_s": 638.1,
-   "median_read": 1010697.0,
-   "median_written": 26212.5,
+   "median_s": 636.1,
+   "median_read": 1029300,
+   "median_written": 27343,
    "decode_tok_s": 139.0,
    "gpu_w": null,
    "cpu_w": null,
@@ -5262,6 +5288,28 @@
   {
    "model": "strata-iq2xs-128k-upcloud",
    "variant": "mk",
+   "agent": "opencode",
+   "level": 11,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "s1-bash-bugfix-backup-rotate": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 726.1,
+   "median_read": 632849,
+   "median_written": 18715,
+   "decode_tok_s": 185.3,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq2xs-128k-upcloud",
+   "variant": "mk",
    "agent": "pi",
    "level": 1,
    "solved": 8,
@@ -5388,18 +5436,22 @@
    "variant": "mk",
    "agent": "pi",
    "level": 11,
-   "solved": 1,
-   "attempts": 1,
+   "solved": 2,
+   "attempts": 2,
    "tasks": {
     "s1-bash-bugfix-backup-rotate": {
      "solved": 1,
      "attempts": 1
+    },
+    "s1-pwsh-feature-useraudit-stale": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 966.2,
-   "median_read": 1249050,
-   "median_written": 35489,
-   "decode_tok_s": 178.4,
+   "median_s": 1084.2,
+   "median_read": 1401046.0,
+   "median_written": 51903.5,
+   "decode_tok_s": 172.9,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -5928,20 +5980,20 @@
  ],
  "progress": {
   "planned_max": 6234,
-  "project_pct": 41.5,
+  "project_pct": 41.6,
   "test_pct": 39.8,
   "pairs_full": 2110,
-  "pairs_tested": 839,
+  "pairs_tested": 840,
   "pairs_skipped": 37,
-  "eta_realistic_hours": 145.9,
-  "eta_pc_hours": 145.9,
-  "eta_cloud_hours": 16.0,
+  "eta_realistic_hours": 146.9,
+  "eta_pc_hours": 146.9,
+  "eta_cloud_hours": 16.1,
   "rented_servers": 5,
   "eta_realistic_by_level": {
    "L1": 24,
    "L2": 48,
-   "S1": 10,
-   "S2": 7,
+   "S1": 11,
+   "S2": 8,
    "S3": 26,
    "L3": 45,
    "L4": 1
@@ -5955,17 +6007,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 2562,
-  "graded_screening": 1957,
+  "settled": 2567,
+  "graded_screening": 1962,
   "settled_by_front": {
-   "pc": 1177,
-   "cloud": 1385
+   "pc": 1178,
+   "cloud": 1389
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 133.1,
-  "eta_hours": 75.5,
+  "pace_per_h": 128.4,
+  "eta_hours": 76.5,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -6079,30 +6131,30 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 1,
-    "attempts_solved": 1,
-    "median_s": 164.0,
-    "decode_tok_s": 25.8,
-    "gpu_w": 39.4,
-    "cpu_w": 160.7,
-    "energy_wh": 9.1,
-    "wh_per_solved": 9.12,
-    "energy_attempts": 1,
+    "attempts": 2,
+    "attempts_solved": 2,
+    "median_s": 230.1,
+    "decode_tok_s": 25.6,
+    "gpu_w": 39.3,
+    "cpu_w": 161.2,
+    "energy_wh": 25.6,
+    "wh_per_solved": 12.82,
+    "energy_attempts": 2,
     "side_load_attempts": 0
    },
    "l1_v2": {
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 1,
-    "attempts_solved": 1,
-    "median_s": 164.0,
-    "decode_tok_s": 25.8,
-    "gpu_w": 39.4,
-    "cpu_w": 160.7,
-    "energy_wh": 9.1,
-    "wh_per_solved": 9.12,
-    "energy_attempts": 1,
+    "attempts": 2,
+    "attempts_solved": 2,
+    "median_s": 230.1,
+    "decode_tok_s": 25.6,
+    "gpu_w": 39.3,
+    "cpu_w": 161.2,
+    "energy_wh": 25.6,
+    "wh_per_solved": 12.82,
+    "energy_attempts": 2,
     "side_load_attempts": 0
    }
   },
@@ -6512,7 +6564,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T21:58+02:00",
+  "updated": "2026-10-22T22:07+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -6778,10 +6830,12 @@
    "21:26:54 l40s1: l40s1-l2 exit pi=0 opencode=0",
    "21:26:57 l40s1: l40s1-l2 saved",
    "21:26:57 l40s1: start l40s1-s1: pi on thinkpad, opencode on pc ai-bench-check",
-   "21:58:04 l40s4: l40s4-l1 exit pi=0 opencode=0"
+   "21:58:04 l40s4: l40s4-l1 exit pi=0 opencode=0",
+   "21:58:08 l40s4: l40s4-l1 saved",
+   "21:58:09 l40s4: start l40s4-l2: pi on pve1 CT903, opencode on pve2 CT903"
   ],
-  "hours_up": 30.73,
-  "spent_eur": 91.03,
+  "hours_up": 30.88,
+  "spent_eur": 92.35,
   "servers_running": 5
  },
  "utility": [
