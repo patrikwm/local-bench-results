@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T08:03+02:00",
+ "generated": "2026-10-22T08:04+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1359,6 +1359,28 @@
    "gpu_w": 221.7,
    "cpu_w": 81.6,
    "wh_per_solved": 4.67,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "gptoss20b-128k",
+   "variant": "mk-plan",
+   "agent": "pi",
+   "level": 1,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "l1-rs-bugfix-token-bucket": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 12.0,
+   "median_read": 17056,
+   "median_written": 1565,
+   "decode_tok_s": 169.4,
+   "gpu_w": 179.7,
+   "cpu_w": 71.8,
+   "wh_per_solved": 0.84,
    "agent_version": "1.3.0"
   },
   {
@@ -3726,7 +3748,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T08:03+02:00",
+  "updated": "2026-10-22T08:04+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3894,9 +3916,11 @@
    "0.04.699.285 I srv  llama_server: listening on http://127.0.0.1:8080",
    "07:23:13 chain: gpt-oss engine up",
    "07:23:14 chain: start cloud-l2: pi on pve2, opencode on pve1",
-   "08:03:55 chain: cloud-l2 exit pi=0 opencode=0"
+   "08:03:55 chain: cloud-l2 exit pi=0 opencode=0",
+   "08:03:58 chain: cloud-l2 saved (commit, page, backup)",
+   "08:04:00 chain: start cloud-s1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 16.82,
+  "hours_up": 16.84,
   "spent_eur": 28.92
  },
  "utility": []
