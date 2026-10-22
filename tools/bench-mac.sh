@@ -11,7 +11,7 @@ if [ ! -x llama.cpp/build/bin/llama-bench ]; then
   (cd llama.cpp && git checkout -q 13de11e && cmake -B build -DCMAKE_BUILD_TYPE=Release > /dev/null && cmake --build build -j --target llama-bench > /dev/null) || { echo "llama.cpp build failed"; exit 1; }
 fi
 llama.cpp/build/bin/llama-bench --version 2>&1 | head -2
-get() { curl -fL --retry 5 -C - -s -o models/$2 "$1"; }  # -C -: resume a partial download
+get() { echo "downloading $2 (resumes a partial file)"; curl -fL --retry 5 -C - -# -o models/$2 "$1"; }
 get https://huggingface.co/ggml-org/gpt-oss-20b-GGUF/resolve/15dcfc7e7c608c6161507211ed43c5b590801b4b/gpt-oss-20b-MXFP4.gguf gpt-oss-20b-MXFP4.gguf &
 get https://registry.ollama.ai/v2/library/qwen3-coder/blobs/sha256:1194192cf2a187eb02722edcc3f77b11d21f537048ce04b67ccf8ba78863006a qwen3coder30b.gguf &
 get https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/resolve/4ca720788d1e01f1bff70c033e0d0028fd02e502/Qwen3.8-27B-UD-Q4_K_M.gguf Qwen3.8-27B-UD-Q4_K_M.gguf &
