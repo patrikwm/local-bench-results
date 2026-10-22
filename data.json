@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T11:59+02:00",
+ "generated": "2026-10-22T12:05+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1846,8 +1846,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 22,
-   "attempts": 22,
+   "solved": 23,
+   "attempts": 23,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1936,14 +1936,18 @@
     "l1-rs-bugfix-token-bucket": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-rs-feature-unique-slug": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 87.0,
-   "median_read": 77906.0,
-   "median_written": 4389.5,
-   "decode_tok_s": 58.6,
-   "gpu_w": 149.9,
-   "cpu_w": 177.0,
+   "median_s": 88.0,
+   "median_read": 80732,
+   "median_written": 4425,
+   "decode_tok_s": 58.9,
+   "gpu_w": 147.9,
+   "cpu_w": 175.7,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -4028,8 +4032,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 15,
-   "attempts": 15,
+   "solved": 17,
+   "attempts": 17,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -4090,15 +4094,23 @@
     "l1-java-feature-wordfreq": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-java-tests-jobqueue": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 1,
+     "attempts": 1
     }
    },
    "median_s": 96.0,
    "median_read": 126175,
    "median_written": 6671,
-   "decode_tok_s": 85.1,
+   "decode_tok_s": 84.8,
    "gpu_w": 149.0,
-   "cpu_w": 175.4,
-   "wh_per_solved": 23.62,
+   "cpu_w": 175.0,
+   "wh_per_solved": 27.1,
    "agent_version": "2.0.32"
   },
   {
@@ -4106,8 +4118,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 15,
-   "attempts": 16,
+   "solved": 17,
+   "attempts": 18,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -4172,15 +4184,23 @@
     "l1-java-tests-jobqueue": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-py-bugfix-prorate": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 70.0,
-   "median_read": 57775.5,
-   "median_written": 4470.5,
-   "decode_tok_s": 86.8,
-   "gpu_w": 144.0,
-   "cpu_w": 170.6,
-   "wh_per_solved": 19.75,
+   "median_s": 60.0,
+   "median_read": 46350.0,
+   "median_written": 4109.5,
+   "decode_tok_s": 86.3,
+   "gpu_w": 144.7,
+   "cpu_w": 172.1,
+   "wh_per_solved": 17.98,
    "agent_version": "1.3.0"
   }
  ],
@@ -4205,17 +4225,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 1448,
-  "graded_screening": 1193,
+  "settled": 1453,
+  "graded_screening": 1198,
   "settled_by_front": {
-   "pc": 905,
-   "cloud": 543
+   "pc": 909,
+   "cloud": 544
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 44.5,
-  "eta_hours": 155.9,
+  "pace_per_h": 45.3,
+  "eta_hours": 154.0,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -4329,12 +4349,12 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 22,
-    "attempts_solved": 21,
-    "median_s": 91.0,
+    "attempts": 23,
+    "attempts_solved": 22,
+    "median_s": 102.0,
     "decode_tok_s": 59.2,
-    "gpu_w": 153.9,
-    "cpu_w": 180.2,
+    "gpu_w": 153.8,
+    "cpu_w": 180.0,
     "energy_wh": null,
     "wh_per_solved": null,
     "energy_attempts": 0,
@@ -4344,12 +4364,12 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 49,
-    "attempts_solved": 47,
+    "attempts": 50,
+    "attempts_solved": 48,
     "median_s": 86.0,
     "decode_tok_s": 59.0,
-    "gpu_w": 152.7,
-    "cpu_w": 181.1,
+    "gpu_w": 152.3,
+    "cpu_w": 180.8,
     "energy_wh": null,
     "wh_per_solved": null,
     "energy_attempts": 0,
@@ -4499,30 +4519,30 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 8,
-    "attempts_solved": 8,
-    "median_s": 90.0,
-    "decode_tok_s": 85.2,
-    "gpu_w": 147.9,
-    "cpu_w": 175.9,
-    "energy_wh": 136.9,
-    "wh_per_solved": 17.11,
-    "energy_attempts": 8,
+    "attempts": 11,
+    "attempts_solved": 11,
+    "median_s": 64.0,
+    "decode_tok_s": 85.4,
+    "gpu_w": 150.2,
+    "cpu_w": 175.0,
+    "energy_wh": 151.2,
+    "wh_per_solved": 13.74,
+    "energy_attempts": 11,
     "side_load_attempts": 0
    },
    "l1_v2": {
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 31,
-    "attempts_solved": 30,
-    "median_s": 82.0,
-    "decode_tok_s": 86.3,
+    "attempts": 35,
+    "attempts_solved": 34,
+    "median_s": 80.0,
+    "decode_tok_s": 85.7,
     "gpu_w": 145.7,
-    "cpu_w": 174.2,
-    "energy_wh": 650.6,
-    "wh_per_solved": 21.69,
-    "energy_attempts": 31,
+    "cpu_w": 173.9,
+    "energy_wh": 766.5,
+    "wh_per_solved": 22.54,
+    "energy_attempts": 35,
     "side_load_attempts": 0
    }
   }
@@ -4626,7 +4646,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T11:59+02:00",
+  "updated": "2026-10-22T12:05+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -4867,7 +4887,7 @@
    "10:46:10 chain: qwen38 engine up (coherence ok)",
    "10:46:12 chain: start cloud-qwen38-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 20.76,
+  "hours_up": 20.85,
   "spent_eur": 35.69
  },
  "utility": [],
