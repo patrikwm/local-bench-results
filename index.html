@@ -65,6 +65,9 @@ h2::before { content: "▶ "; color: var(--red-dim); }
 .plan-bar .pct { min-width: 3.5em; text-align: right; }
 .plan-bar .track { display: flex; }
 .plan-bar .fill.cloud { background: repeating-linear-gradient(90deg, var(--red-hi) 0 4px, transparent 4px 6px); }
+.plan-bar .fill.skip, .bar-key i.skip { background: repeating-linear-gradient(135deg, var(--muted) 0 3px, transparent 3px 6px); box-shadow: none; }
+.bar-label { font-family: var(--hud); font-size: 13px; letter-spacing: .08em; color: var(--muted); margin-top: 14px; }
+.bar-label + .plan-bar { margin-top: 2px; }
 .bar-key { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
 .bar-key i { display: inline-block; width: 22px; height: 10px; margin: 0 4px 0 10px; vertical-align: middle; background: repeating-linear-gradient(90deg, var(--red) 0 8px, transparent 8px 11px); }
 .bar-key i.cloud { background: repeating-linear-gradient(90deg, var(--red-hi) 0 4px, transparent 4px 6px); }
@@ -113,9 +116,13 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <div class="sub">MODEL ANALYSIS TERMINAL // CYBERNETIC CODING EVALUATION</div>
     <div class="boot" id="boot" aria-live="polite"></div>
     <div class="stats" id="stats"></div>
-    <div class="plan-bar" id="bar" role="progressbar" aria-label="Screening plan settled, PC and rented GPU together" aria-valuemin="0" aria-valuemax="100" hidden>
-      <span>[</span><div class="track"><div class="fill" style="width:0"></div><div class="fill cloud" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
-    <p class="bar-key" id="bar-key" hidden><i></i>this PC<i class="cloud"></i>rented GPU *</p>
+    <div class="bar-label" id="bar-label" hidden>PROJECT COMPLETION · every planned task-and-agent pair settled, by a test or by a rule</div>
+    <div class="plan-bar" id="bar" role="progressbar" aria-label="Project completion: pairs settled by a test or by a rule" aria-valuemin="0" aria-valuemax="100" hidden>
+      <span>[</span><div class="track"><div class="fill" style="width:0"></div><div class="fill skip" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
+    <div class="bar-label" id="bar2-label" hidden>TEST COMPLETION · pairs actually tested (a verdict from real attempts)</div>
+    <div class="plan-bar" id="bar2" role="progressbar" aria-label="Test completion: pairs actually tested" aria-valuemin="0" aria-valuemax="100" hidden>
+      <span>[</span><div class="track"><div class="fill" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
+    <p class="bar-key" id="bar-key" hidden><i></i>tested<i class="skip"></i>skipped by a rule (failed level, weak model: no L3, level stop)</p>
     <p class="note" id="prog-text"></p>
   </header>
 
@@ -298,16 +305,17 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
 
   if (P) {  // progress of the screening plan (harness/publish_site.py progress(): a maximum that shrinks as models drop out)
     const dur = h => { const d = Math.floor(h / 24), r = Math.round(h - 24 * d); return d ? `${d} d ${r} h` : `${r} h`; };
-    const pct = Math.floor(100 * P.settled / P.planned_max);
-    const bar = $("#bar"); bar.hidden = false; bar.setAttribute("aria-valuenow", pct);
-    const Fr = P.settled_by_front || { pc: P.settled, cloud: 0 };
-    bar.querySelector(".fill").style.width = (100 * Fr.pc / P.planned_max) + "%";
-    bar.querySelector(".fill.cloud").style.width = (100 * Fr.cloud / P.planned_max) + "%";
-    bar.querySelector(".pct").textContent = pct + "%"; $("#bar-key").hidden = false;
+    const full = P.pairs_full || 1, tw = 100 * (P.pairs_tested || 0) / full, sw = 100 * (P.pairs_skipped || 0) / full;
+    const bar = $("#bar"), bar2 = $("#bar2");
+    for (const el of [bar, bar2, $("#bar-label"), $("#bar2-label"), $("#bar-key")]) el.hidden = false;
+    bar.querySelector(".fill").style.width = tw + "%"; bar.querySelector(".fill.skip").style.width = sw + "%";
+    bar.querySelector(".pct").textContent = Math.floor(P.project_pct ?? tw + sw) + "%"; bar.setAttribute("aria-valuenow", Math.floor(P.project_pct ?? tw + sw));
+    bar2.querySelector(".fill").style.width = tw + "%";
+    bar2.querySelector(".pct").textContent = Math.floor(P.test_pct ?? tw) + "%"; bar2.setAttribute("aria-valuenow", Math.floor(P.test_pct ?? tw));
     const ran = (Date.now() - new Date(P.running_since)) / 3.6e6;
     const end = P.eta_hours != null ? new Date(new Date(D.generated).getTime() + P.eta_hours * 3.6e6) : null;
     const F = P.settled_by_front || {};
-    $("#prog-text").textContent = `Screening plan, both fronts together: ${fmt(P.settled)} of at most ${fmt(P.planned_max)} attempt slots settled ` +
+    $("#prog-text").textContent = `Full plan: ${fmt(P.pairs_full)} task-and-agent pairs (every model x every level). Tested: ${fmt(P.pairs_tested)}; skipped by a rule: ${fmt(P.pairs_skipped)}; open: ${fmt(P.pairs_full - P.pairs_tested - P.pairs_skipped)}. Attempt slots, both fronts together: ${fmt(P.settled)} of at most ${fmt(P.planned_max)} attempt slots settled ` +
       `(graded, or skipped because 2 equal results already decided the task): ${fmt(F.pc ?? P.settled)} on this PC, ${fmt(F.cloud ?? 0)} on the rented GPU *. Running for ${dur(ran)}. ` +
       (end ? `Predicted finish at the pace of the last ${P.pace_window_h || 6} h (${P.pace_per_h}/h, both fronts): in at most ${dur(P.eta_hours)}, ` +
              `${end.toISOString().slice(0, 10)}; up to ${dur(P.eta_l4_hours)} of that is L4 (one-night runs), which only models that pass L3 get. ` +
