@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T06:04+02:00",
+ "generated": "2026-10-22T06:05+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1829,6 +1829,28 @@
    "model": "qwen3codernext-q4km-128k-upcloud",
    "variant": "mk",
    "agent": "opencode",
+   "level": 4,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "l4-relay-crashsafe": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 1272.2,
+   "median_read": 20211960,
+   "median_written": 93786,
+   "decode_tok_s": 160.1,
+   "gpu_w": 298.5,
+   "cpu_w": 72.9,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "qwen3codernext-q4km-128k-upcloud",
+   "variant": "mk",
+   "agent": "opencode",
    "level": 11,
    "solved": 1,
    "attempts": 3,
@@ -3111,8 +3133,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 10.7,
-  "eta_hours": 531.2,
+  "pace_per_h": 10.9,
+  "eta_hours": 522.2,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -3455,7 +3477,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T06:04+02:00",
+  "updated": "2026-10-22T06:05+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3587,9 +3609,10 @@
    "22:28:03 chain: start cloud-l3: pi on pve2, opencode on thinkpad",
    "05:42:30 chain: cloud-l3 exit pi=0 opencode=0",
    "05:42:35 chain: cloud-l3 saved (commit, page, backup)",
-   "05:42:37 chain: start cloud-l4: pi on pve2, opencode on pve1"
+   "05:42:37 chain: start cloud-l4: pi on pve2, opencode on pve1",
+   "06:05:09 chain: cloud-l4 exit pi=1 opencode=0"
   ],
-  "hours_up": 14.83,
+  "hours_up": 14.84,
   "spent_eur": 25.52
  },
  "utility": []
