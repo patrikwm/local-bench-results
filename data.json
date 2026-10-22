@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T17:39+02:00",
+ "generated": "2026-10-22T17:53+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -696,8 +696,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 15,
-   "attempts": 23,
+   "solved": 17,
+   "attempts": 27,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -790,14 +790,30 @@
     "l1-rs-feature-unique-slug": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-ts-bugfix-pager": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-ts-bugfix-splitbill": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-ts-feature-wraptext": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 86.0,
-   "median_read": 64562,
-   "median_written": 3907,
-   "decode_tok_s": 57.3,
-   "gpu_w": 158.6,
-   "cpu_w": 191.0,
+   "median_s": 88.0,
+   "median_read": 68636,
+   "median_written": 4023,
+   "decode_tok_s": 58.4,
+   "gpu_w": 157.3,
+   "cpu_w": 189.6,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -807,7 +823,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 8,
-   "attempts": 14,
+   "attempts": 15,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -864,14 +880,18 @@
     "l1-java-bugfix-semver": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-java-feature-wordfreq": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 175.0,
-   "median_read": 58552.0,
-   "median_written": 8177.5,
-   "decode_tok_s": 59.5,
-   "gpu_w": 155.3,
-   "cpu_w": 186.4,
+   "median_s": 102.0,
+   "median_read": 50025,
+   "median_written": 7242,
+   "decode_tok_s": 59.4,
+   "gpu_w": 151.4,
+   "cpu_w": 181.9,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
@@ -2000,6 +2020,40 @@
   {
    "model": "ornith35b-q8-128k-upcloud",
    "variant": "mk",
+   "agent": "opencode",
+   "level": 2,
+   "solved": 4,
+   "attempts": 4,
+   "tasks": {
+    "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cs-bugfix-cronos-leapday": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-go-bugfix-humanize-ftoa": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-java-bugfix-picocli-digitnames": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 131.0,
+   "median_read": 236614.5,
+   "median_written": 8073.0,
+   "decode_tok_s": 97.7,
+   "gpu_w": 96.8,
+   "cpu_w": 151.4,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "ornith35b-q8-128k-upcloud",
+   "variant": "mk",
    "agent": "pi",
    "level": 1,
    "solved": 51,
@@ -2124,6 +2178,52 @@
    "decode_tok_s": 94.4,
    "gpu_w": 155.6,
    "cpu_w": 185.5,
+   "wh_per_solved": null,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "ornith35b-q8-128k-upcloud",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 2,
+   "solved": 7,
+   "attempts": 7,
+   "tasks": {
+    "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cs-bugfix-cronos-leapday": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-go-bugfix-humanize-ftoa": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-java-bugfix-picocli-digitnames": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-py-bugfix-tenacity-retrystate": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-rs-bugfix-clap-lexfind": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-ts-bugfix-rfc6902-escape": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 34.0,
+   "median_read": 38572,
+   "median_written": 1959,
+   "decode_tok_s": 102.8,
+   "gpu_w": 85.9,
+   "cpu_w": 150.8,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
@@ -2434,8 +2534,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 19,
-   "attempts": 23,
+   "solved": 21,
+   "attempts": 25,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -2474,16 +2574,16 @@
      "attempts": 2
     },
     "l2-py-feature-tenacity-stopidle": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-rs-bugfix-clap-lexfind": {
      "solved": 1,
      "attempts": 1
     },
     "l2-rs-feature-clap-rsplit": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-ts-bugfix-rfc6902-escape": {
      "solved": 1,
@@ -2494,12 +2594,12 @@
      "attempts": 1
     }
    },
-   "median_s": 298.1,
-   "median_read": 534145,
-   "median_written": 13456,
+   "median_s": 310.1,
+   "median_read": 540724,
+   "median_written": 14851,
    "decode_tok_s": 53.0,
-   "gpu_w": 149.2,
-   "cpu_w": 181.7,
+   "gpu_w": 147.2,
+   "cpu_w": 177.5,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -2638,8 +2738,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 2,
-   "solved": 25,
-   "attempts": 25,
+   "solved": 27,
+   "attempts": 27,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -2686,12 +2786,12 @@
      "attempts": 2
     },
     "l2-rs-feature-clap-rsplit": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-ts-bugfix-rfc6902-escape": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-ts-feature-rfc6902-touchedpaths": {
      "solved": 1,
@@ -2699,11 +2799,11 @@
     }
    },
    "median_s": 376.1,
-   "median_read": 462462,
+   "median_read": 436600,
    "median_written": 17529,
    "decode_tok_s": 52.1,
-   "gpu_w": 136.8,
-   "cpu_w": 177.3,
+   "gpu_w": 136.4,
+   "cpu_w": 176.9,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
@@ -4138,8 +4238,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 3,
-   "attempts": 3,
+   "solved": 4,
+   "attempts": 4,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -4152,14 +4252,18 @@
     "l2-go-bugfix-humanize-ftoa": {
      "solved": 1,
      "attempts": 1
+    },
+    "l2-java-bugfix-picocli-digitnames": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 2209.0,
-   "median_read": 2972967,
-   "median_written": 82412,
-   "decode_tok_s": 139.2,
-   "gpu_w": 137.1,
-   "cpu_w": 172.6,
+   "median_s": 1920.0,
+   "median_read": 2239079.5,
+   "median_written": 64378.5,
+   "decode_tok_s": 136.7,
+   "gpu_w": 142.4,
+   "cpu_w": 176.2,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -4169,7 +4273,7 @@
    "agent": "pi",
    "level": 2,
    "solved": 9,
-   "attempts": 9,
+   "attempts": 10,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -4191,6 +4295,10 @@
      "solved": 1,
      "attempts": 1
     },
+    "l2-go-feature-humanize-rate": {
+     "solved": 0,
+     "attempts": 1
+    },
     "l2-java-bugfix-picocli-digitnames": {
      "solved": 1,
      "attempts": 1
@@ -4208,12 +4316,12 @@
      "attempts": 1
     }
    },
-   "median_s": 668.7,
-   "median_read": 1029300,
-   "median_written": 13665,
-   "decode_tok_s": 139.0,
-   "gpu_w": 143.7,
-   "cpu_w": 178.0,
+   "median_s": 654.4,
+   "median_read": 859565.5,
+   "median_written": 17241.5,
+   "decode_tok_s": 138.2,
+   "gpu_w": 142.3,
+   "cpu_w": 177.9,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
@@ -4796,8 +4904,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 8,
-   "attempts": 10,
+   "solved": 9,
+   "attempts": 11,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -4827,6 +4935,10 @@
      "solved": 1,
      "attempts": 1
     },
+    "l2-java-feature-picocli-localeconv": {
+     "solved": 1,
+     "attempts": 1
+    },
     "l2-py-bugfix-tenacity-retrystate": {
      "solved": 1,
      "attempts": 1
@@ -4840,12 +4952,12 @@
      "attempts": 1
     }
    },
-   "median_s": 514.1,
-   "median_read": 796337.5,
-   "median_written": 25549.5,
-   "decode_tok_s": 185.8,
-   "gpu_w": 131.6,
-   "cpu_w": 174.6,
+   "median_s": 556.1,
+   "median_read": 811272,
+   "median_written": 25627,
+   "decode_tok_s": 186.5,
+   "gpu_w": 127.6,
+   "cpu_w": 173.1,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -4904,12 +5016,12 @@
    "variant": "mk",
    "agent": "pi",
    "level": 2,
-   "solved": 13,
-   "attempts": 14,
+   "solved": 14,
+   "attempts": 15,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-cpp-feature-cli11-multipleof": {
      "solved": 1,
@@ -4964,12 +5076,12 @@
      "attempts": 1
     }
    },
-   "median_s": 556.1,
-   "median_read": 730517.0,
-   "median_written": 13885.5,
-   "decode_tok_s": 184.1,
-   "gpu_w": 146.6,
-   "cpu_w": 183.8,
+   "median_s": 540.1,
+   "median_read": 675214,
+   "median_written": 13871,
+   "decode_tok_s": 183.3,
+   "gpu_w": 146.3,
+   "cpu_w": 183.7,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
@@ -5108,8 +5220,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 54,
-   "attempts": 56,
+   "solved": 56,
+   "attempts": 58,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -5148,8 +5260,8 @@
      "attempts": 2
     },
     "l1-go-bugfix-logfmt": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l1-go-feature-cfgdiff": {
      "solved": 2,
@@ -5196,8 +5308,8 @@
      "attempts": 2
     },
     "l1-rs-bugfix-token-bucket": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l1-rs-feature-unique-slug": {
      "solved": 2,
@@ -5228,17 +5340,77 @@
    "median_read": 47478.5,
    "median_written": 4213.5,
    "decode_tok_s": 85.7,
-   "gpu_w": 145.6,
-   "cpu_w": 174.4,
-   "wh_per_solved": 17.22,
+   "gpu_w": 146.5,
+   "cpu_w": 174.6,
+   "wh_per_solved": 16.96,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "strata-qwen36-q4kxl-64k",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 3,
+   "attempts": 3,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 78.0,
+   "median_read": 51733,
+   "median_written": 4248,
+   "decode_tok_s": 65.3,
+   "gpu_w": 123.1,
+   "cpu_w": 173.6,
+   "wh_per_solved": 6.47,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-qwen36-q4kxl-64k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 3,
+   "attempts": 3,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 32.0,
+   "median_read": 18773,
+   "median_written": 1598,
+   "decode_tok_s": 69.2,
+   "gpu_w": 117.6,
+   "cpu_w": 170.4,
+   "wh_per_solved": 2.17,
    "agent_version": "1.3.0"
   }
  ],
  "progress": {
   "planned_max": 6258,
-  "eta_realistic_hours": 175.5,
-  "eta_pc_hours": 175.5,
-  "eta_cloud_hours": 12.2,
+  "eta_realistic_hours": 175.2,
+  "eta_pc_hours": 175.2,
+  "eta_cloud_hours": 12.3,
   "rented_servers": 5,
   "eta_realistic_by_level": {
    "L1": 36,
@@ -5250,7 +5422,7 @@
    "L4": 0
   },
   "p_pass": {
-   "1": 0.89,
+   "1": 0.9,
    "2": 0.75,
    "11": 0.33,
    "12": 0.33,
@@ -5258,17 +5430,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 2008,
-  "graded_screening": 1596,
+  "settled": 2045,
+  "graded_screening": 1628,
   "settled_by_front": {
-   "pc": 1040,
-   "cloud": 968
+   "pc": 1048,
+   "cloud": 997
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 87.4,
-  "eta_hours": 96.5,
+  "pace_per_h": 91.7,
+  "eta_hours": 93.9,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -5280,12 +5452,12 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 15,
-    "attempts_solved": 12,
-    "median_s": 86.0,
-    "decode_tok_s": 61.4,
-    "gpu_w": 157.3,
-    "cpu_w": 191.5,
+    "attempts": 16,
+    "attempts_solved": 13,
+    "median_s": 94.0,
+    "decode_tok_s": 60.0,
+    "gpu_w": 157.2,
+    "cpu_w": 191.2,
     "energy_wh": null,
     "wh_per_solved": null,
     "energy_attempts": 0,
@@ -5295,12 +5467,12 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 37,
-    "attempts_solved": 23,
-    "median_s": 90.0,
-    "decode_tok_s": 59.4,
-    "gpu_w": 158.6,
-    "cpu_w": 190.9,
+    "attempts": 42,
+    "attempts_solved": 25,
+    "median_s": 92.0,
+    "decode_tok_s": 58.5,
+    "gpu_w": 157.2,
+    "cpu_w": 189.6,
     "energy_wh": null,
     "wh_per_solved": null,
     "energy_attempts": 0,
@@ -5652,32 +5824,66 @@
    "variant": "mk",
    "l1_v1": {
     "pairs_expected": 24,
-    "pairs_decided": 23,
-    "pairs_passed": 23,
-    "attempts": 48,
-    "attempts_solved": 47,
-    "median_s": 78.0,
-    "decode_tok_s": 84.2,
-    "gpu_w": 151.7,
-    "cpu_w": 177.1,
-    "energy_wh": 835.4,
-    "wh_per_solved": 17.77,
-    "energy_attempts": 48,
+    "pairs_decided": 24,
+    "pairs_passed": 24,
+    "attempts": 49,
+    "attempts_solved": 48,
+    "median_s": 80.0,
+    "decode_tok_s": 84.1,
+    "gpu_w": 151.8,
+    "cpu_w": 177.2,
+    "energy_wh": 849.8,
+    "wh_per_solved": 17.7,
+    "energy_attempts": 49,
     "side_load_attempts": 0
    },
    "l1_v2": {
     "pairs_expected": 56,
-    "pairs_decided": 54,
-    "pairs_passed": 53,
-    "attempts": 113,
-    "attempts_solved": 109,
+    "pairs_decided": 56,
+    "pairs_passed": 55,
+    "attempts": 115,
+    "attempts_solved": 111,
     "median_s": 80.0,
     "decode_tok_s": 85.1,
-    "gpu_w": 148.7,
-    "cpu_w": 176.2,
-    "energy_wh": 2410.0,
-    "wh_per_solved": 22.11,
-    "energy_attempts": 113,
+    "gpu_w": 149.0,
+    "cpu_w": 176.9,
+    "energy_wh": 2429.7,
+    "wh_per_solved": 21.89,
+    "energy_attempts": 115,
+    "side_load_attempts": 0
+   }
+  },
+  {
+   "model": "strata-qwen36-q4kxl-64k",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 6,
+    "attempts_solved": 6,
+    "median_s": 46.0,
+    "decode_tok_s": 65.8,
+    "gpu_w": 122.2,
+    "cpu_w": 172.9,
+    "energy_wh": 25.9,
+    "wh_per_solved": 4.32,
+    "energy_attempts": 6,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 6,
+    "attempts_solved": 6,
+    "median_s": 46.0,
+    "decode_tok_s": 65.8,
+    "gpu_w": 122.2,
+    "cpu_w": 172.9,
+    "energy_wh": 25.9,
+    "wh_per_solved": 4.32,
+    "energy_attempts": 6,
     "side_load_attempts": 0
    }
   }
@@ -5781,7 +5987,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T17:39+02:00",
+  "updated": "2026-10-22T17:53+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -5790,7 +5996,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
-  "credit_eur": 40.113043,
+  "credit_eur": 38.462746,
   "budget_eur": 189.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -5864,7 +6070,8 @@
    "10:45:18 speed gptoss20b start",
    "10:45:32 speed gptoss20b exit 0",
    "10:45:35 speed qwen3coder30b start",
-   "10:45:58 speed qwen3coder30b exit 0"
+   "10:45:58 speed qwen3coder30b exit 0",
+   "17:46:45 engine: qwen38 restarted after the unexplained power-off at 15:44 UTC"
   ],
   "run_events": [
    "15:27:02 start",
@@ -6028,10 +6235,12 @@
    "15:39:38 l40s2: start l40s2-l2: pi on pve1 CT901, opencode on pve2 CT901",
    "15:53:41 l40s3: start l40s3-l1: pi on pve1 CT902, opencode on pve2 CT902",
    "16:01:42 l40s4: start l40s4-l1: pi on pve1 CT903, opencode on pve2 CT903",
-   "17:39:28 l40s3: l40s3-l1 exit pi=0 opencode=3"
+   "17:39:28 l40s3: l40s3-l1 exit pi=0 opencode=3",
+   "17:39:33 l40s3: l40s3-l1 saved",
+   "17:39:33 l40s3: start l40s3-l2: pi on pve1 CT902, opencode on pve2 CT902"
   ],
-  "hours_up": 26.42,
-  "spent_eur": 60.09,
+  "hours_up": 26.65,
+  "spent_eur": 63.06,
   "servers_running": 5
  },
  "utility": [],
