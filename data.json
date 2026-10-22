@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T06:12+02:00",
+ "generated": "2026-10-22T06:32+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1239,7 +1239,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 1,
-   "attempts": 15,
+   "attempts": 16,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1300,15 +1300,19 @@
     "l1-java-feature-wordfreq": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-java-tests-jobqueue": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 898.2,
-   "median_read": 14343,
-   "median_written": 32768,
-   "decode_tok_s": 49.6,
-   "gpu_w": 297.5,
+   "median_s": 1049.2,
+   "median_read": 13160.5,
+   "median_written": 32768.0,
+   "decode_tok_s": 49.5,
+   "gpu_w": 298.2,
    "cpu_w": 72.5,
-   "wh_per_solved": 1100.2,
+   "wh_per_solved": 1226.29,
    "agent_version": "1.3.0"
   },
   {
@@ -1822,6 +1826,28 @@
    "decode_tok_s": 141.7,
    "gpu_w": 285.4,
    "cpu_w": 73.8,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "qwen3codernext-q4km-128k-upcloud",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 4,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "l4-relay-crashsafe": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 830.1,
+   "median_read": 19424285,
+   "median_written": 77579,
+   "decode_tok_s": 162.6,
+   "gpu_w": 293.6,
+   "cpu_w": 73.0,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -3110,17 +3136,17 @@
  ],
  "progress": {
   "planned_max": 6282,
-  "settled": 1192,
-  "graded_screening": 986,
+  "settled": 1193,
+  "graded_screening": 987,
   "settled_by_front": {
-   "pc": 870,
+   "pc": 871,
    "cloud": 322
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 12.9,
-  "eta_hours": 442.3,
+  "pace_per_h": 12.5,
+  "eta_hours": 455.0,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -3215,15 +3241,15 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 30,
+    "attempts": 31,
     "attempts_solved": 2,
-    "median_s": 827.2,
-    "decode_tok_s": 49.5,
-    "gpu_w": 298.8,
+    "median_s": 898.2,
+    "decode_tok_s": 49.2,
+    "gpu_w": 299.0,
     "cpu_w": 72.9,
-    "energy_wh": 2207.2,
-    "wh_per_solved": 1103.59,
-    "energy_attempts": 30,
+    "energy_wh": 2333.3,
+    "wh_per_solved": 1166.63,
+    "energy_attempts": 31,
     "side_load_attempts": 0
    }
   },
@@ -3463,7 +3489,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T06:12+02:00",
+  "updated": "2026-10-22T06:32+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3472,7 +3498,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 44.36,
-  "credit_eur": 18.835554,
+  "credit_eur": 17.185257,
   "budget_eur": 39.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -3601,10 +3627,16 @@
    "06:05:13 chain: done",
    "06:05:22 chain: S re-run starts (corrected mini-probe rule)",
    "06:05:24 chain: start cloud-s1: pi on pve2, opencode on pve1",
-   "06:12:18 chain: cloud-s1 exit pi=0 opencode=0"
+   "06:12:18 chain: cloud-s1 exit pi=0 opencode=0",
+   "06:12:21 chain: cloud-s1 saved (commit, page, backup)",
+   "06:12:21 chain: stops before s2 (ladder rc=3)",
+   "06:12:21 chain: S re-run done",
+   "06:12:25 chain: L4 re-run starts",
+   "06:12:26 chain: start cloud-l4: pi on pve2, opencode on pve1",
+   "06:32:55 chain: cloud-l4 exit pi=1 opencode=0"
   ],
-  "hours_up": 14.96,
-  "spent_eur": 25.52
+  "hours_up": 15.31,
+  "spent_eur": 27.17
  },
  "utility": []
 }
