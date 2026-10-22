@@ -353,7 +353,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
                  qwen3coder30b: "Qwen3-Coder 30B-A3B · MoE, 18.6 GB", gptoss120b: "gpt-oss-120b · MoE, 63 GB" };
     const size = { gptoss20b: 12, qwen38_27b: 16.5, qwen3coder30b: 18.6, gptoss120b: 63 };
     const key = m => m.replace("-", "_");
-    const models = [...new Set(SP.map(r => r.model))].sort((a, b) => (size[key(a)] ?? 99) - (size[key(b)] ?? 99));
+    const models = [...new Set(SP.map(r => r.model))].filter(m => SP.filter(r => r.model === m).length > 1).sort((a, b) => (size[key(a)] ?? 99) - (size[key(b)] ?? 99));  // a comparison needs 2+ machines
     $("#speed-table tbody").innerHTML = models.map(m => {  // one leaderboard per model: the same file, machines ranked by one agent turn
       const rs = SP.filter(r => r.model === m).sort((a, b) => (a.turn_s ?? 1e9) - (b.turn_s ?? 1e9)), best = rs[0].turn_s;
       return `<tr class="group"><td colspan="10">${esc(MI[key(m)] || m)}</td></tr>` + rs.map((r, i) =>
