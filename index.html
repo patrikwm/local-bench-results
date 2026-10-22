@@ -135,6 +135,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <li><strong>Rows with * ran on a rented GPU</strong> (only the model engine was rented; agents and grading ran at home). They show what a model can do, but not what this PC can do: the rented GPU is much faster, which can also turn a time-out into a pass. No energy is measured there.</li>
     <li><strong>"Weak models"</strong> is a budget rule (L3 only for models with 90 %+ at L2), not a verdict on the model.</li>
     <li><strong>Invalid runs are removed, not hidden:</strong> runs broken by our setup (wrong engine, server power-off, harness bug) move to a superseded folder with a note on why, and are run again.</li>
+    <li><strong>Exact files:</strong> every model is pinned to a file and revision. Strata Coder IQ1_M runs the revision pinned by Strata v0.1.44.1 (2026-09-29), before the quantizer's 2026-10-17 update that reduced looping, so its results are for that older file.</li>
     <li><strong>Everything is in the open:</strong> raw data in <a href="data.json">data.json</a>; "COPY PAGE FOR AI" copies this page as text.</li>
   </ul>
 
@@ -147,7 +148,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
       <span>[</span><div class="track"><div class="fill" style="width:0"></div></div><span>]</span><span class="pct"></span></div>
     <p class="note" id="cloud-text"></p>
   </div>
-  <div class="hud scroll"><table id="cloud-levels"><thead><tr><th>Level</th><th>Agent</th><th class="num">Attempts</th><th class="num">Solved</th><th class="num">Median time</th><th class="num">Decode</th></tr></thead><tbody></tbody></table></div>
+  <div class="hud scroll"><table id="cloud-levels"><thead><tr><th>Model</th><th>Level</th><th>Agent</th><th class="num">Attempts</th><th class="num">Solved</th><th class="num">Median time</th><th class="num">Decode</th></tr></thead><tbody></tbody></table></div>
   <h2>CLOUD EVENT LOG</h2>
   <div class="hud scroll"><pre class="note" id="cloud-log" style="margin:0;white-space:pre-wrap"></pre></div>
   </section>
@@ -155,7 +156,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <h2>MISSION</h2>
   <p>Can open-weight AI models, running on one gaming PC, replace a paid cloud AI subscription for real programming work?
      Every model gets the same coding tasks through two open-source terminal agents, <strong>Pi</strong> and <strong>OpenCode</strong>.
-     Each task runs <strong>3 times</strong>; a hidden test suite decides pass or fail. No judges, no vibes.</p>
+     Each task gets <strong>up to 3 attempts</strong> per agent (2 equal results decide it); a hidden test suite decides pass or fail. No judges, no vibes.</p>
 
   <h2>TEST SETUP</h2>
   <div class="hud">
@@ -168,7 +169,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
       <li><strong>Ladder rules:</strong> a model passes a level when it solves at least half of its task-and-agent pairs, a pair counting when 2 of 3 attempts pass. It stops after two failed levels in a row. The next level is first tried with 1 attempt per task, and attempts 2–3 run only if at least 25 % solved. Runs stuck in a loop, or making requests without changing any file, are stopped early; slow runs are not.</li>
       <li><strong>Limits:</strong> L1 20 min per attempt, L2 45 min, L3 3 h. Up to 32K tokens per model answer.</li>
       <li><strong>Measured per attempt:</strong> wall time, requests, tokens read and written, cache hits, decode speed, GPU power (nvidia-smi), CPU package power (Intel RAPL), VRAM, RAM, and energy (GPU + CPU) per solved task.</li>
-      <li><strong>Hardware:</strong> one PC: Intel i7-13700KF, 64 GB DDR5-5600, NVIDIA RTX 4080 16 GB, Windows 11 + WSL2. A MacBook Pro M1 Max 64 GB comes later, and rented GPUs after that.</li>
+      <li><strong>Hardware:</strong> one PC: Intel i7-13700KF, 64 GB DDR5-5600, NVIDIA RTX 4080 16 GB, Windows 11 + WSL2. Also a MacBook Pro M1 Max 64 GB (speed tests and checks) and rented GPU servers (marked *), where only the model engine runs.</li>
     </ul>
   </div>
 
@@ -189,8 +190,8 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <section id="speed" hidden>
   <h2>SPEED · SAME FILE, THREE MACHINES</h2>
   <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Speeds are tokens per second (a token is about 4 characters of code).</p>
-  <p class="note"><b>Agent turn</b> = seconds for one model call deep in an agent task: read the new part of the prompt, then write 500 tokens at 16k context. The engine keeps the conversation in its prompt cache, so only the new part is read: over 1,339 of our agent attempts 94 % of prompt tokens came from the cache, a median of 671 new tokens per call (671 / prefill 512 + 500 / generate at 16k; ranked by this). <b>Cold 16k</b> = the same with all 16,384 tokens read from scratch (first call, or after the cache is lost): there prefill speed dominates and the Mac falls behind. <b>Prefill</b> = how fast the model reads the prompt. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it. GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. One leaderboard per model (the same file on each machine); "vs #1" = how many times longer than the fastest machine for that model. Models from small to large.</p>
-  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Machine</th><th class="num">Agent turn</th><th class="num">vs #1</th><th class="num">Cold 16k</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
+  <p class="note"><b>Estimated warm call</b> = seconds for one model call deep in an agent task: read the new part of the prompt, then write 500 tokens at 16k context. The engine keeps the conversation in its prompt cache, so only the new part is read: over 1,339 of our agent attempts 94 % of prompt tokens came from the cache, a median of 671 new tokens per call (671 / prefill 512 + 500 / generate at 16k; ranked by this). An estimate: prefill 512 is measured on an empty context, while a real call adds its new tokens to a 16k one; differences under ~10 % are a tie. <b>Cold 16k</b> = the same with all 16,384 tokens read from scratch (first call, or after the cache is lost): there prefill speed dominates and the Mac falls behind. <b>Prefill</b> = how fast the model reads the prompt. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it. GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. One leaderboard per model (the same file on each machine); "vs #1" = how many times longer than the fastest machine for that model. Models from small to large.</p>
+  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Machine</th><th class="num">Est. warm call</th><th class="num">vs #1</th><th class="num">Cold 16k</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
@@ -201,7 +202,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <th class="num">GPU power</th><th class="num">CPU power</th><th class="num">Energy / solved</th>
   </tr></thead><tbody></tbody></table></div>
   <p class="note" id="rented-note">* Rented hardware: the engine ran on a rented GPU server (UpCloud, Helsinki: NVIDIA RTX PRO 6000 96 GB, or NVIDIA L40S 48 GB where the row says L40S) with the same model file, engine build, sampling, agents and grading as the PC rows; only the engine was remote (agents and grading in local sandboxes: PC, ThinkPad or Proxmox containers). Its pass/fail results preview a model the PC has not run yet and will be checked against the PC run. Its times are not comparable (much faster GPU, and a faster engine can finish a task inside the time limit that the PC would miss) and its energy and watts are not measured.</p>
-  <p class="note">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt = all measured GPU + CPU energy, failed attempts included, divided by the solved attempts among them (CPU power is measured since 2026-10-20 21:00). Attempts that ran next to task building in the same machine are counted in the tooltip (side load: speed slightly lower, pass/fail unaffected).</p>
+  <p class="note">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt = all measured GPU + CPU energy, failed attempts included, divided by the solved attempts among them (CPU power is measured since 2026-10-20 21:00). Attempts that ran next to task building in the same machine are counted in the tooltip (side load: speed slightly lower; pass/fail could change where a task is close to its time limit).</p>
   <p class="note">Power: GPU (nvidia-smi) and CPU package (Intel RAPL), means over each attempt. Energy per solved task = all attempts' GPU + CPU energy, failed ones included, divided by the tasks solved. Not wall power: RAM, board and PSU losses are not in it. CPU power is measured from 2026-10-20 21:00 on.</p>
 
   <section id="weak" hidden>
@@ -293,6 +294,8 @@ function boot(lines) {
 fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   const L1 = D.rows.filter(r => r.level === 1);
   const main = L1.filter(r => r.variant === "mk");
+  // models stopped by a fault in our setup, not by the model (results superseded, see results/agents/superseded/README.md)
+  const BLOCKED = { "qwen3-14b-64k": "PC engine fault (the CUDA path ignored the prompt; CPU and Mac answer correctly). Results superseded; re-run after the fix." };
   const rented = D.rented || [];  // rented-GPU rows (*): in the ranking, not in the PC counts
   const keys = Object.keys(D.models).filter(k => !rented.includes(k));
   const totalAtt = D.rows.reduce((a, r) => a + r.attempts, 0);
@@ -329,10 +332,10 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     const F = P.settled_by_front || {};
     $("#prog-text").textContent = `Full plan: ${fmt(P.pairs_full)} task-and-agent pairs (every model x every level). Tested: ${fmt(P.pairs_tested)}; skipped by a rule: ${fmt(P.pairs_skipped)}; open: ${fmt(P.pairs_full - P.pairs_tested - P.pairs_skipped)}. Attempt slots, both fronts together: ${fmt(P.settled)} of at most ${fmt(P.planned_max)} attempt slots settled ` +
       `(graded, or skipped because 2 equal results already decided the task): ${fmt(F.pc ?? P.settled)} on this PC, ${fmt(F.cloud ?? 0)} on the rented GPU *. Running for ${dur(ran)}. ` +
-      (end ? `Predicted finish at the pace of the last ${P.pace_window_h || 6} h (${P.pace_per_h}/h, both fronts): in at most ${dur(P.eta_hours)}, ` +
+      (end ? `Recent-rate projection (pace of the last ${P.pace_window_h || 6} h, ${P.pace_per_h}/h, both fronts; not an upper bound): ${dur(P.eta_hours)}, ` +
              `${end.toISOString().slice(0, 10)}; up to ${dur(P.eta_l4_hours)} of that is L4 (one-night runs), which only models that pass L3 get. ` +
              `The estimate shrinks as models drop out of the ladder.` : "") +
-      (P.eta_realistic_hours != null ? ` Realistic estimate: done in about ${dur(P.eta_realistic_hours)}. ` +
+      (P.eta_realistic_hours != null ? ` Remaining-work estimate (planning assumption from measured times per level): done in about ${dur(P.eta_realistic_hours)}. ` +
              `This PC has about ${dur(P.eta_pc_hours ?? P.eta_realistic_hours)} of work left; the ${P.rented_servers || 1} rented servers * about ${dur(P.eta_cloud_hours ?? 0)} ` +
              `(they run in parallel, two agent lanes each; the slower side decides). A model reaches a level with the pass rate of the models decided so far; ` +
              `an attempt takes its level's measured minutes on that machine. By level: ` +
@@ -353,8 +356,8 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     $("#cloud-text").textContent = `${C.provider} ${C.zone}, ${C.plan} (${C.gpu}), €${fmt(C.price_eur_h, 2)}/h incl. disk and IP, excl. VAT. ` +
       `Spent = the account's credit drop since the start (€${fmt(C.start_credit_eur, 2)}); the run stops by itself at the budget. Status ${C.updated}.`;
     const lvl = l => l > 10 ? `S${l - 10}` : `L${l}`;
-    $("#cloud-levels tbody").innerHTML = cr.sort((a, b) => a.level - b.level || a.agent.localeCompare(b.agent)).map(r =>
-      `<tr><td>${lvl(r.level)}</td><td>${esc(r.agent)}</td><td class="num">${r.attempts}</td><td class="num">${r.solved} (${Math.round(100 * r.solved / r.attempts)}%)</td>` +
+    $("#cloud-levels tbody").innerHTML = cr.sort((a, b) => a.model.localeCompare(b.model) || a.level - b.level || a.agent.localeCompare(b.agent)).map(r =>
+      `<tr><td>${esc((D.models[r.model] || {}).name || r.model)}</td><td>${lvl(r.level)}</td><td>${esc(r.agent)}</td><td class="num">${r.attempts}</td><td class="num">${r.solved} (${Math.round(100 * r.solved / r.attempts)}%)</td>` +
       `<td class="num">${r.median_s == null ? "–" : fmt(r.median_s) + " s"}</td><td class="num">${r.decode_tok_s == null ? "–" : fmt(r.decode_tok_s) + " tok/s"}</td></tr>`).join("");
     const ev = [...(C.vm_events || []).map(e => `VM  ${e}`), ...(C.run_events || []).map(e => `RUN ${e}`)];
     $("#cloud-log").textContent = ev.slice(-40).join("\n") || "no events yet";
@@ -411,7 +414,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   let rank = 0;
   $("#rank tbody").innerHTML = rows.map(r => {
     const head = `<td>${esc(r.m.name)}</td><td>${r.m.quant}</td><td class="num">${r.m.size_gb} GB</td><td>${esc(r.m.engine)}</td>`;
-    if (r.score < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="9" class="pending">AWAITING ANALYSIS</td></tr>`;
+    if (r.score < 0) return `<tr><td class="num rank">··</td>${head}<td colspan="9" class="pending">${BLOCKED[r.k] ? "BLOCKED: " + esc(BLOCKED[r.k]) : "AWAITING ANALYSIS"}</td></tr>`;
     const v2 = r.v2, v1 = r.v1, pct = Math.round(100 * r.score);
     const tip = `${esc(r.m.name)}: ${v2.pairs_passed} of ${v2.pairs_decided} decided pairs pass; ${v2.attempts_solved}/${v2.attempts} attempts solved; ${v2.side_load_attempts} attempts with side load; energy measured on ${v2.energy_attempts} attempts`;
     return `<tr title="${tip}"><td class="num rank">${r.run ? "··" : ++rank}</td>${head}
@@ -464,7 +467,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   $("#models tbody").innerHTML = keys.map(k => {
     const m = D.models[k];
     const x = rows.find(x => x.k === k);
-    const st = !x || x.score < 0 ? "waiting" : x.run ? "running L1" : "L1 done";
+    const st = BLOCKED[k] ? "blocked: " + BLOCKED[k] : !x || x.score < 0 ? "waiting" : x.run ? "running L1" : "L1 done";
     return `<tr><td>${esc(m.name)}</td><td>${m.quant}</td><td class="num">${m.size_gb} GB</td><td>${esc(m.engine)}</td><td>${st}</td></tr>`;
   }).join("");
   $("#tasks tbody").innerHTML = (D.tasks || []).map(t =>
