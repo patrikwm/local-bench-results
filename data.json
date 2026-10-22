@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T15:36+02:00",
+ "generated": "2026-10-22T15:38+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4595,8 +4595,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 48.9,
-  "eta_hours": 141.6,
+  "pace_per_h": 48.3,
+  "eta_hours": 142.8,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -5041,17 +5041,17 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T15:36+02:00",
+  "updated": "2026-10-22T15:38+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
-  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GB",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GB + 2x NVIDIA L40S 48 GB",
   "state": "started",
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
   "credit_eur": 43.474573,
-  "budget_eur": 79.36,
+  "budget_eur": 189.36,
   "vm_events_clock": "local",
   "vm_events": [
    "15:15:46 safety power-off in 5 h armed",
@@ -5286,8 +5286,9 @@
    "14:03:44 chain: start cloud-l2: pi on pve2, opencode on pve1",
    "15:11:44 l40s1: start l40s1-l2: pi on thinkpad, opencode on pc ai-bench-check"
   ],
-  "hours_up": 24.36,
-  "spent_eur": 40.89
+  "hours_up": 24.41,
+  "spent_eur": 46.17,
+  "servers_running": 3
  },
  "utility": [],
  "speed": [
