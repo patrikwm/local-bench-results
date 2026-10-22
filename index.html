@@ -185,6 +185,12 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <p class="note">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt = all measured GPU + CPU energy, failed attempts included, divided by the solved attempts among them (CPU power is measured since 2026-10-20 21:00). Attempts that ran next to task building in the same machine are counted in the tooltip (side load: speed slightly lower, pass/fail unaffected).</p>
   <p class="note">Power: GPU (nvidia-smi) and CPU package (Intel RAPL), means over each attempt. Energy per solved task = all attempts' GPU + CPU energy, failed ones included, divided by the tasks solved. Not wall power: RAM, board and PSU losses are not in it. CPU power is measured from 2026-10-20 21:00 on.</p>
 
+  <section id="weak" hidden>
+  <h2>WEAK MODELS · NO L3</h2>
+  <p class="note">L3 (fresh, hard tasks) costs the most time, so only strong models get it: a model that failed L1 or L2, or passed L2 with less than 85 % of its task-and-agent pairs, stops here (rule since 2026-10-22; results it already has stay valid). Pairs = passed / decided (2 of 3 attempts decide a pair). The list grows as models finish L2.</p>
+  <div class="hud scroll"><table id="weak-table"><thead><tr><th>Model</th><th class="num">L1 pairs</th><th class="num">L2 pairs</th><th>Stops because</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
   <h2>THREAT MATRIX · TASKS × MODELS</h2>
   <p class="note">Attempts solved per task, both agents together (out of 6). Brighter red means more misses: the threats.</p>
   <div class="hud scroll"><table class="matrix" id="matrix"></table>
@@ -362,6 +368,14 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
         `<td class="num">${r.turn_s == null || !best ? "–" : fmt(r.turn_s / best, 1) + "×"}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
         `<td class="num">${t(r.pp16k)}</td><td class="num">${t(r.tg)}</td><td class="num">${t(r.tg_16k)}</td><td class="num">${r.gpu_w == null ? "–" : fmt(r.gpu_w) + " W"}</td></tr>`).join("");
     }).join("");
+  }
+
+  const W = D.weak || [];
+  if (W.length) {  // weak models (harness/publish_site.py weak())
+    $("#weak").hidden = false;
+    const pr = ([ok, n]) => n ? `${ok} / ${n} (${Math.round(100 * ok / n)} %)` : "–";
+    $("#weak-table tbody").innerHTML = W.map(w => `<tr><td>${esc((D.models[w.model] || {}).name || w.model)}</td>` +
+      `<td class="num">${pr(w.l1)}</td><td class="num">${pr(w.l2)}</td><td>${esc(w.why)}</td></tr>`).join("");
   }
 
   // ranking (data.json models_summary: computed once in harness/publish_site.py)
