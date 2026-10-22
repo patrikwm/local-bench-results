@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T10:34+02:00",
+ "generated": "2026-10-22T10:35+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4519,7 +4519,7 @@
    "",
    "10:34:20 chain: qwen38: engine failed the coherence check, model skipped"
   ],
-  "hours_up": 19.34,
+  "hours_up": 19.35,
   "spent_eur": 34.02
  },
  "utility": [],
