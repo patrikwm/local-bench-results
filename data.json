@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T03:34+02:00",
+ "generated": "2026-10-22T04:04+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1161,7 +1161,7 @@
    "agent": "opencode",
    "level": 1,
    "solved": 1,
-   "attempts": 10,
+   "attempts": 11,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1202,15 +1202,19 @@
     "l1-go-bugfix-logfmt": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-go-feature-cfgdiff": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 346.1,
-   "median_read": 20245.0,
-   "median_written": 15539.5,
+   "median_s": 546.1,
+   "median_read": 19074,
+   "median_written": 8050,
    "decode_tok_s": 52.2,
-   "gpu_w": 283.5,
-   "cpu_w": 73.4,
-   "wh_per_solved": 523.42,
+   "gpu_w": 296.0,
+   "cpu_w": 73.6,
+   "wh_per_solved": 649.81,
    "agent_version": "2.0.32"
   },
   {
@@ -3066,17 +3070,17 @@
  ],
  "progress": {
   "planned_max": 6330,
-  "settled": 1152,
-  "graded_screening": 956,
+  "settled": 1153,
+  "graded_screening": 957,
   "settled_by_front": {
-   "pc": 861,
+   "pc": 862,
    "cloud": 291
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 33.1,
-  "eta_hours": 204.1,
+  "pace_per_h": 27.9,
+  "eta_hours": 233.3,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -3171,15 +3175,15 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 21,
+    "attempts": 22,
     "attempts_solved": 2,
-    "median_s": 546.1,
+    "median_s": 627.1,
     "decode_tok_s": 49.0,
-    "gpu_w": 296.0,
-    "cpu_w": 72.9,
-    "energy_wh": 1237.4,
-    "wh_per_solved": 618.68,
-    "energy_attempts": 21,
+    "gpu_w": 296.1,
+    "cpu_w": 73.0,
+    "energy_wh": 1363.8,
+    "wh_per_solved": 681.88,
+    "energy_attempts": 22,
     "side_load_attempts": 0
    }
   },
@@ -3419,7 +3423,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T03:34+02:00",
+  "updated": "2026-10-22T04:04+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3428,7 +3432,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 44.36,
-  "credit_eur": 23.893881,
+  "credit_eur": 22.238771999999997,
   "budget_eur": 39.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -3550,8 +3554,8 @@
    "22:28:02 chain: stops before s2 (ladder rc=3)",
    "22:28:03 chain: start cloud-l3: pi on pve2, opencode on thinkpad"
   ],
-  "hours_up": 12.33,
-  "spent_eur": 20.47
+  "hours_up": 12.83,
+  "spent_eur": 22.12
  },
  "utility": []
 }
