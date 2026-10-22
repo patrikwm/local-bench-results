@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T05:04+02:00",
+ "generated": "2026-10-22T05:34+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1161,7 +1161,7 @@
    "agent": "opencode",
    "level": 1,
    "solved": 1,
-   "attempts": 13,
+   "attempts": 14,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1214,15 +1214,19 @@
     "l1-java-bugfix-isbn": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-java-bugfix-semver": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 720.1,
-   "median_read": 19074,
-   "median_written": 8050,
-   "decode_tok_s": 47.8,
-   "gpu_w": 298.6,
-   "cpu_w": 73.3,
-   "wh_per_solved": 853.93,
+   "median_s": 738.1,
+   "median_read": 16611.0,
+   "median_written": 15539.5,
+   "decode_tok_s": 47.6,
+   "gpu_w": 299.6,
+   "cpu_w": 73.4,
+   "wh_per_solved": 981.35,
    "agent_version": "2.0.32"
   },
   {
@@ -1769,7 +1773,7 @@
    "agent": "opencode",
    "level": 3,
    "solved": 6,
-   "attempts": 15,
+   "attempts": 16,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 0,
@@ -1801,14 +1805,14 @@
     },
     "l3-ts-cancel-pqueue-abort": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     }
    },
-   "median_s": 294.1,
-   "median_read": 3743809,
-   "median_written": 30931,
-   "decode_tok_s": 141.2,
-   "gpu_w": 272.9,
+   "median_s": 306.1,
+   "median_read": 4174535.5,
+   "median_written": 31776.0,
+   "decode_tok_s": 138.8,
+   "gpu_w": 277.7,
    "cpu_w": 73.9,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
@@ -2053,11 +2057,11 @@
    "agent": "pi",
    "level": 3,
    "solved": 6,
-   "attempts": 15,
+   "attempts": 17,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 1,
-     "attempts": 2
+     "attempts": 3
     },
     "l3-cs-cancel-asyncex-waitqueue": {
      "solved": 0,
@@ -2085,15 +2089,15 @@
     },
     "l3-ts-cancel-pqueue-abort": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     }
    },
    "median_s": 390.1,
-   "median_read": 3965712,
-   "median_written": 42000,
+   "median_read": 3746315,
+   "median_written": 30859,
    "decode_tok_s": 139.8,
-   "gpu_w": 271.7,
-   "cpu_w": 74.6,
+   "gpu_w": 276.5,
+   "cpu_w": 73.8,
    "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
@@ -3090,17 +3094,17 @@
  ],
  "progress": {
   "planned_max": 6330,
-  "settled": 1165,
-  "graded_screening": 966,
+  "settled": 1171,
+  "graded_screening": 970,
   "settled_by_front": {
-   "pc": 867,
-   "cloud": 298
+   "pc": 868,
+   "cloud": 303
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 16.5,
-  "eta_hours": 361.0,
+  "pace_per_h": 10.9,
+  "eta_hours": 522.3,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -3195,15 +3199,15 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 27,
+    "attempts": 28,
     "attempts_solved": 2,
-    "median_s": 720.1,
-    "decode_tok_s": 49.5,
-    "gpu_w": 297.5,
-    "cpu_w": 72.9,
-    "energy_wh": 1828.3,
-    "wh_per_solved": 914.17,
-    "energy_attempts": 27,
+    "median_s": 738.1,
+    "decode_tok_s": 49.2,
+    "gpu_w": 298.1,
+    "cpu_w": 73.0,
+    "energy_wh": 1955.8,
+    "wh_per_solved": 977.88,
+    "energy_attempts": 28,
     "side_load_attempts": 0
    }
   },
@@ -3443,7 +3447,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T05:04+02:00",
+  "updated": "2026-10-22T05:34+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3452,7 +3456,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 44.36,
-  "credit_eur": 20.583663,
+  "credit_eur": 20.490662999999998,
   "budget_eur": 39.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -3574,8 +3578,8 @@
    "22:28:02 chain: stops before s2 (ladder rc=3)",
    "22:28:03 chain: start cloud-l3: pi on pve2, opencode on thinkpad"
   ],
-  "hours_up": 13.83,
-  "spent_eur": 23.78
+  "hours_up": 14.33,
+  "spent_eur": 23.87
  },
  "utility": []
 }
