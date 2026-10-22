@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T06:32+02:00",
+ "generated": "2026-10-22T06:34+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3489,7 +3489,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T06:32+02:00",
+  "updated": "2026-10-22T06:34+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3633,9 +3633,11 @@
    "06:12:21 chain: S re-run done",
    "06:12:25 chain: L4 re-run starts",
    "06:12:26 chain: start cloud-l4: pi on pve2, opencode on pve1",
-   "06:32:55 chain: cloud-l4 exit pi=1 opencode=0"
+   "06:32:55 chain: cloud-l4 exit pi=1 opencode=0",
+   "06:32:58 chain: cloud-l4 saved (commit, page, backup)",
+   "06:32:59 chain: L4 re-run done"
   ],
-  "hours_up": 15.31,
+  "hours_up": 15.34,
   "spent_eur": 27.17
  },
  "utility": []
