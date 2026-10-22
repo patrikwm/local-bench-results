@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T07:04+02:00",
+ "generated": "2026-10-22T07:34+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -115,6 +115,12 @@
    "quant": "UD-IQ4_XS",
    "size_gb": 58,
    "engine": "llama.cpp b11685, rented GPU *"
+  },
+  "gptoss120b-a2-128k-upcloud": {
+   "name": "gpt-oss-120b *",
+   "quant": "MXFP4",
+   "size_gb": 60,
+   "engine": "llama.cpp b11685, rented GPU *"
   }
  },
  "variants": {
@@ -125,6 +131,7 @@
   "mk-plan": "maker's + plan-first prompt"
  },
  "rented": [
+  "gptoss120b-a2-128k-upcloud",
   "laguna-s21-iq4xs-64k-upcloud",
   "qwen3codernext-q4km-128k-upcloud"
  ],
@@ -903,6 +910,110 @@
    "agent_version": "1.3.0"
   },
   {
+   "model": "gptoss120b-a2-128k-upcloud",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 2,
+   "solved": 9,
+   "attempts": 9,
+   "tasks": {
+    "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cpp-feature-cli11-multipleof": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cs-bugfix-cronos-leapday": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cs-feature-cronos-ismatch": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-go-bugfix-humanize-ftoa": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-java-bugfix-picocli-digitnames": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-py-bugfix-tenacity-retrystate": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-rs-bugfix-clap-lexfind": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-ts-bugfix-rfc6902-escape": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 28.0,
+   "median_read": 342388,
+   "median_written": 2189,
+   "decode_tok_s": 163.8,
+   "gpu_w": 284.6,
+   "cpu_w": 73.0,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "gptoss120b-a2-128k-upcloud",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 2,
+   "solved": 7,
+   "attempts": 8,
+   "tasks": {
+    "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cpp-feature-cli11-multipleof": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l2-cs-bugfix-cronos-leapday": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-go-bugfix-humanize-ftoa": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-java-bugfix-picocli-digitnames": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-py-bugfix-tenacity-retrystate": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-rs-bugfix-clap-lexfind": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-ts-bugfix-rfc6902-escape": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 16.0,
+   "median_read": 52155.0,
+   "median_written": 1000.5,
+   "decode_tok_s": 184.8,
+   "gpu_w": 284.3,
+   "cpu_w": 73.4,
+   "wh_per_solved": null,
+   "agent_version": "1.3.0"
+  },
+  {
    "model": "gptoss20b-128k",
    "variant": "mk",
    "agent": "opencode",
@@ -1168,7 +1279,7 @@
    "agent": "opencode",
    "level": 1,
    "solved": 1,
-   "attempts": 16,
+   "attempts": 17,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1233,15 +1344,19 @@
     "l1-java-tests-jobqueue": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 842.2,
-   "median_read": 13747.5,
-   "median_written": 7008.0,
+   "median_s": 928.2,
+   "median_read": 13347,
+   "median_written": 5966,
    "decode_tok_s": 47.6,
    "gpu_w": 300.6,
-   "cpu_w": 73.4,
-   "wh_per_solved": 1231.76,
+   "cpu_w": 73.6,
+   "wh_per_solved": 1355.25,
    "agent_version": "2.0.32"
   },
   {
@@ -1250,7 +1365,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 1,
-   "attempts": 16,
+   "attempts": 17,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -1315,15 +1430,19 @@
     "l1-java-tests-jobqueue": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-py-bugfix-duration-ms": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 1049.2,
-   "median_read": 13160.5,
-   "median_written": 32768.0,
+   "median_s": 1200.2,
+   "median_read": 11978,
+   "median_written": 32768,
    "decode_tok_s": 49.5,
-   "gpu_w": 298.2,
+   "gpu_w": 297.5,
    "cpu_w": 72.5,
-   "wh_per_solved": 1226.29,
+   "wh_per_solved": 1343.78,
    "agent_version": "1.3.0"
   },
   {
@@ -3147,17 +3266,17 @@
  ],
  "progress": {
   "planned_max": 6282,
-  "settled": 1194,
-  "graded_screening": 988,
+  "settled": 1213,
+  "graded_screening": 1007,
   "settled_by_front": {
-   "pc": 872,
-   "cloud": 322
+   "pc": 874,
+   "cloud": 339
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 11.1,
-  "eta_hours": 506.7,
+  "pace_per_h": 14.1,
+  "eta_hours": 408.3,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -3237,30 +3356,30 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 8,
+    "attempts": 10,
     "attempts_solved": 2,
-    "median_s": 191.0,
-    "decode_tok_s": 58.4,
-    "gpu_w": 267.9,
-    "cpu_w": 72.7,
-    "energy_wh": 360.0,
-    "wh_per_solved": 179.99,
-    "energy_attempts": 8,
+    "median_s": 412.1,
+    "decode_tok_s": 57.0,
+    "gpu_w": 275.6,
+    "cpu_w": 73.2,
+    "energy_wh": 601.0,
+    "wh_per_solved": 300.48,
+    "energy_attempts": 10,
     "side_load_attempts": 0
    },
    "l1_v2": {
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 32,
+    "attempts": 34,
     "attempts_solved": 2,
-    "median_s": 913.2,
-    "decode_tok_s": 49.2,
-    "gpu_w": 299.0,
-    "cpu_w": 73.0,
-    "energy_wh": 2458.1,
-    "wh_per_solved": 1229.03,
-    "energy_attempts": 32,
+    "median_s": 1064.2,
+    "decode_tok_s": 49.0,
+    "gpu_w": 298.8,
+    "cpu_w": 73.2,
+    "energy_wh": 2699.0,
+    "wh_per_solved": 1349.52,
+    "energy_attempts": 34,
     "side_load_attempts": 0
    }
   },
@@ -3500,7 +3619,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T07:04+02:00",
+  "updated": "2026-10-22T07:34+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3509,7 +3628,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 44.36,
-  "credit_eur": 17.133945,
+  "credit_eur": 15.483648,
   "budget_eur": 39.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -3533,7 +3652,11 @@
    "06:36:17 engine: Laguna S 2.1 (2 slots)",
    "06:59:45 laguna fork 06f8cebd7 clone",
    "06:59:51 laguna fork build rc done",
-   "07:02:11 laguna fork build done"
+   "07:02:11 laguna fork build done",
+   "07:13:32 fetch gptoss start",
+   "07:22:23 fetch gptoss done (60G)",
+   "07:22:55 fetch gptoss sha256 ok",
+   "07:23:13 engine: gpt-oss-120b (2 slots)"
   ],
   "run_events": [
    "15:27:02 start",
@@ -3657,10 +3780,16 @@
    "06:53:31 chain: stops before l2 (ladder rc=3)",
    "06:53:31 chain: stops before s1 (ladder rc=3)",
    "06:53:31 chain: stops before l3 (ladder rc=3)",
-   "06:53:31 chain: laguna chain done (L4 only by hand)"
+   "06:53:31 chain: laguna chain done (L4 only by hand)",
+   "slots 2 n_ctx per slot 131072",
+   "70751 MiB",
+   "0.04.699.275 I srv  llama_server: model loaded",
+   "0.04.699.285 I srv  llama_server: listening on http://127.0.0.1:8080",
+   "07:23:13 chain: gpt-oss engine up",
+   "07:23:14 chain: start cloud-l2: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 15.84,
-  "spent_eur": 27.23
+  "hours_up": 16.34,
+  "spent_eur": 28.88
  },
  "utility": []
 }
