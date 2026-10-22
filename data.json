@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T10:35+02:00",
+ "generated": "2026-10-22T10:46+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1839,6 +1839,54 @@
    "gpu_w": 297.5,
    "cpu_w": 72.5,
    "wh_per_solved": 1343.78,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "qwen38-27b-q4km-64k-upcloud",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 68.0,
+   "median_read": 45393,
+   "median_written": 3608,
+   "decode_tok_s": 60.4,
+   "gpu_w": 156.4,
+   "cpu_w": 185.8,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "qwen38-27b-q4km-64k-upcloud",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 2,
+   "attempts": 2,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 70.0,
+   "median_read": 41053.5,
+   "median_written": 3821.5,
+   "decode_tok_s": 60.0,
+   "gpu_w": 158.1,
+   "cpu_w": 184.9,
+   "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
   {
@@ -3796,52 +3844,6 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 7,
-   "attempts": 7,
-   "tasks": {
-    "l1-cpp-bugfix-bytesize": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cpp-bugfix-recentfiles": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cpp-feature-mdtable": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cpp-tests-shipping": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cs-bugfix-csvquote": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cs-bugfix-invoiceno": {
-     "solved": 1,
-     "attempts": 1
-    },
-    "l1-cs-feature-discounts": {
-     "solved": 1,
-     "attempts": 1
-    }
-   },
-   "median_s": 80.0,
-   "median_read": 120502,
-   "median_written": 5201,
-   "decode_tok_s": 83.9,
-   "gpu_w": 150.2,
-   "cpu_w": 172.1,
-   "wh_per_solved": 13.41,
-   "agent_version": "2.0.32"
-  },
-  {
-   "model": "strata-iq3s-64k",
-   "variant": "mk",
-   "agent": "pi",
-   "level": 1,
    "solved": 8,
    "attempts": 8,
    "tasks": {
@@ -3878,26 +3880,80 @@
      "attempts": 1
     }
    },
-   "median_s": 72.0,
-   "median_read": 57509.5,
-   "median_written": 4582.5,
-   "decode_tok_s": 84.5,
-   "gpu_w": 141.1,
-   "cpu_w": 168.8,
-   "wh_per_solved": 21.2,
+   "median_s": 97.0,
+   "median_read": 147494.0,
+   "median_written": 6464.0,
+   "decode_tok_s": 84.3,
+   "gpu_w": 150.9,
+   "cpu_w": 173.6,
+   "wh_per_solved": 26.12,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq3s-64k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 9,
+   "attempts": 9,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-bugfix-recentfiles": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cpp-tests-shipping": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-bugfix-csvquote": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-bugfix-invoiceno": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-feature-discounts": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-tests-daybook": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 60.0,
+   "median_read": 46084,
+   "median_written": 4065,
+   "decode_tok_s": 86.3,
+   "gpu_w": 142.2,
+   "cpu_w": 169.3,
+   "wh_per_solved": 19.24,
    "agent_version": "1.3.0"
   }
  ],
  "progress": {
   "planned_max": 6258,
-  "eta_realistic_hours": 767.3,
+  "eta_realistic_hours": 756.9,
   "eta_realistic_by_level": {
    "L1": 78,
-   "L2": 157,
+   "L2": 155,
    "S1": 14,
    "S2": 6,
    "S3": 44,
-   "L3": 460,
+   "L3": 452,
    "L4": 7
   },
   "p_pass": {
@@ -3909,17 +3965,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 1383,
-  "graded_screening": 1128,
+  "settled": 1388,
+  "graded_screening": 1133,
   "settled_by_front": {
-   "pc": 889,
-   "cloud": 494
+   "pc": 891,
+   "cloud": 497
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 33.9,
-  "eta_hours": 191.5,
+  "pace_per_h": 34.7,
+  "eta_hours": 188.1,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -4023,6 +4079,40 @@
     "energy_wh": 2699.0,
     "wh_per_solved": 1349.52,
     "energy_attempts": 34,
+    "side_load_attempts": 0
+   }
+  },
+  {
+   "model": "qwen38-27b-q4km-64k-upcloud",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 3,
+    "attempts_solved": 3,
+    "median_s": 68.0,
+    "decode_tok_s": 60.4,
+    "gpu_w": 156.4,
+    "cpu_w": 185.8,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 3,
+    "attempts_solved": 3,
+    "median_s": 68.0,
+    "decode_tok_s": 60.4,
+    "gpu_w": 156.4,
+    "cpu_w": 185.8,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
     "side_load_attempts": 0
    }
   },
@@ -4184,15 +4274,15 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 15,
-    "attempts_solved": 15,
+    "attempts": 17,
+    "attempts_solved": 17,
     "median_s": 80.0,
-    "decode_tok_s": 83.9,
-    "gpu_w": 142.2,
-    "cpu_w": 170.9,
-    "energy_wh": 263.5,
-    "wh_per_solved": 17.56,
-    "energy_attempts": 15,
+    "decode_tok_s": 84.8,
+    "gpu_w": 145.7,
+    "cpu_w": 171.9,
+    "energy_wh": 382.1,
+    "wh_per_solved": 22.48,
+    "energy_attempts": 17,
     "side_load_attempts": 0
    }
   }
@@ -4296,7 +4386,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T10:35+02:00",
+  "updated": "2026-10-22T10:46+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -4368,7 +4458,18 @@
    "10:32:14 speed gptoss20b exit 0",
    "10:32:17 speed qwen3coder30b start",
    "10:32:17 speed qwen3coder30b exit 0",
-   "10:34:09 fetch devstral start"
+   "10:34:09 fetch devstral start",
+   "10:36:05 fetch devstral done (14G)",
+   "10:36:12 fetch devstral sha256 ok",
+   "10:37:41 speed gptoss120b start",
+   "10:37:41 speed gptoss120b exit 0",
+   "10:37:45 speed qwen38-27b start",
+   "10:38:42 speed qwen38-27b exit 0",
+   "10:45:14 speed small models sha256 ok",
+   "10:45:18 speed gptoss20b start",
+   "10:45:32 speed gptoss20b exit 0",
+   "10:45:35 speed qwen3coder30b start",
+   "10:45:58 speed qwen3coder30b exit 0"
   ],
   "run_events": [
    "15:27:02 start",
@@ -4517,9 +4618,16 @@
    "10:32:19 chain: speed test on the rented GPU done",
    "coherence: answers [False, False], tool call True | ['error Remote end closed connection without response', 'error Remote end closed connection without response']",
    "",
-   "10:34:20 chain: qwen38: engine failed the coherence check, model skipped"
+   "10:34:20 chain: qwen38: engine failed the coherence check, model skipped",
+   "coherence: answers [True, True], tool call True",
+   "10:36:30 chain: devstral engine up (coherence ok)",
+   "10:36:32 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1",
+   "10:46:01 chain: speed test on the rented GPU done",
+   "coherence: answers [True, True], tool call True",
+   "10:46:10 chain: qwen38 engine up (coherence ok)",
+   "10:46:12 chain: start cloud-qwen38-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 19.35,
+  "hours_up": 19.53,
   "spent_eur": 34.02
  },
  "utility": [],
@@ -4570,12 +4678,34 @@
   },
   {
    "machine": "rtxpro6000",
+   "model": "gptoss20b",
+   "pp512": 18575.5,
+   "pp4k": 23779.0,
+   "pp16k": 23388.7,
+   "tg": 297.6,
+   "tg_16k": 276.5,
+   "gpu_w": null,
+   "build": "13de11e78"
+  },
+  {
+   "machine": "rtxpro6000",
    "model": "qwen38-27b",
-   "pp512": 4114.3,
-   "pp4k": 4557.3,
-   "pp16k": 4385.0,
+   "pp512": 4199.9,
+   "pp4k": 4564.2,
+   "pp16k": 4386.2,
    "tg": 70.5,
    "tg_16k": 68.8,
+   "gpu_w": null,
+   "build": "13de11e78"
+  },
+  {
+   "machine": "rtxpro6000",
+   "model": "qwen3coder30b",
+   "pp512": 10040.0,
+   "pp4k": 16172.9,
+   "pp16k": 13135.9,
+   "tg": 286.3,
+   "tg_16k": 173.4,
    "gpu_w": null,
    "build": "13de11e78"
   }
