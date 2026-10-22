@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T00:03+02:00",
+ "generated": "2026-10-23T00:07+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2961,7 +2961,7 @@
    "agent": "opencode",
    "level": 12,
    "solved": 2,
-   "attempts": 4,
+   "attempts": 5,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
      "solved": 0,
@@ -2974,12 +2974,16 @@
     "s2-packer-bugfix-image-appbox": {
      "solved": 0,
      "attempts": 1
+    },
+    "s2-tofu-feature-dockerstack": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 255.1,
-   "median_read": 221010.0,
-   "median_written": 12604.0,
-   "decode_tok_s": 52.9,
+   "median_s": 262.1,
+   "median_read": 241484,
+   "median_written": 13032,
+   "decode_tok_s": 52.0,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -6199,15 +6203,15 @@
   "pairs_full": 2110,
   "pairs_tested": 840,
   "pairs_skipped": 21,
-  "eta_realistic_hours": 232.8,
-  "eta_pc_hours": 232.8,
-  "eta_cloud_hours": 16.4,
+  "eta_realistic_hours": 236.7,
+  "eta_pc_hours": 236.7,
+  "eta_cloud_hours": 16.7,
   "rented_servers": 5,
   "eta_realistic_by_level": {
    "L1": 25,
    "L2": 68,
    "S1": 15,
-   "S2": 14,
+   "S2": 18,
    "S3": 78,
    "L3": 49,
    "L4": 1
@@ -6221,17 +6225,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 2598,
-  "graded_screening": 1994,
+  "settled": 2599,
+  "graded_screening": 1995,
   "settled_by_front": {
    "pc": 1185,
-   "cloud": 1413
+   "cloud": 1414
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 83.6,
-  "eta_hours": 92.0,
+  "pace_per_h": 81.6,
+  "eta_hours": 93.0,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -6778,7 +6782,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T00:03+02:00",
+  "updated": "2026-10-23T00:07+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -7059,9 +7063,11 @@
    "22:48:34 chain: qwen38 restart: S2 re-run (docker fault), then L3",
    "22:48:35 chain: start cloud-s2: pi on pve2, opencode on pve1",
    "23:52:54 l40s1: start l40s1-s1: pi on pc ai-bench-cloud, opencode on pc ai-bench-check",
-   "00:03:06 l40s1: l40s1-s1 exit pi=0 opencode=0"
+   "00:03:06 l40s1: l40s1-s1 exit pi=0 opencode=0",
+   "00:03:10 l40s1: l40s1-s1 saved",
+   "00:03:10 l40s1: start l40s1-s2: pi on pc ai-bench-cloud, opencode on pc ai-bench-check"
   ],
-  "hours_up": 32.81,
+  "hours_up": 32.88,
   "spent_eur": 106.31,
   "servers_running": 5
  },
