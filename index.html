@@ -150,8 +150,8 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
 
   <section id="speed" hidden>
   <h2>SPEED · SAME FILE, THREE MACHINES</h2>
-  <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Prefill = reading the prompt; agents resend a growing conversation, so 16k matters. Generation = writing, fresh and after 16k tokens of context. GPU power: PC only (nvidia-smi).</p>
-  <div class="hud scroll"><table id="speed-table"><thead><tr><th>Model</th><th>Machine</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
+  <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Prefill = reading the prompt; agents resend a growing conversation, so 16k matters. Generation = writing, fresh and after 16k tokens of context. GPU power: PC only (nvidia-smi). Ranked by generation speed (fresh), fastest first.</p>
+  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Model</th><th>Machine</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
@@ -329,8 +329,8 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     $("#speed").hidden = false;
     const MN = { pc: "PC · RTX 4080 16 GB + RAM", rtxpro6000: "Rented RTX PRO 6000 96 GB *", mac: "MacBook Pro M1 Max 64 GB" };
     const t = v => v == null ? "–" : fmt(v) + " tok/s";
-    $("#speed-table tbody").innerHTML = [...SP].sort((a, b) => a.model.localeCompare(b.model) || a.machine.localeCompare(b.machine)).map(r =>
-      `<tr><td>${esc(r.model)}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
+    $("#speed-table tbody").innerHTML = [...SP].sort((a, b) => (b.tg ?? -1) - (a.tg ?? -1)).map((r, i) =>  // ranked by generation speed
+      `<tr><td class="num rank">${i + 1}</td><td>${esc(r.model)}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
       `<td class="num">${t(r.pp16k)}</td><td class="num">${t(r.tg)}</td><td class="num">${t(r.tg_16k)}</td><td class="num">${r.gpu_w == null ? "–" : fmt(r.gpu_w) + " W"}</td></tr>`).join("");
   }
 
