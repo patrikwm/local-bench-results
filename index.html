@@ -150,8 +150,9 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
 
   <section id="speed" hidden>
   <h2>SPEED · SAME FILE, THREE MACHINES</h2>
-  <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Prefill = reading the prompt; agents resend a growing conversation, so 16k matters. Generation = writing, fresh and after 16k tokens of context. GPU power: PC nvidia-smi, Mac powermetrics (GPU only; the M1 Max is CPU+GPU on one chip); rented GPU not measured. Ranked by generation speed (fresh), fastest first.</p>
-  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Model</th><th>Machine</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
+  <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Speeds are tokens per second (a token is about 4 characters of code).</p>
+  <p class="note"><b>One agent turn</b> = seconds to read 16,000 tokens of new context and then write a 500-token answer deep in the conversation (16384 / prefill at 16k + 500 / generate at 16k). An agent task is tens of such turns, so this is the number that decides how long you wait. <b>Prefill</b> = how fast the model reads the prompt; an agent resends the whole conversation (task, files, tool output) every turn. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it (where agents spend most of their time). GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. Ranked by one agent turn, fastest first.</p>
+  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Model</th><th>Machine</th><th class="num">One agent turn</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
@@ -329,8 +330,8 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     $("#speed").hidden = false;
     const MN = { pc: "PC · RTX 4080 16 GB + RAM", rtxpro6000: "Rented RTX PRO 6000 96 GB *", mac: "MacBook Pro M1 Max 64 GB" };
     const t = v => v == null ? "–" : fmt(v) + " tok/s";
-    $("#speed-table tbody").innerHTML = [...SP].sort((a, b) => (b.tg ?? -1) - (a.tg ?? -1)).map((r, i) =>  // ranked by generation speed
-      `<tr><td class="num rank">${i + 1}</td><td>${esc(r.model)}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
+    $("#speed-table tbody").innerHTML = [...SP].sort((a, b) => (a.turn_s ?? 1e9) - (b.turn_s ?? 1e9)).map((r, i) =>  // ranked by the time of one agent turn
+      `<tr><td class="num rank">${i + 1}</td><td>${esc(r.model)}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${r.turn_s == null ? "–" : fmt(r.turn_s, 1) + " s"}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
       `<td class="num">${t(r.pp16k)}</td><td class="num">${t(r.tg)}</td><td class="num">${t(r.tg_16k)}</td><td class="num">${r.gpu_w == null ? "–" : fmt(r.gpu_w) + " W"}</td></tr>`).join("");
   }
 
