@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T14:03+02:00",
+ "generated": "2026-10-22T14:05+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4425,8 +4425,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 52.5,
-  "eta_hours": 136.3,
+  "pace_per_h": 51.6,
+  "eta_hours": 137.7,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -4871,7 +4871,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T14:03+02:00",
+  "updated": "2026-10-22T14:05+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -5111,9 +5111,11 @@
    "coherence: answers [True, True], tool call True",
    "10:46:10 chain: qwen38 engine up (coherence ok)",
    "10:46:12 chain: start cloud-qwen38-l1: pi on pve2, opencode on pve1",
-   "14:03:34 chain: cloud-qwen38-l1 exit pi=0 opencode=0"
+   "14:03:34 chain: cloud-qwen38-l1 exit pi=0 opencode=0",
+   "14:03:41 chain: cloud-qwen38-l1 saved (commit, page, backup)",
+   "14:03:44 chain: start cloud-l2: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 22.82,
+  "hours_up": 22.86,
   "spent_eur": 39.13
  },
  "utility": [],
