@@ -25,6 +25,23 @@ body::after { /* vignette */
   background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.65) 100%);
 }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
+/* table of contents: fixed on the left on wide screens, a list at the top on narrow ones; the arrow follows the section in view */
+nav.toc { font-family: var(--hud); font-size: 15px; letter-spacing: .04em; margin: 18px 0 0; }
+nav.toc .t { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0 0 0 18px; position: relative; }
+nav.toc li { margin: 0; }
+nav.toc a { display: block; padding: 3px 0; color: var(--red-dim); text-decoration: none; }
+nav.toc a:hover, nav.toc a.on { color: var(--red); text-shadow: 0 0 6px rgba(255,43,43,.7); }
+nav.toc .arrow { position: absolute; left: 0; top: 0; color: var(--red); transition: transform .25s ease; pointer-events: none; }
+h2 .anchor { font-size: .55em; margin-left: 10px; color: var(--red-dim); text-decoration: none; text-shadow: none; vertical-align: middle; }
+h2 .anchor:hover { color: var(--red); }
+h2 .anchor .ok { font-size: .8em; margin-left: 6px; color: var(--muted); }
+section, h2 { scroll-margin-top: 16px; }
+@media (min-width: 1240px) {
+  .wrap { margin-left: 250px; }
+  nav.toc { position: fixed; left: 16px; top: 24px; width: 214px; max-height: calc(100vh - 48px); overflow-y: auto; margin: 0; z-index: 11; }
+}
+
 a { color: var(--red-hi); }
 h1, h2 { font-family: var(--hud); color: var(--red); font-weight: 400; letter-spacing: .06em; text-shadow: 0 0 6px rgba(255,43,43,.7); margin: 0; }
 h1 { font-size: clamp(34px, 7vw, 64px); line-height: 1; }
@@ -89,6 +106,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <div class="copybar"><span id="updated" class="pending" style="margin-right:auto">LAST UPDATED: …</span><span id="copied" aria-live="polite"></span>
     <button class="copy" id="copy" title="Copies the whole page as Markdown, ready to paste into an AI">COPY PAGE FOR AI</button></div>
   <textarea id="copybox" aria-label="Page as Markdown (copy by hand if the button cannot)"></textarea>
+  <nav class="toc" id="toc" aria-label="Sections"></nav>
   <main id="page">
   <header class="hud">
     <h1>LOCAL BENCH</h1>
@@ -429,6 +447,8 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
   const stamp = isNaN(g) ? D.generated : D.generated.slice(0, 16).replace("T", " ") + (tz ? ` (UTC${tz})` : "");
   $("#gen").textContent = stamp;
   $("#updated").textContent = `LAST UPDATED: ${stamp}`;
+
+  buildToc();
 }).catch(e => { $("#boot").textContent = "> DATA LINK FAILURE: " + e; });
 
 // One click: the whole page as Markdown (headings, paragraphs, lists, tables), for an AI to read.
@@ -436,7 +456,7 @@ function toMarkdown(root) {
   const cell = el => el.innerText.replace(/\s+/g, " ").replace(/\|/g, "\\|").trim();
   const out = ["# Local Bench: results page", document.querySelector("#updated").textContent, `Source: ${location.href}`, `Raw data: ${new URL("data.json", location.href)}`, ""];
   for (const el of root.querySelectorAll("h2, p, ul, table, .stats")) {
-    if (el.tagName === "H2") out.push(`## ${el.innerText.replace(/^▶\s*/, "")}`, "");
+    if (el.tagName === "H2") out.push(`## ${el.innerText.replace(/^▶\s*/, "").replace(/\s*#(\s*LINK COPIED)?\s*$/, "")}`, "");
     else if (el.classList.contains("stats")) {
       out.push(...[...el.querySelectorAll(".stat")].map(s => `- ${s.querySelector(".k").innerText}: ${s.querySelector(".v").innerText}`), "");
     } else if (el.tagName === "P") { if (el.innerText.trim()) out.push(el.innerText.trim(), ""); }
@@ -450,6 +470,37 @@ function toMarkdown(root) {
     }
   }
   return out.join("\n");
+}
+function buildToc() {  // every visible h2 gets a link anchor (#id) and an entry in the table of contents
+  const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const items = [];
+  for (const h of document.querySelectorAll("#page h2")) {
+    const sec = h.closest("section[id]");
+    if (h.closest("[hidden]")) continue;
+    const label = h.textContent.replace(/\s*#\s*$/, "").trim();
+    const id = sec && sec.querySelector("h2") === h ? sec.id : (h.id || slug(label).split("-").slice(0, 4).join("-"));
+    if (!sec || sec.querySelector("h2") !== h) h.id = id;
+    if (!h.querySelector(".anchor")) {
+      const a = document.createElement("a");
+      a.className = "anchor"; a.href = "#" + id; a.textContent = "#"; a.title = "Link to this section (click copies it)";
+      a.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(location.href.split("#")[0] + "#" + id); a.innerHTML = '# <span class="ok">LINK COPIED</span>'; setTimeout(() => a.textContent = "#", 1800); } catch {}
+      });
+      h.append(a);
+    }
+    items.push({ id, label, target: document.getElementById(id) });
+  }
+  const nav = document.querySelector("#toc");
+  nav.innerHTML = `<div class="t">Sections</div><ol><span class="arrow">▶</span>${items.map(i => `<li><a href="#${i.id}">${esc(i.label)}</a></li>`).join("")}</ol>`;
+  const links = [...nav.querySelectorAll("a")], arrow = nav.querySelector(".arrow");
+  const mark = () => {  // the last section whose heading is above the middle of the screen is the one being read
+    let k = 0;
+    items.forEach((it, i) => { if (it.target.getBoundingClientRect().top < innerHeight * 0.4) k = i; });
+    links.forEach((l, i) => l.classList.toggle("on", i === k));
+    arrow.style.transform = `translateY(${links[k].offsetTop + 3}px)`;
+  };
+  addEventListener("scroll", mark, { passive: true }); addEventListener("resize", mark); mark();
+  if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }  // the sections were hidden when the browser tried
 }
 document.querySelector("#copy").addEventListener("click", async () => {
   const md = toMarkdown(document.querySelector("#page"));
