@@ -279,7 +279,11 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
       `(graded, or skipped because 2 equal results already decided the task): ${fmt(F.pc ?? P.settled)} on this PC, ${fmt(F.cloud ?? 0)} on the rented GPU *. Running for ${dur(ran)}. ` +
       (end ? `Predicted finish at the pace of the last ${P.pace_window_h || 6} h (${P.pace_per_h}/h, both fronts): in at most ${dur(P.eta_hours)}, ` +
              `${end.toISOString().slice(0, 10)}; up to ${dur(P.eta_l4_hours)} of that is L4 (one-night runs), which only models that pass L3 get. ` +
-             `The estimate shrinks as models drop out of the ladder.` : "");
+             `The estimate shrinks as models drop out of the ladder.` : "") +
+      (P.eta_realistic_hours != null ? ` Realistic estimate, if this PC alone runs everything that is left: about ${dur(P.eta_realistic_hours)} ` +
+             `(a model reaches a level with the pass rate of the models decided so far; an attempt takes its level's measured minutes, ` +
+             `on the PC or, where the PC has no data yet, the rented GPU's times the measured PC/rented ratio). By level: ` +
+             Object.entries(P.eta_realistic_by_level || {}).map(([k, h]) => `${k} ${dur(h)}`).join(", ") + `.` : "");
   }
 
   const C = D.cloud;
