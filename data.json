@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T10:20+02:00",
+ "generated": "2026-10-22T10:34+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3918,8 +3918,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 34.3,
-  "eta_hours": 189.8,
+  "pace_per_h": 33.9,
+  "eta_hours": 191.5,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -4296,7 +4296,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T10:20+02:00",
+  "updated": "2026-10-22T10:35+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -4305,7 +4305,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
-  "credit_eur": 51.98743,
+  "credit_eur": 50.337133,
   "budget_eur": 79.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -4352,7 +4352,23 @@
    "10:18:58 speed qwen38-27b start",
    "10:18:58 speed qwen38-27b exit 0",
    "10:19:15 speed qwen38-27b start",
-   "10:20:14 speed qwen38-27b exit 0"
+   "10:20:14 speed qwen38-27b exit 0",
+   "10:30:43 speed small models sha256 ok",
+   "10:30:47 speed small models sha256 ok",
+   "10:30:48 speed gptoss20b start",
+   "10:30:51 speed gptoss20b start",
+   "10:31:12 speed gptoss20b exit 0",
+   "10:31:13 speed gptoss20b exit 0",
+   "10:31:16 speed qwen3coder30b start",
+   "10:31:17 speed qwen3coder30b start",
+   "10:31:25 speed small models sha256 ok",
+   "10:31:30 speed gptoss20b start",
+   "10:32:11 speed qwen3coder30b exit 0",
+   "10:32:11 speed qwen3coder30b exit 0",
+   "10:32:14 speed gptoss20b exit 0",
+   "10:32:17 speed qwen3coder30b start",
+   "10:32:17 speed qwen3coder30b exit 0",
+   "10:34:09 fetch devstral start"
   ],
   "run_events": [
    "15:27:02 start",
@@ -4495,10 +4511,16 @@
    "08:22:01 chain: start cloud-l3: pi on pve2, opencode on pve1",
    "10:18:07 chain: cloud-l3 exit pi=0 opencode=0",
    "10:18:11 chain: cloud-l3 saved (commit, page, backup)",
-   "10:18:11 chain: gpt-oss chain done (L4 only by hand)"
+   "10:18:11 chain: gpt-oss chain done (L4 only by hand)",
+   "10:32:13 chain: speed test on the rented GPU done",
+   "10:32:13 chain: speed test on the rented GPU done",
+   "10:32:19 chain: speed test on the rented GPU done",
+   "coherence: answers [False, False], tool call True | ['error Remote end closed connection without response', 'error Remote end closed connection without response']",
+   "",
+   "10:34:20 chain: qwen38: engine failed the coherence check, model skipped"
   ],
-  "hours_up": 19.1,
-  "spent_eur": 32.37
+  "hours_up": 19.34,
+  "spent_eur": 34.02
  },
  "utility": [],
  "speed": [
