@@ -60,6 +60,7 @@ th { color: var(--muted); font-weight: 400; text-transform: uppercase; font-size
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 tr:hover td { background: rgba(255,43,43,.06); }
 .rank { font-family: var(--hud); font-size: 22px; color: var(--red); }
+tr.group td { color: var(--red); font-family: var(--hud); letter-spacing: .06em; padding-top: 14px; border-bottom: 1px solid var(--red); }
 .bar { display: inline-block; width: 160px; height: 10px; background: var(--red-faint); vertical-align: middle; border-radius: 0 3px 3px 0; overflow: hidden; }
 .bar i { display: block; height: 100%; background: var(--red); border-radius: 0 3px 3px 0; box-shadow: 0 0 6px rgba(255,43,43,.7); }
 .pending { color: var(--red-dim); font-family: var(--hud); font-size: 18px; letter-spacing: .1em; }
@@ -151,8 +152,8 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <section id="speed" hidden>
   <h2>SPEED · SAME FILE, THREE MACHINES</h2>
   <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Speeds are tokens per second (a token is about 4 characters of code).</p>
-  <p class="note"><b>One agent turn</b> = seconds to read 16,000 tokens of new context and then write a 500-token answer deep in the conversation (16384 / prefill at 16k + 500 / generate at 16k). An agent task is tens of such turns, so this is the number that decides how long you wait. <b>Prefill</b> = how fast the model reads the prompt; an agent resends the whole conversation (task, files, tool output) every turn. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it (where agents spend most of their time). GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. Ranked by one agent turn, fastest first.</p>
-  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Model</th><th>Machine</th><th class="num">One agent turn</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
+  <p class="note"><b>One agent turn</b> = seconds to read 16,000 tokens of new context and then write a 500-token answer deep in the conversation (16384 / prefill at 16k + 500 / generate at 16k). An agent task is tens of such turns, so this is the number that decides how long you wait. <b>Prefill</b> = how fast the model reads the prompt; an agent resends the whole conversation (task, files, tool output) every turn. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it (where agents spend most of their time). GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. One leaderboard per model (the same file on each machine), ranked by one agent turn; "vs #1" = how many times longer than the fastest machine for that model. Models from small to large.</p>
+  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Machine</th><th class="num">One agent turn</th><th class="num">vs #1</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
@@ -330,9 +331,18 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     $("#speed").hidden = false;
     const MN = { pc: "PC · RTX 4080 16 GB + RAM", rtxpro6000: "Rented RTX PRO 6000 96 GB *", mac: "MacBook Pro M1 Max 64 GB" };
     const t = v => v == null ? "–" : fmt(v) + " tok/s";
-    $("#speed-table tbody").innerHTML = [...SP].sort((a, b) => (a.turn_s ?? 1e9) - (b.turn_s ?? 1e9)).map((r, i) =>  // ranked by the time of one agent turn
-      `<tr><td class="num rank">${i + 1}</td><td>${esc(r.model)}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${r.turn_s == null ? "–" : fmt(r.turn_s, 1) + " s"}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
-      `<td class="num">${t(r.pp16k)}</td><td class="num">${t(r.tg)}</td><td class="num">${t(r.tg_16k)}</td><td class="num">${r.gpu_w == null ? "–" : fmt(r.gpu_w) + " W"}</td></tr>`).join("");
+    const MI = { gptoss20b: "gpt-oss-20b · MoE, 12 GB (fits the 4080)", qwen38_27b: "Qwen3.8-27B · dense, 16.5 GB",
+                 qwen3coder30b: "Qwen3-Coder 30B-A3B · MoE, 18.6 GB", gptoss120b: "gpt-oss-120b · MoE, 63 GB" };
+    const size = { gptoss20b: 12, qwen38_27b: 16.5, qwen3coder30b: 18.6, gptoss120b: 63 };
+    const key = m => m.replace("-", "_");
+    const models = [...new Set(SP.map(r => r.model))].sort((a, b) => (size[key(a)] ?? 99) - (size[key(b)] ?? 99));
+    $("#speed-table tbody").innerHTML = models.map(m => {  // one leaderboard per model: the same file, machines ranked by one agent turn
+      const rs = SP.filter(r => r.model === m).sort((a, b) => (a.turn_s ?? 1e9) - (b.turn_s ?? 1e9)), best = rs[0].turn_s;
+      return `<tr class="group"><td colspan="10">${esc(MI[key(m)] || m)}</td></tr>` + rs.map((r, i) =>
+        `<tr><td class="num rank">${i + 1}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${r.turn_s == null ? "–" : fmt(r.turn_s, 1) + " s"}</td>` +
+        `<td class="num">${r.turn_s == null || !best ? "–" : fmt(r.turn_s / best, 1) + "×"}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
+        `<td class="num">${t(r.pp16k)}</td><td class="num">${t(r.tg)}</td><td class="num">${t(r.tg_16k)}</td><td class="num">${r.gpu_w == null ? "–" : fmt(r.gpu_w) + " W"}</td></tr>`).join("");
+    }).join("");
   }
 
   // ranking (data.json models_summary: computed once in harness/publish_site.py)
