@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T05:34+02:00",
+ "generated": "2026-10-22T05:42+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1772,20 +1772,20 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 3,
-   "solved": 6,
-   "attempts": 16,
+   "solved": 8,
+   "attempts": 18,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 0,
      "attempts": 2
     },
     "l3-cs-cancel-asyncex-waitqueue": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l3-go-lifecycle-gocache-close": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l3-java-concurrency-stormpot-tlrclaim": {
      "solved": 0,
@@ -1809,11 +1809,11 @@
     }
    },
    "median_s": 306.1,
-   "median_read": 4174535.5,
-   "median_written": 31776.0,
-   "decode_tok_s": 138.8,
-   "gpu_w": 277.7,
-   "cpu_w": 73.9,
+   "median_read": 3271144.0,
+   "median_written": 27375.0,
+   "decode_tok_s": 141.7,
+   "gpu_w": 285.4,
+   "cpu_w": 73.8,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -3094,17 +3094,17 @@
  ],
  "progress": {
   "planned_max": 6330,
-  "settled": 1171,
-  "graded_screening": 970,
+  "settled": 1173,
+  "graded_screening": 972,
   "settled_by_front": {
    "pc": 868,
-   "cloud": 303
+   "cloud": 305
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 10.9,
-  "eta_hours": 522.3,
+  "pace_per_h": 11.1,
+  "eta_hours": 513.6,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -3447,7 +3447,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T05:34+02:00",
+  "updated": "2026-10-22T05:42+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -3456,7 +3456,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 44.36,
-  "credit_eur": 20.490662999999998,
+  "credit_eur": 20.485850999999997,
   "budget_eur": 39.36,
   "vm_events_clock": "local",
   "vm_events": [
@@ -3576,9 +3576,10 @@
    "22:27:58 chain: cloud-s1 exit pi=0 opencode=0",
    "22:28:02 chain: cloud-s1 saved (commit, page, backup)",
    "22:28:02 chain: stops before s2 (ladder rc=3)",
-   "22:28:03 chain: start cloud-l3: pi on pve2, opencode on thinkpad"
+   "22:28:03 chain: start cloud-l3: pi on pve2, opencode on thinkpad",
+   "05:42:30 chain: cloud-l3 exit pi=0 opencode=0"
   ],
-  "hours_up": 14.33,
+  "hours_up": 14.47,
   "spent_eur": 23.87
  },
  "utility": []
