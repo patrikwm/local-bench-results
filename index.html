@@ -150,7 +150,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
 
   <section id="speed" hidden>
   <h2>SPEED · SAME FILE, THREE MACHINES</h2>
-  <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Prefill = reading the prompt; agents resend a growing conversation, so 16k matters. Generation = writing, fresh and after 16k tokens of context. GPU power: PC only (nvidia-smi). Ranked by generation speed (fresh), fastest first.</p>
+  <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Prefill = reading the prompt; agents resend a growing conversation, so 16k matters. Generation = writing, fresh and after 16k tokens of context. GPU power: PC nvidia-smi, Mac powermetrics (GPU only; the M1 Max is CPU+GPU on one chip); rented GPU not measured. Ranked by generation speed (fresh), fastest first.</p>
   <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Model</th><th>Machine</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
   </section>
 
