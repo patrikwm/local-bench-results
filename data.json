@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T16:35+02:00",
+ "generated": "2026-10-22T16:36+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2310,8 +2310,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 13,
-   "attempts": 16,
+   "solved": 14,
+   "attempts": 17,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -2322,8 +2322,8 @@
      "attempts": 2
     },
     "l2-cs-bugfix-cronos-leapday": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-cs-feature-cronos-ismatch": {
      "solved": 1,
@@ -2370,12 +2370,12 @@
      "attempts": 1
     }
    },
-   "median_s": 278.1,
-   "median_read": 593040.0,
-   "median_written": 13179.0,
-   "decode_tok_s": 52.5,
-   "gpu_w": 140.4,
-   "cpu_w": 176.4,
+   "median_s": 282.1,
+   "median_read": 636587,
+   "median_written": 13379,
+   "decode_tok_s": 52.9,
+   "gpu_w": 147.2,
+   "cpu_w": 177.5,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
   },
@@ -5048,7 +5048,7 @@
  ],
  "progress": {
   "planned_max": 6258,
-  "eta_realistic_hours": 415.2,
+  "eta_realistic_hours": 415.1,
   "eta_realistic_by_level": {
    "L1": 62,
    "L2": 123,
@@ -5067,17 +5067,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 1808,
-  "graded_screening": 1465,
+  "settled": 1810,
+  "graded_screening": 1466,
   "settled_by_front": {
    "pc": 1019,
-   "cloud": 789
+   "cloud": 791
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 68.7,
-  "eta_hours": 112.7,
+  "eta_hours": 112.6,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -5590,7 +5590,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T16:35+02:00",
+  "updated": "2026-10-22T16:36+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -5838,7 +5838,7 @@
    "15:53:41 l40s3: start l40s3-l1: pi on pve1 CT902, opencode on pve2 CT902",
    "16:01:42 l40s4: start l40s4-l1: pi on pve1 CT903, opencode on pve2 CT903"
   ],
-  "hours_up": 25.35,
+  "hours_up": 25.36,
   "spent_eur": 54.75,
   "servers_running": 5
  },
