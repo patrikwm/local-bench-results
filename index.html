@@ -126,9 +126,21 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <p class="note" id="prog-text"></p>
   </header>
 
+  <h2>HOW TO READ THIS PAGE</h2>
+  <ul class="note">
+    <li><strong>The question:</strong> can open models on a normal gaming PC replace a paid AI coding subscription? Every model gets the same coding tasks, done by two open-source coding agents (Pi and OpenCode) that edit real code, run it and fix it by themselves.</li>
+    <li><strong>Pass or fail is decided by hidden tests</strong> the agent never sees, not by an AI judge. Test-writing tasks pass when the agent's tests catch at least 80 % of planted bugs.</li>
+    <li><strong>A "pair" = one task with one agent.</strong> Each pair gets up to 3 tries; 2 alike decide it. A level passes at 50 % of its pairs. Levels get harder: L1 small tasks, L2 real open-source projects, S sysadmin scripts, L3 fresh hard bugs, L4 a long multi-step build.</li>
+    <li><strong>Few distinct tasks:</strong> L1 has 28 tasks in 7 languages. Thousands of attempts measure how reliably a model solves those 28, not thousands of different problems. A gap of one or two pairs is noise, not a ranking.</li>
+    <li><strong>Rows with * ran on a rented GPU</strong> (only the model engine was rented; agents and grading ran at home). They show what a model can do, but not what this PC can do: the rented GPU is much faster, which can also turn a time-out into a pass. No energy is measured there.</li>
+    <li><strong>"Weak models"</strong> is a budget rule (L3 only for models with 90 %+ at L2), not a verdict on the model.</li>
+    <li><strong>Invalid runs are removed, not hidden:</strong> runs broken by our setup (wrong engine, server power-off, harness bug) move to a superseded folder with a note on why, and are run again.</li>
+    <li><strong>Everything is in the open:</strong> raw data in <a href="data.json">data.json</a>; "COPY PAGE FOR AI" copies this page as text.</li>
+  </ul>
+
   <section id="cloud" hidden>
   <h2>RENTED GPU RUN *</h2>
-  <p class="note">One model pushed through every level on a rented GPU server, to see what a complete run costs and how long it takes. Only the engine runs there; agents, tasks, hidden checks and grading stay on the PC. Same model file (SHA-256 checked), engine build, sampling and agents as the PC rows. Pass/fail is comparable; time is not (much faster GPU); energy is not measured.</p>
+  <p class="note">One model pushed through every level on a rented GPU server, to see what a complete run costs and how long it takes. Only the engine runs there; the agents work in local sandboxes (this PC's WSL, a ThinkPad WSL or Proxmox containers on two home servers) and grading runs in that sandbox. Same model file (SHA-256 checked), engine build, sampling and agents as the PC rows. Pass/fail is comparable; time is not (much faster GPU); energy is not measured.</p>
   <div class="hud">
     <div class="stats" id="cloud-stats"></div>
     <div class="plan-bar" id="cloud-bar" role="progressbar" aria-label="Budget spent" aria-valuemin="0" aria-valuemax="100">
@@ -152,7 +164,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
       <li><strong>Agents:</strong> Pi 1.3.0 and OpenCode 2.0.32, both open source, pinned. Every task runs with both. They run inside a WSL sandbox with no network except the model.</li>
       <li><strong>Engines:</strong> Strata 0.1.44.1 (for the biggest MoE models, experts streamed from RAM) and llama.cpp b11685 (build 11685, commit 13de11e). Every result records the engine, its version, every flag, the quant and the exact model files.</li>
       <li><strong>Sampling:</strong> each model runs with its maker's recommended settings (temperature, top_p, top_k, penalties), copied from the model card with source and quote. The agents send no settings of their own, which would otherwise mean greedy decoding on Strata.</li>
-      <li><strong>Grading:</strong> hidden tests in a clean copy of the repo, plus the project's own test suite at L2. Build warnings and lint (ruff, tsc, eslint, javac -Xlint, dotnet format, gofmt/go vet, clippy/rustfmt, gcc -Wall, clang-format) and scope checks are recorded too. A task counts as solved only if every hidden check passes. Failed attempts keep their partial score.</li>
+      <li><strong>Grading:</strong> hidden tests in a clean copy of the repo, plus the project's own test suite at L2. Build warnings and lint (ruff, tsc, eslint, javac -Xlint, dotnet format, gofmt/go vet, clippy/rustfmt, gcc -Wall, clang-format) and scope checks are recorded too. A task counts as solved only if every hidden check passes; test-writing tasks (L1 *-tests-*) pass when the agent's tests accept the correct code and catch at least 80 % of the planted bugs, so a solved one can show e.g. 10/11. Failed attempts keep their partial score.</li>
       <li><strong>Ladder rules:</strong> a model passes a level when it solves at least half of its task-and-agent pairs, a pair counting when 2 of 3 attempts pass. It stops after two failed levels in a row. The next level is first tried with 1 attempt per task, and attempts 2–3 run only if at least 25 % solved. Runs stuck in a loop, or making requests without changing any file, are stopped early; slow runs are not.</li>
       <li><strong>Limits:</strong> L1 20 min per attempt, L2 45 min, L3 3 h. Up to 32K tokens per model answer.</li>
       <li><strong>Measured per attempt:</strong> wall time, requests, tokens read and written, cache hits, decode speed, GPU power (nvidia-smi), CPU package power (Intel RAPL), VRAM, RAM, and energy (GPU + CPU) per solved task.</li>
@@ -177,8 +189,8 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
   <section id="speed" hidden>
   <h2>SPEED · SAME FILE, THREE MACHINES</h2>
   <p class="note">The same model file on this PC (RTX 4080 16 GB + 64 GB DDR5; what does not fit the GPU runs from system RAM), a rented RTX PRO 6000 96 GB and a MacBook Pro M1 Max 64 GB, all with llama.cpp b11685 (llama-bench, the ladder's cache and batch settings, median of 3 runs). Speeds are tokens per second (a token is about 4 characters of code).</p>
-  <p class="note"><b>One agent turn</b> = seconds to read 16,000 tokens of new context and then write a 500-token answer deep in the conversation (16384 / prefill at 16k + 500 / generate at 16k). An agent task is tens of such turns, so this is the number that decides how long you wait. <b>Prefill</b> = how fast the model reads the prompt; an agent resends the whole conversation (task, files, tool output) every turn. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it (where agents spend most of their time). GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. One leaderboard per model (the same file on each machine), ranked by one agent turn; "vs #1" = how many times longer than the fastest machine for that model. Models from small to large.</p>
-  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Machine</th><th class="num">One agent turn</th><th class="num">vs #1</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
+  <p class="note"><b>Agent turn</b> = seconds for one model call deep in an agent task: read the new part of the prompt, then write 500 tokens at 16k context. The engine keeps the conversation in its prompt cache, so only the new part is read: over 1,339 of our agent attempts 94 % of prompt tokens came from the cache, a median of 671 new tokens per call (671 / prefill 512 + 500 / generate at 16k; ranked by this). <b>Cold 16k</b> = the same with all 16,384 tokens read from scratch (first call, or after the cache is lost): there prefill speed dominates and the Mac falls behind. <b>Prefill</b> = how fast the model reads the prompt. <b>Generate</b> = how fast it writes, on a fresh context and with 16k tokens already in it. GPU power: PC nvidia-smi, Mac powermetrics (GPU part of the M1 Max only); the rented GPU is not measured. One leaderboard per model (the same file on each machine); "vs #1" = how many times longer than the fastest machine for that model. Models from small to large.</p>
+  <div class="hud scroll"><table id="speed-table"><thead><tr><th class="num">#</th><th>Machine</th><th class="num">Agent turn</th><th class="num">vs #1</th><th class="num">Cold 16k</th><th class="num">Prefill 512</th><th class="num">Prefill 4k</th><th class="num">Prefill 16k</th><th class="num">Generate</th><th class="num">Generate at 16k</th><th class="num">GPU power</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <h2>TARGET RANKING · LEVEL 1</h2>
@@ -188,13 +200,13 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
     <th class="num">Attempts solved</th><th class="num">L1 v1 pairs</th><th class="num">Median time</th><th class="num">Decode</th>
     <th class="num">GPU power</th><th class="num">CPU power</th><th class="num">Energy / solved</th>
   </tr></thead><tbody></tbody></table></div>
-  <p class="note" id="rented-note">* Rented hardware: the engine ran on a rented GPU server (UpCloud, Helsinki: NVIDIA RTX PRO 6000 96 GB, or NVIDIA L40S 48 GB where the row says L40S) with the same model file, engine build, sampling, agents and grading as the PC rows; only the engine was remote. Its pass/fail results preview a model the PC has not run yet and will be checked against the PC run. Its times are not comparable (much faster GPU) and its energy is not measured.</p>
+  <p class="note" id="rented-note">* Rented hardware: the engine ran on a rented GPU server (UpCloud, Helsinki: NVIDIA RTX PRO 6000 96 GB, or NVIDIA L40S 48 GB where the row says L40S) with the same model file, engine build, sampling, agents and grading as the PC rows; only the engine was remote (agents and grading in local sandboxes: PC, ThinkPad or Proxmox containers). Its pass/fail results preview a model the PC has not run yet and will be checked against the PC run. Its times are not comparable (much faster GPU, and a faster engine can finish a task inside the time limit that the PC would miss) and its energy and watts are not measured.</p>
   <p class="note">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt = all measured GPU + CPU energy, failed attempts included, divided by the solved attempts among them (CPU power is measured since 2026-10-20 21:00). Attempts that ran next to task building in the same machine are counted in the tooltip (side load: speed slightly lower, pass/fail unaffected).</p>
   <p class="note">Power: GPU (nvidia-smi) and CPU package (Intel RAPL), means over each attempt. Energy per solved task = all attempts' GPU + CPU energy, failed ones included, divided by the tasks solved. Not wall power: RAM, board and PSU losses are not in it. CPU power is measured from 2026-10-20 21:00 on.</p>
 
   <section id="weak" hidden>
-  <h2>WEAK MODELS · NO L3</h2>
-  <p class="note">L3 (fresh, hard tasks) costs the most time, so only strong models get it: a model that failed L1 or L2, or passed L2 with less than 90 % of its task-and-agent pairs, stops here (rule since 2026-10-22; results it already has stay valid). Pairs = passed / decided (2 of 3 attempts decide a pair). The list grows as models finish L2.</p>
+  <h2>WEAK MODELS · NOT SELECTED FOR L3</h2>
+  <p class="note">L3 (fresh, hard tasks) costs the most time, so only strong models get it: a model that failed L1 or L2, or passed L2 with less than 90 % of its task-and-agent pairs, stops here (rule since 2026-10-22; results it already has stay valid). This is a budget rule, not a verdict on the model: 90 % of 28 pairs means 26, so one pair can decide it. Pairs = passed / decided (2 of 3 attempts decide a pair). The list grows as models finish L2.</p>
   <div class="hud scroll"><table id="weak-table"><thead><tr><th>Model</th><th class="num">L1 pairs</th><th class="num">L2 pairs</th><th>Stops because</th></tr></thead><tbody></tbody></table></div>
   </section>
 
@@ -370,10 +382,10 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     const key = m => m.replace("-", "_");
     const models = [...new Set(SP.map(r => r.model))].filter(m => SP.filter(r => r.model === m).length > 1).sort((a, b) => (size[key(a)] ?? 99) - (size[key(b)] ?? 99));  // a comparison needs 2+ machines
     $("#speed-table tbody").innerHTML = models.map(m => {  // one leaderboard per model: the same file, machines ranked by one agent turn
-      const rs = SP.filter(r => r.model === m).sort((a, b) => (a.turn_s ?? 1e9) - (b.turn_s ?? 1e9)), best = rs[0].turn_s;
-      return `<tr class="group"><td colspan="10">${esc(MI[key(m)] || m)}</td></tr>` + rs.map((r, i) =>
-        `<tr><td class="num rank">${i + 1}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${r.turn_s == null ? "–" : fmt(r.turn_s, 1) + " s"}</td>` +
-        `<td class="num">${r.turn_s == null || !best ? "–" : fmt(r.turn_s / best, 1) + "×"}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
+      const rs = SP.filter(r => r.model === m).sort((a, b) => (a.warm_s ?? 1e9) - (b.warm_s ?? 1e9)), best = rs[0].warm_s;
+      return `<tr class="group"><td colspan="11">${esc(MI[key(m)] || m)}</td></tr>` + rs.map((r, i) =>
+        `<tr><td class="num rank">${i + 1}</td><td>${esc(MN[r.machine] || r.machine)}</td><td class="num">${r.warm_s == null ? "–" : fmt(r.warm_s, 1) + " s"}</td>` +
+        `<td class="num">${r.warm_s == null || !best ? "–" : fmt(r.warm_s / best, 1) + "×"}</td><td class="num">${r.turn_s == null ? "–" : fmt(r.turn_s, 1) + " s"}</td><td class="num">${t(r.pp512)}</td><td class="num">${t(r.pp4k)}</td>` +
         `<td class="num">${t(r.pp16k)}</td><td class="num">${t(r.tg)}</td><td class="num">${t(r.tg_16k)}</td><td class="num">${r.gpu_w == null ? "–" : fmt(r.gpu_w) + " W"}</td></tr>`).join("");
     }).join("");
   }
