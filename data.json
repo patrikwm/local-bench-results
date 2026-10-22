@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T10:05+02:00",
+ "generated": "2026-10-22T10:08+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3918,8 +3918,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 34.2,
-  "eta_hours": 190.6,
+  "pace_per_h": 34.0,
+  "eta_hours": 191.5,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -4296,7 +4296,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-22T10:05+02:00",
+  "updated": "2026-10-22T10:08+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -4478,8 +4478,21 @@
    "08:22:00 chain: stops before s3 (ladder rc=3)",
    "08:22:01 chain: start cloud-l3: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 18.85,
+  "hours_up": 18.9,
   "spent_eur": 32.28
  },
- "utility": []
+ "utility": [],
+ "speed": [
+  {
+   "machine": "pc",
+   "model": "gptoss20b",
+   "pp512": 8263.6,
+   "pp4k": 10601.9,
+   "pp16k": 9807.1,
+   "tg": 189.2,
+   "tg_16k": 162.8,
+   "gpu_w": 297.6,
+   "build": "13de11e78"
+  }
+ ]
 }
