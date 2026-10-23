@@ -348,7 +348,7 @@ fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(D => {
     const spent = C.spent_eur ?? 0, pct = Math.min(100, Math.round(100 * spent / C.budget_eur));
     const cr = D.rows.filter(r => rented.includes(r.model));
     const att = cr.reduce((a, r) => a + r.attempts, 0), sol = cr.reduce((a, r) => a + r.solved, 0);
-    $("#cloud-stats").innerHTML = [["Server", (C.state || "?").toUpperCase()], ["GPU hours", fmt(C.hours_up, 1)],
+    $("#cloud-stats").innerHTML = [["Server", (C.state || "?").toUpperCase()], ["GPU hours, all servers", fmt(C.gpu_hours ?? C.hours_up, 1)],
       ["Spent", `€${fmt(spent, 2)}<span class="of"> / €${C.budget_eur}</span>`], ["Attempts solved", `${sol}<span class="of"> / ${att}</span>`]]
       .map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
     const bar = $("#cloud-bar"); bar.setAttribute("aria-valuenow", pct);
