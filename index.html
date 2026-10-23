@@ -624,8 +624,15 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       return { passed, decided, solved, att, expected };
     }
     const ladderModels = [...new Set(mk.map(r => r.model))];
-    const sortKey = (k) => { const s = summary[k]; return s && s.pairs_decided ? s.pairs_passed / s.pairs_decided : -1; };
-    ladderModels.sort((a, b) => sortKey(b) - sortKey(a));
+    // how far up the ladder: levels passed, then the mean share of decided pairs passed over the levels it ran
+    const ladderKey = (k) => {
+      let passedLv = 0; const shares = [];
+      LEVELS.forEach(l => { const s = cellStats(k, l); if (!s || !s.decided) return;
+        shares.push(s.passed / s.decided); if (s.passed >= s.expected / 2) passedLv++; });
+      return passedLv * 1000 + (shares.length ? shares.reduce((x, y) => x + y, 0) / shares.length : 0);
+    };
+    const lk = Object.fromEntries(ladderModels.map(k => [k, ladderKey(k)]));
+    ladderModels.sort((a, b) => lk[b] - lk[a]);
     const weak = Object.fromEntries((d.weak || []).map(w => [w.model, w]));
     const steps = [0, 20, 40, 49, 51, 60, 80, 100];
     $("ladderScale").innerHTML = steps.map(s => `<i style="${heat(s)}"></i>`).join("");
