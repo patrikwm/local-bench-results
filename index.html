@@ -288,6 +288,14 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
 .err { padding: 16px; border-left: 3px solid var(--miss); background: var(--miss-bg); }
 .hidden { display: none !important; }
+.plan { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 960px) { .plan { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .plan { grid-template-columns: 1fr; } }
+.plan li { background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; font-size: 13.5px; color: var(--ink-2); position: relative; }
+.plan li b { display: block; color: var(--ink); font-size: 15px; font-variation-settings: "wdth" 112; }
+.plan li.done { opacity: .65; }
+.plan li.now { border: 2px solid var(--pass); }
+.plan li.now::after { content: "now"; position: absolute; top: 8px; right: 10px; font-size: 11px; font-weight: 800; color: var(--pass); text-transform: uppercase; letter-spacing: .06em; }
 .live { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 13.5px; }
 .live .lbl { font-weight: 700; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; margin-right: 4px; }
 .live .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pass); }
@@ -317,6 +325,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g fill="currentColor"><rect x="2" y="13" width="4" height="4" rx="1"/><rect x="7" y="8" width="4" height="9" rx="1"/><rect x="12" y="2" width="4" height="15" rx="1"/></g></svg>Local Bench
     </a>
     <nav class="nav" aria-label="Sections">
+      <a href="#plan">Plan</a>
       <a href="#ladder">Ladder</a>
       <a href="#ranking">Ranking</a>
       <a href="#matrix">Task matrix</a>
@@ -355,6 +364,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="facts" id="facts"></div>
       </div>
       <div class="live" id="live" aria-live="off"></div>
+    </section>
+
+    <!-- PLAN -->
+    <section class="block" id="plan" style="padding-top:24px">
+      <div class="sec-head">
+        <h2>The plan</h2>
+        <p>On this PC every model climbs level by level, all models together: a level is a filter, so only models that pass it get the next, more expensive one. The rented GPUs ran one model straight up the ladder each (paid by the hour); those runs are finished.</p>
+      </div>
+      <ol class="plan" id="planList">
+        <li data-step="1"><b>1 · Level 1</b>28 small tasks, every model. Done for all PC models.</li>
+        <li data-step="2"><b>2 · Level 2</b>Real open-source projects, for the models that passed L1. Under 65 % at L1: a 60 % probe first.</li>
+        <li data-step="s"><b>3 · Sysadmin S1–S3</b>Scripts, containers, troubleshooting, for the models that passed L2.</li>
+        <li data-step="3"><b>4 · Level 3</b>Fresh hard tasks, only for models with 90 %+ of their L2 pairs.</li>
+        <li data-step="x"><b>5 · Leftovers</b>Unfinished or blocked runs (Devstral L1, gpt-oss-120b S2 re-run, engine comparisons, Laguna, Qwen3 14B), maybe skipped.</li>
+        <li data-step="f"><b>6 · Finals</b>The top 4–6 models: 3 fresh attempts on all of L1 and L2, on this PC only, clean conditions.</li>
+      </ol>
     </section>
 
     <!-- LADDER -->
@@ -641,6 +666,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </div>`;
       }).join("") + `</div><span class="small">As of ${esc(d.generated.slice(11, 16))}; checked every 5 minutes.</span>`;
       setInterval(() => document.querySelectorAll("#live time").forEach(el => el.textContent = ago(el.dataset.start)), 1000);
+    }
+
+    // the plan: mark the step this PC is on (from what runs now), earlier steps as done
+    {
+      const pcJob = (d.running || []).find(j => j.front === "PC" && j.agent !== "direct");
+      const step = pcJob ? ({ 1: "1", 2: "2", 11: "s", 12: "s", 13: "s", 3: "3" }[pcJob.level] || null) : null;
+      const order = ["1", "2", "s", "3", "x", "f"];
+      if (step) document.querySelectorAll("#planList li").forEach(li => {
+        const i = order.indexOf(li.dataset.step), k = order.indexOf(step);
+        li.classList.toggle("now", i === k); li.classList.toggle("done", i < k);
+      });
     }
 
     // best PC model so far (complete L1)
