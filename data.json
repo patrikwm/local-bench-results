@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T01:37+02:00",
+ "generated": "2026-10-23T02:07+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -1031,7 +1031,7 @@
    "agent": "pi",
    "level": 2,
    "solved": 9,
-   "attempts": 12,
+   "attempts": 13,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -1077,15 +1077,19 @@
      "solved": 1,
      "attempts": 1
     },
+    "l2-rs-feature-clap-rsplit": {
+     "solved": 0,
+     "attempts": 1
+    },
     "l2-ts-bugfix-rfc6902-escape": {
      "solved": 1,
      "attempts": 1
     }
    },
-   "median_s": 598.3,
-   "median_read": 1340193.0,
-   "median_written": 19500.0,
-   "decode_tok_s": 34.3,
+   "median_s": 876.5,
+   "median_read": 1396346,
+   "median_written": 26746,
+   "decode_tok_s": 32.7,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -2065,7 +2069,7 @@
    "agent": "opencode",
    "level": 1,
    "solved": 3,
-   "attempts": 9,
+   "attempts": 10,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -2102,15 +2106,19 @@
     "l1-go-bugfix-backoff": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 494.1,
-   "median_read": 208650,
-   "median_written": 11633,
+   "median_s": 572.1,
+   "median_read": 212311.0,
+   "median_written": 13418.5,
    "decode_tok_s": 25.6,
-   "gpu_w": 39.5,
-   "cpu_w": 163.3,
-   "wh_per_solved": 119.18,
+   "gpu_w": 40.0,
+   "cpu_w": 163.4,
+   "wh_per_solved": 138.13,
    "agent_version": "2.0.32"
   },
   {
@@ -2118,8 +2126,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 4,
-   "attempts": 9,
+   "solved": 5,
+   "attempts": 11,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -2156,15 +2164,23 @@
     "l1-go-bugfix-backoff": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-go-bugfix-logfmt": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-feature-cfgdiff": {
+     "solved": 1,
+     "attempts": 1
     }
    },
    "median_s": 444.1,
    "median_read": 129308,
    "median_written": 10354,
-   "decode_tok_s": 25.8,
+   "decode_tok_s": 25.6,
    "gpu_w": 40.1,
    "cpu_w": 160.2,
-   "wh_per_solved": 79.4,
+   "wh_per_solved": 81.65,
    "agent_version": "1.3.0"
   },
   {
@@ -2686,24 +2702,24 @@
    "variant": "mk",
    "agent": "pi",
    "level": 3,
-   "solved": 9,
-   "attempts": 15,
+   "solved": 11,
+   "attempts": 19,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 1,
-     "attempts": 2
+     "attempts": 3
     },
     "l3-cs-cancel-asyncex-waitqueue": {
      "solved": 2,
      "attempts": 2
     },
     "l3-go-lifecycle-gocache-close": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l3-java-concurrency-stormpot-tlrclaim": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     },
     "l3-py-compat-httpx-redirectlimit": {
      "solved": 1,
@@ -2719,13 +2735,13 @@
     },
     "l3-ts-cancel-pqueue-abort": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     }
    },
    "median_s": 378.1,
-   "median_read": 845456,
-   "median_written": 19689,
-   "decode_tok_s": 74.3,
+   "median_read": 833966,
+   "median_written": 15932,
+   "decode_tok_s": 74.7,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -3052,12 +3068,12 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 12,
-   "solved": 4,
-   "attempts": 5,
+   "solved": 5,
+   "attempts": 7,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-bash-bugfix-unit-hbd": {
      "solved": 2,
@@ -3065,7 +3081,7 @@
     },
     "s2-packer-bugfix-image-appbox": {
      "solved": 1,
-     "attempts": 1
+     "attempts": 2
     },
     "s2-tofu-feature-dockerstack": {
      "solved": 0,
@@ -3075,7 +3091,7 @@
    "median_s": 346.1,
    "median_read": 364007,
    "median_written": 17446,
-   "decode_tok_s": 53.4,
+   "decode_tok_s": 52.8,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -3325,7 +3341,7 @@
    "agent": "pi",
    "level": 12,
    "solved": 3,
-   "attempts": 4,
+   "attempts": 5,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
      "solved": 0,
@@ -3338,12 +3354,16 @@
     "s2-packer-bugfix-image-appbox": {
      "solved": 1,
      "attempts": 1
+    },
+    "s2-tofu-feature-dockerstack": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 325.1,
-   "median_read": 305802.5,
-   "median_written": 16286.0,
-   "decode_tok_s": 54.2,
+   "median_s": 394.1,
+   "median_read": 473799,
+   "median_written": 19658,
+   "decode_tok_s": 53.8,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -4780,8 +4800,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 15,
-   "attempts": 23,
+   "solved": 19,
+   "attempts": 28,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4820,30 +4840,30 @@
      "attempts": 2
     },
     "l2-py-feature-tenacity-stopidle": {
-     "solved": 0,
-     "attempts": 1
+     "solved": 1,
+     "attempts": 2
     },
     "l2-rs-bugfix-clap-lexfind": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-rs-feature-clap-rsplit": {
      "solved": 1,
-     "attempts": 1
+     "attempts": 2
     },
     "l2-ts-bugfix-rfc6902-escape": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-ts-feature-rfc6902-touchedpaths": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     }
    },
-   "median_s": 1084.2,
-   "median_read": 2229056,
-   "median_written": 73532,
-   "decode_tok_s": 139.4,
+   "median_s": 905.8,
+   "median_read": 2044586.5,
+   "median_written": 71350.0,
+   "decode_tok_s": 139.6,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -5610,30 +5630,30 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 12,
-   "solved": 4,
-   "attempts": 4,
+   "solved": 6,
+   "attempts": 7,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-bash-bugfix-unit-hbd": {
      "solved": 1,
-     "attempts": 1
+     "attempts": 2
     },
     "s2-packer-bugfix-image-appbox": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-tofu-feature-dockerstack": {
      "solved": 1,
      "attempts": 1
     }
    },
-   "median_s": 291.1,
-   "median_read": 395264.0,
-   "median_written": 13104.5,
-   "decode_tok_s": 177.8,
+   "median_s": 304.1,
+   "median_read": 209448,
+   "median_written": 9152,
+   "decode_tok_s": 175.6,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -5802,30 +5822,30 @@
    "variant": "mk",
    "agent": "pi",
    "level": 12,
-   "solved": 4,
-   "attempts": 5,
+   "solved": 7,
+   "attempts": 8,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-bash-bugfix-unit-hbd": {
      "solved": 2,
      "attempts": 2
     },
     "s2-packer-bugfix-image-appbox": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-tofu-feature-dockerstack": {
-     "solved": 0,
-     "attempts": 1
+     "solved": 1,
+     "attempts": 2
     }
    },
-   "median_s": 258.1,
-   "median_read": 171466,
-   "median_written": 9480,
-   "decode_tok_s": 173.9,
+   "median_s": 429.1,
+   "median_read": 444625.5,
+   "median_written": 15305.0,
+   "decode_tok_s": 170.9,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -6354,22 +6374,22 @@
  ],
  "progress": {
   "planned_max": 6282,
-  "project_pct": 41.1,
-  "test_pct": 40.1,
+  "project_pct": 41.7,
+  "test_pct": 40.7,
   "pairs_full": 2110,
-  "pairs_tested": 847,
+  "pairs_tested": 859,
   "pairs_skipped": 21,
-  "eta_realistic_hours": 241.7,
-  "eta_pc_hours": 241.7,
-  "eta_cloud_hours": 16.0,
+  "eta_realistic_hours": 245.2,
+  "eta_pc_hours": 245.2,
+  "eta_cloud_hours": 15.7,
   "rented_servers": 5,
   "eta_realistic_by_level": {
    "L1": 25,
-   "L2": 74,
+   "L2": 76,
    "S1": 15,
-   "S2": 13,
+   "S2": 15,
    "S3": 78,
-   "L3": 52,
+   "L3": 51,
    "L4": 1
   },
   "p_pass": {
@@ -6381,17 +6401,17 @@
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 2648,
-  "graded_screening": 2037,
+  "settled": 2679,
+  "graded_screening": 2059,
   "settled_by_front": {
-   "pc": 1194,
-   "cloud": 1454
+   "pc": 1197,
+   "cloud": 1482
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 59.8,
-  "eta_hours": 108.7,
+  "pace_per_h": 55.9,
+  "eta_hours": 112.3,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -6520,15 +6540,15 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 18,
-    "attempts_solved": 7,
-    "median_s": 455.1,
+    "attempts": 21,
+    "attempts_solved": 8,
+    "median_s": 466.1,
     "decode_tok_s": 25.6,
-    "gpu_w": 39.9,
-    "cpu_w": 160.6,
-    "energy_wh": 675.1,
-    "wh_per_solved": 96.45,
-    "energy_attempts": 18,
+    "gpu_w": 40.1,
+    "cpu_w": 160.7,
+    "energy_wh": 822.6,
+    "wh_per_solved": 102.83,
+    "energy_attempts": 21,
     "side_load_attempts": 0
    }
   },
@@ -6938,7 +6958,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T01:37+02:00",
+  "updated": "2026-10-23T02:07+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -6947,7 +6967,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
-  "credit_eur": 26.458483,
+  "credit_eur": 24.803373999999998,
   "budget_eur": 193.51,
   "vm_events_clock": "local",
   "vm_events": [
@@ -7233,8 +7253,8 @@
    "00:54:10 l40s1: l40s1-s1 saved",
    "00:54:10 l40s1: start l40s1-s2: pi on pc ai-bench-cloud, opencode on pc ai-bench-check"
   ],
-  "hours_up": 34.39,
-  "spent_eur": 116.01,
+  "hours_up": 34.89,
+  "spent_eur": 121.7,
   "servers_running": 5
  },
  "utility": [
@@ -7458,7 +7478,7 @@
    ],
    "l2": [
     17,
-    26
+    27
    ],
    "why": "passed L2 below 90 %: no L3"
   }
