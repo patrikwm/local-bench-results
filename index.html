@@ -94,45 +94,45 @@ a:hover { color: var(--focus); }
 .theme-btn { background: none; border: 1px solid var(--rule); color: var(--ink-2); border-radius: 6px; padding: 5px 9px; cursor: pointer; font: inherit; font-size: 13px; }
 
 /* Hero */
-.hero { padding: 64px 0 40px; }
+.hero { padding: 22px 0 18px; }
 .hero h1 {
   font-variation-settings: "wdth" 125;
   font-weight: 850;
-  font-size: clamp(34px, 6vw, 72px);
-  line-height: .98;
-  letter-spacing: -.025em;
-  margin: 0 0 24px;
-  max-width: 15ch;
+  font-size: clamp(26px, 3.6vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin: 0 0 12px;
+  max-width: 28ch;
 }
-.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: end; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 32px; align-items: start; }
 @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
-.lede { font-size: 19px; color: var(--ink-2); max-width: 58ch; margin: 0; }
+.lede { font-size: 16.5px; color: var(--ink-2); max-width: 58ch; margin: 0; }
 .lede strong { color: var(--ink); font-weight: 650; }
 .verdict {
   border-left: 3px solid var(--pass);
   padding: 4px 0 4px 20px;
 }
 .verdict p { margin: 0; color: var(--ink-2); }
-.verdict .big { font-size: 28px; font-weight: 750; color: var(--ink); line-height: 1.15; font-variation-settings: "wdth" 110; margin: 4px 0 6px; }
+.verdict .big { font-size: 21px; font-weight: 750; color: var(--ink); line-height: 1.15; font-variation-settings: "wdth" 110; margin: 4px 0 6px; }
 .small { font-size: 13.5px; color: var(--muted); }
 
 /* Progress strip */
-.progress { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.progress { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rule); }
 .progress-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; align-items: baseline; margin-bottom: 10px; }
 .progress-head b { font-size: 17px; }
 .track { height: 14px; background: var(--todo); border-radius: 7px; overflow: hidden; display: flex; }
 .track span { display: block; height: 100%; }
 .track .pc { background: var(--ink); }
 .track .cloud { background: var(--rent); }
-.facts { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; margin-top: 18px; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin-top: 12px; }
 @media (max-width: 720px) { .facts { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-.fact .n { font-size: 24px; font-weight: 700; font-variation-settings: "wdth" 110; line-height: 1.1; }
+.fact .n { font-size: 20px; font-weight: 700; font-variation-settings: "wdth" 110; line-height: 1.1; }
 .fact .l { font-size: 13.5px; color: var(--muted); }
 .key { display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; }
 .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
 
 /* Sections */
-section.block { padding: 56px 0 8px; }
+section.block { padding: 40px 0 8px; }
 .sec-head { display: grid; grid-template-columns: 1fr; gap: 6px; margin-bottom: 22px; max-width: 76ch; }
 h2 {
   font-variation-settings: "wdth" 118;
@@ -288,6 +288,15 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
 .err { padding: 16px; border-left: 3px solid var(--miss); background: var(--miss-bg); }
 .hidden { display: none !important; }
+.live { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 13.5px; }
+.live .lbl { font-weight: 700; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; margin-right: 4px; }
+.live .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pass); }
+@media (prefers-reduced-motion: no-preference) { .live .dot { animation: blink 1.6s ease-in-out infinite; } @keyframes blink { 50% { opacity: .3; } } }
+.job { background: var(--paper); border: 1px solid var(--rule); border-radius: 99px; padding: 3px 12px; white-space: nowrap; }
+.job b { font-weight: 650; }
+.job .lv { font-weight: 800; margin: 0 4px; }
+.job time { font-variant-numeric: tabular-nums; font-weight: 700; margin-left: 6px; }
+.job.rent { border-color: color-mix(in srgb, var(--rent) 45%, var(--rule)); }
 </style>
 </head>
 <body>
@@ -335,6 +344,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="track" id="pTrack" role="img" aria-label="Benchmark progress"></div>
         <div class="facts" id="facts"></div>
       </div>
+      <div class="live" id="live" aria-live="off"></div>
     </section>
 
     <!-- LADDER -->
@@ -598,6 +608,18 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       [dur((gen - since) / 36e5), "running so far"],
       [dur(p.eta_hours), `left at the recent pace of ${p.pace_per_h}/h (not an upper bound)`]
     ].map(([n, l]) => `<div class="fact"><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div></div>`).join("");
+
+    // running now (data.json "running": start times; the counter runs in the browser, the list is as of the last update)
+    const jobs = d.running || [];
+    const ago = (iso) => { const s = Math.max(0, Math.floor((Date.now() - new Date(iso)) / 1000));
+      const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
+      return (h ? `${h}h ` : "") + `${String(m).padStart(h ? 2 : 1, "0")}m ${String(x).padStart(2, "0")}s`; };
+    if (jobs.length) {
+      $("live").innerHTML = `<span class="lbl"><i class="dot"></i>Running now</span>` + jobs.map(j =>
+        `<span class="job${isRent(j.model) ? " rent" : ""}" title="${esc(j.task)} · attempt ${esc(j.attempt)}"><b>${esc(mName(j.model))}</b><span class="lv">${esc(LNAME[j.level] ?? "")}</span>${j.agent === "pi" ? "Pi" : "OpenCode"}<time data-start="${esc(j.started)}">${ago(j.started)}</time></span>`).join("") +
+        `<span class="small">as of ${esc(d.generated.slice(11, 16))}</span>`;
+      setInterval(() => document.querySelectorAll("#live time").forEach(el => el.textContent = ago(el.dataset.start)), 1000);
+    }
 
     // best PC model so far (complete L1)
     const pcDone = Object.entries(summary).filter(([k, s]) => !isRent(k) && s.pairs_decided === s.pairs_expected)
