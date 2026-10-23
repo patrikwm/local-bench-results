@@ -8051,7 +8051,9 @@
    "11:56:47 l40s1: l40s1-l3 exit pi=0 opencode=0",
    "11:56:51 l40s1: l40s1-l3 saved",
    "11:56:51 l40s1: strata iq2xs chain done",
-   "14:10:41 chain: cloud-l3 exit pi=0 opencode=0"
+   "14:10:41 chain: cloud-l3 exit pi=0 opencode=0",
+   "14:10:46 chain: cloud-l3 saved (commit, page, backup)",
+   "14:10:46 chain: qwen38 ladder done"
   ],
   "hours_up": 46.94,
   "spent_eur": 180.25,
