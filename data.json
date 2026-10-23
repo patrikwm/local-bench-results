@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T06:20+02:00",
+ "generated": "2026-10-23T06:38+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2072,8 +2072,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 12,
-   "attempts": 23,
+   "solved": 13,
+   "attempts": 24,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -2166,15 +2166,19 @@
     "l1-rs-feature-unique-slug": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-rs-tests-shipping-rates": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 494.1,
-   "median_read": 105637,
-   "median_written": 11633,
+   "median_s": 509.1,
+   "median_read": 111440.5,
+   "median_written": 11874.5,
    "decode_tok_s": 25.6,
    "gpu_w": 39.3,
-   "cpu_w": 162.5,
-   "wh_per_solved": 65.64,
+   "cpu_w": 162.4,
+   "wh_per_solved": 65.65,
    "agent_version": "2.0.32"
   },
   {
@@ -2182,8 +2186,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 12,
-   "attempts": 24,
+   "solved": 13,
+   "attempts": 25,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -2280,15 +2284,19 @@
     "l1-rs-tests-shipping-rates": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-ts-bugfix-pager": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 439.1,
-   "median_read": 68906.0,
-   "median_written": 10128.0,
+   "median_s": 434.1,
+   "median_read": 52879,
+   "median_written": 9902,
    "decode_tok_s": 25.6,
-   "gpu_w": 39.5,
-   "cpu_w": 160.4,
-   "wh_per_solved": 70.37,
+   "gpu_w": 39.4,
+   "cpu_w": 160.6,
+   "wh_per_solved": 65.85,
    "agent_version": "1.3.0"
   },
   {
@@ -2936,6 +2944,28 @@
    "agent_version": "1.3.0"
   },
   {
+   "model": "ornith35b-q8-128k-upcloud",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 13,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "s3-ansible-troubleshoot-shopops": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 660.1,
+   "median_read": 1317433,
+   "median_written": 31311,
+   "decode_tok_s": 86.6,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
+   "agent_version": "1.3.0"
+  },
+  {
    "model": "qwen38-27b-q4km-64k-upcloud",
    "variant": "mk",
    "agent": "opencode",
@@ -3145,7 +3175,7 @@
    "agent": "opencode",
    "level": 3,
    "solved": 3,
-   "attempts": 3,
+   "attempts": 4,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 1,
@@ -3158,12 +3188,16 @@
     "l3-go-lifecycle-gocache-close": {
      "solved": 1,
      "attempts": 1
+    },
+    "l3-java-concurrency-stormpot-tlrclaim": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 1022.2,
-   "median_read": 728533,
-   "median_written": 49361,
-   "decode_tok_s": 50.8,
+   "median_s": 1042.2,
+   "median_read": 751166.5,
+   "median_written": 49896.5,
+   "decode_tok_s": 51.1,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -5284,16 +5318,16 @@
    "variant": "mk",
    "agent": "pi",
    "level": 12,
-   "solved": 3,
-   "attempts": 4,
+   "solved": 5,
+   "attempts": 6,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-bash-bugfix-unit-hbd": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "s2-packer-bugfix-image-appbox": {
      "solved": 1,
@@ -5305,8 +5339,8 @@
     }
    },
    "median_s": 746.2,
-   "median_read": 1293449.0,
-   "median_written": 30161.0,
+   "median_read": 1191008.5,
+   "median_written": 26214.5,
    "decode_tok_s": 133.1,
    "gpu_w": null,
    "cpu_w": null,
@@ -5967,17 +6001,21 @@
    "agent": "opencode",
    "level": 3,
    "solved": 0,
-   "attempts": 1,
+   "attempts": 2,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 0,
      "attempts": 1
+    },
+    "l3-cs-cancel-asyncex-waitqueue": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 1260.3,
-   "median_read": 1010939,
-   "median_written": 81850,
-   "decode_tok_s": 171.3,
+   "median_s": 3393.7,
+   "median_read": 3955044.5,
+   "median_written": 234401.0,
+   "decode_tok_s": 172.6,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -6214,10 +6252,18 @@
    "variant": "mk",
    "agent": "pi",
    "level": 3,
-   "solved": 1,
-   "attempts": 1,
+   "solved": 3,
+   "attempts": 3,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l3-cs-cancel-asyncex-waitqueue": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l3-go-lifecycle-gocache-close": {
      "solved": 1,
      "attempts": 1
     }
@@ -6225,7 +6271,7 @@
    "median_s": 2846.8,
    "median_read": 3293994,
    "median_written": 76345,
-   "decode_tok_s": 181.1,
+   "decode_tok_s": 178.1,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -6857,13 +6903,13 @@
  "progress": {
   "planned_max": 6234,
   "project_pct": 45.5,
-  "test_pct": 43.6,
+  "test_pct": 43.7,
   "pairs_full": 2110,
-  "pairs_tested": 921,
+  "pairs_tested": 923,
   "pairs_skipped": 38,
-  "eta_realistic_hours": 201.2,
-  "eta_pc_hours": 201.2,
-  "eta_cloud_hours": 7.7,
+  "eta_realistic_hours": 204.9,
+  "eta_pc_hours": 204.9,
+  "eta_cloud_hours": 7.8,
   "rented_servers": 5,
   "eta_realistic_by_level": {
    "L1": 26,
@@ -6871,7 +6917,7 @@
    "S1": 19,
    "S2": 22,
    "S3": 27,
-   "L3": 29,
+   "L3": 31,
    "L4": 3
   },
   "p_pass": {
@@ -6883,17 +6929,17 @@
    "3": 0.4,
    "4": 0.5
   },
-  "settled": 2869,
-  "graded_screening": 2207,
+  "settled": 2880,
+  "graded_screening": 2216,
   "settled_by_front": {
-   "pc": 1223,
-   "cloud": 1646
+   "pc": 1225,
+   "cloud": 1655
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 44.4,
-  "eta_hours": 123.6,
+  "pace_per_h": 45.3,
+  "eta_hours": 122.0,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -7007,30 +7053,30 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 23,
-    "attempts_solved": 16,
-    "median_s": 398.1,
+    "attempts": 24,
+    "attempts_solved": 17,
+    "median_s": 400.1,
     "decode_tok_s": 25.7,
-    "gpu_w": 39.4,
-    "cpu_w": 160.6,
-    "energy_wh": 694.3,
-    "wh_per_solved": 43.39,
-    "energy_attempts": 23,
+    "gpu_w": 39.5,
+    "cpu_w": 160.3,
+    "energy_wh": 760.1,
+    "wh_per_solved": 44.71,
+    "energy_attempts": 24,
     "side_load_attempts": 0
    },
    "l1_v2": {
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 47,
-    "attempts_solved": 24,
+    "attempts": 49,
+    "attempts_solved": 26,
     "median_s": 444.1,
     "decode_tok_s": 25.6,
     "gpu_w": 39.4,
     "cpu_w": 161.7,
-    "energy_wh": 1632.1,
-    "wh_per_solved": 68.01,
-    "energy_attempts": 47,
+    "energy_wh": 1709.5,
+    "wh_per_solved": 65.75,
+    "energy_attempts": 49,
     "side_load_attempts": 0
    }
   },
@@ -7440,7 +7486,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T06:20+02:00",
+  "updated": "2026-10-23T06:38+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -7449,7 +7495,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
-  "credit_eur": 17.992126,
+  "credit_eur": 16.341829,
   "budget_eur": 193.51,
   "vm_events_clock": "local",
   "vm_events": [
@@ -7757,10 +7803,12 @@
    "05:07:09 chain: cloud-s3 exit pi=0 opencode=0",
    "05:07:14 chain: cloud-s3 saved (commit, page, backup)",
    "05:07:15 chain: start cloud-l3: pi on pve2, opencode on pve1",
-   "06:20:20 l40s3: l40s3-s2 exit pi=0 opencode=0"
+   "06:20:20 l40s3: l40s3-s2 exit pi=0 opencode=0",
+   "06:20:23 l40s3: l40s3-s2 saved",
+   "06:20:23 l40s3: start l40s3-s3: pi on pve1 CT902, opencode on pve2 CT902"
   ],
-  "hours_up": 39.1,
-  "spent_eur": 151.47,
+  "hours_up": 39.4,
+  "spent_eur": 155.64,
   "servers_running": 5
  },
  "utility": [
