@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T21:27+02:00",
+ "generated": "2026-10-23T21:32+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -7424,8 +7424,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 7.4,
-  "eta_hours": 437.8,
+  "pace_per_h": 7.2,
+  "eta_hours": 449.6,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8008,7 +8008,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T21:27+02:00",
+  "updated": "2026-10-23T21:33+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8352,9 +8352,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 54.22,
+  "hours_up": 54.31,
   "spent_eur": 183.65,
-  "gpu_hours": 128.3,
+  "gpu_hours": 128.4,
   "servers_running": 1
  },
  "utility": [
