@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T20:36+02:00",
+ "generated": "2026-10-23T20:39+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -7424,8 +7424,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 18.7,
-  "eta_hours": 202.3,
+  "pace_per_h": 17.8,
+  "eta_hours": 209.9,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8008,7 +8008,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T20:36+02:00",
+  "updated": "2026-10-23T20:39+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8352,7 +8352,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 53.37,
+  "hours_up": 53.42,
   "spent_eur": 183.65,
   "gpu_hours": 127.5,
   "servers_running": 1
@@ -8415,47 +8415,56 @@
   {
    "model": "gptoss20b-128k",
    "kind": "commit-msg",
-   "attempts": 4,
-   "solved": 3,
+   "attempts": 9,
+   "solved": 5,
    "tasks": 4,
-   "median_s": 1.6,
-   "median_out_tokens": 263.0
+   "median_s": 1.7,
+   "median_out_tokens": 283
   },
   {
    "model": "gptoss20b-128k",
    "kind": "convert",
-   "attempts": 4,
-   "solved": 3,
+   "attempts": 8,
+   "solved": 6,
    "tasks": 4,
-   "median_s": 1.9,
-   "median_out_tokens": 323.5
+   "median_s": 2.1,
+   "median_out_tokens": 360.5
   },
   {
    "model": "gptoss20b-128k",
    "kind": "extract-json",
-   "attempts": 4,
-   "solved": 2,
+   "attempts": 9,
+   "solved": 6,
    "tasks": 4,
-   "median_s": 2.1,
-   "median_out_tokens": 352.0
+   "median_s": 2.0,
+   "median_out_tokens": 342
   },
   {
    "model": "gptoss20b-128k",
    "kind": "md-fix",
-   "attempts": 4,
-   "solved": 1,
+   "attempts": 9,
+   "solved": 3,
    "tasks": 4,
-   "median_s": 4.7,
-   "median_out_tokens": 800.0
+   "median_s": 4.5,
+   "median_out_tokens": 800
   },
   {
    "model": "gptoss20b-128k",
    "kind": "rename",
-   "attempts": 2,
-   "solved": 2,
-   "tasks": 2,
-   "median_s": 1.9,
-   "median_out_tokens": 309.0
+   "attempts": 8,
+   "solved": 8,
+   "tasks": 4,
+   "median_s": 1.5,
+   "median_out_tokens": 253.0
+  },
+  {
+   "model": "gptoss20b-128k",
+   "kind": "test-summary",
+   "attempts": 9,
+   "solved": 8,
+   "tasks": 4,
+   "median_s": 1.2,
+   "median_out_tokens": 199
   },
   {
    "model": "mellum21-q8-128k",
@@ -8510,18 +8519,72 @@
    "tasks": 4,
    "median_s": 12.5,
    "median_out_tokens": 300.0
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "kind": "commit-msg",
+   "attempts": 8,
+   "solved": 6,
+   "tasks": 4,
+   "median_s": 0.8,
+   "median_out_tokens": 11.5
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "kind": "convert",
+   "attempts": 8,
+   "solved": 4,
+   "tasks": 4,
+   "median_s": 2.8,
+   "median_out_tokens": 78.5
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "kind": "extract-json",
+   "attempts": 7,
+   "solved": 5,
+   "tasks": 4,
+   "median_s": 3.1,
+   "median_out_tokens": 86
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "kind": "md-fix",
+   "attempts": 4,
+   "solved": 0,
+   "tasks": 4,
+   "median_s": 2.8,
+   "median_out_tokens": 79.5
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "kind": "rename",
+   "attempts": 4,
+   "solved": 4,
+   "tasks": 4,
+   "median_s": 2.9,
+   "median_out_tokens": 76.0
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "kind": "test-summary",
+   "attempts": 4,
+   "solved": 3,
+   "tasks": 4,
+   "median_s": 1.5,
+   "median_out_tokens": 19.5
   }
  ],
  "running": [
   {
-   "model": "gptoss20b-128k",
+   "model": "qwen3coder30b-a3-128k",
    "front": "PC",
-   "task": "u-rename-retries",
+   "task": "u-extract-json-ticket",
    "level": "quick",
    "agent": "direct",
-   "attempt": "1",
-   "progress": "19/72",
-   "started": "2026-10-23T20:36:29+02:00"
+   "attempt": "2",
+   "progress": "36/72",
+   "started": "2026-10-23T20:39:47+02:00"
   }
  ],
  "last_done": {
