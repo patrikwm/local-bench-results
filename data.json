@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T10:27+02:00",
+ "generated": "2026-10-23T10:39+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2072,8 +2072,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 19,
-   "attempts": 34,
+   "solved": 20,
+   "attempts": 35,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -2100,8 +2100,8 @@
      "attempts": 2
     },
     "l1-cs-feature-discounts": {
-     "solved": 0,
-     "attempts": 1
+     "solved": 1,
+     "attempts": 2
     },
     "l1-cs-tests-daybook": {
      "solved": 0,
@@ -2188,13 +2188,13 @@
      "attempts": 1
     }
    },
-   "median_s": 542.1,
-   "median_read": 117329.5,
-   "median_written": 12334.0,
-   "decode_tok_s": 25.4,
+   "median_s": 560.1,
+   "median_read": 117244,
+   "median_written": 12552,
+   "decode_tok_s": 25.3,
    "gpu_w": 39.5,
-   "cpu_w": 163.0,
-   "wh_per_solved": 64.65,
+   "cpu_w": 163.1,
+   "wh_per_solved": 63.8,
    "agent_version": "2.0.32"
   },
   {
@@ -6454,16 +6454,16 @@
    "variant": "mk",
    "agent": "pi",
    "level": 3,
-   "solved": 8,
-   "attempts": 9,
+   "solved": 9,
+   "attempts": 10,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 2,
      "attempts": 2
     },
     "l3-cs-cancel-asyncex-waitqueue": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l3-go-lifecycle-gocache-close": {
      "solved": 1,
@@ -6490,10 +6490,10 @@
      "attempts": 1
     }
    },
-   "median_s": 1937.4,
-   "median_read": 2329896,
-   "median_written": 70899,
-   "decode_tok_s": 177.0,
+   "median_s": 1945.6,
+   "median_read": 2300287.5,
+   "median_written": 73622.0,
+   "decode_tok_s": 176.0,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -7125,13 +7125,13 @@
  "progress": {
   "planned_max": 6030,
   "project_pct": 48.2,
-  "test_pct": 44.4,
+  "test_pct": 44.5,
   "pairs_full": 2110,
-  "pairs_tested": 937,
+  "pairs_tested": 938,
   "pairs_skipped": 79,
-  "eta_realistic_hours": 184.2,
-  "eta_pc_hours": 184.2,
-  "eta_cloud_hours": 8.4,
+  "eta_realistic_hours": 185.0,
+  "eta_pc_hours": 185.0,
+  "eta_cloud_hours": 8.3,
   "rented_servers": 3,
   "eta_realistic_by_level": {
    "L1": 27,
@@ -7139,7 +7139,7 @@
    "S1": 16,
    "S2": 22,
    "S3": 21,
-   "L3": 32,
+   "L3": 33,
    "L4": 2
   },
   "p_pass": {
@@ -7151,17 +7151,17 @@
    "3": 0.4,
    "4": 0.5
   },
-  "settled": 2935,
-  "graded_screening": 2258,
+  "settled": 2938,
+  "graded_screening": 2260,
   "settled_by_front": {
-   "pc": 1249,
-   "cloud": 1686
+   "pc": 1250,
+   "cloud": 1688
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 34.0,
-  "eta_hours": 138.8,
+  "pace_per_h": 33.4,
+  "eta_hours": 140.5,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -7292,15 +7292,15 @@
     "pairs_expected": 56,
     "pairs_decided": 10,
     "pairs_passed": 6,
-    "attempts": 69,
-    "attempts_solved": 39,
-    "median_s": 466.1,
+    "attempts": 70,
+    "attempts_solved": 40,
+    "median_s": 480.1,
     "decode_tok_s": 25.5,
-    "gpu_w": 39.4,
+    "gpu_w": 39.5,
     "cpu_w": 162.4,
-    "energy_wh": 2406.3,
-    "wh_per_solved": 61.7,
-    "energy_attempts": 69,
+    "energy_wh": 2454.0,
+    "wh_per_solved": 61.35,
+    "energy_attempts": 70,
     "side_load_attempts": 0
    }
   },
@@ -7710,7 +7710,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T10:27+02:00",
+  "updated": "2026-10-23T10:39+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8041,9 +8041,9 @@
    "08:35:34 l40s2: l40s2-s2 saved",
    "08:35:34 l40s2: start l40s2-s3: pi on pve1 CT901, opencode on pve2 CT901"
   ],
-  "hours_up": 43.21,
-  "spent_eur": 174.11,
-  "gpu_hours": 115.2,
+  "hours_up": 43.42,
+  "spent_eur": 174.45,
+  "gpu_hours": 115.8,
   "servers_running": 3
  },
  "utility": [
