@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T13:35+02:00",
+ "generated": "2026-10-23T13:40+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2073,7 +2073,7 @@
    "agent": "opencode",
    "level": 1,
    "solved": 21,
-   "attempts": 42,
+   "attempts": 43,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -2133,7 +2133,7 @@
     },
     "l1-java-feature-wordfreq": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-java-tests-jobqueue": {
      "solved": 0,
@@ -2188,13 +2188,13 @@
      "attempts": 1
     }
    },
-   "median_s": 525.1,
-   "median_read": 117329.5,
-   "median_written": 11874.5,
+   "median_s": 526.1,
+   "median_read": 117415,
+   "median_written": 12116,
    "decode_tok_s": 25.4,
    "gpu_w": 39.5,
-   "cpu_w": 162.8,
-   "wh_per_solved": 72.13,
+   "cpu_w": 162.7,
+   "wh_per_solved": 75.22,
    "agent_version": "2.0.32"
   },
   {
@@ -7129,21 +7129,21 @@
  "progress": {
   "planned_max": 6030,
   "project_pct": 49.5,
-  "test_pct": 45.7,
+  "test_pct": 45.8,
   "pairs_full": 2110,
-  "pairs_tested": 965,
+  "pairs_tested": 966,
   "pairs_skipped": 79,
-  "eta_realistic_hours": 188.8,
-  "eta_pc_hours": 188.8,
+  "eta_realistic_hours": 189.5,
+  "eta_pc_hours": 189.5,
   "eta_cloud_hours": 23.1,
   "rented_servers": 1,
   "eta_realistic_by_level": {
    "L1": 30,
-   "L2": 78,
+   "L2": 79,
    "S1": 18,
-   "S2": 24,
+   "S2": 25,
    "S3": 23,
-   "L3": 35,
+   "L3": 36,
    "L4": 3
   },
   "p_pass": {
@@ -7155,17 +7155,17 @@
    "3": 0.4,
    "4": 0.5
   },
-  "settled": 2998,
-  "graded_screening": 2295,
+  "settled": 3000,
+  "graded_screening": 2296,
   "settled_by_front": {
-   "pc": 1275,
+   "pc": 1277,
    "cloud": 1723
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 18.1,
-  "eta_hours": 215.5,
+  "pace_per_h": 17.6,
+  "eta_hours": 219.4,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -7294,17 +7294,17 @@
    },
    "l1_v2": {
     "pairs_expected": 56,
-    "pairs_decided": 20,
+    "pairs_decided": 21,
     "pairs_passed": 7,
-    "attempts": 85,
+    "attempts": 86,
     "attempts_solved": 42,
-    "median_s": 466.1,
+    "median_s": 472.1,
     "decode_tok_s": 25.4,
     "gpu_w": 39.4,
-    "cpu_w": 161.9,
-    "energy_wh": 2984.1,
-    "wh_per_solved": 71.05,
-    "energy_attempts": 85,
+    "cpu_w": 161.8,
+    "energy_wh": 3049.1,
+    "wh_per_solved": 72.6,
+    "energy_attempts": 86,
     "side_load_attempts": 0
    }
   },
@@ -7714,7 +7714,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T13:35+02:00",
+  "updated": "2026-10-23T13:40+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8052,7 +8052,7 @@
    "11:56:51 l40s1: l40s1-l3 saved",
    "11:56:51 l40s1: strata iq2xs chain done"
   ],
-  "hours_up": 46.35,
+  "hours_up": 46.43,
   "spent_eur": 178.6,
   "gpu_hours": 120.5,
   "servers_running": 1
@@ -8115,15 +8115,6 @@
  ],
  "running": [
   {
-   "model": "mellum21-q8-128k",
-   "front": "PC",
-   "task": "l1-java-feature-wordfreq",
-   "level": 1,
-   "agent": "opencode",
-   "attempt": "2",
-   "started": "2026-10-23T13:17:03+02:00"
-  },
-  {
    "model": "qwen38-27b-q4km-64k-upcloud",
    "front": "RTX PRO 6000",
    "task": "l3-py-compat-httpx-redirectlimit",
@@ -8131,6 +8122,15 @@
    "agent": "pi",
    "attempt": "3",
    "started": "2026-10-23T13:17:54+02:00"
+  },
+  {
+   "model": "mellum21-q8-128k",
+   "front": "PC",
+   "task": "l1-java-tests-jobqueue",
+   "level": 1,
+   "agent": "pi",
+   "attempt": "2",
+   "started": "2026-10-23T13:37:32+02:00"
   }
  ],
  "last_done": {
@@ -8138,11 +8138,11 @@
    "model": "mellum21-q8-128k",
    "task": "l1-java-feature-wordfreq",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
    "solved": false,
-   "wall_s": 478,
-   "ended": "2026-10-23T13:16:27+02:00"
+   "wall_s": 1200,
+   "ended": "2026-10-23T13:36:58+02:00"
   },
   "RTX PRO 6000": {
    "model": "qwen38-27b-q4km-64k-upcloud",
