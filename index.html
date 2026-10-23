@@ -620,7 +620,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           if (t.solved >= 2) { passed++; decided++; } else if (t.attempts - t.solved >= 2) decided++;
         });
       });
-      const expected = (tasksByLevel[level]?.length || 0) * 2;
+      // L3/L4 task content is private: count those tasks from the published hashes
+      const hidden = Object.keys(d.fresh_task_hashes?.tasks || {}).filter(h => h.startsWith(`l${level}-`)).length;
+      const expected = (tasksByLevel[level]?.length || (level === 3 || level === 4 ? hidden : 0)) * 2;
       return { passed, decided, solved, att, expected };
     }
     const ladderModels = [...new Set(mk.map(r => r.model))];
