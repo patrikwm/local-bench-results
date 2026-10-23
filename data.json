@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T03:07+02:00",
+ "generated": "2026-10-23T03:09+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4873,7 +4873,7 @@
    "agent": "opencode",
    "level": 2,
    "solved": 21,
-   "attempts": 30,
+   "attempts": 31,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4921,7 +4921,7 @@
     },
     "l2-rs-feature-clap-rsplit": {
      "solved": 1,
-     "attempts": 2
+     "attempts": 3
     },
     "l2-ts-bugfix-rfc6902-escape": {
      "solved": 2,
@@ -4932,10 +4932,10 @@
      "attempts": 2
     }
    },
-   "median_s": 983.7,
-   "median_read": 2341451.0,
-   "median_written": 77450.5,
-   "decode_tok_s": 140.2,
+   "median_s": 971.6,
+   "median_read": 2229056,
+   "median_written": 73532,
+   "decode_tok_s": 139.8,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -6475,10 +6475,10 @@
   "project_pct": 43.3,
   "test_pct": 41.5,
   "pairs_full": 2110,
-  "pairs_tested": 875,
+  "pairs_tested": 876,
   "pairs_skipped": 38,
-  "eta_realistic_hours": 192.1,
-  "eta_pc_hours": 192.1,
+  "eta_realistic_hours": 192.0,
+  "eta_pc_hours": 192.0,
   "eta_cloud_hours": 9.6,
   "rented_servers": 5,
   "eta_realistic_by_level": {
@@ -6492,24 +6492,24 @@
   },
   "p_pass": {
    "1": 0.92,
-   "2": 0.86,
+   "2": 0.88,
    "11": 0.67,
    "12": 0.75,
    "13": 0.5,
    "3": 0.25,
    "4": 0.5
   },
-  "settled": 2715,
-  "graded_screening": 2088,
+  "settled": 2716,
+  "graded_screening": 2089,
   "settled_by_front": {
    "pc": 1203,
-   "cloud": 1512
+   "cloud": 1513
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 45.5,
-  "eta_hours": 125.2,
+  "pace_per_h": 45.1,
+  "eta_hours": 125.9,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -7056,7 +7056,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T03:07+02:00",
+  "updated": "2026-10-23T03:09+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -7355,9 +7355,10 @@
    "02:26:15 l40s1: start l40s1-s3: pi on pc ai-bench-cloud, opencode on pc ai-bench-check",
    "02:46:10 chain: cloud-s2 exit pi=0 opencode=0",
    "02:46:14 chain: cloud-s2 saved (commit, page, backup)",
-   "02:46:16 chain: start cloud-s3: pi on pve2, opencode on pve1"
+   "02:46:16 chain: start cloud-s3: pi on pve2, opencode on pve1",
+   "03:09:30 l40s2: l40s2-l2 exit pi=0 opencode=0"
   ],
-  "hours_up": 35.89,
+  "hours_up": 35.92,
   "spent_eur": 127.83,
   "servers_running": 5
  },
@@ -7558,7 +7559,7 @@
    ],
    "l2": [
     23,
-    27
+    28
    ],
    "why": "passed L2 below 90 %: no L3"
   },
