@@ -203,6 +203,11 @@ th button.sort[aria-sort="ascending"]::after { content: " ▴"; }
 .score .bar::after { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--muted); opacity: .6; }
 .score b { width: 42px; text-align: right; font-weight: 700; }
 .rank { font-weight: 800; color: var(--muted); width: 28px; }
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 12px; }
+.tabs button { font: inherit; font-size: 14px; font-weight: 600; padding: 6px 14px; border: 1px solid var(--rule); border-radius: 6px; background: transparent; color: var(--ink-2); cursor: pointer; }
+.tabs button:hover { color: var(--ink); background: var(--rule-2); }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tabs button small { font-weight: 500; opacity: .75; margin-left: 4px; }
 
 /* Threat matrix */
 .matrix table { border-collapse: separate; border-spacing: 2px; font-size: 12px; }
@@ -294,7 +299,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#ladder">Ladder</a>
-      <a href="#ranking">Level 1</a>
+      <a href="#ranking">Ranking</a>
       <a href="#matrix">Task matrix</a>
       <a href="#agents">Pi vs OpenCode</a>
       <a href="#speed">Speed</a>
@@ -354,11 +359,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <!-- RANKING -->
     <section class="block" id="ranking">
       <div class="sec-head">
-        <h2>Level 1 ranking</h2>
-        <p>28 small tasks in 7 languages, each with both agents: 56 pairs per model. A gap of one or two pairs is noise, not a ranking. Rented-GPU rows show what a model can do, not what this PC can do.</p>
+        <h2>Level ranking</h2>
+        <p id="rankIntro"></p>
       </div>
-      <div class="panel scroll"><table class="data" id="rankTable"></table></div>
-      <p class="small" style="max-width:90ch">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt is all measured GPU + CPU energy, failed attempts included, divided by solved attempts; it is not wall power (RAM, board and PSU losses are not in it). CPU power is measured from 2026-10-20 21:00.</p>
+      <div class="tabs" role="tablist" aria-label="Level" id="rankTabs"></div>
+      <div class="panel scroll" role="tabpanel" id="rankPanel"><table class="data" id="rankTable"></table></div>
+      <p class="small" id="rankNote" style="max-width:90ch">Median time, decode speed and power are medians over every attempt of both agents. Energy per solved attempt is all measured GPU + CPU energy, failed attempts included, divided by solved attempts; it is not wall power (RAM, board and PSU losses are not in it). CPU power is measured from 2026-10-20 21:00.</p>
     </section>
 
     <!-- MATRIX -->
@@ -700,7 +706,51 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         $("rankTable").querySelector(`button[data-col="${col}"]`).focus();
       }));
     }
-    drawRank();
+    // ---------- level tabs (Patrik 2026-10-23): L1 has the full table, every other level ranks pairs passed ----------
+    const INTRO = {
+      1: "28 small tasks in 7 languages, each with both agents: 56 pairs per model.",
+      2: "14 tasks in real open-source projects, both agents: 28 pairs per model.",
+      11: "Sysadmin S1: 4 scripts and small configs (Bash, PowerShell, OpenTofu), both agents: 8 pairs.",
+      12: "Sysadmin S2: services, images and stacks in containers, both agents: 8 pairs.",
+      13: "Sysadmin S3: troubleshooting and refactors, both agents: 8 pairs.",
+      3: "8 fresh hard tasks (concurrency, lifecycle, cancellation), both agents: 16 pairs. Only models with 90 %+ of their L2 pairs get L3.",
+      4: "One long build in 5 milestones, one night. Chosen by hand for at most 1 or 2 models."
+    };
+    const COMMON = " A gap of one or two pairs is noise, not a ranking. Rented-GPU rows show what a model can do, not what this PC can do.";
+    const rankLevels = LEVELS.filter(l => l > 0 && mk.some(r => r.level === l));
+    const avg = (xs) => { xs = xs.filter(x => x != null); return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null; };
+    function drawLevel(l) {
+      $("rankIntro").textContent = (INTRO[l] || "") + COMMON;
+      $("rankNote").classList.toggle("hidden", l !== 1);
+      $("rankTabs").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", +b.dataset.l === l));
+      if (l === 1) { drawRank(); return; }
+      const rows = [...new Set(mk.filter(r => r.level === l).map(r => r.model))].map(k => {
+        const s = cellStats(k, l), rs = mk.filter(r => r.model === k && r.level === l);
+        return { k, s, score: s.decided ? s.passed / s.decided : null, done: s.decided >= s.expected,
+                 med: avg(rs.map(r => r.median_s)), dec: avg(rs.map(r => r.decode_tok_s)) };
+      }).sort((a, b) => (b.done - a.done) || ((b.score ?? -1) - (a.score ?? -1)) || (a.med ?? 1e9) - (b.med ?? 1e9));
+      let rank = 0;
+      let h = `<thead><tr><th>#</th><th>Model</th><th>Pairs passed</th><th class="num">Decided</th><th class="num">Attempts solved</th><th class="num">Median time</th><th class="num">Decode</th></tr></thead><tbody>`;
+      rows.forEach(r => {
+        const sc = r.score == null ? null : Math.round(100 * r.score), passed = r.s.passed >= r.s.expected / 2;
+        h += `<tr><td class="rank">${r.done ? ++rank : ""}</td>
+          <td><div class="mname">${esc(mName(r.k))}${rentChip(r.k)}${r.done ? (passed ? ' <span style="color:var(--pass);font-weight:800" title="level passed">✓</span>' : "") : '<span class="chip run">running</span>'}</div><div class="msub">${esc(M[r.k]?.quant || "")} · ${M[r.k]?.size_gb ?? "?"} GB · ${esc((M[r.k]?.engine || "").replace(/,.*$/, ""))}</div></td>
+          <td>${sc == null ? '<span class="small">no pair decided yet</span>' : `<div class="score"><div class="bar ${sc < 50 ? "low" : ""}"><i style="width:${sc}%"></i></div><b>${sc}%</b></div>`}</td>
+          <td class="num">${r.s.passed}/${r.s.decided} <span class="small">of ${r.s.expected}</span></td>
+          <td class="num">${r.s.solved}/${r.s.att}</td>
+          <td class="num">${secs(r.med)}</td>
+          <td class="num">${r.dec ? Math.round(r.dec) + " tok/s" : "–"}</td></tr>`;
+      });
+      $("rankTable").innerHTML = h + "</tbody>";
+    }
+    $("rankTabs").innerHTML = rankLevels.map(l => `<button type="button" role="tab" data-l="${l}" aria-controls="rankPanel">${LNAME[l]}<small>${new Set(mk.filter(r => r.level === l).map(r => r.model)).size}</small></button>`).join("");
+    $("rankTabs").querySelectorAll("button").forEach(b => b.addEventListener("click", () => drawLevel(+b.dataset.l)));
+    $("rankTabs").addEventListener("keydown", e => {  // arrow keys move between tabs
+      if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      const bs = [...$("rankTabs").querySelectorAll("button")], i = bs.indexOf(document.activeElement);
+      const nb = bs[(i + (e.key === "ArrowRight" ? 1 : bs.length - 1)) % bs.length]; nb.focus(); nb.click();
+    });
+    drawLevel(1);
 
     // ---------- matrix ----------
     const mxModels = rankRows.slice().sort((a, b) => (b.done - a.done) || ((b.score ?? -1) - (a.score ?? -1))).map(r => r.k);
