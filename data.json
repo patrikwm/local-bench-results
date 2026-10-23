@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T20:34+02:00",
+ "generated": "2026-10-23T20:36+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8008,7 +8008,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T20:34+02:00",
+  "updated": "2026-10-23T20:36+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8352,9 +8352,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 53.33,
+  "hours_up": 53.37,
   "spent_eur": 183.65,
-  "gpu_hours": 127.4,
+  "gpu_hours": 127.5,
   "servers_running": 1
  },
  "utility": [
@@ -8413,6 +8413,51 @@
    "median_out_tokens": 21.0
   },
   {
+   "model": "gptoss20b-128k",
+   "kind": "commit-msg",
+   "attempts": 4,
+   "solved": 3,
+   "tasks": 4,
+   "median_s": 1.6,
+   "median_out_tokens": 263.0
+  },
+  {
+   "model": "gptoss20b-128k",
+   "kind": "convert",
+   "attempts": 4,
+   "solved": 3,
+   "tasks": 4,
+   "median_s": 1.9,
+   "median_out_tokens": 323.5
+  },
+  {
+   "model": "gptoss20b-128k",
+   "kind": "extract-json",
+   "attempts": 4,
+   "solved": 2,
+   "tasks": 4,
+   "median_s": 2.1,
+   "median_out_tokens": 352.0
+  },
+  {
+   "model": "gptoss20b-128k",
+   "kind": "md-fix",
+   "attempts": 4,
+   "solved": 1,
+   "tasks": 4,
+   "median_s": 4.7,
+   "median_out_tokens": 800.0
+  },
+  {
+   "model": "gptoss20b-128k",
+   "kind": "rename",
+   "attempts": 2,
+   "solved": 2,
+   "tasks": 2,
+   "median_s": 1.9,
+   "median_out_tokens": 309.0
+  },
+  {
    "model": "mellum21-q8-128k",
    "kind": "commit-msg",
    "attempts": 8,
@@ -8451,23 +8496,34 @@
   {
    "model": "mellum21-q8-128k",
    "kind": "rename",
-   "attempts": 6,
-   "solved": 4,
+   "attempts": 8,
+   "solved": 5,
    "tasks": 4,
-   "median_s": 28.6,
+   "median_s": 28.5,
    "median_out_tokens": 779.0
   },
   {
    "model": "mellum21-q8-128k",
    "kind": "test-summary",
-   "attempts": 4,
+   "attempts": 6,
    "solved": 0,
    "tasks": 4,
-   "median_s": 12.7,
+   "median_s": 12.5,
    "median_out_tokens": 300.0
   }
  ],
- "running": [],
+ "running": [
+  {
+   "model": "gptoss20b-128k",
+   "front": "PC",
+   "task": "u-rename-retries",
+   "level": "quick",
+   "agent": "direct",
+   "attempt": "1",
+   "progress": "19/72",
+   "started": "2026-10-23T20:36:29+02:00"
+  }
+ ],
  "last_done": {
   "PC": {
    "model": "mellum21-q8-128k",
@@ -8499,6 +8555,10 @@
    "wall_s": 920,
    "ended": "2026-10-23T11:50:07+02:00"
   }
+ },
+ "fronts_off": {
+  "RTX PRO 6000": "2026-10-23T15:23+02:00",
+  "L40S": "2026-10-23T11:59+02:00"
  },
  "speed": [
   {

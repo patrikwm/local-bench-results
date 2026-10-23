@@ -624,15 +624,19 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     const hms = (s) => { s = Math.max(0, Math.floor(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
       return (h ? `${h}h ` : "") + `${String(m).padStart(h ? 2 : 1, "0")}m ${String(x).padStart(2, "0")}s`; };
     const ago = (iso) => hms((Date.now() - new Date(iso)) / 1000);
-    const what = (j) => `<b>${esc(mName(j.model))}</b> ${esc(LNAME[j.level] ?? "")} · ${j.agent === "pi" ? "Pi" : "OpenCode"} · try ${esc(j.attempt)}`;
+    const what = (j) => j.agent === "direct"
+      ? `<b>${esc(mName(j.model))}</b> · quick jobs${j.progress ? ` (queue ${esc(j.progress)})` : ""}`
+      : `<b>${esc(mName(j.model))}</b> ${esc(LNAME[j.level] ?? "")} · ${j.agent === "pi" ? "Pi" : "OpenCode"} · try ${esc(j.attempt)}`;
+    const off = d.fronts_off || {};
     const FRONTS = ["PC", "L40S", "RTX PRO 6000"].filter(f => jobs.some(j => j.front === f) || lastDone[f]);
     const FNAME = { "PC": "This PC · RTX 4080", "L40S": "Rented L40S", "RTX PRO 6000": "Rented RTX PRO 6000" };
     if (FRONTS.length) {
       $("live").innerHTML = `<div class="fronts">` + FRONTS.map(f => {
         const now = jobs.filter(j => j.front === f), prev = lastDone[f];
-        return `<div class="front${f === "PC" ? "" : " rent"}"><h4><span>${esc(FNAME[f])}</span>${now.length ? '<i class="dot" title="running"></i>' : ""}</h4>
+        return `<div class="front${f === "PC" ? "" : " rent"}"${off[f] !== undefined && !now.length ? ' style="opacity:.7"' : ""}><h4><span>${esc(FNAME[f])}</span>${now.length ? '<i class="dot" title="running"></i>' : ""}</h4>
           ${now.length ? now.map(j => `<div class="row"><span class="k">Now</span><span>${what(j)} <time data-start="${esc(j.started)}">${ago(j.started)}</time></span></div>`).join("")
-                       : `<div class="row"><span class="k">Now</span><span class="small">idle or between tasks</span></div>`}
+            : off[f] !== undefined ? `<div class="row"><span class="k">Status</span><span>Server deleted ${esc((off[f] || "").slice(11, 16))} · run finished</span></div>`
+            : `<div class="row"><span class="k">Now</span><span class="small">between tasks (loading the next model or job)</span></div>`}
           ${prev ? `<div class="row"><span class="k">Previous</span><span>${what(prev)} <span class="${prev.solved ? "ok" : "no"}">${prev.solved ? "solved" : "failed"}</span> in ${hms(prev.wall_s)} <span class="small">(${esc(prev.ended.slice(11, 16))})</span></span></div>` : ""}
         </div>`;
       }).join("") + `</div><span class="small">As of ${esc(d.generated.slice(11, 16))}; checked every 5 minutes.</span>`;
