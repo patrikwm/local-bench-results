@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T08:00+02:00",
+ "generated": "2026-10-23T08:08+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2203,7 +2203,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 16,
-   "attempts": 29,
+   "attempts": 30,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -2211,7 +2211,7 @@
     },
     "l1-cpp-bugfix-recentfiles": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l1-cpp-feature-mdtable": {
      "solved": 1,
@@ -2318,13 +2318,13 @@
      "attempts": 1
     }
    },
-   "median_s": 354.1,
-   "median_read": 49948,
-   "median_written": 8188,
+   "median_s": 391.1,
+   "median_read": 51413.5,
+   "median_written": 9020.5,
    "decode_tok_s": 25.6,
    "gpu_w": 39.1,
    "cpu_w": 160.6,
-   "wh_per_solved": 57.3,
+   "wh_per_solved": 61.77,
    "agent_version": "1.3.0"
   },
   {
@@ -3249,7 +3249,7 @@
    "agent": "opencode",
    "level": 3,
    "solved": 5,
-   "attempts": 7,
+   "attempts": 8,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 1,
@@ -3278,12 +3278,16 @@
     "l3-rs-concurrency-ignore-quit": {
      "solved": 0,
      "attempts": 1
+    },
+    "l3-ts-cancel-pqueue-abort": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 1062.2,
-   "median_read": 773800,
-   "median_written": 49361,
-   "decode_tok_s": 50.8,
+   "median_s": 1161.5,
+   "median_read": 891534.0,
+   "median_written": 49896.5,
+   "decode_tok_s": 51.1,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -7013,17 +7017,17 @@
  "progress": {
   "planned_max": 6234,
   "project_pct": 46.4,
-  "test_pct": 44.5,
+  "test_pct": 44.6,
   "pairs_full": 2110,
-  "pairs_tested": 940,
+  "pairs_tested": 941,
   "pairs_skipped": 38,
-  "eta_realistic_hours": 206.7,
-  "eta_pc_hours": 206.7,
+  "eta_realistic_hours": 207.9,
+  "eta_pc_hours": 207.9,
   "eta_cloud_hours": 8.9,
   "rented_servers": 4,
   "eta_realistic_by_level": {
    "L1": 26,
-   "L2": 85,
+   "L2": 86,
    "S1": 20,
    "S2": 25,
    "S3": 23,
@@ -7039,17 +7043,17 @@
    "3": 0.4,
    "4": 0.5
   },
-  "settled": 2935,
-  "graded_screening": 2259,
+  "settled": 2938,
+  "graded_screening": 2261,
   "settled_by_front": {
-   "pc": 1236,
-   "cloud": 1699
+   "pc": 1238,
+   "cloud": 1700
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 42.2,
-  "eta_hours": 126.0,
+  "pace_per_h": 41.8,
+  "eta_hours": 126.7,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -7161,32 +7165,32 @@
    "variant": "mk",
    "l1_v1": {
     "pairs_expected": 24,
-    "pairs_decided": 2,
+    "pairs_decided": 3,
     "pairs_passed": 2,
-    "attempts": 26,
+    "attempts": 27,
     "attempts_solved": 19,
-    "median_s": 400.1,
+    "median_s": 402.1,
     "decode_tok_s": 25.7,
     "gpu_w": 39.4,
     "cpu_w": 160.6,
-    "energy_wh": 797.9,
-    "wh_per_solved": 42.0,
-    "energy_attempts": 26,
+    "energy_wh": 869.4,
+    "wh_per_solved": 45.76,
+    "energy_attempts": 27,
     "side_load_attempts": 0
    },
    "l1_v2": {
     "pairs_expected": 56,
-    "pairs_decided": 2,
+    "pairs_decided": 3,
     "pairs_passed": 2,
-    "attempts": 58,
+    "attempts": 59,
     "attempts_solved": 34,
-    "median_s": 415.1,
+    "median_s": 428.1,
     "decode_tok_s": 25.5,
     "gpu_w": 39.3,
-    "cpu_w": 162.2,
-    "energy_wh": 1898.8,
-    "wh_per_solved": 55.85,
-    "energy_attempts": 58,
+    "cpu_w": 162.1,
+    "energy_wh": 1970.2,
+    "wh_per_solved": 57.95,
+    "energy_attempts": 59,
     "side_load_attempts": 0
    }
   },
@@ -7596,11 +7600,11 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T08:00+02:00",
+  "updated": "2026-10-23T08:08+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
-  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GB + 3x NVIDIA L40S 48 GB",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GB + 2x NVIDIA L40S 48 GB",
   "state": "started",
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
@@ -7920,12 +7924,14 @@
    "07:00:00 l40s4: l40s4-l2 saved",
    "07:00:01 l40s4: start l40s4-s1: pi on pve1 CT903, opencode on pve2 CT903",
    "07:01:38 l40s4: glm chain done (stopped at the L2 boundary, Patrik)",
-   "08:00:04 l40s3: l40s3-s3 exit pi=0 opencode=0"
+   "08:00:04 l40s3: l40s3-s3 exit pi=0 opencode=0",
+   "08:00:08 l40s3: l40s3-s3 saved",
+   "08:00:08 l40s3: ornith s2 re-run chain done"
   ],
-  "hours_up": 40.76,
-  "spent_eur": 164.44,
-  "gpu_hours": 107.8,
-  "servers_running": 4
+  "hours_up": 40.9,
+  "spent_eur": 164.53,
+  "gpu_hours": 108.2,
+  "servers_running": 3
  },
  "utility": [
   {
