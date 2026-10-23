@@ -141,7 +141,7 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px
 
   <section id="cloud" hidden>
   <h2>RENTED GPU RUN *</h2>
-  <p class="note">One model pushed through every level on a rented GPU server, to see what a complete run costs and how long it takes. Only the engine runs there; the agents work in local sandboxes (this PC's WSL, a ThinkPad WSL or Proxmox containers on two home servers) and grading runs in that sandbox. Same model file (SHA-256 checked), engine build, sampling and agents as the PC rows. Pass/fail is comparable; time is not (much faster GPU); energy is not measured.</p>
+  <p class="note">The models that are slowest on this PC, pushed through every level on rented GPU servers (one RTX PRO 6000 and up to four L40S, two UpCloud accounts), one model per server; a server is deleted when its model is done. Results from 2026-10-23 01:10 on use the fixed S2 grading (Docker checks; earlier S2 Docker results superseded). Only the engine runs there; the agents work in local sandboxes (this PC's WSL, a ThinkPad WSL or Proxmox containers on two home servers) and grading runs in that sandbox. Same model file (SHA-256 checked), engine build, sampling and agents as the PC rows. Pass/fail is comparable; time is not (much faster GPU); energy is not measured.</p>
   <div class="hud">
     <div class="stats" id="cloud-stats"></div>
     <div class="plan-bar" id="cloud-bar" role="progressbar" aria-label="Budget spent" aria-valuemin="0" aria-valuemax="100">
