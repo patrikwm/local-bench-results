@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T09:08+02:00",
+ "generated": "2026-10-23T09:38+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2202,8 +2202,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 18,
-   "attempts": 32,
+   "solved": 19,
+   "attempts": 33,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -2222,8 +2222,8 @@
      "attempts": 2
     },
     "l1-cs-bugfix-csvquote": {
-     "solved": 0,
-     "attempts": 1
+     "solved": 1,
+     "attempts": 2
     },
     "l1-cs-bugfix-invoiceno": {
      "solved": 1,
@@ -2318,13 +2318,13 @@
      "attempts": 1
     }
    },
-   "median_s": 391.1,
-   "median_read": 53229.0,
-   "median_written": 9020.5,
+   "median_s": 428.1,
+   "median_read": 53579,
+   "median_written": 9853,
    "decode_tok_s": 25.6,
-   "gpu_w": 39.2,
+   "gpu_w": 39.4,
    "cpu_w": 160.7,
-   "wh_per_solved": 58.35,
+   "wh_per_solved": 58.82,
    "agent_version": "1.3.0"
   },
   {
@@ -3604,12 +3604,12 @@
    "variant": "mk",
    "agent": "pi",
    "level": 3,
-   "solved": 5,
-   "attempts": 8,
+   "solved": 6,
+   "attempts": 9,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
-     "solved": 0,
-     "attempts": 1
+     "solved": 1,
+     "attempts": 2
     },
     "l3-cs-cancel-asyncex-waitqueue": {
      "solved": 1,
@@ -3640,10 +3640,10 @@
      "attempts": 1
     }
    },
-   "median_s": 1436.5,
-   "median_read": 1488572.0,
-   "median_written": 65052.0,
-   "decode_tok_s": 51.0,
+   "median_s": 1612.3,
+   "median_read": 1760128,
+   "median_written": 71905,
+   "decode_tok_s": 51.2,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -5488,12 +5488,12 @@
    "variant": "mk",
    "agent": "pi",
    "level": 13,
-   "solved": 2,
-   "attempts": 3,
+   "solved": 4,
+   "attempts": 5,
    "tasks": {
     "s3-ansible-troubleshoot-shopops": {
-     "solved": 0,
-     "attempts": 1
+     "solved": 1,
+     "attempts": 2
     },
     "s3-ssh-troubleshoot-jumphost-ops": {
      "solved": 1,
@@ -5502,10 +5502,14 @@
     "s3-svc-troubleshoot-flapping-flapd": {
      "solved": 1,
      "attempts": 1
+    },
+    "s3-tofu-refactor-state-envmod": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 316.1,
-   "median_read": 187570,
+   "median_s": 408.1,
+   "median_read": 460782,
    "median_written": 15486,
    "decode_tok_s": 135.7,
    "gpu_w": null,
@@ -6166,8 +6170,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 3,
-   "solved": 0,
-   "attempts": 4,
+   "solved": 1,
+   "attempts": 5,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 0,
@@ -6184,12 +6188,16 @@
     "l3-java-concurrency-stormpot-tlrclaim": {
      "solved": 0,
      "attempts": 1
+    },
+    "l3-py-compat-httpx-redirectlimit": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 3556.0,
-   "median_read": 3934040.0,
-   "median_written": 215785.5,
-   "decode_tok_s": 174.1,
+   "median_s": 1629.0,
+   "median_read": 4533721,
+   "median_written": 196038,
+   "decode_tok_s": 174.2,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -6427,7 +6435,7 @@
    "agent": "pi",
    "level": 3,
    "solved": 7,
-   "attempts": 7,
+   "attempts": 8,
    "tasks": {
     "l3-cpp-lifecycle-httplib-stop": {
      "solved": 1,
@@ -6456,12 +6464,16 @@
     "l3-rs-concurrency-ignore-quit": {
      "solved": 1,
      "attempts": 1
+    },
+    "l3-ts-cancel-pqueue-abort": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 1953.7,
-   "median_read": 3173575,
-   "median_written": 76345,
-   "decode_tok_s": 177.0,
+   "median_s": 1945.6,
+   "median_read": 2722127.0,
+   "median_written": 73622.0,
+   "decode_tok_s": 177.6,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -7097,17 +7109,17 @@
   "pairs_full": 2110,
   "pairs_tested": 949,
   "pairs_skipped": 38,
-  "eta_realistic_hours": 214.5,
-  "eta_pc_hours": 214.5,
+  "eta_realistic_hours": 216.0,
+  "eta_pc_hours": 216.0,
   "eta_cloud_hours": 11.9,
   "rented_servers": 3,
   "eta_realistic_by_level": {
    "L1": 26,
-   "L2": 87,
+   "L2": 88,
    "S1": 20,
    "S2": 27,
    "S3": 25,
-   "L3": 38,
+   "L3": 39,
    "L4": 3
   },
   "p_pass": {
@@ -7119,17 +7131,17 @@
    "3": 0.4,
    "4": 0.5
   },
-  "settled": 2965,
-  "graded_screening": 2281,
+  "settled": 2971,
+  "graded_screening": 2287,
   "settled_by_front": {
-   "pc": 1246,
-   "cloud": 1719
+   "pc": 1247,
+   "cloud": 1724
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 40.1,
-  "eta_hours": 129.4,
+  "pace_per_h": 36.6,
+  "eta_hours": 137.0,
   "eta_l4_hours": 48.0,
   "models_out": []
  },
@@ -7258,15 +7270,15 @@
     "pairs_expected": 56,
     "pairs_decided": 6,
     "pairs_passed": 4,
-    "attempts": 64,
-    "attempts_solved": 38,
-    "median_s": 438.1,
+    "attempts": 65,
+    "attempts_solved": 39,
+    "median_s": 442.1,
     "decode_tok_s": 25.5,
-    "gpu_w": 39.3,
+    "gpu_w": 39.4,
     "cpu_w": 162.4,
-    "energy_wh": 2174.7,
-    "wh_per_solved": 57.23,
-    "energy_attempts": 64,
+    "energy_wh": 2242.1,
+    "wh_per_solved": 57.49,
+    "energy_attempts": 65,
     "side_load_attempts": 0
    }
   },
@@ -7676,7 +7688,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T09:08+02:00",
+  "updated": "2026-10-23T09:38+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -7685,7 +7697,7 @@
   "created": "2026-10-21T13:14:30+00:00",
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
-  "credit_eur": 12.892111,
+  "credit_eur": 12.887299,
   "budget_eur": 193.51,
   "vm_events_clock": "local",
   "vm_events": [
@@ -8007,9 +8019,9 @@
    "08:35:34 l40s2: l40s2-s2 saved",
    "08:35:34 l40s2: start l40s2-s3: pi on pve1 CT901, opencode on pve2 CT901"
   ],
-  "hours_up": 41.91,
-  "spent_eur": 169.24,
-  "gpu_hours": 111.3,
+  "hours_up": 42.41,
+  "spent_eur": 169.56,
+  "gpu_hours": 112.8,
   "servers_running": 3
  },
  "utility": [
