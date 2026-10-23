@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T16:40+02:00",
+ "generated": "2026-10-23T16:46+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2332,8 +2332,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 28,
-   "attempts": 53,
+   "solved": 29,
+   "attempts": 54,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -2436,8 +2436,8 @@
      "attempts": 2
     },
     "l1-ts-bugfix-splitbill": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-ts-feature-wraptext": {
      "solved": 1,
@@ -2448,13 +2448,13 @@
      "attempts": 1
     }
    },
-   "median_s": 494.1,
-   "median_read": 105637,
-   "median_written": 11253,
+   "median_s": 481.1,
+   "median_read": 102606.5,
+   "median_written": 11104.5,
    "decode_tok_s": 25.3,
-   "gpu_w": 39.4,
-   "cpu_w": 162.4,
-   "wh_per_solved": 65.74,
+   "gpu_w": 39.3,
+   "cpu_w": 162.2,
+   "wh_per_solved": 64.11,
    "agent_version": "2.0.32"
   },
   {
@@ -7388,17 +7388,17 @@
  ],
  "progress": {
   "planned_max": 6030,
-  "project_pct": 50.7,
+  "project_pct": 50.8,
   "test_pct": 47.0,
   "pairs_full": 2110,
-  "pairs_tested": 991,
+  "pairs_tested": 992,
   "pairs_skipped": 79,
   "eta_realistic_hours": 202.9,
   "eta_pc_hours": 202.9,
   "eta_cloud_hours": 21.9,
   "rented_servers": 1,
   "eta_realistic_by_level": {
-   "L1": 28,
+   "L1": 27,
    "L2": 85,
    "S1": 19,
    "S2": 26,
@@ -7415,17 +7415,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3114,
-  "graded_screening": 2386,
+  "settled": 3116,
+  "graded_screening": 2387,
   "settled_by_front": {
-   "pc": 1312,
+   "pc": 1314,
    "cloud": 1802
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 26.1,
-  "eta_hours": 159.5,
+  "pace_per_h": 25.7,
+  "eta_hours": 161.3,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -7588,17 +7588,17 @@
    },
    "l1_v2": {
     "pairs_expected": 56,
-    "pairs_decided": 35,
-    "pairs_passed": 19,
-    "attempts": 107,
-    "attempts_solved": 57,
-    "median_s": 448.1,
+    "pairs_decided": 36,
+    "pairs_passed": 20,
+    "attempts": 108,
+    "attempts_solved": 58,
+    "median_s": 446.1,
     "decode_tok_s": 25.4,
-    "gpu_w": 39.4,
-    "cpu_w": 160.3,
-    "energy_wh": 3602.9,
-    "wh_per_solved": 63.21,
-    "energy_attempts": 107,
+    "gpu_w": 39.3,
+    "cpu_w": 160.2,
+    "energy_wh": 3621.3,
+    "wh_per_solved": 62.44,
+    "energy_attempts": 108,
     "side_load_attempts": 0
    }
   },
@@ -8008,7 +8008,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-23T16:41+02:00",
+  "updated": "2026-10-23T16:46+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8352,7 +8352,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 49.45,
+  "hours_up": 49.53,
   "spent_eur": 183.65,
   "gpu_hours": 123.6,
   "servers_running": 1
@@ -8417,11 +8417,11 @@
   {
    "model": "mellum21-q8-128k",
    "front": "PC",
-   "task": "l1-ts-bugfix-splitbill",
+   "task": "l1-ts-feature-wraptext",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "2",
-   "started": "2026-10-23T16:39:30+02:00"
+   "started": "2026-10-23T16:45:45+02:00"
   }
  ],
  "last_done": {
@@ -8429,11 +8429,11 @@
    "model": "mellum21-q8-128k",
    "task": "l1-ts-bugfix-splitbill",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
-   "solved": false,
-   "wall_s": 1200,
-   "ended": "2026-10-23T16:38:55+02:00"
+   "solved": true,
+   "wall_s": 344,
+   "ended": "2026-10-23T16:45:09+02:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
