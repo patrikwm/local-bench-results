@@ -297,6 +297,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .job .lv { font-weight: 800; margin: 0 4px; }
 .job time { font-variant-numeric: tabular-nums; font-weight: 700; margin-left: 6px; }
 .job.rent { border-color: color-mix(in srgb, var(--rent) 45%, var(--rule)); }
+.fronts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; }
+@media (max-width: 880px) { .fronts { grid-template-columns: 1fr; } }
+.front { background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 12px; font-size: 13px; line-height: 1.45; }
+.front.rent { border-color: color-mix(in srgb, var(--rent) 40%, var(--rule)); }
+.front h4 { margin: 0 0 2px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; display: flex; justify-content: space-between; }
+.front .row { display: flex; gap: 6px; align-items: baseline; }
+.front .k { color: var(--muted); width: 58px; flex: none; }
+.front b { font-weight: 650; }
+.front time { font-variant-numeric: tabular-nums; font-weight: 700; }
+.front .ok { color: var(--pass); font-weight: 700; } .front .no { color: var(--miss); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -609,15 +619,23 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       [dur(p.eta_hours), `left at the recent pace of ${p.pace_per_h}/h (not an upper bound)`]
     ].map(([n, l]) => `<div class="fact"><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div></div>`).join("");
 
-    // running now (data.json "running": start times; the counter runs in the browser, the list is as of the last update)
-    const jobs = d.running || [];
-    const ago = (iso) => { const s = Math.max(0, Math.floor((Date.now() - new Date(iso)) / 1000));
-      const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
+    // per machine: what runs now (counter in the browser from its start time) and the attempt that finished last
+    const jobs = d.running || [], lastDone = d.last_done || {};
+    const hms = (s) => { s = Math.max(0, Math.floor(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
       return (h ? `${h}h ` : "") + `${String(m).padStart(h ? 2 : 1, "0")}m ${String(x).padStart(2, "0")}s`; };
-    if (jobs.length) {
-      $("live").innerHTML = `<span class="lbl"><i class="dot"></i>Running now</span>` + jobs.map(j =>
-        `<span class="job${isRent(j.model) ? " rent" : ""}" title="${esc(j.task)} · attempt ${esc(j.attempt)}"><b>${esc(mName(j.model))}</b><span class="lv">${esc(LNAME[j.level] ?? "")}</span>${j.agent === "pi" ? "Pi" : "OpenCode"}<time data-start="${esc(j.started)}">${ago(j.started)}</time></span>`).join("") +
-        `<span class="small">as of ${esc(d.generated.slice(11, 16))}</span>`;
+    const ago = (iso) => hms((Date.now() - new Date(iso)) / 1000);
+    const what = (j) => `<b>${esc(mName(j.model))}</b> ${esc(LNAME[j.level] ?? "")} · ${j.agent === "pi" ? "Pi" : "OpenCode"} · try ${esc(j.attempt)}`;
+    const FRONTS = ["PC", "L40S", "RTX PRO 6000"].filter(f => jobs.some(j => j.front === f) || lastDone[f]);
+    const FNAME = { "PC": "This PC · RTX 4080", "L40S": "Rented L40S", "RTX PRO 6000": "Rented RTX PRO 6000" };
+    if (FRONTS.length) {
+      $("live").innerHTML = `<div class="fronts">` + FRONTS.map(f => {
+        const now = jobs.filter(j => j.front === f), prev = lastDone[f];
+        return `<div class="front${f === "PC" ? "" : " rent"}"><h4><span>${esc(FNAME[f])}</span>${now.length ? '<i class="dot" title="running"></i>' : ""}</h4>
+          ${now.length ? now.map(j => `<div class="row"><span class="k">Now</span><span>${what(j)} <time data-start="${esc(j.started)}">${ago(j.started)}</time></span></div>`).join("")
+                       : `<div class="row"><span class="k">Now</span><span class="small">idle or between tasks</span></div>`}
+          ${prev ? `<div class="row"><span class="k">Previous</span><span>${what(prev)} <span class="${prev.solved ? "ok" : "no"}">${prev.solved ? "solved" : "failed"}</span> in ${hms(prev.wall_s)} <span class="small">(${esc(prev.ended.slice(11, 16))})</span></span></div>` : ""}
+        </div>`;
+      }).join("") + `</div><span class="small">As of ${esc(d.generated.slice(11, 16))}; checked every 5 minutes.</span>`;
       setInterval(() => document.querySelectorAll("#live time").forEach(el => el.textContent = ago(el.dataset.start)), 1000);
     }
 
