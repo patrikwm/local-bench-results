@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T18:27+02:00",
+ "generated": "2026-10-24T18:32+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2747,7 +2747,7 @@
    "agent": "pi",
    "level": 2,
    "solved": 2,
-   "attempts": 3,
+   "attempts": 4,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 0,
@@ -2760,15 +2760,19 @@
     "l2-go-bugfix-humanize-ftoa": {
      "solved": 1,
      "attempts": 1
+    },
+    "l2-java-bugfix-picocli-digitnames": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 840.5,
-   "median_read": 422561,
-   "median_written": 18455,
-   "decode_tok_s": 25.5,
-   "gpu_w": 43.4,
-   "cpu_w": 158.3,
-   "wh_per_solved": 59.05,
+   "median_s": 750.4,
+   "median_read": 878750.5,
+   "median_written": 13872.0,
+   "decode_tok_s": 25.2,
+   "gpu_w": 44.5,
+   "cpu_w": 158.7,
+   "wh_per_solved": 79.99,
    "agent_version": "1.3.0"
   },
   {
@@ -4498,6 +4502,28 @@
    "cpu_w": 150.3,
    "wh_per_solved": 12.19,
    "agent_version": "1.3.0"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k-mac",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 2,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 348.1,
+   "median_read": 843350,
+   "median_written": 7198,
+   "decode_tok_s": 28.0,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
   },
   {
    "model": "qwen3coder30b-a3-128k-mac",
@@ -7941,17 +7967,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3407,
-  "graded_screening": 2603,
+  "settled": 3409,
+  "graded_screening": 2605,
   "settled_by_front": {
-   "pc": 1598,
-   "cloud": 1809
+   "pc": 1599,
+   "cloud": 1810
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 22.3,
-  "eta_hours": 163.5,
+  "pace_per_h": 22.5,
+  "eta_hours": 162.3,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8534,7 +8560,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T18:27+02:00",
+  "updated": "2026-10-24T18:32+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8878,9 +8904,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 75.22,
+  "hours_up": 75.31,
   "spent_eur": 183.65,
-  "gpu_hours": 149.3,
+  "gpu_hours": 149.4,
   "servers_running": 1
  },
  "utility": [
@@ -9105,34 +9131,34 @@
   {
    "model": "mellum21-q8-128k",
    "front": "PC",
-   "task": "l2-java-bugfix-picocli-digitnames",
+   "task": "l2-py-bugfix-tenacity-retrystate",
    "level": 2,
    "agent": "pi",
    "attempt": "1",
-   "progress": "4/84",
-   "started": "2026-10-24T18:18:03+02:00"
+   "progress": "5/84",
+   "started": "2026-10-24T18:29:58+02:00"
   },
   {
    "model": "qwen3coder30b-a3-128k-mac",
    "front": "Mac",
-   "task": "l2-cpp-bugfix-cli11-underscore",
+   "task": "l2-cpp-feature-cli11-multipleof",
    "level": 2,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
-   "progress": "8/84",
-   "started": "2026-10-24T18:23:25+02:00"
+   "progress": "9/84",
+   "started": "2026-10-24T18:30:14+02:00"
   }
  ],
  "last_done": {
   "PC": {
    "model": "mellum21-q8-128k",
-   "task": "l2-go-bugfix-humanize-ftoa",
+   "task": "l2-java-bugfix-picocli-digitnames",
    "level": 2,
    "agent": "pi",
    "attempt": "1",
-   "solved": true,
-   "wall_s": 850,
-   "ended": "2026-10-24T18:17:22+02:00"
+   "solved": false,
+   "wall_s": 660,
+   "ended": "2026-10-24T18:28:59+02:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
@@ -9156,13 +9182,13 @@
   },
   "Mac": {
    "model": "qwen3coder30b-a3-128k-mac",
-   "task": "l2-ts-bugfix-rfc6902-escape",
+   "task": "l2-cpp-bugfix-cli11-underscore",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
    "solved": true,
-   "wall_s": 216,
-   "ended": "2026-10-24T18:22:52+02:00"
+   "wall_s": 348,
+   "ended": "2026-10-24T18:29:09+02:00"
   }
  },
  "fronts_off": {
