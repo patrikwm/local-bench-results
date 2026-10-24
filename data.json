@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T04:14+02:00",
+ "generated": "2026-10-24T04:20+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8156,7 +8156,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T04:14+02:00",
+  "updated": "2026-10-24T04:20+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8500,9 +8500,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 61.01,
+  "hours_up": 61.1,
   "spent_eur": 183.65,
-  "gpu_hours": 135.1,
+  "gpu_hours": 135.2,
   "servers_running": 1
  },
  "utility": [
@@ -8729,10 +8729,10 @@
    "front": "PC",
    "task": "l2-cs-feature-cronos-ismatch",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
-   "progress": "35/84",
-   "started": "2026-10-24T04:03:02+02:00"
+   "progress": "36/84",
+   "started": "2026-10-24T04:20:06+02:00"
   }
  ],
  "last_done": {
