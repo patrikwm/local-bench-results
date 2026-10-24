@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T10:39+02:00",
+ "generated": "2026-10-24T10:44+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8228,7 +8228,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T10:39+02:00",
+  "updated": "2026-10-24T10:44+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8238,7 +8238,7 @@
   "price_eur_h": 1.7,
   "start_credit_eur": 84.36,
   "credit_eur": 1.03216,
-  "budget_eur": 193.51,
+  "budget_eur": 83.51,
   "vm_events_clock": "local",
   "vm_events": [
    "15:15:46 safety power-off in 5 h armed",
@@ -8572,10 +8572,8 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 67.42,
-  "spent_eur": 183.65,
-  "gpu_hours": 141.5,
-  "servers_running": 1
+  "hours_up": 67.51,
+  "spent_eur": 83.33
  },
  "utility": [
   {
@@ -8840,8 +8838,7 @@
   }
  },
  "fronts_off": {
-  "RTX PRO 6000": "2026-10-23T15:23+02:00",
-  "L40S": "2026-10-23T11:59+02:00"
+  "RTX PRO 6000": "2026-10-23T15:23+02:00"
  },
  "speed": [
   {
