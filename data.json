@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T17:29+02:00",
+ "generated": "2026-10-24T17:34+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2165,7 +2165,7 @@
    "agent": "opencode",
    "level": 2,
    "solved": 14,
-   "attempts": 31,
+   "attempts": 32,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -2193,7 +2193,7 @@
     },
     "l2-java-bugfix-picocli-digitnames": {
      "solved": 1,
-     "attempts": 2
+     "attempts": 3
     },
     "l2-java-feature-picocli-localeconv": {
      "solved": 0,
@@ -2224,13 +2224,13 @@
      "attempts": 2
     }
    },
-   "median_s": 52.0,
-   "median_read": 284737,
-   "median_written": 6283,
-   "decode_tok_s": 153.0,
-   "gpu_w": 240.1,
-   "cpu_w": 75.4,
-   "wh_per_solved": 14.12,
+   "median_s": 54.0,
+   "median_read": 286086.5,
+   "median_written": 6382.5,
+   "decode_tok_s": 151.8,
+   "gpu_w": 240.4,
+   "cpu_w": 75.6,
+   "wh_per_solved": 15.32,
    "agent_version": "2.0.32"
   },
   {
@@ -7867,45 +7867,45 @@
   }
  ],
  "progress": {
-  "planned_max": 6030,
-  "project_pct": 55.8,
-  "test_pct": 52.0,
+  "planned_max": 5982,
+  "project_pct": 56.7,
+  "test_pct": 52.1,
   "pairs_full": 2110,
-  "pairs_tested": 1098,
-  "pairs_skipped": 79,
-  "eta_realistic_hours": 221.7,
-  "eta_pc_hours": 221.7,
+  "pairs_tested": 1099,
+  "pairs_skipped": 98,
+  "eta_realistic_hours": 210.8,
+  "eta_pc_hours": 210.8,
   "eta_cloud_hours": 26.8,
   "rented_servers": 1,
   "eta_realistic_by_level": {
    "L1": 27,
-   "L2": 34,
+   "L2": 33,
    "S1": 23,
    "S2": 31,
    "S3": 30,
-   "L3": 97,
+   "L3": 86,
    "L4": 7
   },
   "p_pass": {
    "1": 0.82,
-   "2": 0.9,
+   "2": 0.82,
    "11": 0.71,
    "12": 0.83,
    "13": 0.83,
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3397,
-  "graded_screening": 2595,
+  "settled": 3400,
+  "graded_screening": 2596,
   "settled_by_front": {
-   "pc": 1592,
+   "pc": 1595,
    "cloud": 1805
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 22.7,
-  "eta_hours": 163.8,
+  "eta_hours": 161.5,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8488,7 +8488,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T17:29+02:00",
+  "updated": "2026-10-24T17:34+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8832,9 +8832,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 74.25,
+  "hours_up": 74.34,
   "spent_eur": 183.65,
-  "gpu_hours": 148.4,
+  "gpu_hours": 148.5,
   "servers_running": 1
  },
  "utility": [
@@ -9057,16 +9057,6 @@
  ],
  "running": [
   {
-   "model": "gptoss20b-128k",
-   "front": "PC",
-   "task": "l2-java-bugfix-picocli-digitnames",
-   "level": 2,
-   "agent": "opencode",
-   "attempt": "3",
-   "progress": "70/84",
-   "started": "2026-10-24T17:27:55+02:00"
-  },
-  {
    "model": "qwen3coder30b-a3-128k-mac",
    "front": "Mac",
    "task": "l2-java-bugfix-picocli-digitnames",
@@ -9075,18 +9065,28 @@
    "attempt": "1",
    "progress": "4/84",
    "started": "2026-10-24T17:28:33+02:00"
+  },
+  {
+   "model": "mellum21-q8-128k",
+   "front": "PC",
+   "task": "l0-qualify",
+   "level": 0,
+   "agent": "opencode",
+   "attempt": "warmup",
+   "progress": null,
+   "started": "2026-10-24T17:34:19+02:00"
   }
  ],
  "last_done": {
   "PC": {
    "model": "gptoss20b-128k",
-   "task": "l2-go-feature-humanize-rate",
+   "task": "l2-java-bugfix-picocli-digitnames",
    "level": 2,
    "agent": "opencode",
    "attempt": "3",
    "solved": false,
-   "wall_s": 56,
-   "ended": "2026-10-24T17:27:46+02:00"
+   "wall_s": 166,
+   "ended": "2026-10-24T17:30:37+02:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
@@ -9279,6 +9279,18 @@
     28
    ],
    "why": "passed L2 below 90 %: no L3"
+  },
+  {
+   "model": "gptoss20b-128k",
+   "l1": [
+    37,
+    56
+   ],
+   "l2": [
+    11,
+    26
+   ],
+   "why": "failed L2"
   },
   {
    "model": "qwen3codernext-q4km-128k",
