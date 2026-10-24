@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T23:51+02:00",
+ "generated": "2026-10-24T23:56+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4636,8 +4636,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 7,
-   "attempts": 12,
+   "solved": 8,
+   "attempts": 13,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -4686,12 +4686,16 @@
     "l2-rs-feature-clap-rsplit": {
      "solved": 1,
      "attempts": 1
+    },
+    "l2-ts-bugfix-rfc6902-escape": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 587.1,
-   "median_read": 1094958.0,
-   "median_written": 8923.0,
-   "decode_tok_s": 19.0,
+   "median_s": 566.1,
+   "median_read": 1093341,
+   "median_written": 8523,
+   "decode_tok_s": 19.1,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8141,8 +8145,8 @@
   "pairs_full": 2110,
   "pairs_tested": 1099,
   "pairs_skipped": 98,
-  "eta_realistic_hours": 215.7,
-  "eta_pc_hours": 215.7,
+  "eta_realistic_hours": 215.6,
+  "eta_pc_hours": 215.6,
   "eta_cloud_hours": 26.9,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8163,17 +8167,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3449,
-  "graded_screening": 2645,
+  "settled": 3450,
+  "graded_screening": 2646,
   "settled_by_front": {
    "pc": 1622,
-   "cloud": 1827
+   "cloud": 1828
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 10.0,
-  "eta_hours": 300.8,
+  "eta_hours": 300.7,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8756,7 +8760,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T23:51+02:00",
+  "updated": "2026-10-24T23:57+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9100,9 +9104,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 80.62,
+  "hours_up": 80.71,
   "spent_eur": 183.65,
-  "gpu_hours": 154.7,
+  "gpu_hours": 154.8,
   "servers_running": 1
  },
  "utility": [
@@ -9325,16 +9329,6 @@
  ],
  "running": [
   {
-   "model": "qwen3coder30b-a3-128k-mac",
-   "front": "Mac",
-   "task": "l2-ts-bugfix-rfc6902-escape",
-   "level": 2,
-   "agent": "opencode",
-   "attempt": "1",
-   "progress": "26/84",
-   "started": "2026-10-24T23:44:53+02:00"
-  },
-  {
    "model": "mellum21-q8-128k",
    "front": "PC",
    "task": "l2-ts-feature-rfc6902-touchedpaths",
@@ -9343,6 +9337,16 @@
    "attempt": "1",
    "progress": "28/84",
    "started": "2026-10-24T23:47:13+02:00"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k-mac",
+   "front": "Mac",
+   "task": "l2-ts-feature-rfc6902-touchedpaths",
+   "level": 2,
+   "agent": "pi",
+   "attempt": "1",
+   "progress": "27/84",
+   "started": "2026-10-24T23:52:25+02:00"
   }
  ],
  "last_done": {
@@ -9378,13 +9382,13 @@
   },
   "Mac": {
    "model": "qwen3coder30b-a3-128k-mac",
-   "task": "l2-rs-feature-clap-rsplit",
+   "task": "l2-ts-bugfix-rfc6902-escape",
    "level": 2,
    "agent": "opencode",
    "attempt": "1",
    "solved": true,
-   "wall_s": 502,
-   "ended": "2026-10-24T23:44:21+02:00"
+   "wall_s": 422,
+   "ended": "2026-10-24T23:51:51+02:00"
   }
  },
  "fronts_off": {
@@ -9545,6 +9549,18 @@
    "l2": [
     20,
     28
+   ],
+   "why": "passed L2 below 90 %: no L3"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "l1": [
+    31,
+    56
+   ],
+   "l2": [
+    17,
+    26
    ],
    "why": "passed L2 below 90 %: no L3"
   },
