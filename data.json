@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T17:50+02:00",
+ "generated": "2026-10-24T17:55+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2739,6 +2739,28 @@
    "gpu_w": 39.2,
    "cpu_w": 158.4,
    "wh_per_solved": 59.0,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "mellum21-q8-128k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 2,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 840.5,
+   "median_read": 1365400,
+   "median_written": 18455,
+   "decode_tok_s": 25.6,
+   "gpu_w": 45.5,
+   "cpu_w": 158.3,
+   "wh_per_solved": 47.58,
    "agent_version": "1.3.0"
   },
   {
@@ -7877,8 +7899,8 @@
   "pairs_full": 2110,
   "pairs_tested": 1099,
   "pairs_skipped": 98,
-  "eta_realistic_hours": 210.9,
-  "eta_pc_hours": 210.9,
+  "eta_realistic_hours": 211.0,
+  "eta_pc_hours": 211.0,
   "eta_cloud_hours": 26.8,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -7899,10 +7921,10 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3401,
-  "graded_screening": 2597,
+  "settled": 3402,
+  "graded_screening": 2598,
   "settled_by_front": {
-   "pc": 1595,
+   "pc": 1596,
    "cloud": 1806
   },
   "pace_window_h": 6,
@@ -8492,7 +8514,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T17:50+02:00",
+  "updated": "2026-10-24T17:55+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8836,9 +8858,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 74.6,
+  "hours_up": 74.69,
   "spent_eur": 183.65,
-  "gpu_hours": 148.7,
+  "gpu_hours": 148.8,
   "servers_running": 1
  },
  "utility": [
@@ -9073,24 +9095,24 @@
   {
    "model": "mellum21-q8-128k",
    "front": "PC",
-   "task": "l2-cpp-bugfix-cli11-underscore",
+   "task": "l2-cs-bugfix-cronos-leapday",
    "level": 2,
    "agent": "pi",
    "attempt": "1",
-   "progress": "1/84",
-   "started": "2026-10-24T17:40:21+02:00"
+   "progress": "2/84",
+   "started": "2026-10-24T17:55:14+02:00"
   }
  ],
  "last_done": {
   "PC": {
-   "model": "gptoss20b-128k",
-   "task": "l2-java-bugfix-picocli-digitnames",
+   "model": "mellum21-q8-128k",
+   "task": "l2-cpp-bugfix-cli11-underscore",
    "level": 2,
-   "agent": "opencode",
-   "attempt": "3",
+   "agent": "pi",
+   "attempt": "1",
    "solved": false,
-   "wall_s": 166,
-   "ended": "2026-10-24T17:30:37+02:00"
+   "wall_s": 840,
+   "ended": "2026-10-24T17:54:17+02:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
