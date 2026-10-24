@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T13:13+02:00",
+ "generated": "2026-10-24T13:19+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -7408,8 +7408,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 2,
-   "solved": 16,
-   "attempts": 17,
+   "solved": 17,
+   "attempts": 18,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -7424,8 +7424,8 @@
      "attempts": 2
     },
     "l2-cs-feature-cronos-ismatch": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-go-bugfix-humanize-ftoa": {
      "solved": 1,
@@ -7468,13 +7468,13 @@
      "attempts": 1
     }
    },
-   "median_s": 178.0,
-   "median_read": 341385,
-   "median_written": 7171,
-   "decode_tok_s": 52.3,
-   "gpu_w": 148.0,
-   "cpu_w": 157.9,
-   "wh_per_solved": 31.57,
+   "median_s": 188.0,
+   "median_read": 362786.0,
+   "median_written": 7380.5,
+   "decode_tok_s": 52.0,
+   "gpu_w": 149.8,
+   "cpu_w": 157.8,
+   "wh_per_solved": 30.89,
    "agent_version": "2.0.32"
   },
   {
@@ -7612,8 +7612,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 2,
-   "solved": 17,
-   "attempts": 18,
+   "solved": 18,
+   "attempts": 19,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -7632,8 +7632,8 @@
      "attempts": 2
     },
     "l2-go-bugfix-humanize-ftoa": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-go-feature-humanize-rate": {
      "solved": 1,
@@ -7672,30 +7672,30 @@
      "attempts": 1
     }
    },
-   "median_s": 177.1,
-   "median_read": 342309.5,
-   "median_written": 7577.0,
-   "decode_tok_s": 54.9,
-   "gpu_w": 144.4,
-   "cpu_w": 158.2,
-   "wh_per_solved": 21.17,
+   "median_s": 174.0,
+   "median_read": 328611,
+   "median_written": 7472,
+   "decode_tok_s": 55.5,
+   "gpu_w": 144.3,
+   "cpu_w": 159.4,
+   "wh_per_solved": 20.4,
    "agent_version": "1.3.0"
   }
  ],
  "progress": {
   "planned_max": 6030,
-  "project_pct": 53.6,
-  "test_pct": 49.9,
+  "project_pct": 53.7,
+  "test_pct": 50.0,
   "pairs_full": 2110,
-  "pairs_tested": 1052,
+  "pairs_tested": 1054,
   "pairs_skipped": 79,
-  "eta_realistic_hours": 232.1,
-  "eta_pc_hours": 232.1,
+  "eta_realistic_hours": 230.8,
+  "eta_pc_hours": 230.8,
   "eta_cloud_hours": 25.5,
   "rented_servers": 1,
   "eta_realistic_by_level": {
    "L1": 27,
-   "L2": 62,
+   "L2": 61,
    "S1": 23,
    "S2": 31,
    "S3": 30,
@@ -7711,17 +7711,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3271,
-  "graded_screening": 2508,
+  "settled": 3275,
+  "graded_screening": 2510,
   "settled_by_front": {
-   "pc": 1469,
+   "pc": 1473,
    "cloud": 1802
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 10.2,
-  "eta_hours": 317.5,
+  "pace_per_h": 10.7,
+  "eta_hours": 306.0,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8304,7 +8304,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T13:14+02:00",
+  "updated": "2026-10-24T13:19+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -8648,9 +8648,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 69.99,
+  "hours_up": 70.08,
   "spent_eur": 183.65,
-  "gpu_hours": 144.1,
+  "gpu_hours": 144.2,
   "servers_running": 1
  },
  "utility": [
@@ -8875,24 +8875,24 @@
   {
    "model": "strata-qwen36-q4kxl-64k",
    "front": "PC",
-   "task": "l2-cs-feature-cronos-ismatch",
+   "task": "l2-go-feature-humanize-rate",
    "level": 2,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "2",
-   "progress": "36/84",
-   "started": "2026-10-24T13:10:17+02:00"
+   "progress": "39/84",
+   "started": "2026-10-24T13:19:23+02:00"
   }
  ],
  "last_done": {
   "PC": {
    "model": "strata-qwen36-q4kxl-64k",
-   "task": "l2-cs-feature-cronos-ismatch",
+   "task": "l2-go-bugfix-humanize-ftoa",
    "level": 2,
    "agent": "pi",
    "attempt": "2",
    "solved": true,
-   "wall_s": 186,
-   "ended": "2026-10-24T13:09:09+02:00"
+   "wall_s": 86,
+   "ended": "2026-10-24T13:16:28+02:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
