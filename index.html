@@ -653,8 +653,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       ? `<b>${esc(mName(j.model))} ${esc(M[j.model]?.quant || "")}</b> · quick jobs${j.progress ? ` (queue ${esc(j.progress)})` : ""}`
       : `<b>${esc(mName(j.model))} ${esc(M[j.model]?.quant || "")}</b> ${esc(LNAME[j.level] ?? "")} · ${j.agent === "pi" ? "Pi" : "OpenCode"} · try ${esc(j.attempt)}`;
     const off = d.fronts_off || {};
-    const FRONTS = ["PC", "L40S", "RTX PRO 6000"].filter(f => jobs.some(j => j.front === f) || lastDone[f]);
-    const FNAME = { "PC": "This PC · RTX 4080", "L40S": "Rented L40S", "RTX PRO 6000": "Rented RTX PRO 6000" };
+    const FRONTS = ["PC", "Mac", "L40S", "RTX PRO 6000"].filter(f => jobs.some(j => j.front === f) || lastDone[f]);
+    const FNAME = { "PC": "This PC · RTX 4080", "Mac": "MacBook · M1 Max", "L40S": "Rented L40S", "RTX PRO 6000": "Rented RTX PRO 6000" };
     if (FRONTS.length) {
       $("live").innerHTML = `<div class="fronts">` + FRONTS.map(f => {
         const now = jobs.filter(j => j.front === f), prev = lastDone[f];
