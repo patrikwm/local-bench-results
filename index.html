@@ -356,7 +356,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <span><b id="pSettled">–</b> <span class="small" id="pSettledOf"></span></span>
           <span class="small">
             <span class="key"><i class="sw" style="background:var(--ink)"></i>This PC</span>
-            <span class="key"><i class="sw" style="background:var(--rent)"></i>Rented GPU</span>
+            <span class="key"><i class="sw" style="background:var(--rent)"></i>Rented GPU / Mac</span>
             <span id="pUpdated"></span>
           </span>
         </div>
@@ -634,7 +634,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     $("pSettledOf").textContent = `(${Math.round(100 * settled / planned)} %)`;
     $("pUpdated").textContent = "Updated " + d.generated.replace("T", " ");
     $("pTrack").innerHTML = `<span class="pc" style="width:${100 * p.settled_by_front.pc / planned}%"></span><span class="cloud" style="width:${100 * p.settled_by_front.cloud / planned}%"></span>`;
-    $("pTrack").setAttribute("aria-label", `${n0(p.settled_by_front.pc)} on this PC, ${n0(p.settled_by_front.cloud)} on rented GPU, of ${n0(planned)}`);
+    $("pTrack").setAttribute("aria-label", `${n0(p.settled_by_front.pc)} on this PC, ${n0(p.settled_by_front.cloud)} on rented GPUs or the Mac, of ${n0(planned)}`);
     const modelsWithData = Object.keys(summary).length;
     const since = new Date(p.running_since), gen = new Date(d.generated);
     $("facts").innerHTML = [
