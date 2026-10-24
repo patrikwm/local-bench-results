@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T20:55+02:00",
+ "generated": "2026-10-24T21:01+02:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2635,7 +2635,7 @@
    "agent": "opencode",
    "level": 2,
    "solved": 3,
-   "attempts": 5,
+   "attempts": 6,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -2656,15 +2656,19 @@
     "l2-go-bugfix-humanize-ftoa": {
      "solved": 1,
      "attempts": 1
+    },
+    "l2-go-feature-humanize-rate": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 468.1,
-   "median_read": 275987,
-   "median_written": 10045,
-   "decode_tok_s": 24.8,
-   "gpu_w": 44.3,
-   "cpu_w": 162.9,
-   "wh_per_solved": 58.34,
+   "median_s": 564.2,
+   "median_read": 272526.0,
+   "median_written": 12040.0,
+   "decode_tok_s": 24.9,
+   "gpu_w": 43.0,
+   "cpu_w": 162.7,
+   "wh_per_solved": 71.4,
    "agent_version": "2.0.32"
   },
   {
@@ -8071,10 +8075,10 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3426,
-  "graded_screening": 2622,
+  "settled": 3427,
+  "graded_screening": 2623,
   "settled_by_front": {
-   "pc": 1610,
+   "pc": 1611,
    "cloud": 1816
   },
   "pace_window_h": 6,
@@ -8664,7 +8668,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-24T20:56+02:00",
+  "updated": "2026-10-24T21:01+02:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9008,9 +9012,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 77.69,
+  "hours_up": 77.78,
   "spent_eur": 183.65,
-  "gpu_hours": 151.8,
+  "gpu_hours": 151.9,
   "servers_running": 1
  },
  "utility": [
@@ -9245,12 +9249,12 @@
   {
    "model": "mellum21-q8-128k",
    "front": "PC",
-   "task": "l2-go-feature-humanize-rate",
+   "task": "l2-java-bugfix-picocli-digitnames",
    "level": 2,
    "agent": "opencode",
    "attempt": "1",
-   "progress": "16/84",
-   "started": "2026-10-24T20:44:13+02:00"
+   "progress": "17/84",
+   "started": "2026-10-24T20:56:37+02:00"
   }
  ],
  "last_done": {
@@ -9258,11 +9262,11 @@
    "model": "mellum21-q8-128k",
    "task": "l2-go-feature-humanize-rate",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "solved": true,
-   "wall_s": 872,
-   "ended": "2026-10-24T20:43:32+02:00"
+   "solved": false,
+   "wall_s": 706,
+   "ended": "2026-10-24T20:55:54+02:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
