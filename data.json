@@ -8725,7 +8725,7 @@
     },
     "finish": {
      "low": "2026-10-28T07:21",
-     "mid": "2026-10-28T20:43",
+     "mid": "2026-10-28T20:44",
      "high": "2026-11-01T16:37"
     },
     "models": [
@@ -8859,9 +8859,9 @@
      "high": 15.7
     },
     "finish": {
-     "low": "2026-10-26T03:18",
+     "low": "2026-10-26T03:19",
      "mid": "2026-10-26T04:09",
-     "high": "2026-10-26T09:39"
+     "high": "2026-10-26T09:40"
     },
     "models": [
      [
@@ -9214,7 +9214,7 @@
    },
    "mac": {
     "attempts_finished": 48,
-    "busy_pct": 83
+    "busy_pct": 82
    }
   },
   "items": [
@@ -11059,7 +11059,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 99.71,
+  "hours_up": 99.72,
   "spent_eur": 183.65,
   "gpu_hours": 173.8,
   "servers_running": 1
