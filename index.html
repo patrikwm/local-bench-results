@@ -616,6 +616,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     throw new Error("Could not load data.json. Serve this page from the same folder as data.json, or check your connection.");
   }
 
+  // screening finish range: the slower machine sets it (PC and Mac run in parallel); from measured durations
+  function etaFact(f) {
+    const ms = f && Object.entries(f.machines || {}).filter(([, v]) => v.models.length);
+    if (!ms || !ms.length) return null;
+    const pick = (k) => ms.reduce((a, [, v]) => Math.max(a, v.elapsed_h[k]), 0);
+    const day = (h) => new Date(Date.now() + h * 36e5).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+    const per = ms.map(([m, v]) => `${m === "pc" ? "PC" : "Mac"} ${dur(v.elapsed_h.mid)}`).join(", ");
+    return [`${dur(pick("low"))} – ${dur(pick("high"))}`,
+      `screening left, likely ${dur(pick("mid"))} (${day(pick("low"))} – ${day(pick("high"))}; ${per}). Not counted: L4 and the final top-3 showdown`];
+  }
+
   function render(d) {
     const M = d.models, rented = new Set(d.rented);
     const isRent = (k) => rented.has(k);
@@ -641,7 +652,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       [`${p.pairs_tested.toLocaleString("en-US")}`, `of ${n0(p.pairs_full)} task-and-agent pairs tested, ${p.pairs_skipped} skipped by a rule`],
       [`${modelsWithData} / ${Object.keys(M).length}`, "model setups with Level 1 results"],
       [dur((gen - since) / 36e5), "running so far"],
-      [dur(p.eta_hours), `left at the recent pace of ${p.pace_per_h}/h (not an upper bound)`]
+      etaFact(d.forecast) || [dur(p.eta_hours), `left at the recent pace of ${p.pace_per_h}/h (not an upper bound)`]
     ].map(([n, l]) => `<div class="fact"><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div></div>`).join("");
 
     // per machine: what runs now (counter in the browser from its start time) and the attempt that finished last
