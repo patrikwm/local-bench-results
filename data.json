@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T19:36+01:00",
+ "generated": "2026-10-25T19:42+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3840,8 +3840,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 23,
-   "attempts": 30,
+   "solved": 24,
+   "attempts": 31,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -3852,8 +3852,8 @@
      "attempts": 2
     },
     "l1-cpp-feature-mdtable": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cpp-tests-shipping": {
      "solved": 1,
@@ -3957,9 +3957,9 @@
     }
    },
    "median_s": 76.2,
-   "median_read": 56272.5,
-   "median_written": 3801.5,
-   "decode_tok_s": 55.6,
+   "median_read": 56238,
+   "median_written": 3871,
+   "decode_tok_s": 55.7,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -3970,8 +3970,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 1,
-   "solved": 21,
-   "attempts": 31,
+   "solved": 22,
+   "attempts": 32,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 2,
@@ -3986,8 +3986,8 @@
      "attempts": 2
     },
     "l1-cpp-tests-shipping": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l1-cs-bugfix-csvquote": {
      "solved": 0,
@@ -4086,10 +4086,10 @@
      "attempts": 1
     }
    },
-   "median_s": 46.0,
-   "median_read": 26800,
-   "median_written": 1952,
-   "decode_tok_s": 53.2,
+   "median_s": 52.0,
+   "median_read": 27876.0,
+   "median_written": 2116.0,
+   "decode_tok_s": 54.0,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8818,13 +8818,13 @@
  ],
  "progress": {
   "planned_max": 5262,
-  "project_pct": 73.3,
-  "test_pct": 57.9,
+  "project_pct": 73.4,
+  "test_pct": 58.0,
   "pairs_full": 1986,
-  "pairs_tested": 1149,
+  "pairs_tested": 1151,
   "pairs_skipped": 307,
-  "eta_realistic_hours": 80.7,
-  "eta_pc_hours": 80.7,
+  "eta_realistic_hours": 80.4,
+  "eta_pc_hours": 80.4,
   "eta_cloud_hours": 12.6,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8845,17 +8845,17 @@
    "3": 0.43,
    "4": 0.5
   },
-  "settled": 3870,
-  "graded_screening": 2818,
+  "settled": 3874,
+  "graded_screening": 2820,
   "settled_by_front": {
    "pc": 1728,
-   "cloud": 2142
+   "cloud": 2146
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 19.2,
-  "eta_hours": 120.1,
+  "eta_hours": 119.9,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -8863,7 +8863,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T19:36",
+  "generated": "2026-10-25T19:42",
   "queue_elapsed_h": {
    "low": 64.0,
    "mid": 78.0,
@@ -8882,9 +8882,9 @@
      "high": 178.6
     },
     "finish": {
-     "low": "2026-10-28T11:37",
-     "mid": "2026-10-29T01:39",
-     "high": "2026-11-02T06:14"
+     "low": "2026-10-28T11:42",
+     "mid": "2026-10-29T01:44",
+     "high": "2026-11-02T06:19"
     },
     "models": [
      [
@@ -9008,18 +9008,18 @@
    "mac": {
     "worker_h": {
      "low": 4.5,
-     "mid": 5.2,
-     "high": 8.8
+     "mid": 5.1,
+     "high": 8.6
     },
     "elapsed_h": {
-     "low": 6.2,
-     "mid": 6.8,
-     "high": 11.2
+     "low": 6.1,
+     "mid": 6.7,
+     "high": 11.0
     },
     "finish": {
-     "low": "2026-10-26T01:47",
-     "mid": "2026-10-26T02:27",
-     "high": "2026-10-26T06:51"
+     "low": "2026-10-26T01:45",
+     "mid": "2026-10-26T02:25",
+     "high": "2026-10-26T06:45"
     },
     "models": [
      [
@@ -9044,36 +9044,36 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 71.8,
+    "pc_alone_h": 71.7,
     "with_mac_h": 64.0
    },
    "mid": {
-    "pc_alone_h": 87.6,
+    "pc_alone_h": 87.5,
     "with_mac_h": 78.0
    },
    "high": {
-    "pc_alone_h": 196.2,
+    "pc_alone_h": 195.9,
     "with_mac_h": 178.6
    }
   },
   "slots": {
-   "executed": 2859,
-   "skipped: majority stop": 849,
+   "executed": 2861,
+   "skipped: majority stop": 851,
    "skipped: model eliminated at an earlier level": 682,
    "skipped: level ended early (probe / level stop)": 248,
-   "open: assigned": 486,
+   "open: assigned": 482,
    "open: conditional": 708,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
   },
   "pairs": {
    "total": 1944,
-   "decided by attempts": 1155,
+   "decided by attempts": 1157,
    "settled by a rule (never decided)": 353,
-   "open": 436
+   "open": 434
   },
   "expected_attempts": {
-   "assigned": 328.0,
+   "assigned": 325.6,
    "conditional": 280.7,
    "blocked": 0
   },
@@ -9363,15 +9363,15 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 8,
-    "busy_pct": 86
+    "attempts_finished": 6,
+    "busy_pct": 85
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 78,
+    "attempts_finished": 80,
     "busy_pct": 76
    }
   },
@@ -9751,14 +9751,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 59.3,
-    "attempts_max": 102,
+    "attempts_exp": 57.0,
+    "attempts_max": 98,
     "p_reach": 1.0,
-    "worker_h": 1.9,
-    "elapsed_h": 2.8,
+    "worker_h": 1.8,
+    "elapsed_h": 2.7,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "measured (61 at this level)"
+    "how_mac": "measured (63 at this level)"
    },
    {
     "model": "qwen36-35b-q4kxl-llama-64k",
@@ -9774,7 +9774,7 @@
     "elapsed_h": 4.0,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "model ratio 0.63 from 61 attempts on this machine"
+    "how_mac": "model ratio 0.62 from 63 attempts on this machine"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -9783,7 +9783,7 @@
     "machine": "pc",
     "blocked": null,
     "note": "",
-    "attempts_exp": 121.2,
+    "attempts_exp": 121.1,
     "attempts_max": 168,
     "p_reach": 1.0,
     "worker_h": 5.1,
@@ -10472,12 +10472,12 @@
    "variant": "mk",
    "l1_v1": {
     "pairs_expected": 24,
-    "pairs_decided": 5,
-    "pairs_passed": 5,
-    "attempts": 29,
-    "attempts_solved": 25,
+    "pairs_decided": 7,
+    "pairs_passed": 7,
+    "attempts": 31,
+    "attempts_solved": 27,
     "median_s": 74.4,
-    "decode_tok_s": 56.3,
+    "decode_tok_s": 56.2,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -10487,11 +10487,11 @@
    },
    "l1_v2": {
     "pairs_expected": 56,
-    "pairs_decided": 5,
-    "pairs_passed": 5,
-    "attempts": 61,
-    "attempts_solved": 44,
-    "median_s": 68.4,
+    "pairs_decided": 7,
+    "pairs_passed": 7,
+    "attempts": 63,
+    "attempts_solved": 46,
+    "median_s": 70.1,
     "decode_tok_s": 54.8,
     "gpu_w": null,
     "cpu_w": null,
@@ -10873,7 +10873,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T19:37+01:00",
+  "updated": "2026-10-25T19:42+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11217,9 +11217,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 101.38,
+  "hours_up": 101.47,
   "spent_eur": 183.65,
-  "gpu_hours": 175.5,
+  "gpu_hours": 175.6,
   "servers_running": 1
  },
  "utility": [
@@ -11454,12 +11454,12 @@
   {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "front": "Mac",
-   "task": "l1-cpp-feature-mdtable",
+   "task": "l1-cpp-tests-shipping",
    "level": 1,
    "agent": "opencode",
    "attempt": "2",
-   "progress": "62/168",
-   "started": "2026-10-25T19:36:22+01:00"
+   "progress": "64/168",
+   "started": "2026-10-25T19:41:19+01:00"
   }
  ],
  "last_done": {
@@ -11495,13 +11495,13 @@
   },
   "Mac": {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
-   "task": "l1-cpp-feature-mdtable",
+   "task": "l1-cpp-tests-shipping",
    "level": 1,
    "agent": "pi",
    "attempt": "2",
    "solved": true,
-   "wall_s": 186,
-   "ended": "2026-10-25T19:35:51+01:00"
+   "wall_s": 172,
+   "ended": "2026-10-25T19:40:46+01:00"
   }
  },
  "fronts_off": {
