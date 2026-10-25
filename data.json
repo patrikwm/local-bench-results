@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T16:53+01:00",
+ "generated": "2026-10-25T16:58+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3830,6 +3830,36 @@
    "median_read": 78239,
    "median_written": 10127,
    "decode_tok_s": 19.4,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "qwen36-35b-q4kxl-llama-64k-mac",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 1,
+   "attempts": 3,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l1-cs-bugfix-csvquote": {
+     "solved": 0,
+     "attempts": 1
+    },
+    "l1-go-bugfix-backoff": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 36.0,
+   "median_read": 14301,
+   "median_written": 1116,
+   "decode_tok_s": 50.7,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8541,8 +8571,8 @@
   "pairs_full": 1986,
   "pairs_tested": 1143,
   "pairs_skipped": 301,
-  "eta_realistic_hours": 97.9,
-  "eta_pc_hours": 97.9,
+  "eta_realistic_hours": 97.6,
+  "eta_pc_hours": 97.6,
   "eta_cloud_hours": 14.4,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8563,17 +8593,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3796,
-  "graded_screening": 2755,
+  "settled": 3799,
+  "graded_screening": 2758,
   "settled_by_front": {
    "pc": 1720,
-   "cloud": 2076
+   "cloud": 2079
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 9.4,
-  "eta_hours": 203.1,
+  "pace_per_h": 9.9,
+  "eta_hours": 195.6,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -8581,7 +8611,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T16:53",
+  "generated": "2026-10-25T16:58",
   "queue_elapsed_h": {
    "low": 50.4,
    "mid": 60.9,
@@ -8600,9 +8630,9 @@
      "high": 129.9
     },
     "finish": {
-     "low": "2026-10-27T19:19",
-     "mid": "2026-10-28T05:45",
-     "high": "2026-10-31T02:48"
+     "low": "2026-10-27T19:24",
+     "mid": "2026-10-28T05:51",
+     "high": "2026-10-31T02:54"
     },
     "models": [
      [
@@ -8718,19 +8748,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 18.0,
-     "mid": 22.5,
-     "high": 38.4
+     "low": 9.5,
+     "mid": 11.9,
+     "high": 20.3
     },
     "elapsed_h": {
-     "low": 20.6,
-     "mid": 25.1,
-     "high": 42.0
+     "low": 12.1,
+     "mid": 14.5,
+     "high": 23.8
     },
     "finish": {
-     "low": "2026-10-26T13:31",
-     "mid": "2026-10-26T18:02",
-     "high": "2026-10-27T10:51"
+     "low": "2026-10-26T05:04",
+     "mid": "2026-10-26T07:27",
+     "high": "2026-10-26T16:46"
     },
     "models": [
      [
@@ -8755,24 +8785,24 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 61.6,
+    "pc_alone_h": 61.5,
     "with_mac_h": 50.4
    },
    "mid": {
-    "pc_alone_h": 74.6,
+    "pc_alone_h": 74.4,
     "with_mac_h": 60.9
    },
    "high": {
-    "pc_alone_h": 152.9,
+    "pc_alone_h": 152.6,
     "with_mac_h": 129.9
    }
   },
   "slots": {
-   "executed": 2796,
+   "executed": 2799,
    "skipped: majority stop": 843,
    "skipped: model eliminated at an earlier level": 682,
    "skipped: level ended early (probe / level stop)": 243,
-   "open: assigned": 388,
+   "open: assigned": 385,
    "open: conditional": 504,
    "open: blocked": 376,
    "plan_total": 5832,
@@ -8785,7 +8815,7 @@
    "open": 447
   },
   "expected_attempts": {
-   "assigned": 272.1,
+   "assigned": 269.1,
    "conditional": 206.8,
    "blocked": 205.6
   },
@@ -9069,16 +9099,16 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 12,
-    "busy_pct": 87
+    "attempts_finished": 11,
+    "busy_pct": 86
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 31,
-    "busy_pct": 86
+    "attempts_finished": 34,
+    "busy_pct": 85
    }
   },
   "items": [
@@ -9473,14 +9503,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 121.2,
-    "attempts_max": 168,
+    "attempts_exp": 118.2,
+    "attempts_max": 165,
     "p_reach": 1.0,
-    "worker_h": 13.0,
-    "elapsed_h": 14.9,
+    "worker_h": 5.6,
+    "elapsed_h": 7.5,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "prior ratio 1.80 (no attempts yet)"
+    "how_mac": "3 at this level + model ratio 1.18 from 3 attempts"
    },
    {
     "model": "qwen36-35b-q4kxl-llama-64k",
@@ -9492,11 +9522,11 @@
     "attempts_exp": 60.5,
     "attempts_max": 84,
     "p_reach": 0.75,
-    "worker_h": 9.5,
-    "elapsed_h": 10.2,
+    "worker_h": 6.2,
+    "elapsed_h": 7.0,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "prior ratio 1.80 (no attempts yet)"
+    "how_mac": "model ratio 1.18 from 3 attempts on this machine"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -10190,6 +10220,40 @@
    }
   },
   {
+   "model": "qwen36-35b-q4kxl-llama-64k-mac",
+   "variant": "mk",
+   "l1_v1": {
+    "pairs_expected": 24,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 1,
+    "attempts_solved": 1,
+    "median_s": 24.0,
+    "decode_tok_s": 43.7,
+    "gpu_w": null,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   },
+   "l1_v2": {
+    "pairs_expected": 56,
+    "pairs_decided": 0,
+    "pairs_passed": 0,
+    "attempts": 3,
+    "attempts_solved": 1,
+    "median_s": 36.0,
+    "decode_tok_s": 50.7,
+    "gpu_w": null,
+    "cpu_w": null,
+    "energy_wh": null,
+    "wh_per_solved": null,
+    "energy_attempts": 0,
+    "side_load_attempts": 0
+   }
+  },
+  {
    "model": "qwen38-27b-q4km-64k-upcloud",
    "variant": "mk",
    "l1_v1": {
@@ -10561,7 +10625,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T16:53+01:00",
+  "updated": "2026-10-25T16:59+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10905,9 +10969,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 98.65,
+  "hours_up": 98.74,
   "spent_eur": 183.65,
-  "gpu_hours": 172.8,
+  "gpu_hours": 172.9,
   "servers_running": 1
  },
  "utility": [
@@ -11142,12 +11206,12 @@
   {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "front": "Mac",
-   "task": "l1-cpp-bugfix-bytesize",
+   "task": "l1-java-bugfix-isbn",
    "level": 1,
    "agent": "pi",
    "attempt": "1",
-   "progress": "1/168",
-   "started": "2026-10-25T16:53:08+01:00"
+   "progress": "4/168",
+   "started": "2026-10-25T16:57:48+01:00"
   }
  ],
  "last_done": {
@@ -11182,14 +11246,14 @@
    "ended": "2026-10-23T11:50:07+02:00"
   },
   "Mac": {
-   "model": "qwen3coder30b-a3-128k-mac",
-   "task": "s1-tofu-feature-svcmod",
-   "level": 11,
-   "agent": "opencode",
+   "model": "qwen36-35b-q4kxl-llama-64k-mac",
+   "task": "l1-go-bugfix-backoff",
+   "level": 1,
+   "agent": "pi",
    "attempt": "1",
    "solved": false,
-   "wall_s": 1266,
-   "ended": "2026-10-25T16:33:17+01:00"
+   "wall_s": 42,
+   "ended": "2026-10-25T16:56:55+01:00"
   }
  },
  "fronts_off": {
