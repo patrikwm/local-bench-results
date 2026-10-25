@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T02:02+01:00",
+ "generated": "2026-10-25T02:07+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4827,7 +4827,7 @@
    "agent": "pi",
    "level": 2,
    "solved": 13,
-   "attempts": 19,
+   "attempts": 20,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4851,7 +4851,7 @@
     },
     "l2-go-feature-humanize-rate": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l2-java-bugfix-picocli-digitnames": {
      "solved": 1,
@@ -4886,10 +4886,10 @@
      "attempts": 1
     }
    },
-   "median_s": 694.2,
-   "median_read": 1123887,
-   "median_written": 10038,
-   "decode_tok_s": 21.0,
+   "median_s": 676.2,
+   "median_read": 1107140.5,
+   "median_written": 10126.0,
+   "decode_tok_s": 21.7,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8292,7 +8292,7 @@
    "4": 0.5
   },
   "settled": 3544,
-  "graded_screening": 2678,
+  "graded_screening": 2679,
   "settled_by_front": {
    "pc": 1733,
    "cloud": 1811
@@ -8300,8 +8300,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 13.5,
-  "eta_hours": 225.2,
+  "pace_per_h": 13.7,
+  "eta_hours": 222.4,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8884,7 +8884,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T02:02+01:00",
+  "updated": "2026-10-25T02:08+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9228,9 +9228,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 83.81,
+  "hours_up": 83.89,
   "spent_eur": 183.65,
-  "gpu_hours": 157.9,
+  "gpu_hours": 158.0,
   "servers_running": 1
  },
  "utility": [
@@ -9467,10 +9467,10 @@
    "front": "Mac",
    "task": "l2-go-feature-humanize-rate",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
-   "progress": "39/84",
-   "started": "2026-10-25T02:57:13+02:00"
+   "progress": "40/84",
+   "started": "2026-10-25T02:07:00+02:00"
   }
  ],
  "last_done": {
@@ -9506,13 +9506,13 @@
   },
   "Mac": {
    "model": "qwen3coder30b-a3-128k-mac",
-   "task": "l2-go-bugfix-humanize-ftoa",
+   "task": "l2-go-feature-humanize-rate",
    "level": 2,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "2",
    "solved": false,
-   "wall_s": 989,
-   "ended": "2026-10-25T02:56:40+02:00"
+   "wall_s": 560,
+   "ended": "2026-10-25T02:06:29+01:00"
   }
  },
  "fronts_off": {
