@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T14:55+01:00",
+ "generated": "2026-10-25T15:01+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3743,7 +3743,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 3,
-   "attempts": 17,
+   "attempts": 18,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -3801,6 +3801,10 @@
      "solved": 0,
      "attempts": 1
     },
+    "l1-java-feature-wordfreq": {
+     "solved": 0,
+     "attempts": 1
+    },
     "l1-py-bugfix-duration-ms": {
      "solved": 0,
      "attempts": 1
@@ -3814,10 +3818,10 @@
      "attempts": 1
     }
    },
-   "median_s": 635.3,
-   "median_read": 88984,
-   "median_written": 11580,
-   "decode_tok_s": 18.9,
+   "median_s": 585.0,
+   "median_read": 83611.5,
+   "median_written": 10853.5,
+   "decode_tok_s": 19.1,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8461,8 +8465,8 @@
   "pairs_full": 1986,
   "pairs_tested": 1133,
   "pairs_skipped": 160,
-  "eta_realistic_hours": 150.3,
-  "eta_pc_hours": 150.3,
+  "eta_realistic_hours": 150.4,
+  "eta_pc_hours": 150.4,
   "eta_cloud_hours": 14.5,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8483,28 +8487,28 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3631,
-  "graded_screening": 2742,
+  "settled": 3632,
+  "graded_screening": 2743,
   "settled_by_front": {
    "pc": 1716,
-   "cloud": 1915
+   "cloud": 1916
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 9.9,
-  "eta_hours": 237.0,
+  "pace_per_h": 9.7,
+  "eta_hours": 241.2,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T14:55",
+  "generated": "2026-10-25T15:01",
   "queue_elapsed_h": {
    "low": 64.2,
    "mid": 77.6,
-   "high": 150.3
+   "high": 149.8
   },
   "machines": {
    "pc": {
@@ -8519,9 +8523,9 @@
      "high": 149.8
     },
     "finish": {
-     "low": "2026-10-28T07:09",
-     "mid": "2026-10-28T20:32",
-     "high": "2026-10-31T20:41"
+     "low": "2026-10-28T07:15",
+     "mid": "2026-10-28T20:37",
+     "high": "2026-10-31T20:46"
     },
     "models": [
      [
@@ -8644,19 +8648,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 54.7,
-     "mid": 64.1,
-     "high": 145.4
+     "low": 54.2,
+     "mid": 63.6,
+     "high": 144.5
     },
     "elapsed_h": {
-     "low": 57.7,
-     "mid": 67.2,
-     "high": 150.3
+     "low": 57.3,
+     "mid": 66.6,
+     "high": 149.4
     },
     "finish": {
-     "low": "2026-10-28T00:40",
-     "mid": "2026-10-28T10:04",
-     "high": "2026-10-31T21:12"
+     "low": "2026-10-28T00:17",
+     "mid": "2026-10-28T09:39",
+     "high": "2026-10-31T20:22"
     },
     "models": [
      [
@@ -8690,9 +8694,9 @@
     "qwen3-14b-64k"
    ],
    "mac_only_elapsed_h": {
-    "low": 50.4,
-    "mid": 58.2,
-    "high": 132.2
+    "low": 50.0,
+    "mid": 57.7,
+    "high": 131.3
    },
    "low": {
     "pc_alone_h": 68.7,
@@ -8708,11 +8712,11 @@
    }
   },
   "slots": {
-   "executed": 2783,
+   "executed": 2784,
    "skipped: majority stop": 841,
    "skipped: model eliminated at an earlier level": 430,
    "skipped: level ended early (probe / level stop)": 93,
-   "open: assigned": 553,
+   "open: assigned": 552,
    "open: conditional": 756,
    "open: blocked": 376,
    "plan_total": 5832,
@@ -8725,7 +8729,7 @@
    "open": 597
   },
   "expected_attempts": {
-   "assigned": 382.3,
+   "assigned": 381.3,
    "conditional": 340.7,
    "blocked": 214.8
   },
@@ -8998,15 +9002,15 @@
   "last6h": {
    "pc": {
     "attempts_finished": 17,
-    "busy_pct": 86
+    "busy_pct": 85
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 30,
-    "busy_pct": 91
+    "attempts_finished": 29,
+    "busy_pct": 93
    }
   },
   "items": [
@@ -9129,14 +9133,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 90.2,
-    "attempts_max": 137,
+    "attempts_exp": 89.2,
+    "attempts_max": 136,
     "p_reach": 1.0,
-    "worker_h": 17.0,
-    "elapsed_h": 18.1,
+    "worker_h": 16.7,
+    "elapsed_h": 17.8,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "measured (31 at this level)"
+    "how_mac": "measured (32 at this level)"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9148,11 +9152,11 @@
     "attempts_exp": 60.5,
     "attempts_max": 84,
     "p_reach": 0.82,
-    "worker_h": 18.1,
-    "elapsed_h": 18.7,
+    "worker_h": 18.0,
+    "elapsed_h": 18.6,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.13 from 31 attempts on this machine"
+    "how_mac": "model ratio 3.12 from 32 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9165,10 +9169,10 @@
     "attempts_max": 24,
     "p_reach": 0.82,
     "worker_h": 3.2,
-    "elapsed_h": 3.5,
+    "elapsed_h": 3.4,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.13 from 31 attempts on this machine"
+    "how_mac": "model ratio 3.12 from 32 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9184,7 +9188,7 @@
     "elapsed_h": 4.0,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.13 from 31 attempts on this machine"
+    "how_mac": "model ratio 3.12 from 32 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9200,7 +9204,7 @@
     "elapsed_h": 3.6,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.13 from 31 attempts on this machine"
+    "how_mac": "model ratio 3.12 from 32 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9212,11 +9216,11 @@
     "attempts_exp": 36.3,
     "attempts_max": 48,
     "p_reach": 0.25,
-    "worker_h": 10.1,
-    "elapsed_h": 10.2,
+    "worker_h": 10.0,
+    "elapsed_h": 10.1,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.13 from 31 attempts on this machine"
+    "how_mac": "model ratio 3.12 from 32 attempts on this machine"
    },
    {
     "model": "qwen3codernext-q4km-128k",
@@ -10242,9 +10246,9 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 31,
+    "attempts": 32,
     "attempts_solved": 5,
-    "median_s": 635.3,
+    "median_s": 594.0,
     "decode_tok_s": 18.4,
     "gpu_w": null,
     "cpu_w": null,
@@ -10626,7 +10630,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T14:55+01:00",
+  "updated": "2026-10-25T15:01+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10970,9 +10974,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 96.69,
+  "hours_up": 96.78,
   "spent_eur": 183.65,
-  "gpu_hours": 170.8,
+  "gpu_hours": 170.9,
   "servers_running": 1
  },
  "utility": [
@@ -11209,10 +11213,10 @@
    "front": "Mac",
    "task": "l1-java-feature-wordfreq",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "32/168",
-   "started": "2026-10-25T14:48:13+01:00"
+   "progress": "33/168",
+   "started": "2026-10-25T14:58:02+01:00"
   }
  ],
  "last_done": {
@@ -11248,13 +11252,13 @@
   },
   "Mac": {
    "model": "qwen3-14b-64k-mac",
-   "task": "l1-java-bugfix-semver",
+   "task": "l1-java-feature-wordfreq",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
    "solved": false,
-   "wall_s": 663,
-   "ended": "2026-10-25T14:47:12+01:00"
+   "wall_s": 535,
+   "ended": "2026-10-25T14:57:03+01:00"
   }
  },
  "fronts_off": {
