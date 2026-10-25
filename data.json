@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T17:39+01:00",
+ "generated": "2026-10-25T17:41+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8693,7 +8693,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T17:39",
+  "generated": "2026-10-25T17:41",
   "queue_elapsed_h": {
    "low": 49.1,
    "mid": 59.8,
@@ -8712,9 +8712,9 @@
      "high": 130.4
     },
     "finish": {
-     "low": "2026-10-27T18:44",
-     "mid": "2026-10-28T05:26",
-     "high": "2026-10-31T04:02"
+     "low": "2026-10-27T18:45",
+     "mid": "2026-10-28T05:28",
+     "high": "2026-10-31T04:04"
     },
     "models": [
      [
@@ -8839,9 +8839,9 @@
      "high": 14.2
     },
     "finish": {
-     "low": "2026-10-26T01:01",
-     "mid": "2026-10-26T02:17",
-     "high": "2026-10-26T07:51"
+     "low": "2026-10-26T01:03",
+     "mid": "2026-10-26T02:18",
+     "high": "2026-10-26T07:52"
     },
     "models": [
      [
@@ -9195,7 +9195,7 @@
    },
    "mac": {
     "attempts_finished": 46,
-    "busy_pct": 82
+    "busy_pct": 81
    }
   },
   "items": [
@@ -10696,7 +10696,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T17:40+01:00",
+  "updated": "2026-10-25T17:41+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11040,9 +11040,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 99.43,
+  "hours_up": 99.45,
   "spent_eur": 183.65,
-  "gpu_hours": 173.5,
+  "gpu_hours": 173.6,
   "servers_running": 1
  },
  "utility": [
@@ -11273,6 +11273,16 @@
    "attempt": "1",
    "progress": "20/168",
    "started": "2026-10-25T17:33:50+01:00"
+  },
+  {
+   "model": "strata-iq3s-64k",
+   "front": "PC",
+   "task": "l0-qualify",
+   "level": 0,
+   "agent": "pi",
+   "attempt": "warmup",
+   "progress": null,
+   "started": "2026-10-25T17:40:17+01:00"
   }
  ],
  "last_done": {
