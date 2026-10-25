@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T09:51+01:00",
+ "generated": "2026-10-25T09:57+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3636,6 +3636,28 @@
    "median_read": 18640,
    "median_written": 2486,
    "decode_tok_s": 20.4,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "qwen3-14b-64k-mac",
+   "variant": "mk",
+   "agent": "opencode",
+   "level": 1,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "l1-cpp-bugfix-bytesize": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 249.6,
+   "median_read": 30797,
+   "median_written": 4176,
+   "decode_tok_s": 19.3,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8365,24 +8387,24 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3585,
-  "graded_screening": 2704,
+  "settled": 3586,
+  "graded_screening": 2705,
   "settled_by_front": {
    "pc": 1694,
-   "cloud": 1891
+   "cloud": 1892
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 9.3,
-  "eta_hours": 255.2,
+  "pace_per_h": 8.8,
+  "eta_hours": 265.5,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T09:51",
+  "generated": "2026-10-25T09:57",
   "queue_elapsed_h": {
    "low": 68.4,
    "mid": 83.6,
@@ -8401,9 +8423,9 @@
      "high": 164.6
     },
     "finish": {
-     "low": "2026-10-28T06:14",
-     "mid": "2026-10-28T21:25",
-     "high": "2026-11-01T06:29"
+     "low": "2026-10-28T06:20",
+     "mid": "2026-10-28T21:31",
+     "high": "2026-11-01T06:34"
     },
     "models": [
      [
@@ -8526,19 +8548,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 52.1,
-     "mid": 65.2,
-     "high": 151.9
+     "low": 49.6,
+     "mid": 62.0,
+     "high": 144.8
     },
     "elapsed_h": {
-     "low": 55.3,
-     "mid": 68.3,
-     "high": 156.7
+     "low": 52.8,
+     "mid": 65.2,
+     "high": 149.6
     },
     "finish": {
-     "low": "2026-10-27T17:09",
-     "mid": "2026-10-28T06:12",
-     "high": "2026-10-31T22:31"
+     "low": "2026-10-27T14:44",
+     "mid": "2026-10-28T03:08",
+     "high": "2026-10-31T15:32"
     },
     "models": [
      [
@@ -8572,9 +8594,9 @@
     "qwen3-14b-64k"
    ],
    "mac_only_elapsed_h": {
-    "low": 48.0,
-    "mid": 59.4,
-    "high": 138.6
+    "low": 45.5,
+    "mid": 56.2,
+    "high": 131.5
    },
    "low": {
     "pc_alone_h": 72.8,
@@ -8590,11 +8612,11 @@
    }
   },
   "slots": {
-   "executed": 2745,
+   "executed": 2746,
    "skipped: majority stop": 833,
    "skipped: model eliminated at an earlier level": 430,
    "skipped: level ended early (probe / level stop)": 93,
-   "open: assigned": 599,
+   "open: assigned": 598,
    "open: conditional": 756,
    "open: blocked": 376,
    "plan_total": 5832,
@@ -8607,7 +8629,7 @@
    "open": 605
   },
   "expected_attempts": {
-   "assigned": 418.0,
+   "assigned": 417.0,
    "conditional": 340.5,
    "blocked": 214.7
   },
@@ -8879,8 +8901,8 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 14,
-    "busy_pct": 91
+    "attempts_finished": 12,
+    "busy_pct": 90
    },
    "cloud": {
     "attempts_finished": 0,
@@ -9011,14 +9033,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 114.2,
-    "attempts_max": 161,
+    "attempts_exp": 113.2,
+    "attempts_max": 160,
     "p_reach": 1.0,
-    "worker_h": 19.8,
-    "elapsed_h": 21.1,
+    "worker_h": 18.4,
+    "elapsed_h": 19.7,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "7 at this level + model ratio 2.93 from 7 attempts"
+    "how_mac": "8 at this level + model ratio 2.80 from 8 attempts"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9030,11 +9052,11 @@
     "attempts_exp": 60.5,
     "attempts_max": 84,
     "p_reach": 0.82,
-    "worker_h": 16.9,
-    "elapsed_h": 17.5,
+    "worker_h": 16.1,
+    "elapsed_h": 16.7,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 2.93 from 7 attempts on this machine"
+    "how_mac": "model ratio 2.80 from 8 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9046,11 +9068,11 @@
     "attempts_exp": 17.4,
     "attempts_max": 24,
     "p_reach": 0.82,
-    "worker_h": 3.0,
-    "elapsed_h": 3.2,
+    "worker_h": 2.9,
+    "elapsed_h": 3.1,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 2.93 from 7 attempts on this machine"
+    "how_mac": "model ratio 2.80 from 8 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9062,11 +9084,11 @@
     "attempts_exp": 18.2,
     "attempts_max": 24,
     "p_reach": 0.51,
-    "worker_h": 3.6,
-    "elapsed_h": 3.8,
+    "worker_h": 3.5,
+    "elapsed_h": 3.6,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 2.93 from 7 attempts on this machine"
+    "how_mac": "model ratio 2.80 from 8 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9078,11 +9100,11 @@
     "attempts_exp": 17.2,
     "attempts_max": 24,
     "p_reach": 0.43,
-    "worker_h": 3.3,
-    "elapsed_h": 3.4,
+    "worker_h": 3.1,
+    "elapsed_h": 3.2,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 2.93 from 7 attempts on this machine"
+    "how_mac": "model ratio 2.80 from 8 attempts on this machine"
    },
    {
     "model": "qwen3-14b-64k",
@@ -9094,11 +9116,11 @@
     "attempts_exp": 35.9,
     "attempts_max": 48,
     "p_reach": 0.25,
-    "worker_h": 10.2,
-    "elapsed_h": 10.3,
+    "worker_h": 9.7,
+    "elapsed_h": 9.9,
     "worker_h_if_unblocked": null,
     "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 2.93 from 7 attempts on this machine"
+    "how_mac": "model ratio 2.80 from 8 attempts on this machine"
    },
    {
     "model": "qwen3codernext-q4km-128k",
@@ -10109,10 +10131,10 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 3,
-    "attempts_solved": 2,
-    "median_s": 222.2,
-    "decode_tok_s": 21.2,
+    "attempts": 4,
+    "attempts_solved": 3,
+    "median_s": 235.9,
+    "decode_tok_s": 20.2,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -10124,10 +10146,10 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 7,
-    "attempts_solved": 2,
-    "median_s": 635.3,
-    "decode_tok_s": 18.9,
+    "attempts": 8,
+    "attempts_solved": 3,
+    "median_s": 442.4,
+    "decode_tok_s": 19.1,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -10508,7 +10530,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T09:52+01:00",
+  "updated": "2026-10-25T09:57+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10852,9 +10874,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 91.63,
+  "hours_up": 91.71,
   "spent_eur": 183.65,
-  "gpu_hours": 165.7,
+  "gpu_hours": 165.8,
   "servers_running": 1
  },
  "utility": [
@@ -11089,12 +11111,12 @@
   {
    "model": "qwen3-14b-64k-mac",
    "front": "Mac",
-   "task": "l1-cpp-bugfix-bytesize",
+   "task": "l1-cpp-bugfix-recentfiles",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
-   "progress": "8/168",
-   "started": "2026-10-25T09:49:43+01:00"
+   "progress": "9/168",
+   "started": "2026-10-25T09:54:52+01:00"
   }
  ],
  "last_done": {
@@ -11130,13 +11152,13 @@
   },
   "Mac": {
    "model": "qwen3-14b-64k-mac",
-   "task": "l1-ts-bugfix-pager",
+   "task": "l1-cpp-bugfix-bytesize",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "solved": false,
-   "wall_s": 779,
-   "ended": "2026-10-25T09:48:40+01:00"
+   "solved": true,
+   "wall_s": 250,
+   "ended": "2026-10-25T09:53:49+01:00"
   }
  },
  "fronts_off": {
