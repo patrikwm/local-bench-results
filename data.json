@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T18:08+01:00",
+ "generated": "2026-10-25T18:13+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8716,8 +8716,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 13.3,
-  "eta_hours": 155.2,
+  "pace_per_h": 13.1,
+  "eta_hours": 157.1,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -8725,7 +8725,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T18:08",
+  "generated": "2026-10-25T18:13",
   "queue_elapsed_h": {
    "low": 61.4,
    "mid": 74.8,
@@ -8744,9 +8744,9 @@
      "high": 166.7
     },
     "finish": {
-     "low": "2026-10-28T07:32",
-     "mid": "2026-10-28T20:54",
-     "high": "2026-11-01T16:48"
+     "low": "2026-10-28T07:37",
+     "mid": "2026-10-28T21:00",
+     "high": "2026-11-01T16:53"
     },
     "models": [
      [
@@ -8879,9 +8879,9 @@
      "high": 14.6
     },
     "finish": {
-     "low": "2026-10-26T02:43",
-     "mid": "2026-10-26T03:31",
-     "high": "2026-10-26T08:41"
+     "low": "2026-10-26T02:49",
+     "mid": "2026-10-26T03:36",
+     "high": "2026-10-26T08:46"
     },
     "models": [
      [
@@ -9226,15 +9226,15 @@
   "last6h": {
    "pc": {
     "attempts_finished": 9,
-    "busy_pct": 87
+    "busy_pct": 86
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 51,
-    "busy_pct": 82
+    "attempts_finished": 50,
+    "busy_pct": 81
    }
   },
   "items": [
@@ -10735,7 +10735,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T18:08+01:00",
+  "updated": "2026-10-25T18:13+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11079,9 +11079,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 99.9,
+  "hours_up": 99.99,
   "spent_eur": 183.65,
-  "gpu_hours": 174.0,
+  "gpu_hours": 174.1,
   "servers_running": 1
  },
  "utility": [
@@ -11316,12 +11316,12 @@
   {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "front": "Mac",
-   "task": "l1-go-tests-inventory",
+   "task": "l1-java-bugfix-isbn",
    "level": 1,
    "agent": "opencode",
    "attempt": "1",
-   "progress": "28/168",
-   "started": "2026-10-25T18:06:29+01:00"
+   "progress": "29/168",
+   "started": "2026-10-25T18:13:41+01:00"
   }
  ],
  "last_done": {
