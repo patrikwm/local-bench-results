@@ -266,6 +266,9 @@ th button.sort[aria-sort="ascending"]::after { content: " ▴"; }
 .cell.hw::before { content: ""; position: absolute; inset: 0; border-radius: 6px; padding: 3px; background: var(--hwb);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none; }
+@keyframes livepulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ink) 60%, transparent); } }
+.cell.live { animation: livepulse 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .cell.live { animation: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 60%, transparent); } }
 .cell .cmp { position: absolute; left: 6px; bottom: 3px; font-size: 10px; opacity: .85; }
 .hwkey { display: inline-block; width: 14px; height: 10px; border-radius: 3px; border: 3px solid; vertical-align: -1px; margin-right: 4px; }
 .tasks details { border-bottom: 1px solid var(--rule-2); }
@@ -407,7 +410,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <span>Dashed: one probe attempt per task so far, or L0 from the warm-ups (attempt share shown)</span>
           <span>Ran on: <i class="hwkey" style="border-color:var(--hw-mac)"></i>Mac <i class="hwkey" style="border-color:var(--hw-l40s)"></i>rented L40S <i class="hwkey" style="border-color:var(--hw-rtx)"></i>rented RTX PRO 6000; no ring: this PC; a split ring: several machines (<i class="hwkey" style="border-color:var(--hw-pc)"></i>PC part)</span>
           <span>◆ same files on another engine: hover for its numbers</span>
-          <span>Hover a tile for its counts, times and machines</span>
+          <span>Hover a tile for its counts, times and machines; a slowly pulsing tile is running right now</span>
           <span>Hatched: skipped by a rule</span>
         </div>
       </div>
@@ -842,6 +845,14 @@ ${s.solved}/${s.att} attempts solved${tm}${on(s.machines)}${cTip}`;
       html += "</tr>";
     });
     $("ladderTable").innerHTML = html + "</tbody>";
+    // the tile of what runs right now pulses slowly (Patrik 2026-10-25); a comparison run marks its model's row
+    (d.running || []).forEach(j => {
+      const k = CMP[bm(j.model)] || bm(j.model), i = ladderModels.indexOf(k), c = LEVELS.indexOf(j.level);
+      const td = i >= 0 && c >= 0 ? $("ladderTable").tBodies[0].rows[i]?.cells[c + 1] : null;
+      if (!td) return;
+      td.classList.add("live");
+      td.title = `Running now on the ${j.front}: ${j.agent === "pi" ? "Pi" : "OpenCode"}, try ${j.attempt}${j.progress ? `, queue ${j.progress}` : ""}` + (td.title ? "\n\n" + td.title : "");
+    });
 
     // ---------- ranking ----------
     const rankRows = Object.entries(summary).map(([k, s]) => ({ k, s, done: s.pairs_decided >= s.pairs_expected, score: s.pairs_decided ? s.pairs_passed / s.pairs_decided : null }));
