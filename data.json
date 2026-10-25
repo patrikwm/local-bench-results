@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T06:44+01:00",
+ "generated": "2026-10-25T06:50+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8215,23 +8215,23 @@
   }
  ],
  "progress": {
-  "planned_max": 5934,
-  "project_pct": 60.0,
-  "test_pct": 53.3,
-  "pairs_full": 2110,
+  "planned_max": 5190,
+  "project_pct": 68.0,
+  "test_pct": 60.4,
+  "pairs_full": 1862,
   "pairs_tested": 1124,
   "pairs_skipped": 143,
-  "eta_realistic_hours": 205.3,
-  "eta_pc_hours": 205.3,
+  "eta_realistic_hours": 144.8,
+  "eta_pc_hours": 144.8,
   "eta_cloud_hours": 15.5,
   "rented_servers": 1,
   "eta_realistic_by_level": {
-   "L1": 29,
-   "L2": 32,
-   "S1": 24,
-   "S2": 33,
-   "S3": 31,
-   "L3": 65,
+   "L1": 14,
+   "L2": 18,
+   "S1": 20,
+   "S2": 27,
+   "S3": 25,
+   "L3": 50,
    "L4": 6
   },
   "p_pass": {
@@ -8252,12 +8252,58 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 8.4,
-  "eta_hours": 328.5,
+  "pace_per_h": 8.2,
+  "eta_hours": 245.2,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
   ]
+ },
+ "forecast": {
+  "machines": {
+   "pc": {
+    "elapsed_h": {
+     "low": 49.5,
+     "mid": 57.9,
+     "high": 109.0
+    },
+    "finish": {
+     "low": "2026-10-27T08:18",
+     "mid": "2026-10-27T16:43",
+     "high": "2026-10-29T19:48"
+    },
+    "models": [
+     "devstral2-q4km-64k",
+     "gptoss20b-128k",
+     "mellum21-q8-128k",
+     "strata-iq3s-64k",
+     "strata-qwen36-q4kxl-64k"
+    ]
+   },
+   "mac": {
+    "elapsed_h": {
+     "low": 65.9,
+     "mid": 81.4,
+     "high": 173.9
+    },
+    "finish": {
+     "low": "2026-10-28T00:43",
+     "mid": "2026-10-28T16:14",
+     "high": "2026-11-01T12:46"
+    },
+    "models": [
+     "qwen3-14b-64k",
+     "qwen3coder30b-a3-128k"
+    ]
+   }
+  },
+  "unassigned": [
+   "laguna-s21-iq4xs-64k",
+   "ornith35b-q8-128k",
+   "qwen3codernext-q4km-128k"
+  ],
+  "excludes": "L4 (hand-picked, at most 2 models), work with no machine (rented GPU off), the final top-3 showdown",
+  "generated": "2026-10-25T06:50"
  },
  "models_summary": [
   {
@@ -8836,7 +8882,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T06:45+01:00",
+  "updated": "2026-10-25T06:50+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9180,9 +9226,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 88.51,
+  "hours_up": 88.6,
   "spent_eur": 183.65,
-  "gpu_hours": 162.6,
+  "gpu_hours": 162.7,
   "servers_running": 1
  },
  "utility": [
