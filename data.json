@@ -8468,7 +8468,7 @@
     "finish": {
      "low": "2026-10-27T14:18",
      "mid": "2026-10-28T02:57",
-     "high": "2026-10-31T02:50"
+     "high": "2026-10-31T02:51"
     },
     "models": [
      [
@@ -8809,7 +8809,7 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 19,
+    "attempts_finished": 18,
     "busy_pct": 90
    },
    "cloud": {
@@ -10748,7 +10748,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 90.21,
+  "hours_up": 90.22,
   "spent_eur": 183.65,
   "gpu_hours": 164.3,
   "servers_running": 1
