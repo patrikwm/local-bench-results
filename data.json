@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T02:29+01:00",
+ "generated": "2026-10-25T02:34+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4467,7 +4467,7 @@
    "agent": "opencode",
    "level": 2,
    "solved": 4,
-   "attempts": 9,
+   "attempts": 10,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 1,
@@ -4504,15 +4504,19 @@
     "l2-py-bugfix-tenacity-retrystate": {
      "solved": 0,
      "attempts": 1
+    },
+    "l2-py-feature-tenacity-stopidle": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 606.1,
-   "median_read": 1565937,
-   "median_written": 13169,
-   "decode_tok_s": 27.5,
-   "gpu_w": 126.1,
-   "cpu_w": 152.4,
-   "wh_per_solved": 109.0,
+   "median_s": 501.1,
+   "median_read": 1498367.0,
+   "median_written": 10548.5,
+   "decode_tok_s": 27.6,
+   "gpu_w": 118.0,
+   "cpu_w": 153.6,
+   "wh_per_solved": 114.4,
    "agent_version": "2.0.32"
   },
   {
@@ -4834,8 +4838,8 @@
    "variant": "mk",
    "agent": "pi",
    "level": 2,
-   "solved": 13,
-   "attempts": 20,
+   "solved": 14,
+   "attempts": 21,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4862,8 +4866,8 @@
      "attempts": 2
     },
     "l2-java-bugfix-picocli-digitnames": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     },
     "l2-java-feature-picocli-localeconv": {
      "solved": 0,
@@ -4894,10 +4898,10 @@
      "attempts": 1
     }
    },
-   "median_s": 676.2,
-   "median_read": 1107140.5,
-   "median_written": 10126.0,
-   "decode_tok_s": 21.7,
+   "median_s": 658.1,
+   "median_read": 1090394,
+   "median_written": 10038,
+   "decode_tok_s": 22.4,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8272,18 +8276,18 @@
  ],
  "progress": {
   "planned_max": 5934,
-  "project_pct": 59.7,
-  "test_pct": 52.9,
+  "project_pct": 59.8,
+  "test_pct": 53.0,
   "pairs_full": 2110,
-  "pairs_tested": 1117,
+  "pairs_tested": 1118,
   "pairs_skipped": 143,
-  "eta_realistic_hours": 196.8,
-  "eta_pc_hours": 196.8,
+  "eta_realistic_hours": 196.6,
+  "eta_pc_hours": 196.6,
   "eta_cloud_hours": 26.5,
   "rented_servers": 1,
   "eta_realistic_by_level": {
    "L1": 27,
-   "L2": 30,
+   "L2": 29,
    "S1": 23,
    "S2": 31,
    "S3": 29,
@@ -8299,17 +8303,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3548,
-  "graded_screening": 2682,
+  "settled": 3550,
+  "graded_screening": 2684,
   "settled_by_front": {
-   "pc": 1739,
-   "cloud": 1809
+   "pc": 1742,
+   "cloud": 1808
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 13.4,
-  "eta_hours": 225.0,
+  "pace_per_h": 13.7,
+  "eta_hours": 222.0,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8892,7 +8896,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T02:29+01:00",
+  "updated": "2026-10-25T02:34+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9236,9 +9240,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 84.25,
+  "hours_up": 84.34,
   "spent_eur": 183.65,
-  "gpu_hours": 158.4,
+  "gpu_hours": 158.5,
   "servers_running": 1
  },
  "utility": [
@@ -9461,24 +9465,24 @@
  ],
  "running": [
   {
-   "model": "qwen3coder30b-a3-128k",
-   "front": "PC",
-   "task": "l2-py-feature-tenacity-stopidle",
-   "level": 2,
-   "agent": "opencode",
-   "attempt": "1",
-   "progress": "22/84",
-   "started": "2026-10-25T02:26:06+02:00"
-  },
-  {
    "model": "qwen3coder30b-a3-128k-mac",
    "front": "Mac",
    "task": "l2-java-bugfix-picocli-digitnames",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
-   "progress": "41/84",
-   "started": "2026-10-25T02:27:30+02:00"
+   "progress": "42/84",
+   "started": "2026-10-25T02:31:34+02:00"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k",
+   "front": "PC",
+   "task": "l2-rs-bugfix-clap-lexfind",
+   "level": 2,
+   "agent": "opencode",
+   "attempt": "1",
+   "progress": "23/84",
+   "started": "2026-10-25T02:31:54+02:00"
   }
  ],
  "last_done": {
@@ -9486,11 +9490,11 @@
    "model": "qwen3coder30b-a3-128k",
    "task": "l2-py-feature-tenacity-stopidle",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
    "solved": false,
-   "wall_s": 404,
-   "ended": "2026-10-25T02:25:19+01:00"
+   "wall_s": 300,
+   "ended": "2026-10-25T02:31:01+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
@@ -9514,13 +9518,13 @@
   },
   "Mac": {
    "model": "qwen3coder30b-a3-128k-mac",
-   "task": "l2-go-feature-humanize-rate",
+   "task": "l2-java-bugfix-picocli-digitnames",
    "level": 2,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "2",
-   "solved": false,
-   "wall_s": 1201,
-   "ended": "2026-10-25T02:26:57+01:00"
+   "solved": true,
+   "wall_s": 222,
+   "ended": "2026-10-25T02:31:08+01:00"
   }
  },
  "fronts_off": {
