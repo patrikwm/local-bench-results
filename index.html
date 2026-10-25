@@ -260,6 +260,7 @@ th button.sort[aria-sort="ascending"]::after { content: " ▴"; }
 .pill { display: inline-block; min-width: 44px; padding: 1px 8px; border-radius: 4px; font-weight: 700; text-align: center; font-size: 13px; }
 
 /* Tasks */
+.ladder .cell .on { display: block; font-size: 10px; opacity: .8; margin-top: 2px; }
 .tasks details { border-bottom: 1px solid var(--rule-2); }
 .tasks details:last-child { border-bottom: 0; }
 .tasks summary { cursor: pointer; padding: 14px 18px; display: flex; gap: 14px; align-items: baseline; list-style: none; }
@@ -355,8 +356,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="progress-head">
           <span><b id="pSettled">–</b> <span class="small" id="pSettledOf"></span></span>
           <span class="small">
-            <span class="key"><i class="sw" style="background:var(--ink)"></i>This PC</span>
-            <span class="key"><i class="sw" style="background:var(--rent)"></i>Rented GPU / Mac</span>
+            <span class="key"><i class="sw" style="background:var(--ink)"></i>Attempts run</span>
+            <span class="key"><i class="sw" style="background:var(--rent)"></i>Skipped by a rule</span>
             <span id="pUpdated"></span>
           </span>
         </div>
@@ -370,16 +371,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <section class="block" id="plan" style="padding-top:24px">
       <div class="sec-head">
         <h2>The plan</h2>
-        <p>On this PC every model climbs level by level, all models together: a level is a filter, so only models that pass it get the next, more expensive one. The rented GPUs ran one model straight up the ladder each (paid by the hour); those runs are finished.</p>
+        <p>Every model climbs level by level: a level is a filter, so only models that pass it get the next, more expensive one. Two machines work in parallel: this PC and a MacBook (M1 Max). The rented GPUs ran one model straight up the ladder each (paid by the hour); those runs are finished.</p>
       </div>
       <ol class="plan" id="planList">
         <li data-step="1"><b>1 · Level 1</b>28 small tasks, every model. Done for all PC models.</li>
         <li data-step="2"><b>2 · Level 2</b>Real open-source projects, for the models that passed L1. Under 65 % at L1: a 60 % probe first.</li>
         <li data-step="s"><b>3 · Sysadmin S1–S3</b>Scripts, containers, troubleshooting, for the models that passed L2.</li>
         <li data-step="3"><b>4 · Level 3</b>Fresh hard tasks, only for models with 90 %+ of their L2 pairs.</li>
-        <li data-step="x"><b>5 · Leftovers</b>Unfinished or blocked runs (Devstral L1, gpt-oss-120b S2 re-run, engine comparisons, Laguna, Qwen3 14B), maybe skipped.</li>
-        <li data-step="f"><b>6 · Finals</b>The top 4–6 models: 3 fresh attempts on all of L1 and L2, on this PC only, clean conditions.</li>
+        <li data-step="x"><b>5 · Leftovers and L0</b>Devstral (L1 rest and up, on this PC), Qwen3 14B (on the Mac), then an L0 speed glance for every model on this PC. Blocked: work that only a rented GPU could run.</li>
+        <li data-step="f"><b>6 · Final showdown</b>The top 3 models: every level, 3 fresh attempts, on this PC and on the Mac.</li>
       </ol>
+      <div class="panel" id="remaining" style="margin-top:18px;padding:16px 18px"></div>
     </section>
 
     <!-- LADDER -->
@@ -624,7 +626,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     const day = (h) => new Date(Date.now() + h * 36e5).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
     const per = ms.map(([m, v]) => `${m === "pc" ? "PC" : "Mac"} ${dur(v.elapsed_h.mid)}`).join(", ");
     return [`${dur(pick("low"))} – ${dur(pick("high"))}`,
-      `screening left, likely ${dur(pick("mid"))} (${day(pick("low"))} – ${day(pick("high"))}; ${per}). Not counted: L4 and the final top-3 showdown`];
+      `assigned screening queue left (elapsed), likely ${dur(pick("mid"))}: ${day(pick("low"))} – ${day(pick("high"))}; ${per}. Blocked work, L4 and the final showdown are listed apart below the plan`];
   }
 
   function render(d) {
@@ -639,17 +641,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     const summary = Object.fromEntries(d.models_summary.filter(s => s.variant === "mk").map(s => [s.model, s.l1_v2]));
 
     // ---------- hero ----------
-    const p = d.progress, c = d.cloud;
-    const settled = p.settled, planned = p.planned_max;
-    $("pSettled").textContent = `${n0(settled)} of ${n0(planned)} attempt slots settled`;
-    $("pSettledOf").textContent = `(${Math.round(100 * settled / planned)} %)`;
+    const p = d.progress, c = d.cloud, F = d.forecast;
+    // one source (harness/forecast.py): every attempt slot of the screening plan (3 per task-agent pair) is run,
+    // skipped by a rule, or open (assigned, conditional or blocked)
+    const sl = F ? F.slots : null;
+    const ran = sl ? sl.executed : p.settled, planned = sl ? sl.plan_total : p.planned_max;
+    const skipped = sl ? Object.entries(sl).filter(([k]) => k.startsWith("skipped")).reduce((a, [, v]) => a + v, 0) : 0;
+    $("pSettled").textContent = `${n0(ran + skipped)} of ${n0(planned)} attempt slots settled`;
+    $("pSettledOf").textContent = `(${Math.round(100 * (ran + skipped) / planned)} %: ${n0(ran)} run, ${n0(skipped)} skipped by a rule)`;
     $("pUpdated").textContent = "Updated " + d.generated.replace("T", " ");
-    $("pTrack").innerHTML = `<span class="pc" style="width:${100 * p.settled_by_front.pc / planned}%"></span><span class="cloud" style="width:${100 * p.settled_by_front.cloud / planned}%"></span>`;
-    $("pTrack").setAttribute("aria-label", `${n0(p.settled_by_front.pc)} on this PC, ${n0(p.settled_by_front.cloud)} on rented GPUs or the Mac, of ${n0(planned)}`);
+    $("pTrack").innerHTML = `<span class="pc" style="width:${100 * ran / planned}%"></span><span class="cloud" style="width:${100 * skipped / planned}%"></span>`;
+    $("pTrack").setAttribute("aria-label", `${n0(ran)} attempts run, ${n0(skipped)} skipped by a rule, of ${n0(planned)} slots`);
     const modelsWithData = Object.keys(summary).length;
     const since = new Date(p.running_since), gen = new Date(d.generated);
     $("facts").innerHTML = [
-      [`${p.pairs_tested.toLocaleString("en-US")}`, `of ${n0(p.pairs_full)} task-and-agent pairs tested, ${p.pairs_skipped} skipped by a rule`],
+      F ? [n0(F.pairs["decided by attempts"]), `of ${n0(F.pairs.total)} task-and-agent pairs decided by attempts, ${n0(F.pairs["settled by a rule (never decided)"])} settled by a rule, ${n0(F.pairs.open)} open`]
+        : [`${p.pairs_tested.toLocaleString("en-US")}`, `of ${n0(p.pairs_full)} task-and-agent pairs tested, ${p.pairs_skipped} skipped by a rule`],
       [`${modelsWithData} / ${Object.keys(M).length}`, "model setups with Level 1 results"],
       [dur((gen - since) / 36e5), "running so far"],
       etaFact(d.forecast) || [dur(p.eta_hours), `left at the recent pace of ${p.pace_per_h}/h (not an upper bound)`]
@@ -700,23 +707,65 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <p>${s.pairs_passed} of ${s.pairs_expected} Level 1 pairs passed, ${s.attempts_solved}/${s.attempts} attempts, median ${secs(s.median_s)} per task${s.wh_per_solved ? `, ${s.wh_per_solved.toFixed(1)} Wh per solved task` : ""}. Harder levels are still running.</p>`;
     }
 
+    // ---------- remaining work (harness/forecast.py): every open item with its status; what is not in the estimate apart ----------
+    if (F) {
+      const h1 = (x) => x == null ? "–" : x < 10 ? x.toFixed(1) : Math.round(x).toString();
+      const rng = (o) => `${h1(o.low)} / <b>${h1(o.mid)}</b> / ${h1(o.high)}`;
+      const MN = { pc: "This PC", mac: "MacBook" };
+      const when = (iso) => new Date(iso).toLocaleString("en-GB", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+      const nm = (k) => `${esc(mName(k))} ${esc(M[k]?.quant || "")}`;
+      const mach = Object.entries(F.machines).filter(([, v]) => v.models.length).map(([m, v]) => `<tr><td>${MN[m]}</td><td>${rng(v.worker_h)}</td><td>${rng(v.elapsed_h)}</td><td>${esc(when(v.finish.mid))}<div class="small">${esc(when(v.finish.low))} – ${esc(when(v.finish.high))}</div></td><td class="small">${v.models.map(([k, lv]) => `${nm(k)} <span style="white-space:nowrap">(${esc(lv.join(", "))})</span>`).join("; ")}</td></tr>`).join("");
+      const cmp = F.comparison;
+      const ST = { assigned: "assigned", conditional: "conditional", blocked: "blocked" };
+      const its = F.items.slice().sort((a, b) => (a.status > b.status) - (a.status < b.status) || (a.machine || "z").localeCompare(b.machine || "z"));
+      const rows = its.map(it => `<tr><td>${nm(it.model)}</td><td>${esc(it.level)}</td><td>${ST[it.status]}${it.blocked ? `<div class="small">${esc(it.blocked)}</div>` : it.note ? `<div class="small">${esc(it.note)}</div>` : ""}</td><td>${it.machine ? MN[it.machine] : "–"}</td><td>${h1(it.attempts_exp)} / ${it.attempts_max}</td><td>${Math.round(100 * it.p_reach)} %</td><td>${h1(it.status === "blocked" ? it.worker_h_if_unblocked : it.worker_h)}</td><td>${it.status === "blocked" ? "–" : h1(it.elapsed_h)}</td><td class="small">${esc((it.machine === "mac" ? it.how_mac : it.how_pc) || "")}</td></tr>`).join("");
+      const blk = F.items.filter(it => it.status === "blocked");
+      const blkModels = [...new Set(blk.map(it => it.model))];
+      const sl = F.slots;
+      const slotRows = Object.entries(sl).filter(([k]) => k !== "plan_total" && k !== "extra_attempts_not_in_plan").map(([k, v]) => `<tr><td>${esc(k)}</td><td>${n0(v)}</td></tr>`).join("");
+      const fin = F.finals, l4 = F.l4;
+      $("remaining").innerHTML = `<h3 style="margin-top:0">Remaining work: assigned screening queue</h3>
+        <p class="small">Low / <b>likely</b> / high, in hours. <b>Worker-hours</b>: time the agents spend on attempts. <b>Elapsed</b>: worker-hours plus the measured time between attempts (grading, workspace reset, engine load) and two warm-ups per model and level. The machines run in parallel, so the slower one sets the finish. Times per attempt are measured per model, level and machine; where a model has no attempts on a machine yet, an assumed ratio is used until its own attempts replace it (column "durations from").</p>
+        <div class="scroll"><table class="data"><thead><tr><th>Machine</th><th>Worker-hours</th><th>Elapsed</th><th>Likely finish (range)</th><th>Models</th></tr></thead><tbody>${mach}</tbody></table></div>
+        <p class="small">PC alone vs PC + Mac, on the work either machine can run (plus the PC-only Strata work): ${h1(cmp.mid.pc_alone_h)} h vs ${h1(cmp.mid.with_mac_h)} h elapsed. ${cmp.mac_only_not_compared.map(nm).join(", ")} has no validated PC configuration, so its ${h1(cmp.mac_only_elapsed_h.mid)} h on the Mac have no PC-only counterpart: without the Mac it would not be tested.</p>
+        <details><summary>Every open item (${F.items.length}): status, machine, attempts, hours</summary>
+        <div class="scroll"><table class="data"><thead><tr><th>Model</th><th>Level</th><th>Status</th><th>Machine</th><th>Attempts left (expected / at most)</th><th>Chance it runs</th><th>Worker-h</th><th>Elapsed h</th><th>Durations from</th></tr></thead><tbody>${rows}</tbody></table></div>
+        <p class="small">Assigned: queued on a machine, its gate already passed. Conditional: runs only if the model passes the level before (the chance is the share of models that passed that gate so far). Blocked: cannot run now and is not in the finish estimate; it stays listed until it runs or is dropped.</p></details>
+        <h4>Not in the estimate</h4>
+        <ul class="small">
+          <li><b>Blocked</b>: ${blkModels.length ? blkModels.map(k => `${nm(k)} (${esc(blk.find(it => it.model === k).blocked)}; ${h1(blk.filter(it => it.model === k).reduce((a, it) => a + (it.worker_h_if_unblocked || 0), 0))} worker-h if unblocked)`).join("; ") : "nothing"}.</li>
+          <li><b>Level 4</b>: ${esc(l4.what)}; ${h1(l4.elapsed_h.low)}–${h1(l4.elapsed_h.high)} h elapsed (one measured attempt took ${l4.attempt_min.measured.join(", ")} min; the cap is ${l4.attempt_min.cap} min).</li>
+          <li><b>Final showdown</b>: ${esc(fin.what)}; about ${n0(fin.attempts)} attempts, roughly ${fin.worker_h_per_model.pc} worker-h per model on the PC and ${fin.worker_h_per_model.mac.join("–")} on the Mac (${esc(fin.worker_h_per_model.note)}).</li>
+          <li><b>Excluded</b>: ${F.excluded.map(x => `${x.model === "L4" ? "L4" : nm(x.model)} (${esc(x.why)})`).join("; ")}.</li>
+        </ul>
+        <details><summary>Attempt accounting (${n0(sl.plan_total)} slots: 3 per task-agent pair of the screening plan)</summary>
+        <div class="scroll"><table class="data"><tbody>${slotRows}<tr><td><b>total</b></td><td><b>${n0(sl.plan_total)}</b></td></tr></tbody></table></div>
+        <p class="small">Each slot is in exactly one row (checked when the page is built). ${sl.extra_attempts_not_in_plan} extra attempts (tie-breakers) are outside the plan. Expected attempts still to run: ${n0(F.expected_attempts.assigned)} assigned, ${n0(F.expected_attempts.conditional)} conditional (weighted by the chance), ${n0(F.expected_attempts.blocked)} blocked; fewer than the open slots, because a pair stops after 2 equal results.</p></details>`;
+    }
+
     // ---------- ladder ----------
+    // one row per model (Patrik 2026-10-25): a level's attempts from every machine count together, the cell says where
+    const bm = (k) => k.replace(/-(upcloud|mac)$/, "");
+    const where = (k) => /-mac$/.test(k) ? "Mac" : isRent(k) ? (/L40S/.test(M[k]?.name || "") ? "rented L40S" : "rented GPU") : "PC";
     function cellStats(model, level) {
-      const rows = mk.filter(r => r.model === model && r.level === level);
+      const rows = mk.filter(r => bm(r.model) === model && r.level === level);
       if (!rows.length) return null;
-      let passed = 0, decided = 0, solved = 0, att = 0;
+      const per = {};  // agent|task -> attempts over all machines
+      let solved = 0, att = 0;
       rows.forEach(r => {
         solved += r.solved; att += r.attempts;
-        Object.values(r.tasks || {}).forEach(t => {
-          if (t.solved >= 2) { passed++; decided++; } else if (t.attempts - t.solved >= 2) decided++;
-        });
+        Object.entries(r.tasks || {}).forEach(([t, x]) => { const q = per[r.agent + "|" + t] ||= { s: 0, a: 0 }; q.s += x.solved; q.a += x.attempts; });
       });
+      let passed = 0, decided = 0;
+      Object.values(per).forEach(t => { if (t.s >= 2) { passed++; decided++; } else if (t.a - t.s >= 2) decided++; });
       // L3/L4 task content is private: count those tasks from the published hashes
       const hidden = Object.keys(d.fresh_task_hashes?.tasks || {}).filter(h => h.startsWith(`l${level}-`)).length;
       const expected = (tasksByLevel[level]?.length || (level === 3 || level === 4 ? hidden : 0)) * 2;
-      return { passed, decided, solved, att, expected };
+      const machines = [...new Set(rows.map(r => where(r.model)))];
+      const secs = rows.map(r => r.median_s).filter(x => x != null).sort((a, b) => a - b);
+      return { passed, decided, solved, att, expected, machines, median_s: secs.length ? secs[Math.floor(secs.length / 2)] : null };
     }
-    const ladderModels = [...new Set(mk.map(r => r.model))];
+    const ladderModels = [...new Set(mk.map(r => bm(r.model)))].filter(k => M[k]);
     // how far up the ladder: levels passed, then the mean share of decided pairs passed over the levels it ran
     const ladderKey = (k) => {
       let passedLv = 0; const shares = [];
@@ -731,7 +780,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     $("ladderScale").innerHTML = steps.map(s => `<i style="${heat(s)}"></i>`).join("");
     let html = `<thead><tr><th></th>${LEVELS.map(l => `<th class="lvl"><span class="lv">${LNAME[l]}</span>${LDESC[l]}</th>`).join("")}</tr></thead><tbody>`;
     ladderModels.forEach((k, i) => {
-      html += `<tr><td class="name"><div class="mname">${esc(mName(k))}${rentChip(k)}</div><div class="msub">${esc(M[k]?.quant || "")} · ${M[k]?.size_gb ?? "?"} GB · ${esc((M[k]?.engine || "").replace(/,.*$/, ""))}</div></td>`;
+      html += `<tr><td class="name"><div class="mname">${esc(mName(k))}</div><div class="msub">${esc(M[k]?.quant || "")} · ${M[k]?.size_gb ?? "?"} GB · ${esc((M[k]?.engine || "").replace(/,.*$/, ""))}</div></td>`;
       LEVELS.forEach((l, j) => {
         const s = cellStats(k, l);
         const w = weak[base(k)];
@@ -741,15 +790,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           else html += `<td class="cell empty" aria-label="not run">·</td>`;
           return;
         }
+        const on = s.machines.length === 1 && s.machines[0] === "PC" ? "" : `<span class="on">${esc(s.machines.join(" + "))}</span>`;
         if (s.decided === 0) {
           const ap = pct(s.solved, s.att);
-          html += `<td class="cell probe anim" style="${heat(ap)}${delay}" title="${s.solved}/${s.att} attempts solved, no pair decided yet"><span class="p">${ap}%</span>${s.solved}/${s.att} att.</td>`;
+          html += `<td class="cell probe anim" style="${heat(ap)}${delay}" title="${s.solved}/${s.att} attempts solved, no pair decided yet"><span class="p">${ap}%</span>${s.solved}/${s.att} att.${on}</td>`;
           return;
         }
         const pp = pct(s.passed, s.decided);
         const done = s.decided >= s.expected;
         const levelPassed = s.passed >= s.expected / 2;
-        html += `<td class="cell anim" style="${heat(pp)}${delay}" title="${LNAME[l]}: ${s.passed}/${s.decided} decided pairs passed (${s.expected} planned); ${s.solved}/${s.att} attempts solved">${levelPassed ? '<span class="tick" aria-label="level passed">✓</span>' : ""}<span class="p">${pp}%</span>${s.passed}/${s.decided}${done ? "" : " so far"}</td>`;
+        html += `<td class="cell anim" style="${heat(pp)}${delay}" title="${LNAME[l]}: ${s.passed}/${s.decided} decided pairs passed (${s.expected} planned); ${s.solved}/${s.att} attempts solved">${levelPassed ? '<span class="tick" aria-label="level passed">✓</span>' : ""}<span class="p">${pp}%</span>${s.passed}/${s.decided}${done ? "" : " so far"}${l === 0 && s.median_s != null ? ` · ${Math.round(s.median_s)} s` : ""}${on}</td>`;
       });
       html += "</tr>";
     });
