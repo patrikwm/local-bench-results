@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T23:24+01:00",
+ "generated": "2026-10-25T23:25+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8888,8 +8888,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 24.9,
-  "eta_hours": 99.5,
+  "pace_per_h": 24.6,
+  "eta_hours": 100.0,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -8897,7 +8897,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T23:24",
+  "generated": "2026-10-25T23:25",
   "queue_elapsed_h": {
    "low": 66.5,
    "mid": 81.1,
@@ -8916,8 +8916,8 @@
      "high": 188.3
     },
     "finish": {
-     "low": "2026-10-28T17:54",
-     "mid": "2026-10-29T08:32",
+     "low": "2026-10-28T17:55",
+     "mid": "2026-10-29T08:33",
      "high": "2026-11-02T19:43"
     },
     "models": [
@@ -9051,9 +9051,9 @@
      "high": 8.4
     },
     "finish": {
-     "low": "2026-10-26T03:37",
-     "mid": "2026-10-26T04:27",
-     "high": "2026-10-26T07:49"
+     "low": "2026-10-26T03:38",
+     "mid": "2026-10-26T04:28",
+     "high": "2026-10-26T07:50"
     },
     "models": [
      [
@@ -9403,7 +9403,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 6,
-    "busy_pct": 89
+    "busy_pct": 88
    },
    "cloud": {
     "attempts_finished": 0,
@@ -9411,7 +9411,7 @@
    },
    "mac": {
     "attempts_finished": 103,
-    "busy_pct": 58
+    "busy_pct": 57
    }
   },
   "items": [
@@ -11240,7 +11240,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 105.18,
+  "hours_up": 105.19,
   "spent_eur": 183.65,
   "gpu_hours": 179.3,
   "servers_running": 1
@@ -11473,6 +11473,16 @@
    "attempt": "1",
    "progress": "6/48",
    "started": "2026-10-25T23:07:55+01:00"
+  },
+  {
+   "model": "qwen36-35b-q4kxl-llama-64k-mac",
+   "front": "Mac",
+   "task": "l0-qualify",
+   "level": 0,
+   "agent": "pi",
+   "attempt": "warmup",
+   "progress": null,
+   "started": "2026-10-25T23:25:31+01:00"
   }
  ],
  "last_done": {
