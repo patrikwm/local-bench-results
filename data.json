@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T15:25+01:00",
+ "generated": "2026-10-25T15:27+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8513,7 +8513,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T15:25",
+  "generated": "2026-10-25T15:27",
   "queue_elapsed_h": {
    "low": 61.7,
    "mid": 74.6,
@@ -8532,9 +8532,9 @@
      "high": 149.2
     },
     "finish": {
-     "low": "2026-10-28T05:08",
-     "mid": "2026-10-28T18:01",
-     "high": "2026-10-31T20:36"
+     "low": "2026-10-28T05:10",
+     "mid": "2026-10-28T18:03",
+     "high": "2026-10-31T20:38"
     },
     "models": [
      [
@@ -8667,9 +8667,9 @@
      "high": 18.1
     },
     "finish": {
-     "low": "2026-10-25T22:44",
-     "mid": "2026-10-26T00:24",
-     "high": "2026-10-26T09:32"
+     "low": "2026-10-25T22:47",
+     "mid": "2026-10-26T00:27",
+     "high": "2026-10-26T09:34"
     },
     "models": [
      [
@@ -9004,7 +9004,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 16,
-    "busy_pct": 85
+    "busy_pct": 84
    },
    "cloud": {
     "attempts_finished": 0,
@@ -9012,7 +9012,7 @@
    },
    "mac": {
     "attempts_finished": 30,
-    "busy_pct": 93
+    "busy_pct": 92
    }
   },
   "items": [
@@ -10536,7 +10536,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T15:25+01:00",
+  "updated": "2026-10-25T15:28+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10880,7 +10880,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 97.19,
+  "hours_up": 97.23,
   "spent_eur": 183.65,
   "gpu_hours": 171.3,
   "servers_running": 1
@@ -11123,6 +11123,16 @@
    "attempt": "1",
    "progress": "35/168",
    "started": "2026-10-25T15:24:02+01:00"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k-mac",
+   "front": "Mac",
+   "task": "l0-qualify",
+   "level": 0,
+   "agent": "pi",
+   "attempt": "warmup",
+   "progress": null,
+   "started": "2026-10-25T15:27:10+01:00"
   }
  ],
  "last_done": {
