@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T16:10+01:00",
+ "generated": "2026-10-25T16:16+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -5035,7 +5035,7 @@
    "agent": "pi",
    "level": 11,
    "solved": 0,
-   "attempts": 3,
+   "attempts": 4,
    "tasks": {
     "s1-bash-bugfix-backup-rotate": {
      "solved": 0,
@@ -5048,12 +5048,16 @@
     "s1-tofu-bugfix-fleet": {
      "solved": 0,
      "attempts": 1
+    },
+    "s1-tofu-feature-svcmod": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 104.1,
-   "median_read": 141026,
-   "median_written": 3866,
-   "decode_tok_s": 38.1,
+   "median_s": 113.2,
+   "median_read": 134013.0,
+   "median_written": 3276.0,
+   "decode_tok_s": 37.5,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8533,8 +8537,8 @@
   "pairs_full": 1986,
   "pairs_tested": 1134,
   "pairs_skipped": 285,
-  "eta_realistic_hours": 111.6,
-  "eta_pc_hours": 111.6,
+  "eta_realistic_hours": 111.5,
+  "eta_pc_hours": 111.5,
   "eta_cloud_hours": 14.9,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8555,17 +8559,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3776,
-  "graded_screening": 2752,
+  "settled": 3777,
+  "graded_screening": 2753,
   "settled_by_front": {
    "pc": 1718,
-   "cloud": 2058
+   "cloud": 2059
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 10.3,
-  "eta_hours": 196.5,
+  "eta_hours": 196.4,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -8573,7 +8577,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T16:10",
+  "generated": "2026-10-25T16:16",
   "queue_elapsed_h": {
    "low": 61.7,
    "mid": 74.6,
@@ -8592,9 +8596,9 @@
      "high": 149.2
     },
     "finish": {
-     "low": "2026-10-28T05:53",
-     "mid": "2026-10-28T18:46",
-     "high": "2026-10-31T21:21"
+     "low": "2026-10-28T05:59",
+     "mid": "2026-10-28T18:52",
+     "high": "2026-10-31T21:26"
     },
     "models": [
      [
@@ -8717,19 +8721,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 5.6,
-     "mid": 7.0,
-     "high": 15.0
+     "low": 5.4,
+     "mid": 6.7,
+     "high": 14.7
     },
     "elapsed_h": {
-     "low": 6.2,
-     "mid": 7.6,
-     "high": 16.0
+     "low": 6.0,
+     "mid": 7.3,
+     "high": 15.6
     },
     "finish": {
-     "low": "2026-10-25T22:20",
-     "mid": "2026-10-25T23:44",
-     "high": "2026-10-26T08:09"
+     "low": "2026-10-25T22:14",
+     "mid": "2026-10-25T23:35",
+     "high": "2026-10-26T07:51"
     },
     "models": [
      [
@@ -8755,24 +8759,24 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 65.7,
+    "pc_alone_h": 65.6,
     "with_mac_h": 61.7
    },
    "mid": {
-    "pc_alone_h": 79.5,
+    "pc_alone_h": 79.4,
     "with_mac_h": 74.6
    },
    "high": {
-    "pc_alone_h": 159.5,
+    "pc_alone_h": 159.4,
     "with_mac_h": 149.2
    }
   },
   "slots": {
-   "executed": 2793,
+   "executed": 2794,
    "skipped: majority stop": 842,
    "skipped: model eliminated at an earlier level": 634,
    "skipped: level ended early (probe / level stop)": 227,
-   "open: assigned": 408,
+   "open: assigned": 407,
    "open: conditional": 552,
    "open: blocked": 376,
    "plan_total": 5832,
@@ -8785,7 +8789,7 @@
    "open": 472
   },
   "expected_attempts": {
-   "assigned": 284.7,
+   "assigned": 283.7,
    "conditional": 236.6,
    "blocked": 207.2
   },
@@ -9072,7 +9076,7 @@
    },
    "mac": {
     "attempts_finished": 32,
-    "busy_pct": 91
+    "busy_pct": 90
    }
   },
   "items": [
@@ -9099,14 +9103,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 11.4,
-    "attempts_max": 18,
+    "attempts_exp": 10.4,
+    "attempts_max": 17,
     "p_reach": 1.0,
-    "worker_h": 1.3,
-    "elapsed_h": 1.5,
+    "worker_h": 1.1,
+    "elapsed_h": 1.3,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 1.25 from 171 attempts on this machine",
-    "how_mac": "6 at this level + model ratio 1.99 from 67 attempts"
+    "how_mac": "7 at this level + model ratio 1.98 from 68 attempts"
    },
    {
     "model": "qwen3coder30b-a3-128k",
@@ -9122,7 +9126,7 @@
     "elapsed_h": 3.2,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 1.25 from 171 attempts on this machine",
-    "how_mac": "model ratio 1.99 from 67 attempts on this machine"
+    "how_mac": "model ratio 1.98 from 68 attempts on this machine"
    },
    {
     "model": "qwen3coder30b-a3-128k",
@@ -9138,7 +9142,7 @@
     "elapsed_h": 2.8,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 1.25 from 171 attempts on this machine",
-    "how_mac": "model ratio 1.99 from 67 attempts on this machine"
+    "how_mac": "model ratio 1.98 from 68 attempts on this machine"
    },
    {
     "model": "gptoss20b-128k",
@@ -10596,7 +10600,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T16:10+01:00",
+  "updated": "2026-10-25T16:16+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10940,7 +10944,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 97.94,
+  "hours_up": 98.03,
   "spent_eur": 183.65,
   "gpu_hours": 172.1,
   "servers_running": 1
@@ -11179,10 +11183,10 @@
    "front": "Mac",
    "task": "s1-tofu-feature-svcmod",
    "level": 11,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "7/24",
-   "started": "2026-10-25T16:08:59+01:00"
+   "progress": "8/24",
+   "started": "2026-10-25T16:12:13+01:00"
   }
  ],
  "last_done": {
@@ -11218,13 +11222,13 @@
   },
   "Mac": {
    "model": "qwen3coder30b-a3-128k-mac",
-   "task": "s1-tofu-bugfix-fleet",
+   "task": "s1-tofu-feature-svcmod",
    "level": 11,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
    "solved": false,
-   "wall_s": 112,
-   "ended": "2026-10-25T16:07:50+01:00"
+   "wall_s": 122,
+   "ended": "2026-10-25T16:11:00+01:00"
   }
  },
  "fronts_off": {
