@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T17:14+01:00",
+ "generated": "2026-10-25T17:20+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3840,8 +3840,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 1,
-   "solved": 2,
-   "attempts": 2,
+   "solved": 3,
+   "attempts": 3,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -3850,12 +3850,16 @@
     "l1-cpp-bugfix-recentfiles": {
      "solved": 1,
      "attempts": 1
+    },
+    "l1-cpp-feature-mdtable": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 146.5,
-   "median_read": 48036.0,
-   "median_written": 6437.0,
-   "decode_tok_s": 47.8,
+   "median_s": 110.2,
+   "median_read": 56238,
+   "median_written": 4736,
+   "decode_tok_s": 47.4,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8643,17 +8647,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3807,
-  "graded_screening": 2766,
+  "settled": 3808,
+  "graded_screening": 2767,
   "settled_by_front": {
    "pc": 1720,
-   "cloud": 2087
+   "cloud": 2088
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 11.0,
-  "eta_hours": 179.6,
+  "pace_per_h": 10.8,
+  "eta_hours": 182.3,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -8661,7 +8665,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T17:14",
+  "generated": "2026-10-25T17:20",
   "queue_elapsed_h": {
    "low": 50.4,
    "mid": 60.9,
@@ -8680,9 +8684,9 @@
      "high": 129.9
     },
     "finish": {
-     "low": "2026-10-27T19:40",
-     "mid": "2026-10-28T06:07",
-     "high": "2026-10-31T03:10"
+     "low": "2026-10-27T19:46",
+     "mid": "2026-10-28T06:12",
+     "high": "2026-10-31T03:15"
     },
     "models": [
      [
@@ -8798,19 +8802,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 5.6,
-     "mid": 7.0,
-     "high": 12.0
+     "low": 5.5,
+     "mid": 6.9,
+     "high": 11.8
     },
     "elapsed_h": {
-     "low": 8.0,
-     "mid": 9.4,
-     "high": 15.4
+     "low": 7.9,
+     "mid": 9.3,
+     "high": 15.2
     },
     "finish": {
-     "low": "2026-10-26T01:17",
-     "mid": "2026-10-26T02:41",
-     "high": "2026-10-26T08:37"
+     "low": "2026-10-26T01:16",
+     "mid": "2026-10-26T02:39",
+     "high": "2026-10-26T08:32"
     },
     "models": [
      [
@@ -8839,20 +8843,20 @@
     "with_mac_h": 50.4
    },
    "mid": {
-    "pc_alone_h": 73.9,
+    "pc_alone_h": 73.8,
     "with_mac_h": 60.9
    },
    "high": {
-    "pc_alone_h": 152.0,
+    "pc_alone_h": 151.9,
     "with_mac_h": 129.9
    }
   },
   "slots": {
-   "executed": 2807,
+   "executed": 2808,
    "skipped: majority stop": 843,
    "skipped: model eliminated at an earlier level": 682,
    "skipped: level ended early (probe / level stop)": 243,
-   "open: assigned": 377,
+   "open: assigned": 376,
    "open: conditional": 504,
    "open: blocked": 376,
    "plan_total": 5832,
@@ -8865,7 +8869,7 @@
    "open": 447
   },
   "expected_attempts": {
-   "assigned": 261.1,
+   "assigned": 260.1,
    "conditional": 206.8,
    "blocked": 205.6
   },
@@ -9149,8 +9153,8 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 10,
-    "busy_pct": 81
+    "attempts_finished": 9,
+    "busy_pct": 80
    },
    "cloud": {
     "attempts_finished": 0,
@@ -9158,7 +9162,7 @@
    },
    "mac": {
     "attempts_finished": 40,
-    "busy_pct": 84
+    "busy_pct": 83
    }
   },
   "items": [
@@ -9553,14 +9557,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 110.2,
-    "attempts_max": 157,
+    "attempts_exp": 109.2,
+    "attempts_max": 156,
     "p_reach": 1.0,
-    "worker_h": 3.0,
-    "elapsed_h": 4.7,
+    "worker_h": 2.9,
+    "elapsed_h": 4.6,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "11 at this level + model ratio 0.77 from 11 attempts"
+    "how_mac": "12 at this level + model ratio 0.75 from 12 attempts"
    },
    {
     "model": "qwen36-35b-q4kxl-llama-64k",
@@ -9572,11 +9576,11 @@
     "attempts_exp": 60.5,
     "attempts_max": 84,
     "p_reach": 0.75,
-    "worker_h": 4.1,
-    "elapsed_h": 4.8,
+    "worker_h": 4.0,
+    "elapsed_h": 4.7,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "model ratio 0.77 from 11 attempts on this machine"
+    "how_mac": "model ratio 0.75 from 12 attempts on this machine"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -10276,10 +10280,10 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 7,
-    "attempts_solved": 7,
-    "median_s": 64.3,
-    "decode_tok_s": 48.3,
+    "attempts": 8,
+    "attempts_solved": 8,
+    "median_s": 70.2,
+    "decode_tok_s": 47.8,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -10291,10 +10295,10 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 11,
-    "attempts_solved": 7,
-    "median_s": 42.0,
-    "decode_tok_s": 48.9,
+    "attempts": 12,
+    "attempts_solved": 8,
+    "median_s": 50.0,
+    "decode_tok_s": 48.6,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -10675,7 +10679,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T17:15+01:00",
+  "updated": "2026-10-25T17:20+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11019,9 +11023,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 99.01,
+  "hours_up": 99.1,
   "spent_eur": 183.65,
-  "gpu_hours": 173.1,
+  "gpu_hours": 173.2,
   "servers_running": 1
  },
  "utility": [
@@ -11256,12 +11260,12 @@
   {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "front": "Mac",
-   "task": "l1-cpp-feature-mdtable",
+   "task": "l1-cpp-tests-shipping",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
-   "progress": "12/168",
-   "started": "2026-10-25T17:13:53+01:00"
+   "progress": "13/168",
+   "started": "2026-10-25T17:16:39+01:00"
   }
  ],
  "last_done": {
@@ -11299,11 +11303,11 @@
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "task": "l1-cpp-feature-mdtable",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
    "solved": true,
-   "wall_s": 106,
-   "ended": "2026-10-25T17:12:52+01:00"
+   "wall_s": 110,
+   "ended": "2026-10-25T17:15:40+01:00"
   }
  },
  "fronts_off": {
