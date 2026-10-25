@@ -765,7 +765,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       const secs = rows.map(r => r.median_s).filter(x => x != null).sort((a, b) => a - b);
       return { passed, decided, solved, att, expected, machines, median_s: secs.length ? secs[Math.floor(secs.length / 2)] : null };
     }
-    const ladderModels = [...new Set(mk.map(r => bm(r.model)))].filter(k => M[k]);
+    const CMP = d.compare || {}, cmpOf = Object.fromEntries(Object.entries(CMP).map(([a, b]) => [b, a]));
+    const ladderModels = [...new Set(mk.map(r => bm(r.model)))].filter(k => M[k] && !CMP[k]);
     // how far up the ladder: levels passed, then the mean share of decided pairs passed over the levels it ran
     const ladderKey = (k) => {
       let passedLv = 0; const shares = [];
@@ -785,21 +786,31 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         const s = cellStats(k, l);
         const w = weak[base(k)];
         const delay = `animation-delay:${(j * 70 + i * 18)}ms`;
+        // runtime comparison (same files, another engine): its own numbers under this model's, not in the verdict
+        const cs = cmpOf[k] ? cellStats(cmpOf[k], l) : null;
+        const cmpLine = cs ? `<span class="on" title="${esc(mName(cmpOf[k]))} on ${esc((M[cmpOf[k]]?.engine || "").replace(/,.*$/, ""))}: same files, another engine">${esc((M[cmpOf[k]]?.engine || "").split(" ")[0])}: ${cs.decided ? `${pct(cs.passed, cs.decided)}% ${cs.passed}/${cs.decided}` : `${pct(cs.solved, cs.att)}% of ${cs.att} att.`}</span>` : "";
+        const wu = l === 0 && !s ? (d.l0_warmups || {})[k] : null;
+        if (wu) {
+          const m0 = wu.PC || wu.Mac || wu.rented, mach = wu.PC ? "PC" : wu.Mac ? "Mac" : "rented";
+          const sv = Object.values(wu).reduce((a, x) => a + x.solved, 0), at = Object.values(wu).reduce((a, x) => a + x.attempts, 0);
+          html += `<td class="cell probe" style="${heat(pct(sv, at))}" title="From the warm-ups: every queue block starts with the L0 task (first task after an engine start, cold caches). ${sv}/${at} solved over all machines; median time on the ${mach}: ${Math.round(m0.median_s)} s"><span class="p">${pct(sv, at)}%</span>${sv}/${at} warm-ups · ${Math.round(m0.median_s)} s<span class="on">${mach === "PC" ? "" : esc(mach) + " · "}warm-ups</span>${cmpLine}</td>`;
+          return;
+        }
         if (!s) {
           if (l === 3 && w) html += `<td class="cell skip" title="${esc(w.why)}">no L3<br>budget rule</td>`;
-          else html += `<td class="cell empty" aria-label="not run">·</td>`;
+          else html += `<td class="cell empty" aria-label="not run">·${cmpLine}</td>`;
           return;
         }
         const on = s.machines.length === 1 && s.machines[0] === "PC" ? "" : `<span class="on">${esc(s.machines.join(" + "))}</span>`;
         if (s.decided === 0) {
           const ap = pct(s.solved, s.att);
-          html += `<td class="cell probe anim" style="${heat(ap)}${delay}" title="${s.solved}/${s.att} attempts solved, no pair decided yet"><span class="p">${ap}%</span>${s.solved}/${s.att} att.${on}</td>`;
+          html += `<td class="cell probe anim" style="${heat(ap)}${delay}" title="${s.solved}/${s.att} attempts solved, no pair decided yet"><span class="p">${ap}%</span>${s.solved}/${s.att} att.${on}${cmpLine}</td>`;
           return;
         }
         const pp = pct(s.passed, s.decided);
         const done = s.decided >= s.expected;
         const levelPassed = s.passed >= s.expected / 2;
-        html += `<td class="cell anim" style="${heat(pp)}${delay}" title="${LNAME[l]}: ${s.passed}/${s.decided} decided pairs passed (${s.expected} planned); ${s.solved}/${s.att} attempts solved">${levelPassed ? '<span class="tick" aria-label="level passed">✓</span>' : ""}<span class="p">${pp}%</span>${s.passed}/${s.decided}${done ? "" : " so far"}${l === 0 && s.median_s != null ? ` · ${Math.round(s.median_s)} s` : ""}${on}</td>`;
+        html += `<td class="cell anim" style="${heat(pp)}${delay}" title="${LNAME[l]}: ${s.passed}/${s.decided} decided pairs passed (${s.expected} planned); ${s.solved}/${s.att} attempts solved">${levelPassed ? '<span class="tick" aria-label="level passed">✓</span>' : ""}<span class="p">${pp}%</span>${s.passed}/${s.decided}${done ? "" : " so far"}${l === 0 && s.median_s != null ? ` · ${Math.round(s.median_s)} s` : ""}${on}${cmpLine}</td>`;
       });
       html += "</tr>";
     });
