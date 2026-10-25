@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T04:21+01:00",
+ "generated": "2026-10-25T04:26+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4641,7 +4641,7 @@
    "agent": "opencode",
    "level": 2,
    "solved": 12,
-   "attempts": 22,
+   "attempts": 23,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4677,7 +4677,7 @@
     },
     "l2-py-bugfix-tenacity-retrystate": {
      "solved": 0,
-     "attempts": 1
+     "attempts": 2
     },
     "l2-py-feature-tenacity-stopidle": {
      "solved": 0,
@@ -4700,10 +4700,10 @@
      "attempts": 1
     }
    },
-   "median_s": 770.3,
-   "median_read": 1244679.5,
-   "median_written": 9702.5,
-   "decode_tok_s": 18.9,
+   "median_s": 826.4,
+   "median_read": 1271446,
+   "median_written": 10082,
+   "decode_tok_s": 18.8,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8207,10 +8207,10 @@
   "project_pct": 61.0,
   "test_pct": 52.7,
   "pairs_full": 2110,
-  "pairs_tested": 1112,
-  "pairs_skipped": 175,
-  "eta_realistic_hours": 167.9,
-  "eta_pc_hours": 167.9,
+  "pairs_tested": 1113,
+  "pairs_skipped": 174,
+  "eta_realistic_hours": 168.2,
+  "eta_pc_hours": 168.2,
   "eta_cloud_hours": 24.9,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8232,7 +8232,7 @@
    "4": 0.5
   },
   "settled": 3569,
-  "graded_screening": 2670,
+  "graded_screening": 2671,
   "settled_by_front": {
    "pc": 1683,
    "cloud": 1886
@@ -8241,7 +8241,7 @@
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
   "pace_per_h": 7.8,
-  "eta_hours": 344.4,
+  "eta_hours": 344.5,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8824,7 +8824,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T04:21+01:00",
+  "updated": "2026-10-25T04:27+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9168,9 +9168,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 86.12,
+  "hours_up": 86.21,
   "spent_eur": 183.65,
-  "gpu_hours": 160.2,
+  "gpu_hours": 160.3,
   "servers_running": 1
  },
  "utility": [
@@ -9393,16 +9393,6 @@
  ],
  "running": [
   {
-   "model": "qwen3coder30b-a3-128k-mac",
-   "front": "Mac",
-   "task": "l2-py-bugfix-tenacity-retrystate",
-   "level": 2,
-   "agent": "opencode",
-   "attempt": "2",
-   "progress": "46/84",
-   "started": "2026-10-25T03:55:32+01:00"
-  },
-  {
    "model": "strata-qwen36-q4kxl-64k",
    "front": "PC",
    "task": "l3-go-lifecycle-gocache-close",
@@ -9411,6 +9401,16 @@
    "attempt": "1",
    "progress": "5/48",
    "started": "2026-10-25T04:18:26+01:00"
+  },
+  {
+   "model": "qwen3coder30b-a3-128k-mac",
+   "front": "Mac",
+   "task": "l2-py-feature-tenacity-stopidle",
+   "level": 2,
+   "agent": "pi",
+   "attempt": "2",
+   "progress": "47/84",
+   "started": "2026-10-25T04:26:36+01:00"
   }
  ],
  "last_done": {
@@ -9448,11 +9448,11 @@
    "model": "qwen3coder30b-a3-128k-mac",
    "task": "l2-py-bugfix-tenacity-retrystate",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
    "solved": false,
-   "wall_s": 1525,
-   "ended": "2026-10-25T03:54:49+01:00"
+   "wall_s": 1829,
+   "ended": "2026-10-25T04:25:55+01:00"
   }
  },
  "fronts_off": {
