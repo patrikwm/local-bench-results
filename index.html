@@ -27,6 +27,7 @@
   --bar: #15233a;
   --focus: #2f6fe4;
   --hatch: rgba(21,35,58,.08);
+  --hw-pc: #8a96a8; --hw-mac: #2f6fe4; --hw-l40s: #d98a00; --hw-rtx: #6a4bc4;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -47,6 +48,7 @@
     --bar: #e7ecf4;
     --focus: #7aa7ff;
     --hatch: rgba(231,236,244,.07);
+    --hw-pc: #8795ab; --hw-mac: #7aa7ff; --hw-l40s: #f0b04a; --hw-rtx: #a990f2;
   }
 }
 :root[data-theme="dark"] {
@@ -54,6 +56,7 @@
   --rule: #26344c; --rule-2: #1e2a40; --pass: #4cc49a; --pass-bg: #173b34; --miss: #f07a8e;
   --miss-bg: #43202c; --rent: #a990f2; --rent-bg: #2a2348; --todo: #1b2740; --bar: #e7ecf4;
   --focus: #7aa7ff; --hatch: rgba(231,236,244,.07);
+  --hw-pc: #8795ab; --hw-mac: #7aa7ff; --hw-l40s: #f0b04a; --hw-rtx: #a990f2;
 }
 
 * { box-sizing: border-box; }
@@ -260,7 +263,11 @@ th button.sort[aria-sort="ascending"]::after { content: " ▴"; }
 .pill { display: inline-block; min-width: 44px; padding: 1px 8px; border-radius: 4px; font-weight: 700; text-align: center; font-size: 13px; }
 
 /* Tasks */
-.ladder .cell .on { display: block; font-size: 10px; opacity: .8; margin-top: 2px; }
+.cell.hw::before { content: ""; position: absolute; inset: 0; border-radius: 6px; padding: 3px; background: var(--hwb);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none; }
+.cell .cmp { position: absolute; left: 6px; bottom: 3px; font-size: 10px; opacity: .85; }
+.hwkey { display: inline-block; width: 14px; height: 10px; border-radius: 3px; border: 3px solid; vertical-align: -1px; margin-right: 4px; }
 .tasks details { border-bottom: 1px solid var(--rule-2); }
 .tasks details:last-child { border-bottom: 0; }
 .tasks summary { cursor: pointer; padding: 14px 18px; display: flex; gap: 14px; align-items: baseline; list-style: none; }
@@ -397,7 +404,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <span class="scale" aria-hidden="true" id="ladderScale"></span>
             0 % → 100 %, split at the 50 % pass line</span>
           <span><b style="color:var(--pass)">✓</b> level passed</span>
-          <span>Dashed: one probe attempt per task so far (attempt share shown)</span>
+          <span>Dashed: one probe attempt per task so far, or L0 from the warm-ups (attempt share shown)</span>
+          <span>Ran on: <i class="hwkey" style="border-color:var(--hw-mac)"></i>Mac <i class="hwkey" style="border-color:var(--hw-l40s)"></i>rented L40S <i class="hwkey" style="border-color:var(--hw-rtx)"></i>rented RTX PRO 6000; no ring: this PC; a split ring: several machines (<i class="hwkey" style="border-color:var(--hw-pc)"></i>PC part)</span>
+          <span>◆ same files on another engine: hover for its numbers</span>
+          <span>Hover a tile for its counts, times and machines</span>
           <span>Hatched: skipped by a rule</span>
         </div>
       </div>
@@ -786,31 +796,48 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         const s = cellStats(k, l);
         const w = weak[base(k)];
         const delay = `animation-delay:${(j * 70 + i * 18)}ms`;
-        // runtime comparison (same files, another engine): its own numbers under this model's, not in the verdict
+        // hardware as a coloured ring (Patrik 2026-10-25: no text in the tile); every number is in the hover text
+        const HW = { "PC": "var(--hw-pc)", "Mac": "var(--hw-mac)", "rented L40S": "var(--hw-l40s)", "rented GPU": "var(--hw-rtx)" };
+        const ring = (ms) => { if (!ms.length || (ms.length === 1 && ms[0] === "PC")) return ["", ""];
+          const c = ms.map(m => HW[m] || "var(--hw-pc)"), step = 100 / c.length;
+          return [" hw", `--hwb:${c.length === 1 ? c[0] : `linear-gradient(90deg,${c.map((x, n) => `${x} ${n * step}% ${(n + 1) * step}%`).join(",")})`};`]; };
+        const on = (ms) => ms.length ? `
+Ran on: ${ms.join(" + ")}` : "";
+        // runtime comparison (same files, another engine): in the hover text and a small mark, not in the verdict
         const cs = cmpOf[k] ? cellStats(cmpOf[k], l) : null;
-        const cmpLine = cs ? `<span class="on" title="${esc(mName(cmpOf[k]))} on ${esc((M[cmpOf[k]]?.engine || "").replace(/,.*$/, ""))}: same files, another engine">${esc((M[cmpOf[k]]?.engine || "").split(" ")[0])}: ${cs.decided ? `${pct(cs.passed, cs.decided)}% ${cs.passed}/${cs.decided}` : `${pct(cs.solved, cs.att)}% of ${cs.att} att.`}</span>` : "";
+        const cEng = cs ? (M[cmpOf[k]]?.engine || "").replace(/,.*$/, "") : "";
+        const cTip = cs ? `
+
+Same files on ${cEng} (comparison, not in the verdict): ${cs.decided ? `${pct(cs.passed, cs.decided)}% (${cs.passed}/${cs.decided} decided pairs)` : `${pct(cs.solved, cs.att)}% of ${cs.att} attempts`}${on(cs.machines)}` : "";
+        const cMark = cs ? `<span class="cmp" aria-hidden="true">◆</span>` : "";
         const wu = l === 0 && !s ? (d.l0_warmups || {})[k] : null;
         if (wu) {
-          const m0 = wu.PC || wu.Mac || wu.rented, mach = wu.PC ? "PC" : wu.Mac ? "Mac" : "rented";
-          const sv = Object.values(wu).reduce((a, x) => a + x.solved, 0), at = Object.values(wu).reduce((a, x) => a + x.attempts, 0);
-          html += `<td class="cell probe" style="${heat(pct(sv, at))}" title="From the warm-ups: every queue block starts with the L0 task (first task after an engine start, cold caches). ${sv}/${at} solved over all machines; median time on the ${mach}: ${Math.round(m0.median_s)} s"><span class="p">${pct(sv, at)}%</span>${sv}/${at} warm-ups · ${Math.round(m0.median_s)} s<span class="on">${mach === "PC" ? "" : esc(mach) + " · "}warm-ups</span>${cmpLine}</td>`;
+          const ms = Object.keys(wu), sv = ms.reduce((a, m) => a + wu[m].solved, 0), at = ms.reduce((a, m) => a + wu[m].attempts, 0);
+          const [hc, hs] = ring(ms);
+          const tip = `L0 from the warm-ups (every queue block starts with this task; first task after an engine start, cold caches): ${sv}/${at} solved` + ms.map(m => `
+${m}: ${wu[m].solved}/${wu[m].attempts} solved, median ${Math.round(wu[m].median_s)} s`).join("") + cTip;
+          html += `<td class="cell probe${hc}" style="${heat(pct(sv, at))}${hs}" title="${esc(tip)}"><span class="p">${pct(sv, at)}%</span>${cMark}</td>`;
           return;
         }
         if (!s) {
           if (l === 3 && w) html += `<td class="cell skip" title="${esc(w.why)}">no L3<br>budget rule</td>`;
-          else html += `<td class="cell empty" aria-label="not run">·${cmpLine}</td>`;
+          else html += `<td class="cell empty" aria-label="not run"${cs ? ` title="${esc("Not run with this engine yet." + cTip)}"` : ""}>·${cMark}</td>`;
           return;
         }
-        const on = s.machines.length === 1 && s.machines[0] === "PC" ? "" : `<span class="on">${esc(s.machines.join(" + "))}</span>`;
+        const [hc, hs] = ring(s.machines);
+        const tm = s.median_s != null ? `
+Median attempt time: ${Math.round(s.median_s)} s` : "";
         if (s.decided === 0) {
           const ap = pct(s.solved, s.att);
-          html += `<td class="cell probe anim" style="${heat(ap)}${delay}" title="${s.solved}/${s.att} attempts solved, no pair decided yet"><span class="p">${ap}%</span>${s.solved}/${s.att} att.${on}${cmpLine}</td>`;
+          html += `<td class="cell probe anim${hc}" style="${heat(ap)}${delay}${hs}" title="${esc(`${LNAME[l]}: ${s.solved}/${s.att} attempts solved, no pair decided yet (probe)${tm}${on(s.machines)}${cTip}`)}"><span class="p">${ap}%</span>${cMark}</td>`;
           return;
         }
         const pp = pct(s.passed, s.decided);
         const done = s.decided >= s.expected;
         const levelPassed = s.passed >= s.expected / 2;
-        html += `<td class="cell anim" style="${heat(pp)}${delay}" title="${LNAME[l]}: ${s.passed}/${s.decided} decided pairs passed (${s.expected} planned); ${s.solved}/${s.att} attempts solved">${levelPassed ? '<span class="tick" aria-label="level passed">✓</span>' : ""}<span class="p">${pp}%</span>${s.passed}/${s.decided}${done ? "" : " so far"}${l === 0 && s.median_s != null ? ` · ${Math.round(s.median_s)} s` : ""}${on}${cmpLine}</td>`;
+        const tip = `${LNAME[l]}: ${s.passed}/${s.decided} decided pairs passed${done ? "" : " so far"} (${s.expected} planned)
+${s.solved}/${s.att} attempts solved${tm}${on(s.machines)}${cTip}`;
+        html += `<td class="cell anim${hc}" style="${heat(pp)}${delay}${hs}" title="${esc(tip)}">${levelPassed ? '<span class="tick" aria-label="level passed">✓</span>' : ""}<span class="p">${pp}%</span>${cMark}</td>`;
       });
       html += "</tr>";
     });
