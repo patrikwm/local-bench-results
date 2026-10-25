@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T09:41+01:00",
+ "generated": "2026-10-25T09:46+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8374,7 +8374,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T09:41",
+  "generated": "2026-10-25T09:46",
   "queue_elapsed_h": {
    "low": 68.4,
    "mid": 83.6,
@@ -8393,9 +8393,9 @@
      "high": 164.3
     },
     "finish": {
-     "low": "2026-10-28T06:03",
-     "mid": "2026-10-28T21:14",
-     "high": "2026-11-01T05:57"
+     "low": "2026-10-28T06:09",
+     "mid": "2026-10-28T21:20",
+     "high": "2026-11-01T06:03"
     },
     "models": [
      [
@@ -8528,9 +8528,9 @@
      "high": 153.2
     },
     "finish": {
-     "low": "2026-10-27T15:55",
-     "mid": "2026-10-28T04:41",
-     "high": "2026-10-31T18:51"
+     "low": "2026-10-27T16:01",
+     "mid": "2026-10-28T04:47",
+     "high": "2026-10-31T18:57"
     },
     "models": [
      [
@@ -8872,7 +8872,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 13,
-    "busy_pct": 87
+    "busy_pct": 85
    },
    "cloud": {
     "attempts_finished": 0,
@@ -8880,7 +8880,7 @@
    },
    "mac": {
     "attempts_finished": 29,
-    "busy_pct": 86
+    "busy_pct": 84
    }
   },
   "items": [
@@ -10500,7 +10500,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T09:41+01:00",
+  "updated": "2026-10-25T09:46+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10844,9 +10844,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 91.45,
+  "hours_up": 91.54,
   "spent_eur": 183.65,
-  "gpu_hours": 165.6,
+  "gpu_hours": 165.7,
   "servers_running": 1
  },
  "utility": [
@@ -11068,16 +11068,6 @@
   }
  ],
  "running": [
-  {
-   "model": "strata-qwen36-q4kxl-64k",
-   "front": "PC",
-   "task": "l3-ts-cancel-pqueue-abort",
-   "level": 3,
-   "agent": "pi",
-   "attempt": "1",
-   "progress": "15/48",
-   "started": "2026-10-25T09:14:07+01:00"
-  },
   {
    "model": "qwen3-14b-64k-mac",
    "front": "Mac",
