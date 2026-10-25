@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T15:22+01:00",
+ "generated": "2026-10-25T15:24+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3747,7 +3747,7 @@
    "agent": "pi",
    "level": 1,
    "solved": 3,
-   "attempts": 18,
+   "attempts": 19,
    "tasks": {
     "l1-cpp-bugfix-bytesize": {
      "solved": 1,
@@ -3809,6 +3809,10 @@
      "solved": 0,
      "attempts": 1
     },
+    "l1-java-tests-jobqueue": {
+     "solved": 0,
+     "attempts": 1
+    },
     "l1-py-bugfix-duration-ms": {
      "solved": 0,
      "attempts": 1
@@ -3822,10 +3826,10 @@
      "attempts": 1
     }
    },
-   "median_s": 585.0,
-   "median_read": 83611.5,
-   "median_written": 10853.5,
-   "decode_tok_s": 19.1,
+   "median_s": 534.8,
+   "median_read": 78239,
+   "median_written": 10127,
+   "decode_tok_s": 19.4,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -8463,27 +8467,27 @@
   }
  ],
  "progress": {
-  "planned_max": 5514,
-  "project_pct": 65.2,
+  "planned_max": 5310,
+  "project_pct": 71.5,
   "test_pct": 57.1,
   "pairs_full": 1986,
   "pairs_tested": 1134,
-  "pairs_skipped": 160,
-  "eta_realistic_hours": 150.6,
-  "eta_pc_hours": 150.6,
-  "eta_cloud_hours": 14.5,
+  "pairs_skipped": 285,
+  "eta_realistic_hours": 112.3,
+  "eta_pc_hours": 112.3,
+  "eta_cloud_hours": 14.9,
   "rented_servers": 1,
   "eta_realistic_by_level": {
-   "L1": 21,
-   "L2": 25,
-   "S1": 24,
-   "S2": 32,
-   "S3": 30,
-   "L3": 29,
-   "L4": 4
+   "L1": 14,
+   "L2": 16,
+   "S1": 20,
+   "S2": 26,
+   "S3": 25,
+   "L3": 23,
+   "L4": 3
   },
   "p_pass": {
-   "1": 0.82,
+   "1": 0.75,
    "2": 0.75,
    "11": 0.71,
    "12": 0.83,
@@ -8491,45 +8495,46 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3635,
-  "graded_screening": 2745,
+  "settled": 3770,
+  "graded_screening": 2746,
   "settled_by_front": {
    "pc": 1718,
-   "cloud": 1917
+   "cloud": 2052
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 9.5,
-  "eta_hours": 245.4,
+  "pace_per_h": 10.1,
+  "eta_hours": 200.4,
   "eta_l4_hours": 48.0,
   "models_out": [
-   "glm47flash-q8-128k"
+   "glm47flash-q8-128k",
+   "qwen3-14b-64k"
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T15:22",
+  "generated": "2026-10-25T15:24",
   "queue_elapsed_h": {
-   "low": 63.8,
-   "mid": 77.2,
-   "high": 152.3
+   "low": 61.7,
+   "mid": 74.6,
+   "high": 149.2
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 58.6,
-     "mid": 72.0,
+     "low": 56.7,
+     "mid": 69.5,
      "high": 142.0
     },
     "elapsed_h": {
-     "low": 63.8,
-     "mid": 77.2,
+     "low": 61.7,
+     "mid": 74.6,
      "high": 149.2
     },
     "finish": {
-     "low": "2026-10-28T07:10",
-     "mid": "2026-10-28T20:33",
-     "high": "2026-10-31T20:33"
+     "low": "2026-10-28T05:07",
+     "mid": "2026-10-28T18:00",
+     "high": "2026-10-31T20:34"
     },
     "models": [
      [
@@ -8652,19 +8657,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 55.2,
-     "mid": 64.7,
-     "high": 147.4
+     "low": 6.7,
+     "mid": 8.3,
+     "high": 17.1
     },
     "elapsed_h": {
-     "low": 58.2,
-     "mid": 67.8,
-     "high": 152.3
+     "low": 7.3,
+     "mid": 9.0,
+     "high": 18.1
     },
     "finish": {
-     "low": "2026-10-28T01:37",
-     "mid": "2026-10-28T11:10",
-     "high": "2026-10-31T23:37"
+     "low": "2026-10-25T22:43",
+     "mid": "2026-10-26T00:23",
+     "high": "2026-10-26T09:30"
     },
     "models": [
      [
@@ -8673,17 +8678,6 @@
        "S1",
        "S2",
        "S3"
-      ]
-     ],
-     [
-      "qwen3-14b-64k",
-      [
-       "L1",
-       "L2",
-       "S1",
-       "S2",
-       "S3",
-       "L3"
       ]
      ]
     ],
@@ -8694,21 +8688,19 @@
   },
   "comparison": {
    "scope": "work that can validly run on either machine, plus the PC-only Strata work",
-   "mac_only_not_compared": [
-    "qwen3-14b-64k"
-   ],
+   "mac_only_not_compared": [],
    "mac_only_elapsed_h": {
-    "low": 50.9,
-    "mid": 58.8,
-    "high": 134.1
+    "low": 0.0,
+    "mid": 0.0,
+    "high": 0.0
    },
    "low": {
-    "pc_alone_h": 68.3,
-    "with_mac_h": 63.8
+    "pc_alone_h": 66.2,
+    "with_mac_h": 61.7
    },
    "mid": {
-    "pc_alone_h": 82.7,
-    "with_mac_h": 77.2
+    "pc_alone_h": 80.1,
+    "with_mac_h": 74.6
    },
    "high": {
     "pc_alone_h": 160.3,
@@ -8716,12 +8708,12 @@
    }
   },
   "slots": {
-   "executed": 2786,
+   "executed": 2787,
    "skipped: majority stop": 842,
-   "skipped: model eliminated at an earlier level": 430,
-   "skipped: level ended early (probe / level stop)": 93,
-   "open: assigned": 549,
-   "open: conditional": 756,
+   "skipped: model eliminated at an earlier level": 634,
+   "skipped: level ended early (probe / level stop)": 227,
+   "open: assigned": 414,
+   "open: conditional": 552,
    "open: blocked": 376,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
@@ -8729,13 +8721,13 @@
   "pairs": {
    "total": 1944,
    "decided by attempts": 1148,
-   "settled by a rule (never decided)": 200,
-   "open": 596
+   "settled by a rule (never decided)": 324,
+   "open": 472
   },
   "expected_attempts": {
-   "assigned": 378.9,
-   "conditional": 340.7,
-   "blocked": 214.8
+   "assigned": 290.7,
+   "conditional": 236.6,
+   "blocked": 207.2
   },
   "completed_levels": [
    {
@@ -8843,6 +8835,12 @@
    {
     "model": "gptoss20b-128k",
     "level": "L2",
+    "status": "completed",
+    "result": "failed"
+   },
+   {
+    "model": "qwen3-14b-64k",
+    "level": "L1",
     "status": "completed",
     "result": "failed"
    },
@@ -9006,14 +9004,14 @@
   "last6h": {
    "pc": {
     "attempts_finished": 16,
-    "busy_pct": 86
+    "busy_pct": 85
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 29,
+    "attempts_finished": 30,
     "busy_pct": 93
    }
   },
@@ -9131,102 +9129,6 @@
     "how_mac": "prior ratio 1.04 (no attempts yet)"
    },
    {
-    "model": "qwen3-14b-64k",
-    "level": "L1",
-    "status": "assigned",
-    "machine": "mac",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 88.2,
-    "attempts_max": 135,
-    "p_reach": 1.0,
-    "worker_h": 17.0,
-    "elapsed_h": 18.1,
-    "worker_h_if_unblocked": null,
-    "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "measured (33 at this level)"
-   },
-   {
-    "model": "qwen3-14b-64k",
-    "level": "L2",
-    "status": "conditional",
-    "machine": "mac",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 60.5,
-    "attempts_max": 84,
-    "p_reach": 0.82,
-    "worker_h": 18.4,
-    "elapsed_h": 19.0,
-    "worker_h_if_unblocked": null,
-    "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.19 from 33 attempts on this machine"
-   },
-   {
-    "model": "qwen3-14b-64k",
-    "level": "S1",
-    "status": "conditional",
-    "machine": "mac",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 17.4,
-    "attempts_max": 24,
-    "p_reach": 0.82,
-    "worker_h": 3.3,
-    "elapsed_h": 3.5,
-    "worker_h_if_unblocked": null,
-    "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.19 from 33 attempts on this machine"
-   },
-   {
-    "model": "qwen3-14b-64k",
-    "level": "S2",
-    "status": "conditional",
-    "machine": "mac",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 18.2,
-    "attempts_max": 24,
-    "p_reach": 0.51,
-    "worker_h": 4.0,
-    "elapsed_h": 4.1,
-    "worker_h_if_unblocked": null,
-    "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.19 from 33 attempts on this machine"
-   },
-   {
-    "model": "qwen3-14b-64k",
-    "level": "S3",
-    "status": "conditional",
-    "machine": "mac",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 17.2,
-    "attempts_max": 24,
-    "p_reach": 0.43,
-    "worker_h": 3.5,
-    "elapsed_h": 3.7,
-    "worker_h_if_unblocked": null,
-    "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.19 from 33 attempts on this machine"
-   },
-   {
-    "model": "qwen3-14b-64k",
-    "level": "L3",
-    "status": "conditional",
-    "machine": "mac",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 36.2,
-    "attempts_max": 48,
-    "p_reach": 0.25,
-    "worker_h": 10.3,
-    "elapsed_h": 10.4,
-    "worker_h_if_unblocked": null,
-    "how_pc": "no validated PC configuration (CUDA path invalid 2026-10-21)",
-    "how_mac": "model ratio 3.19 from 33 attempts on this machine"
-   },
-   {
     "model": "qwen3codernext-q4km-128k",
     "level": "L1",
     "status": "blocked",
@@ -9283,9 +9185,9 @@
     "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
     "attempts_exp": 17.4,
     "attempts_max": 24,
-    "p_reach": 0.82,
-    "worker_h": 2.6,
-    "elapsed_h": 2.7,
+    "p_reach": 0.75,
+    "worker_h": 2.3,
+    "elapsed_h": 2.5,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.50 from 156 attempts on this machine",
     "how_mac": "prior ratio 12.48 (no attempts yet)"
@@ -9299,9 +9201,9 @@
     "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
     "attempts_exp": 18.2,
     "attempts_max": 24,
-    "p_reach": 0.51,
-    "worker_h": 3.1,
-    "elapsed_h": 3.2,
+    "p_reach": 0.47,
+    "worker_h": 2.9,
+    "elapsed_h": 2.9,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.50 from 156 attempts on this machine",
     "how_mac": "prior ratio 12.48 (no attempts yet)"
@@ -9315,9 +9217,9 @@
     "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
     "attempts_exp": 17.2,
     "attempts_max": 24,
-    "p_reach": 0.43,
-    "worker_h": 2.8,
-    "elapsed_h": 2.8,
+    "p_reach": 0.39,
+    "worker_h": 2.5,
+    "elapsed_h": 2.6,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.50 from 156 attempts on this machine",
     "how_mac": "prior ratio 12.48 (no attempts yet)"
@@ -9347,9 +9249,9 @@
     "note": "",
     "attempts_exp": 60.5,
     "attempts_max": 84,
-    "p_reach": 0.82,
-    "worker_h": 6.9,
-    "elapsed_h": 7.3,
+    "p_reach": 0.75,
+    "worker_h": 6.3,
+    "elapsed_h": 6.7,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.20 (no attempts yet)",
     "how_mac": "prior ratio 4.33 (no attempts yet)"
@@ -9363,9 +9265,9 @@
     "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
     "attempts_exp": 17.4,
     "attempts_max": 24,
-    "p_reach": 0.82,
-    "worker_h": 1.2,
-    "elapsed_h": 1.4,
+    "p_reach": 0.75,
+    "worker_h": 1.1,
+    "elapsed_h": 1.2,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.20 (no attempts yet)",
     "how_mac": "prior ratio 4.33 (no attempts yet)"
@@ -9379,9 +9281,9 @@
     "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
     "attempts_exp": 18.2,
     "attempts_max": 24,
-    "p_reach": 0.51,
-    "worker_h": 1.5,
-    "elapsed_h": 1.6,
+    "p_reach": 0.47,
+    "worker_h": 1.4,
+    "elapsed_h": 1.5,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.20 (no attempts yet)",
     "how_mac": "prior ratio 4.33 (no attempts yet)"
@@ -9395,9 +9297,9 @@
     "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
     "attempts_exp": 17.2,
     "attempts_max": 24,
-    "p_reach": 0.43,
-    "worker_h": 1.3,
-    "elapsed_h": 1.4,
+    "p_reach": 0.39,
+    "worker_h": 1.2,
+    "elapsed_h": 1.3,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.20 (no attempts yet)",
     "how_mac": "prior ratio 4.33 (no attempts yet)"
@@ -9411,9 +9313,9 @@
     "note": "",
     "attempts_exp": 36.2,
     "attempts_max": 48,
-    "p_reach": 0.25,
-    "worker_h": 3.9,
-    "elapsed_h": 3.9,
+    "p_reach": 0.23,
+    "worker_h": 3.6,
+    "elapsed_h": 3.6,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.20 (no attempts yet)",
     "how_mac": "prior ratio 4.33 (no attempts yet)"
@@ -9571,9 +9473,9 @@
     "note": "",
     "attempts_exp": 60.5,
     "attempts_max": 84,
-    "p_reach": 0.82,
-    "worker_h": 5.8,
-    "elapsed_h": 6.1,
+    "p_reach": 0.75,
+    "worker_h": 5.3,
+    "elapsed_h": 5.6,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
     "how_mac": "prior ratio 1.80 (no attempts yet)"
@@ -9603,10 +9505,10 @@
     "note": "screened on rented GPUs (harness/cloud-models.json)",
     "attempts_exp": 60.5,
     "attempts_max": 84,
-    "p_reach": 0.82,
+    "p_reach": 0.75,
     "worker_h": null,
     "elapsed_h": null,
-    "worker_h_if_unblocked": 5.8,
+    "worker_h_if_unblocked": 5.3,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
     "how_mac": "prior ratio 3.00 (no attempts yet)"
    },
@@ -9619,10 +9521,10 @@
     "note": "screened on rented GPUs (harness/cloud-models.json)",
     "attempts_exp": 17.4,
     "attempts_max": 24,
-    "p_reach": 0.82,
+    "p_reach": 0.75,
     "worker_h": null,
     "elapsed_h": null,
-    "worker_h_if_unblocked": 1.0,
+    "worker_h_if_unblocked": 0.9,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
     "how_mac": "prior ratio 3.00 (no attempts yet)"
    },
@@ -9635,10 +9537,10 @@
     "note": "screened on rented GPUs (harness/cloud-models.json)",
     "attempts_exp": 18.2,
     "attempts_max": 24,
-    "p_reach": 0.51,
+    "p_reach": 0.47,
     "worker_h": null,
     "elapsed_h": null,
-    "worker_h_if_unblocked": 1.2,
+    "worker_h_if_unblocked": 1.1,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
     "how_mac": "prior ratio 3.00 (no attempts yet)"
    },
@@ -9651,10 +9553,10 @@
     "note": "screened on rented GPUs (harness/cloud-models.json)",
     "attempts_exp": 17.2,
     "attempts_max": 24,
-    "p_reach": 0.43,
+    "p_reach": 0.39,
     "worker_h": null,
     "elapsed_h": null,
-    "worker_h_if_unblocked": 1.1,
+    "worker_h_if_unblocked": 1.0,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
     "how_mac": "prior ratio 3.00 (no attempts yet)"
    },
@@ -9667,10 +9569,10 @@
     "note": "screened on rented GPUs (harness/cloud-models.json)",
     "attempts_exp": 36.2,
     "attempts_max": 48,
-    "p_reach": 0.25,
+    "p_reach": 0.23,
     "worker_h": null,
     "elapsed_h": null,
-    "worker_h_if_unblocked": 3.2,
+    "worker_h_if_unblocked": 3.0,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
     "how_mac": "prior ratio 3.00 (no attempts yet)"
    },
@@ -10250,9 +10152,9 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 33,
+    "attempts": 34,
     "attempts_solved": 5,
-    "median_s": 635.3,
+    "median_s": 594.0,
     "decode_tok_s": 18.4,
     "gpu_w": null,
     "cpu_w": null,
@@ -10634,7 +10536,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T15:22+01:00",
+  "updated": "2026-10-25T15:24+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10978,7 +10880,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 97.14,
+  "hours_up": 97.17,
   "spent_eur": 183.65,
   "gpu_hours": 171.3,
   "servers_running": 1
@@ -11217,10 +11119,10 @@
    "front": "Mac",
    "task": "l1-java-tests-jobqueue",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "34/168",
-   "started": "2026-10-25T15:20:25+01:00"
+   "progress": "35/168",
+   "started": "2026-10-25T15:24:02+01:00"
   }
  ],
  "last_done": {
@@ -11256,13 +11158,13 @@
   },
   "Mac": {
    "model": "qwen3-14b-64k-mac",
-   "task": "l1-java-feature-wordfreq",
+   "task": "l1-java-tests-jobqueue",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
    "solved": false,
-   "wall_s": 1276,
-   "ended": "2026-10-25T15:19:15+01:00"
+   "wall_s": 151,
+   "ended": "2026-10-25T15:22:51+01:00"
   }
  },
  "fronts_off": {
