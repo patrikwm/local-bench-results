@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T12:58+01:00",
+ "generated": "2026-10-25T13:03+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8468,7 +8468,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-25T12:58",
+  "generated": "2026-10-25T13:03",
   "queue_elapsed_h": {
    "low": 65.2,
    "mid": 78.5,
@@ -8487,9 +8487,9 @@
      "high": 152.1
     },
     "finish": {
-     "low": "2026-10-28T06:09",
-     "mid": "2026-10-28T19:30",
-     "high": "2026-10-31T21:03"
+     "low": "2026-10-28T06:15",
+     "mid": "2026-10-28T19:35",
+     "high": "2026-10-31T21:08"
     },
     "models": [
      [
@@ -8622,9 +8622,9 @@
      "high": 144.3
     },
     "finish": {
-     "low": "2026-10-27T21:21",
-     "mid": "2026-10-28T06:20",
-     "high": "2026-10-31T13:14"
+     "low": "2026-10-27T21:26",
+     "mid": "2026-10-28T06:25",
+     "high": "2026-10-31T13:19"
     },
     "models": [
      [
@@ -8966,15 +8966,15 @@
   "last6h": {
    "pc": {
     "attempts_finished": 17,
-    "busy_pct": 88
+    "busy_pct": 86
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 30,
-    "busy_pct": 85
+    "attempts_finished": 29,
+    "busy_pct": 84
    }
   },
   "items": [
@@ -10594,7 +10594,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T12:58+01:00",
+  "updated": "2026-10-25T13:03+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -10938,9 +10938,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 94.73,
+  "hours_up": 94.82,
   "spent_eur": 183.65,
-  "gpu_hours": 168.8,
+  "gpu_hours": 168.9,
   "servers_running": 1
  },
  "utility": [
