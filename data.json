@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T03:49+01:00",
+ "generated": "2026-10-25T03:54+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -7948,6 +7948,28 @@
   {
    "model": "strata-qwen36-q4kxl-64k",
    "variant": "mk",
+   "agent": "opencode",
+   "level": 3,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "l3-cpp-lifecycle-httplib-stop": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 868.2,
+   "median_read": 1270799,
+   "median_written": 35232,
+   "decode_tok_s": 45.5,
+   "gpu_w": 164.0,
+   "cpu_w": 162.0,
+   "wh_per_solved": 78.62,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-qwen36-q4kxl-64k",
+   "variant": "mk",
    "agent": "pi",
    "level": 1,
    "solved": 42,
@@ -8179,8 +8201,8 @@
   "pairs_full": 2110,
   "pairs_tested": 1111,
   "pairs_skipped": 176,
-  "eta_realistic_hours": 168.2,
-  "eta_pc_hours": 168.2,
+  "eta_realistic_hours": 168.0,
+  "eta_pc_hours": 168.0,
   "eta_cloud_hours": 24.8,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -8201,17 +8223,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 3566,
-  "graded_screening": 2666,
+  "settled": 3567,
+  "graded_screening": 2667,
   "settled_by_front": {
-   "pc": 1680,
+   "pc": 1681,
    "cloud": 1886
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 7.6,
-  "eta_hours": 353.3,
+  "pace_per_h": 7.8,
+  "eta_hours": 344.5,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k"
@@ -8794,7 +8816,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-25T03:49+01:00",
+  "updated": "2026-10-25T03:54+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -9138,9 +9160,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 85.59,
+  "hours_up": 85.67,
   "spent_eur": 183.65,
-  "gpu_hours": 159.7,
+  "gpu_hours": 159.8,
   "servers_running": 1
  },
  "utility": [
@@ -9375,12 +9397,12 @@
   {
    "model": "strata-qwen36-q4kxl-64k",
    "front": "PC",
-   "task": "l3-cpp-lifecycle-httplib-stop",
+   "task": "l3-cs-cancel-asyncex-waitqueue",
    "level": 3,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
-   "progress": "2/48",
-   "started": "2026-10-25T03:37:29+01:00"
+   "progress": "3/48",
+   "started": "2026-10-25T03:53:06+01:00"
   }
  ],
  "last_done": {
@@ -9388,11 +9410,11 @@
    "model": "strata-qwen36-q4kxl-64k",
    "task": "l3-cpp-lifecycle-httplib-stop",
    "level": 3,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
    "solved": false,
-   "wall_s": 356,
-   "ended": "2026-10-25T03:36:15+01:00"
+   "wall_s": 868,
+   "ended": "2026-10-25T03:51:53+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
