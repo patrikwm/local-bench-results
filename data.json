@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T00:04+01:00",
+ "generated": "2026-10-27T00:09+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -2509,6 +2509,28 @@
    "gpu_w": 187.8,
    "cpu_w": 76.5,
    "wh_per_solved": 3.88,
+   "agent_version": "1.3.0"
+  },
+  {
+   "model": "gptoss20b-128k-mac",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 11,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "s1-bash-bugfix-backup-rotate": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 185.4,
+   "median_read": 233375,
+   "median_written": 10771,
+   "decode_tok_s": 64.4,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
    "agent_version": "1.3.0"
   },
   {
@@ -9129,8 +9151,8 @@
   "pairs_full": 1986,
   "pairs_tested": 1244,
   "pairs_skipped": 323,
-  "eta_realistic_hours": 81.1,
-  "eta_pc_hours": 81.1,
+  "eta_realistic_hours": 81.0,
+  "eta_pc_hours": 81.0,
   "eta_cloud_hours": 14.2,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -9151,17 +9173,17 @@
    "3": 0.43,
    "4": 0.5
   },
-  "settled": 4114,
-  "graded_screening": 2971,
+  "settled": 4115,
+  "graded_screening": 2972,
   "settled_by_front": {
    "pc": 1762,
-   "cloud": 2352
+   "cloud": 2353
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 1.8,
-  "eta_hours": 640.5,
+  "pace_per_h": 2.1,
+  "eta_hours": 574.3,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -9169,7 +9191,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-27T00:04",
+  "generated": "2026-10-27T00:09",
   "queue_elapsed_h": {
    "low": 45.9,
    "mid": 53.5,
@@ -9188,9 +9210,9 @@
      "high": 140.3
     },
     "finish": {
-     "low": "2026-10-28T21:55",
-     "mid": "2026-10-29T05:33",
-     "high": "2026-11-01T20:23"
+     "low": "2026-10-28T22:01",
+     "mid": "2026-10-29T05:38",
+     "high": "2026-11-01T20:28"
     },
     "models": [
      [
@@ -9307,19 +9329,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 3.0,
-     "mid": 3.7,
-     "high": 8.8
+     "low": 2.7,
+     "mid": 3.4,
+     "high": 8.1
     },
     "elapsed_h": {
-     "low": 3.6,
-     "mid": 4.3,
-     "high": 9.8
+     "low": 3.3,
+     "mid": 4.0,
+     "high": 9.2
     },
     "finish": {
-     "low": "2026-10-27T03:39",
-     "mid": "2026-10-27T04:23",
-     "high": "2026-10-28T02:54"
+     "low": "2026-10-27T03:28",
+     "mid": "2026-10-27T04:09",
+     "high": "2026-10-28T02:20"
     },
     "models": [
      [
@@ -9353,16 +9375,16 @@
     "with_mac_h": 53.5
    },
    "high": {
-    "pc_alone_h": 142.5,
+    "pc_alone_h": 142.4,
     "with_mac_h": 140.3
    }
   },
   "slots": {
-   "executed": 3012,
+   "executed": 3013,
    "skipped: majority stop": 924,
    "skipped: model eliminated at an earlier level": 730,
    "skipped: level ended early (probe / level stop)": 264,
-   "open: assigned": 350,
+   "open: assigned": 349,
    "open: conditional": 552,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
@@ -9374,7 +9396,7 @@
    "open": 325
   },
   "expected_attempts": {
-   "assigned": 242.4,
+   "assigned": 241.4,
    "conditional": 205.1,
    "blocked": 0
   },
@@ -9682,7 +9704,7 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 1,
+    "attempts_finished": 0,
     "busy_pct": 1
    },
    "cloud": {
@@ -9690,8 +9712,8 @@
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 8,
-    "busy_pct": 27
+    "attempts_finished": 9,
+    "busy_pct": 28
    }
   },
   "items": [
@@ -9718,14 +9740,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 17.4,
-    "attempts_max": 24,
+    "attempts_exp": 16.4,
+    "attempts_max": 23,
     "p_reach": 1.0,
-    "worker_h": 1.3,
-    "elapsed_h": 1.6,
+    "worker_h": 1.1,
+    "elapsed_h": 1.4,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.19 from 198 attempts on this machine",
-    "how_mac": "prior ratio 1.04 (no attempts yet)"
+    "how_mac": "1 at this level + model ratio 0.98 from 1 attempts"
    },
    {
     "model": "gptoss20b-128k",
@@ -9737,11 +9759,11 @@
     "attempts_exp": 18.2,
     "attempts_max": 24,
     "p_reach": 0.5,
-    "worker_h": 1.3,
+    "worker_h": 1.2,
     "elapsed_h": 1.4,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.19 from 198 attempts on this machine",
-    "how_mac": "prior ratio 1.04 (no attempts yet)"
+    "how_mac": "model ratio 0.98 from 1 attempts on this machine"
    },
    {
     "model": "gptoss20b-128k",
@@ -9754,10 +9776,10 @@
     "attempts_max": 24,
     "p_reach": 0.42,
     "worker_h": 1.1,
-    "elapsed_h": 1.3,
+    "elapsed_h": 1.2,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.19 from 198 attempts on this machine",
-    "how_mac": "prior ratio 1.04 (no attempts yet)"
+    "how_mac": "model ratio 0.98 from 1 attempts on this machine"
    },
    {
     "model": "qwen3codernext-q4km-128k",
@@ -11122,7 +11144,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-27T00:04+01:00",
+  "updated": "2026-10-27T00:09+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11466,9 +11488,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 129.83,
+  "hours_up": 129.91,
   "spent_eur": 183.65,
-  "gpu_hours": 203.9,
+  "gpu_hours": 204.0,
   "servers_running": 1
  },
  "utility": [
@@ -11705,10 +11727,10 @@
    "front": "Mac",
    "task": "s1-bash-bugfix-backup-rotate",
    "level": 11,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "1/24",
-   "started": "2026-10-27T00:02:56+01:00"
+   "progress": "2/24",
+   "started": "2026-10-27T00:06:57+01:00"
   }
  ],
  "last_done": {
@@ -11743,14 +11765,14 @@
    "ended": "2026-10-23T11:50:07+02:00"
   },
   "Mac": {
-   "model": "mellum21-q8-128k-mac",
-   "task": "s1-tofu-feature-svcmod",
+   "model": "gptoss20b-128k-mac",
+   "task": "s1-bash-bugfix-backup-rotate",
    "level": 11,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
    "solved": false,
-   "wall_s": 215,
-   "ended": "2026-10-26T23:58:09+01:00"
+   "wall_s": 185,
+   "ended": "2026-10-27T00:05:58+01:00"
   }
  },
  "fronts_off": {
