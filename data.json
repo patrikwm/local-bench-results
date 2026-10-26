@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T06:47+01:00",
+ "generated": "2026-10-26T06:53+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -3971,7 +3971,7 @@
    "agent": "opencode",
    "level": 2,
    "solved": 25,
-   "attempts": 31,
+   "attempts": 32,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
      "solved": 2,
@@ -4003,7 +4003,7 @@
     },
     "l2-java-feature-picocli-localeconv": {
      "solved": 1,
-     "attempts": 2
+     "attempts": 3
     },
     "l2-py-bugfix-tenacity-retrystate": {
      "solved": 2,
@@ -4030,10 +4030,10 @@
      "attempts": 2
     }
    },
-   "median_s": 351.5,
-   "median_read": 446461,
-   "median_written": 10834,
-   "decode_tok_s": 42.6,
+   "median_s": 358.7,
+   "median_read": 462960.5,
+   "median_written": 10949.0,
+   "decode_tok_s": 41.8,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -9040,14 +9040,14 @@
  ],
  "progress": {
   "planned_max": 5262,
-  "project_pct": 77.1,
+  "project_pct": 77.2,
   "test_pct": 61.7,
   "pairs_full": 1986,
-  "pairs_tested": 1225,
+  "pairs_tested": 1226,
   "pairs_skipped": 307,
-  "eta_realistic_hours": 73.0,
-  "eta_pc_hours": 73.0,
-  "eta_cloud_hours": 12.7,
+  "eta_realistic_hours": 91.0,
+  "eta_pc_hours": 91.0,
+  "eta_cloud_hours": 14.6,
   "rented_servers": 1,
   "eta_realistic_by_level": {
    "L1": 6,
@@ -9055,8 +9055,8 @@
    "S1": 17,
    "S2": 20,
    "S3": 19,
-   "L3": 13,
-   "L4": 2
+   "L3": 32,
+   "L4": 3
   },
   "p_pass": {
    "1": 0.77,
@@ -9067,11 +9067,11 @@
    "3": 0.43,
    "4": 0.5
   },
-  "settled": 4067,
-  "graded_screening": 2948,
+  "settled": 4068,
+  "graded_screening": 2949,
   "settled_by_front": {
    "pc": 1742,
-   "cloud": 2325
+   "cloud": 2326
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
@@ -9085,7 +9085,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-26T06:47",
+  "generated": "2026-10-26T06:53",
   "queue_elapsed_h": {
    "low": 58.3,
    "mid": 70.9,
@@ -9104,9 +9104,9 @@
      "high": 177.4
     },
     "finish": {
-     "low": "2026-10-28T17:06",
-     "mid": "2026-10-29T05:42",
-     "high": "2026-11-02T16:11"
+     "low": "2026-10-28T17:11",
+     "mid": "2026-10-29T05:47",
+     "high": "2026-11-02T16:16"
     },
     "models": [
      [
@@ -9229,19 +9229,19 @@
    },
    "mac": {
     "worker_h": {
+     "low": 0.2,
+     "mid": 0.2,
+     "high": 0.2
+    },
+    "elapsed_h": {
      "low": 0.3,
      "mid": 0.3,
      "high": 0.3
     },
-    "elapsed_h": {
-     "low": 0.4,
-     "mid": 0.4,
-     "high": 0.4
-    },
     "finish": {
-     "low": "2026-10-26T07:12",
-     "mid": "2026-10-26T07:12",
-     "high": "2026-10-26T07:12"
+     "low": "2026-10-26T07:11",
+     "mid": "2026-10-26T07:11",
+     "high": "2026-10-26T07:11"
     },
     "models": [
      [
@@ -9265,36 +9265,36 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 58.7,
+    "pc_alone_h": 58.6,
     "with_mac_h": 58.3
    },
    "mid": {
-    "pc_alone_h": 71.3,
+    "pc_alone_h": 71.2,
     "with_mac_h": 70.9
    },
    "high": {
-    "pc_alone_h": 177.9,
+    "pc_alone_h": 177.7,
     "with_mac_h": 177.4
    }
   },
   "slots": {
-   "executed": 2989,
+   "executed": 2990,
    "skipped: majority stop": 916,
    "skipped: model eliminated at an earlier level": 682,
    "skipped: level ended early (probe / level stop)": 248,
-   "open: assigned": 373,
+   "open: assigned": 372,
    "open: conditional": 624,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
   },
   "pairs": {
    "total": 1944,
-   "decided by attempts": 1231,
+   "decided by attempts": 1232,
    "settled by a rule (never decided)": 353,
-   "open": 360
+   "open": 359
   },
   "expected_attempts": {
-   "assigned": 257.2,
+   "assigned": 256.2,
    "conditional": 240.3,
    "blocked": 0
   },
@@ -9591,7 +9591,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 8,
-    "busy_pct": 90
+    "busy_pct": 89
    },
    "cloud": {
     "attempts_finished": 0,
@@ -9599,7 +9599,7 @@
    },
    "mac": {
     "attempts_finished": 48,
-    "busy_pct": 81
+    "busy_pct": 86
    }
   },
   "items": [
@@ -9978,14 +9978,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 3.0,
-    "attempts_max": 3,
+    "attempts_exp": 2.0,
+    "attempts_max": 2,
     "p_reach": 1.0,
-    "worker_h": 0.3,
-    "elapsed_h": 0.4,
+    "worker_h": 0.2,
+    "elapsed_h": 0.3,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "measured (60 at this level)"
+    "how_mac": "measured (61 at this level)"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -11084,7 +11084,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-26T06:48+01:00",
+  "updated": "2026-10-26T06:53+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11428,9 +11428,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 112.56,
+  "hours_up": 112.65,
   "spent_eur": 183.65,
-  "gpu_hours": 186.7,
+  "gpu_hours": 186.8,
   "servers_running": 1
  },
  "utility": [
@@ -11665,12 +11665,12 @@
   {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "front": "Mac",
-   "task": "l2-java-feature-picocli-localeconv",
+   "task": "l2-rs-feature-clap-rsplit",
    "level": 2,
    "agent": "opencode",
    "attempt": "3",
-   "progress": "72/84",
-   "started": "2026-10-26T06:27:45+01:00"
+   "progress": "80/84",
+   "started": "2026-10-26T06:50:12+01:00"
   }
  ],
  "last_done": {
@@ -11706,13 +11706,13 @@
   },
   "Mac": {
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
-   "task": "l2-java-bugfix-picocli-digitnames",
+   "task": "l2-java-feature-picocli-localeconv",
    "level": 2,
    "agent": "opencode",
    "attempt": "3",
-   "solved": true,
-   "wall_s": 554,
-   "ended": "2026-10-26T06:26:53+01:00"
+   "solved": false,
+   "wall_s": 1268,
+   "ended": "2026-10-26T06:48:49+01:00"
   }
  },
  "fronts_off": {
