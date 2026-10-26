@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T14:56+01:00",
+ "generated": "2026-10-26T14:59+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -9089,7 +9089,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-26T14:56",
+  "generated": "2026-10-26T14:59",
   "queue_elapsed_h": {
    "low": 57.9,
    "mid": 67.3,
@@ -9108,9 +9108,9 @@
      "high": 167.6
     },
     "finish": {
-     "low": "2026-10-29T00:50",
-     "mid": "2026-10-29T10:13",
-     "high": "2026-11-02T14:32"
+     "low": "2026-10-29T00:52",
+     "mid": "2026-10-29T10:16",
+     "high": "2026-11-02T14:35"
     },
     "models": [
      [
@@ -9243,9 +9243,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-26T14:56",
-     "mid": "2026-10-26T14:56",
-     "high": "2026-10-26T14:56"
+     "low": "2026-10-26T14:59",
+     "mid": "2026-10-26T14:59",
+     "high": "2026-10-26T14:59"
     },
     "models": [],
     "gap_min": 0.84,
@@ -9579,8 +9579,8 @@
    }
   },
   "finals": {
-   "what": "top 3 models, all levels incl. L4, 3 fresh attempts per pair, on the PC and on the Mac",
-   "attempts": 2250,
+   "what": "top 3 models, all levels incl. L4, 3 fresh attempts per pair, on the PC (Patrik 2026-10-26: no Mac finals)",
+   "attempts": 1125,
    "worker_h_per_model": {
     "pc": 57,
     "mac": [
@@ -11071,7 +11071,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-26T14:56+01:00",
+  "updated": "2026-10-26T14:59+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11415,9 +11415,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 120.7,
+  "hours_up": 120.74,
   "spent_eur": 183.65,
-  "gpu_hours": 194.8,
+  "gpu_hours": 194.9,
   "servers_running": 1
  },
  "utility": [
