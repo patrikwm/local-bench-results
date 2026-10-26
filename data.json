@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T09:48+01:00",
+ "generated": "2026-10-26T09:53+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -9080,8 +9080,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 7.4,
-  "eta_hours": 208.9,
+  "pace_per_h": 6.9,
+  "eta_hours": 219.6,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -9089,7 +9089,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-26T09:48",
+  "generated": "2026-10-26T09:53",
   "queue_elapsed_h": {
    "low": 58.0,
    "mid": 70.5,
@@ -9108,9 +9108,9 @@
      "high": 176.1
     },
     "finish": {
-     "low": "2026-10-28T19:47",
-     "mid": "2026-10-29T08:17",
-     "high": "2026-11-02T17:55"
+     "low": "2026-10-28T19:52",
+     "mid": "2026-10-29T08:22",
+     "high": "2026-11-02T18:00"
     },
     "models": [
      [
@@ -9243,9 +9243,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-26T09:48",
-     "mid": "2026-10-26T09:48",
-     "high": "2026-10-26T09:48"
+     "low": "2026-10-26T09:53",
+     "mid": "2026-10-26T09:53",
+     "high": "2026-10-26T09:53"
     },
     "models": [],
     "gap_min": 0.84,
@@ -9593,16 +9593,16 @@
   "pc_sysadmin": "pending",
   "last6h": {
    "pc": {
-    "attempts_finished": 8,
-    "busy_pct": 81
+    "attempts_finished": 7,
+    "busy_pct": 80
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 26,
-    "busy_pct": 49
+    "attempts_finished": 25,
+    "busy_pct": 47
    }
   },
   "items": [
@@ -11071,7 +11071,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-26T09:48+01:00",
+  "updated": "2026-10-26T09:53+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11415,9 +11415,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 115.57,
+  "hours_up": 115.66,
   "spent_eur": 183.65,
-  "gpu_hours": 189.7,
+  "gpu_hours": 189.8,
   "servers_running": 1
  },
  "utility": [
