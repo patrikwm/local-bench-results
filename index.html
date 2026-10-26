@@ -389,7 +389,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <li data-step="s"><b>3 · Sysadmin S1–S3</b>Scripts, containers, troubleshooting, for the models that passed L2.</li>
         <li data-step="3"><b>4 · Level 3</b>Fresh hard tasks, only for models with 90 %+ of their L2 pairs.</li>
         <li data-step="x"><b>5 · Leftovers and L0</b>Devstral (L1 rest and up, on this PC), Qwen3 14B (on the Mac), then an L0 speed glance for every model on this PC. Blocked: work that only a rented GPU could run.</li>
-        <li data-step="f"><b>6 · Final showdown</b>The top 3 models: every level, 3 fresh attempts, on this PC and on the Mac.</li>
+        <li data-step="f"><b>6 · Final showdown</b>The top 3 models: every level, 3 fresh attempts, on this PC.</li>
       </ol>
       <div class="panel" id="remaining" style="margin-top:18px;padding:16px 18px"></div>
     </section>
@@ -748,7 +748,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <ul class="small">
           <li><b>Blocked</b>: ${blkModels.length ? blkModels.map(k => `${nm(k)} (${esc(blk.find(it => it.model === k).blocked)}; ${h1(blk.filter(it => it.model === k).reduce((a, it) => a + (it.worker_h_if_unblocked || 0), 0))} worker-h if unblocked)`).join("; ") : "nothing"}.</li>
           <li><b>Level 4</b>: ${esc(l4.what)}; ${h1(l4.elapsed_h.low)}–${h1(l4.elapsed_h.high)} h elapsed (one measured attempt took ${l4.attempt_min.measured.join(", ")} min; the cap is ${l4.attempt_min.cap} min).</li>
-          <li><b>Final showdown</b>: ${esc(fin.what)}; about ${n0(fin.attempts)} attempts, roughly ${fin.worker_h_per_model.pc} worker-h per model on the PC and ${fin.worker_h_per_model.mac.join("–")} on the Mac (${esc(fin.worker_h_per_model.note)}).</li>
+          <li><b>Final showdown</b>: ${esc(fin.what)}; about ${n0(fin.attempts)} attempts, roughly ${fin.worker_h_per_model.pc} worker-h per model on the PC.</li>
           <li><b>Excluded</b>: ${F.excluded.map(x => `${x.model === "L4" ? "L4" : nm(x.model)} (${esc(x.why)})`).join("; ")}.</li>
         </ul>
         <details><summary>Attempt accounting (${n0(sl.plan_total)} slots: 3 per task-agent pair of the screening plan)</summary>
