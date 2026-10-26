@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T15:01+01:00",
+ "generated": "2026-10-26T15:06+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -180,6 +180,18 @@
    "name": "Qwen3 14B (Mac)",
    "quant": "Q4_K_M",
    "size_gb": 8.8,
+   "engine": "llama.cpp b11685, M1 Max (Metal)"
+  },
+  "gptoss20b-128k-mac": {
+   "name": "gpt-oss-20b (Mac)",
+   "quant": "MXFP4",
+   "size_gb": 12.1,
+   "engine": "llama.cpp b11685, M1 Max (Metal)"
+  },
+  "mellum21-q8-128k-mac": {
+   "name": "Mellum 2.1 12B (Mac)",
+   "quant": "Q8_0",
+   "size_gb": 12.9,
    "engine": "llama.cpp b11685, M1 Max (Metal)"
   }
  },
@@ -9089,43 +9101,34 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-26T15:01",
+  "generated": "2026-10-26T15:06",
   "queue_elapsed_h": {
-   "low": 57.9,
-   "mid": 67.3,
-   "high": 167.6
+   "low": 50.9,
+   "mid": 58.6,
+   "high": 145.4
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 52.5,
-     "mid": 61.9,
-     "high": 159.5
+     "low": 46.0,
+     "mid": 53.8,
+     "high": 138.3
     },
     "elapsed_h": {
-     "low": 57.9,
-     "mid": 67.3,
-     "high": 167.6
+     "low": 50.9,
+     "mid": 58.6,
+     "high": 145.4
     },
     "finish": {
-     "low": "2026-10-29T00:55",
-     "mid": "2026-10-29T10:18",
-     "high": "2026-11-02T14:37"
+     "low": "2026-10-28T17:58",
+     "mid": "2026-10-29T01:45",
+     "high": "2026-11-01T16:31"
     },
     "models": [
      [
       "qwen3coder30b-a3-128k",
       [
        "L2",
-       "L0"
-      ]
-     ],
-     [
-      "gptoss20b-128k",
-      [
-       "S1",
-       "S2",
-       "S3",
        "L0"
       ]
      ],
@@ -9147,9 +9150,6 @@
       "mellum21-q8-128k",
       [
        "L1",
-       "S1",
-       "S2",
-       "S3",
        "L0"
       ]
      ],
@@ -9197,6 +9197,12 @@
       ]
      ],
      [
+      "gptoss20b-128k",
+      [
+       "L0"
+      ]
+     ],
+     [
       "qwen38-27b-q4km-64k",
       [
        "L0"
@@ -9233,21 +9239,38 @@
    },
    "mac": {
     "worker_h": {
-     "low": 0.0,
-     "mid": 0.0,
-     "high": 0.0
+     "low": 20.7,
+     "mid": 25.9,
+     "high": 73.4
     },
     "elapsed_h": {
-     "low": 0.0,
-     "mid": 0.0,
-     "high": 0.0
+     "low": 21.9,
+     "mid": 27.1,
+     "high": 75.5
     },
     "finish": {
-     "low": "2026-10-26T15:01",
-     "mid": "2026-10-26T15:01",
-     "high": "2026-10-26T15:01"
+     "low": "2026-10-29T23:54",
+     "mid": "2026-10-30T05:05",
+     "high": "2026-11-06T04:28"
     },
-    "models": [],
+    "models": [
+     [
+      "gptoss20b-128k",
+      [
+       "S1",
+       "S2",
+       "S3"
+      ]
+     ],
+     [
+      "mellum21-q8-128k",
+      [
+       "S1",
+       "S2",
+       "S3"
+      ]
+     ]
+    ],
     "gap_min": 0.84,
     "block_min": 4.7,
     "idle_last24h_h": 1.3
@@ -9263,15 +9286,15 @@
    },
    "low": {
     "pc_alone_h": 57.9,
-    "with_mac_h": 57.9
+    "with_mac_h": 50.9
    },
    "mid": {
     "pc_alone_h": 67.3,
-    "with_mac_h": 67.3
+    "with_mac_h": 58.6
    },
    "high": {
     "pc_alone_h": 167.6,
-    "with_mac_h": 167.6
+    "with_mac_h": 145.4
    }
   },
   "slots": {
@@ -9594,7 +9617,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 4,
-    "busy_pct": 69
+    "busy_pct": 68
    },
    "cloud": {
     "attempts_finished": 0,
@@ -9626,14 +9649,14 @@
     "model": "gptoss20b-128k",
     "level": "S1",
     "status": "assigned",
-    "machine": "pc",
+    "machine": "mac",
     "blocked": null,
-    "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
+    "note": "",
     "attempts_exp": 17.4,
     "attempts_max": 24,
     "p_reach": 1.0,
-    "worker_h": 0.2,
-    "elapsed_h": 0.4,
+    "worker_h": 1.3,
+    "elapsed_h": 1.6,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.19 from 198 attempts on this machine",
     "how_mac": "prior ratio 1.04 (no attempts yet)"
@@ -9642,14 +9665,14 @@
     "model": "gptoss20b-128k",
     "level": "S2",
     "status": "conditional",
-    "machine": "pc",
+    "machine": "mac",
     "blocked": null,
-    "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
+    "note": "",
     "attempts_exp": 18.2,
     "attempts_max": 24,
     "p_reach": 0.56,
-    "worker_h": 0.3,
-    "elapsed_h": 0.4,
+    "worker_h": 1.4,
+    "elapsed_h": 1.6,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.19 from 198 attempts on this machine",
     "how_mac": "prior ratio 1.04 (no attempts yet)"
@@ -9658,14 +9681,14 @@
     "model": "gptoss20b-128k",
     "level": "S3",
     "status": "conditional",
-    "machine": "pc",
+    "machine": "mac",
     "blocked": null,
-    "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
+    "note": "",
     "attempts_exp": 17.2,
     "attempts_max": 24,
     "p_reach": 0.46,
-    "worker_h": 0.2,
-    "elapsed_h": 0.3,
+    "worker_h": 1.2,
+    "elapsed_h": 1.4,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.19 from 198 attempts on this machine",
     "how_mac": "prior ratio 1.04 (no attempts yet)"
@@ -9722,14 +9745,14 @@
     "model": "mellum21-q8-128k",
     "level": "S1",
     "status": "conditional",
-    "machine": "pc",
+    "machine": "mac",
     "blocked": null,
-    "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
+    "note": "",
     "attempts_exp": 17.4,
     "attempts_max": 24,
     "p_reach": 0.77,
-    "worker_h": 2.4,
-    "elapsed_h": 2.5,
+    "worker_h": 4.5,
+    "elapsed_h": 4.7,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.50 from 156 attempts on this machine",
     "how_mac": "prior ratio 12.48 (no attempts yet)"
@@ -9738,14 +9761,14 @@
     "model": "mellum21-q8-128k",
     "level": "S2",
     "status": "conditional",
-    "machine": "pc",
+    "machine": "mac",
     "blocked": null,
-    "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
+    "note": "",
     "attempts_exp": 18.2,
     "attempts_max": 24,
     "p_reach": 0.43,
-    "worker_h": 2.6,
-    "elapsed_h": 2.7,
+    "worker_h": 5.9,
+    "elapsed_h": 6.0,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.50 from 156 attempts on this machine",
     "how_mac": "prior ratio 12.48 (no attempts yet)"
@@ -9754,14 +9777,14 @@
     "model": "mellum21-q8-128k",
     "level": "S3",
     "status": "conditional",
-    "machine": "pc",
+    "machine": "mac",
     "blocked": null,
-    "note": "needs the sysadmin install in ai-bench first (runs/chain-sysadmin.sh)",
+    "note": "",
     "attempts_exp": 17.2,
     "attempts_max": 24,
     "p_reach": 0.36,
-    "worker_h": 2.3,
-    "elapsed_h": 2.4,
+    "worker_h": 11.6,
+    "elapsed_h": 11.7,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.50 from 156 attempts on this machine",
     "how_mac": "prior ratio 12.48 (no attempts yet)"
@@ -11071,7 +11094,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-26T15:01+01:00",
+  "updated": "2026-10-26T15:07+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11415,9 +11438,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 120.79,
+  "hours_up": 120.88,
   "spent_eur": 183.65,
-  "gpu_hours": 194.9,
+  "gpu_hours": 195.0,
   "servers_running": 1
  },
  "utility": [
