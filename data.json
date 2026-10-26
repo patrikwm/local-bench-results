@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T23:59+01:00",
+ "generated": "2026-10-27T00:04+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -9169,7 +9169,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-26T23:59",
+  "generated": "2026-10-27T00:04",
   "queue_elapsed_h": {
    "low": 45.9,
    "mid": 53.5,
@@ -9188,9 +9188,9 @@
      "high": 140.3
     },
     "finish": {
-     "low": "2026-10-28T21:50",
-     "mid": "2026-10-29T05:28",
-     "high": "2026-11-01T20:18"
+     "low": "2026-10-28T21:55",
+     "mid": "2026-10-29T05:33",
+     "high": "2026-11-01T20:23"
     },
     "models": [
      [
@@ -9317,9 +9317,9 @@
      "high": 9.8
     },
     "finish": {
-     "low": "2026-10-27T03:34",
-     "mid": "2026-10-27T04:19",
-     "high": "2026-10-28T02:49"
+     "low": "2026-10-27T03:39",
+     "mid": "2026-10-27T04:23",
+     "high": "2026-10-28T02:54"
     },
     "models": [
      [
@@ -9331,8 +9331,8 @@
       ]
      ]
     ],
-    "gap_min": 0.84,
-    "block_min": 4.8,
+    "gap_min": 0.85,
+    "block_min": 4.6,
     "idle_last24h_h": 15.1
    }
   },
@@ -9683,7 +9683,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 1,
-    "busy_pct": 3
+    "busy_pct": 1
    },
    "cloud": {
     "attempts_finished": 0,
@@ -10391,6 +10391,11 @@
     "solved": 10,
     "attempts": 10,
     "median_s": 10.0
+   },
+   "Mac": {
+    "solved": 2,
+    "attempts": 2,
+    "median_s": 25.0
    }
   },
   "qwen3codernext-q4km-128k": {
@@ -11117,7 +11122,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-26T23:59+01:00",
+  "updated": "2026-10-27T00:04+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11461,7 +11466,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 129.75,
+  "hours_up": 129.83,
   "spent_eur": 183.65,
   "gpu_hours": 203.9,
   "servers_running": 1
@@ -11694,6 +11699,16 @@
    "attempt": "2",
    "progress": "1/21",
    "started": "2026-10-26T22:17:53+01:00"
+  },
+  {
+   "model": "gptoss20b-128k-mac",
+   "front": "Mac",
+   "task": "s1-bash-bugfix-backup-rotate",
+   "level": 11,
+   "agent": "pi",
+   "attempt": "1",
+   "progress": "1/24",
+   "started": "2026-10-27T00:02:56+01:00"
   }
  ],
  "last_done": {
