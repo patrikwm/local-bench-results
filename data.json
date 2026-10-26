@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T01:47+01:00",
+ "generated": "2026-10-26T01:53+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -9012,8 +9012,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 17.2,
-  "eta_hours": 121.0,
+  "pace_per_h": 16.5,
+  "eta_hours": 124.0,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -9021,7 +9021,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-26T01:47",
+  "generated": "2026-10-26T01:53",
   "queue_elapsed_h": {
    "low": 65.0,
    "mid": 79.3,
@@ -9040,9 +9040,9 @@
      "high": 186.9
     },
     "finish": {
-     "low": "2026-10-28T18:48",
-     "mid": "2026-10-29T09:04",
-     "high": "2026-11-02T20:44"
+     "low": "2026-10-28T18:53",
+     "mid": "2026-10-29T09:10",
+     "high": "2026-11-02T20:50"
     },
     "models": [
      [
@@ -9165,19 +9165,19 @@
    },
    "mac": {
     "worker_h": {
-     "low": 3.8,
-     "mid": 3.8,
-     "high": 6.0
+     "low": 3.7,
+     "mid": 3.7,
+     "high": 5.9
     },
     "elapsed_h": {
-     "low": 4.4,
-     "mid": 4.4,
-     "high": 7.0
+     "low": 4.3,
+     "mid": 4.3,
+     "high": 6.8
     },
     "finish": {
-     "low": "2026-10-26T06:14",
-     "mid": "2026-10-26T06:14",
-     "high": "2026-10-26T08:46"
+     "low": "2026-10-26T06:11",
+     "mid": "2026-10-26T06:11",
+     "high": "2026-10-26T08:42"
     },
     "models": [
      [
@@ -9201,24 +9201,24 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 69.1,
+    "pc_alone_h": 69.0,
     "with_mac_h": 65.0
    },
    "mid": {
-    "pc_alone_h": 84.3,
+    "pc_alone_h": 84.2,
     "with_mac_h": 79.3
    },
    "high": {
-    "pc_alone_h": 196.7,
+    "pc_alone_h": 196.6,
     "with_mac_h": 186.9
    }
   },
   "slots": {
-   "executed": 2941,
+   "executed": 2942,
    "skipped: majority stop": 895,
    "skipped: model eliminated at an earlier level": 682,
    "skipped: level ended early (probe / level stop)": 248,
-   "open: assigned": 442,
+   "open: assigned": 441,
    "open: conditional": 624,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
@@ -9230,7 +9230,7 @@
    "open": 385
   },
   "expected_attempts": {
-   "assigned": 302.7,
+   "assigned": 301.7,
    "conditional": 239.8,
    "blocked": 0
   },
@@ -9527,14 +9527,14 @@
   "last6h": {
    "pc": {
     "attempts_finished": 6,
-    "busy_pct": 78
+    "busy_pct": 76
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 71,
+    "attempts_finished": 69,
     "busy_pct": 62
    }
   },
@@ -9914,14 +9914,14 @@
     "machine": "mac",
     "blocked": null,
     "note": "",
-    "attempts_exp": 40.5,
-    "attempts_max": 64,
+    "attempts_exp": 39.5,
+    "attempts_max": 63,
     "p_reach": 1.0,
-    "worker_h": 3.8,
-    "elapsed_h": 4.4,
+    "worker_h": 3.7,
+    "elapsed_h": 4.3,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.00 (no attempts yet)",
-    "how_mac": "measured (20 at this level)"
+    "how_mac": "measured (21 at this level)"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -11020,7 +11020,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-26T01:48+01:00",
+  "updated": "2026-10-26T01:53+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11364,9 +11364,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 107.56,
+  "hours_up": 107.65,
   "spent_eur": 183.65,
-  "gpu_hours": 181.7,
+  "gpu_hours": 181.8,
   "servers_running": 1
  },
  "utility": [
@@ -11603,10 +11603,10 @@
    "front": "Mac",
    "task": "l2-py-feature-tenacity-stopidle",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "21/84",
-   "started": "2026-10-26T01:47:48+01:00"
+   "progress": "22/84",
+   "started": "2026-10-26T01:53:15+01:00"
   }
  ],
  "last_done": {
