@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T11:47+01:00",
+ "generated": "2026-10-27T11:52+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8466,8 +8466,8 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 12,
-   "solved": 7,
-   "attempts": 7,
+   "solved": 8,
+   "attempts": 8,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
      "solved": 2,
@@ -8482,17 +8482,17 @@
      "attempts": 2
     },
     "s2-tofu-feature-dockerstack": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 2
     }
    },
-   "median_s": 207.1,
-   "median_read": 382494,
-   "median_written": 15708,
-   "decode_tok_s": 87.9,
-   "gpu_w": 161.5,
-   "cpu_w": 174.7,
-   "wh_per_solved": 30.33,
+   "median_s": 320.1,
+   "median_read": 759221.0,
+   "median_written": 20749.0,
+   "decode_tok_s": 86.2,
+   "gpu_w": 160.8,
+   "cpu_w": 172.6,
+   "wh_per_solved": 41.86,
    "agent_version": "2.0.32"
   },
   {
@@ -9396,20 +9396,20 @@
  ],
  "progress": {
   "planned_max": 5166,
-  "project_pct": 81.6,
+  "project_pct": 81.7,
   "test_pct": 64.6,
   "pairs_full": 1986,
-  "pairs_tested": 1282,
+  "pairs_tested": 1283,
   "pairs_skipped": 339,
-  "eta_realistic_hours": 68.3,
-  "eta_pc_hours": 68.3,
+  "eta_realistic_hours": 67.9,
+  "eta_pc_hours": 67.9,
   "eta_cloud_hours": 14.4,
   "rented_servers": 1,
   "eta_realistic_by_level": {
    "L1": 6,
    "L2": 9,
    "S1": 4,
-   "S2": 13,
+   "S2": 12,
    "S3": 16,
    "L3": 31,
    "L4": 3
@@ -9423,17 +9423,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 4220,
-  "graded_screening": 3039,
+  "settled": 4222,
+  "graded_screening": 3040,
   "settled_by_front": {
-   "pc": 1844,
+   "pc": 1846,
    "cloud": 2376
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 11.8,
-  "eta_hours": 127.6,
+  "pace_per_h": 12.0,
+  "eta_hours": 125.9,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -9441,28 +9441,28 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-27T11:47",
+  "generated": "2026-10-27T11:52",
   "queue_elapsed_h": {
-   "low": 37.2,
-   "mid": 44.7,
-   "high": 122.7
+   "low": 37.4,
+   "mid": 44.9,
+   "high": 123.4
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 32.5,
-     "mid": 39.9,
-     "high": 116.0
+     "low": 32.7,
+     "mid": 40.2,
+     "high": 116.7
     },
     "elapsed_h": {
-     "low": 37.2,
-     "mid": 44.7,
-     "high": 122.7
+     "low": 37.4,
+     "mid": 44.9,
+     "high": 123.4
     },
     "finish": {
-     "low": "2026-10-29T00:57",
-     "mid": "2026-10-29T08:26",
-     "high": "2026-11-01T14:30"
+     "low": "2026-10-29T01:15",
+     "mid": "2026-10-29T08:47",
+     "high": "2026-11-01T15:17"
     },
     "models": [
      [
@@ -9586,9 +9586,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-27T11:47",
-     "mid": "2026-10-27T11:47",
-     "high": "2026-10-27T11:47"
+     "low": "2026-10-27T11:52",
+     "mid": "2026-10-27T11:52",
+     "high": "2026-10-27T11:52"
     },
     "models": [],
     "gap_min": 0.85,
@@ -9605,36 +9605,36 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 37.2,
-    "with_mac_h": 37.2
+    "pc_alone_h": 37.4,
+    "with_mac_h": 37.4
    },
    "mid": {
-    "pc_alone_h": 44.7,
-    "with_mac_h": 44.7
+    "pc_alone_h": 44.9,
+    "with_mac_h": 44.9
    },
    "high": {
-    "pc_alone_h": 122.7,
-    "with_mac_h": 122.7
+    "pc_alone_h": 123.4,
+    "with_mac_h": 123.4
    }
   },
   "slots": {
-   "executed": 3080,
-   "skipped: majority stop": 946,
+   "executed": 3081,
+   "skipped: majority stop": 947,
    "skipped: model eliminated at an earlier level": 778,
    "skipped: level ended early (probe / level stop)": 280,
-   "open: assigned": 292,
+   "open: assigned": 290,
    "open: conditional": 456,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
   },
   "pairs": {
    "total": 1944,
-   "decided by attempts": 1272,
+   "decided by attempts": 1273,
    "settled by a rule (never decided)": 401,
-   "open": 271
+   "open": 270
   },
   "expected_attempts": {
-   "assigned": 201.2,
+   "assigned": 199.9,
    "conditional": 186.8,
    "blocked": 0
   },
@@ -9955,10 +9955,10 @@
    "what": "top 3 models, all levels incl. L4, 3 fresh attempts per pair, on the PC (Patrik 2026-10-26: no Mac finals)",
    "attempts": 1125,
    "worker_h_per_model": {
-    "pc": 59,
+    "pc": 60,
     "mac": [
      108,
-     219
+     221
     ],
     "note": "PC level means; Mac 1.82x (measured, Qwen3-Coder) to 3.7x (dense models); Strata on the Mac 4-5x; plus up to 24 h of L4 per model and machine"
    }
@@ -9967,7 +9967,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 52,
-    "busy_pct": 79
+    "busy_pct": 84
    },
    "cloud": {
     "attempts_finished": 0,
@@ -10025,7 +10025,7 @@
     "elapsed_h": 0.1,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 0.33 (no attempts yet)",
-    "how_mac": "prior ratio 1.00 (no attempts yet)"
+    "how_mac": "prior ratio 0.99 (no attempts yet)"
    },
    {
     "model": "mellum21-q8-128k",
@@ -10101,8 +10101,8 @@
     "attempts_exp": 18.0,
     "attempts_max": 24,
     "p_reach": 0.41,
-    "worker_h": 1.2,
-    "elapsed_h": 1.2,
+    "worker_h": 1.3,
+    "elapsed_h": 1.4,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.20 (no attempts yet)",
     "how_mac": "prior ratio 4.33 (no attempts yet)"
@@ -10146,13 +10146,13 @@
     "machine": "pc",
     "blocked": null,
     "note": "",
-    "attempts_exp": 2.3,
-    "attempts_max": 3,
+    "attempts_exp": 1.0,
+    "attempts_max": 1,
     "p_reach": 1.0,
-    "worker_h": 0.3,
-    "elapsed_h": 0.4,
+    "worker_h": 0.2,
+    "elapsed_h": 0.2,
     "worker_h_if_unblocked": null,
-    "how_pc": "15 at this level + model ratio 1.32 from 243 attempts",
+    "how_pc": "16 at this level + model ratio 1.32 from 244 attempts",
     "how_mac": "Strata: PC only"
    },
    {
@@ -10168,7 +10168,7 @@
     "worker_h": 2.8,
     "elapsed_h": 3.0,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 1.32 from 243 attempts on this machine",
+    "how_pc": "model ratio 1.32 from 244 attempts on this machine",
     "how_mac": "Strata: PC only"
    },
    {
@@ -10181,8 +10181,8 @@
     "attempts_exp": 18.0,
     "attempts_max": 24,
     "p_reach": 1.0,
-    "worker_h": 1.4,
-    "elapsed_h": 1.6,
+    "worker_h": 1.6,
+    "elapsed_h": 1.8,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 0.62 from 222 attempts on this machine",
     "how_mac": "Strata: PC only"
@@ -10261,7 +10261,7 @@
     "attempts_exp": 18.0,
     "attempts_max": 24,
     "p_reach": 0.41,
-    "worker_h": 0.7,
+    "worker_h": 0.8,
     "elapsed_h": 0.8,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 0.71 (no attempts yet)",
@@ -11310,7 +11310,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-27T11:47+01:00",
+  "updated": "2026-10-27T11:52+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11654,7 +11654,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 141.55,
+  "hours_up": 141.63,
   "spent_eur": 183.65,
   "gpu_hours": 215.7,
   "servers_running": 1
@@ -11883,10 +11883,10 @@
    "front": "PC",
    "task": "s2-tofu-feature-dockerstack",
    "level": 12,
-   "agent": "opencode",
-   "attempt": "2",
-   "progress": "16/24",
-   "started": "2026-10-27T11:25:43+01:00"
+   "agent": "pi",
+   "attempt": "3",
+   "progress": "23/24",
+   "started": "2026-10-27T11:51:16+01:00"
   }
  ],
  "last_done": {
@@ -11894,11 +11894,11 @@
    "model": "strata-iq3s-64k",
    "task": "s2-tofu-feature-dockerstack",
    "level": 12,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
    "solved": true,
-   "wall_s": 352,
-   "ended": "2026-10-27T11:24:27+01:00"
+   "wall_s": 1462,
+   "ended": "2026-10-27T11:50:00+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
