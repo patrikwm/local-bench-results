@@ -923,8 +923,8 @@ ${s.solved}/${s.att} attempts solved${tm}${on(s.machines)}${cTip}`;
       $("rankNote").classList.toggle("hidden", l !== 1);
       $("rankTabs").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", +b.dataset.l === l));
       if (l === 1) { drawRank(); return; }
-      const rows = [...new Set(mk.filter(r => r.level === l).map(r => r.model))].map(k => {
-        const s = cellStats(k, l), rs = mk.filter(r => r.model === k && r.level === l);
+      const rows = [...new Set(mk.filter(r => r.level === l).map(r => bm(r.model)))].map(k => {  // one row per model, all machines
+        const s = cellStats(k, l), rs = mk.filter(r => bm(r.model) === k && r.level === l);
         return { k, s, score: s.decided ? s.passed / s.decided : null, done: s.decided >= s.expected,
                  med: avg(rs.map(r => r.median_s)), dec: avg(rs.map(r => r.decode_tok_s)) };
       }).sort((a, b) => (b.done - a.done) || ((b.score ?? -1) - (a.score ?? -1)) || (a.med ?? 1e9) - (b.med ?? 1e9));
@@ -933,7 +933,7 @@ ${s.solved}/${s.att} attempts solved${tm}${on(s.machines)}${cTip}`;
       rows.forEach(r => {
         const sc = r.score == null ? null : Math.round(100 * r.score), passed = r.s.passed >= r.s.expected / 2;
         h += `<tr><td class="rank">${r.done ? ++rank : ""}</td>
-          <td><div class="mname">${esc(mName(r.k))}${rentChip(r.k)}${r.done ? (passed ? ' <span style="color:var(--pass);font-weight:800" title="level passed">✓</span>' : "") : '<span class="chip run">running</span>'}</div><div class="msub">${esc(M[r.k]?.quant || "")} · ${M[r.k]?.size_gb ?? "?"} GB · ${esc((M[r.k]?.engine || "").replace(/,.*$/, ""))}</div></td>
+          <td><div class="mname">${esc(mName(r.k))}${r.s.machines.filter(m => m !== "PC").map(m => ` <span class="chip">${esc(m)}</span>`).join("")}${r.done ? (passed ? ' <span style="color:var(--pass);font-weight:800" title="level passed">✓</span>' : "") : '<span class="chip run">running</span>'}</div><div class="msub">${esc(M[r.k]?.quant || "")} · ${M[r.k]?.size_gb ?? "?"} GB · ${esc((M[r.k]?.engine || "").replace(/,.*$/, ""))}</div></td>
           <td>${sc == null ? '<span class="small">no pair decided yet</span>' : `<div class="score"><div class="bar ${sc < 50 ? "low" : ""}"><i style="width:${sc}%"></i></div><b>${sc}%</b></div>`}</td>
           <td class="num">${r.s.passed}/${r.s.decided} <span class="small">of ${r.s.expected}</span></td>
           <td class="num">${r.s.solved}/${r.s.att}</td>
@@ -942,7 +942,7 @@ ${s.solved}/${s.att} attempts solved${tm}${on(s.machines)}${cTip}`;
       });
       $("rankTable").innerHTML = h + "</tbody>";
     }
-    $("rankTabs").innerHTML = rankLevels.map(l => `<button type="button" role="tab" data-l="${l}" aria-controls="rankPanel">${LNAME[l]}<small>${new Set(mk.filter(r => r.level === l).map(r => r.model)).size}</small></button>`).join("");
+    $("rankTabs").innerHTML = rankLevels.map(l => `<button type="button" role="tab" data-l="${l}" aria-controls="rankPanel">${LNAME[l]}<small>${new Set(mk.filter(r => r.level === l).map(r => bm(r.model))).size}</small></button>`).join("");
     $("rankTabs").querySelectorAll("button").forEach(b => b.addEventListener("click", () => drawLevel(+b.dataset.l)));
     $("rankTabs").addEventListener("keydown", e => {  // arrow keys move between tabs
       if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
