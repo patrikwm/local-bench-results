@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T09:34+01:00",
+ "generated": "2026-10-27T09:39+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -8464,6 +8464,28 @@
   {
    "model": "strata-iq3s-64k",
    "variant": "mk",
+   "agent": "opencode",
+   "level": 12,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "s2-ansible-feature-webrole-nginx": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 579.5,
+   "median_read": 1135948,
+   "median_written": 25790,
+   "decode_tok_s": 81.9,
+   "gpu_w": 116.5,
+   "cpu_w": 141.7,
+   "wh_per_solved": 41.56,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq3s-64k",
+   "variant": "mk",
    "agent": "pi",
    "level": 1,
    "solved": 56,
@@ -8754,21 +8776,25 @@
    "variant": "mk",
    "agent": "pi",
    "level": 12,
-   "solved": 1,
-   "attempts": 1,
+   "solved": 2,
+   "attempts": 2,
    "tasks": {
     "s2-ansible-feature-webrole-nginx": {
      "solved": 1,
      "attempts": 1
+    },
+    "s2-bash-bugfix-unit-hbd": {
+     "solved": 1,
+     "attempts": 1
     }
    },
-   "median_s": 599.5,
-   "median_read": 1007845,
-   "median_written": 22433,
-   "decode_tok_s": 82.8,
-   "gpu_w": 98.9,
-   "cpu_w": 132.0,
-   "wh_per_solved": 38.45,
+   "median_s": 344.1,
+   "median_read": 543676.5,
+   "median_written": 14447.5,
+   "decode_tok_s": 85.7,
+   "gpu_w": 130.2,
+   "cpu_w": 153.3,
+   "wh_per_solved": 23.37,
    "agent_version": "1.3.0"
   },
   {
@@ -9355,8 +9381,8 @@
   "pairs_full": 1986,
   "pairs_tested": 1276,
   "pairs_skipped": 339,
-  "eta_realistic_hours": 72.7,
-  "eta_pc_hours": 72.7,
+  "eta_realistic_hours": 72.2,
+  "eta_pc_hours": 72.2,
   "eta_cloud_hours": 14.4,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -9377,17 +9403,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 4200,
-  "graded_screening": 3025,
+  "settled": 4202,
+  "graded_screening": 3027,
   "settled_by_front": {
-   "pc": 1824,
+   "pc": 1826,
    "cloud": 2376
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 9.3,
-  "eta_hours": 151.7,
+  "pace_per_h": 9.7,
+  "eta_hours": 146.6,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -9395,28 +9421,28 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-27T09:34",
+  "generated": "2026-10-27T09:39",
   "queue_elapsed_h": {
-   "low": 39.5,
-   "mid": 47.6,
-   "high": 127.7
+   "low": 39.0,
+   "mid": 46.9,
+   "high": 126.7
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 34.8,
-     "mid": 42.8,
-     "high": 120.8
+     "low": 34.2,
+     "mid": 42.1,
+     "high": 119.8
     },
     "elapsed_h": {
-     "low": 39.5,
-     "mid": 47.6,
-     "high": 127.7
+     "low": 39.0,
+     "mid": 46.9,
+     "high": 126.7
     },
     "finish": {
-     "low": "2026-10-29T01:06",
-     "mid": "2026-10-29T09:09",
-     "high": "2026-11-01T17:13"
+     "low": "2026-10-29T00:38",
+     "mid": "2026-10-29T08:33",
+     "high": "2026-11-01T16:18"
     },
     "models": [
      [
@@ -9540,9 +9566,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-27T09:34",
-     "mid": "2026-10-27T09:34",
-     "high": "2026-10-27T09:34"
+     "low": "2026-10-27T09:39",
+     "mid": "2026-10-27T09:39",
+     "high": "2026-10-27T09:39"
     },
     "models": [],
     "gap_min": 0.85,
@@ -9559,24 +9585,24 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 39.5,
-    "with_mac_h": 39.5
+    "pc_alone_h": 39.0,
+    "with_mac_h": 39.0
    },
    "mid": {
-    "pc_alone_h": 47.6,
-    "with_mac_h": 47.6
+    "pc_alone_h": 46.9,
+    "with_mac_h": 46.9
    },
    "high": {
-    "pc_alone_h": 127.7,
-    "with_mac_h": 127.7
+    "pc_alone_h": 126.7,
+    "with_mac_h": 126.7
    }
   },
   "slots": {
-   "executed": 3066,
+   "executed": 3068,
    "skipped: majority stop": 940,
    "skipped: model eliminated at an earlier level": 778,
    "skipped: level ended early (probe / level stop)": 280,
-   "open: assigned": 312,
+   "open: assigned": 310,
    "open: conditional": 456,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
@@ -9588,7 +9614,7 @@
    "open": 277
   },
   "expected_attempts": {
-   "assigned": 216.3,
+   "assigned": 214.3,
    "conditional": 186.9,
    "blocked": 0
   },
@@ -9920,8 +9946,8 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 41,
-    "busy_pct": 84
+    "attempts_finished": 43,
+    "busy_pct": 86
    },
    "cloud": {
     "attempts_finished": 0,
@@ -10100,13 +10126,13 @@
     "machine": "pc",
     "blocked": null,
     "note": "",
-    "attempts_exp": 17.2,
-    "attempts_max": 23,
+    "attempts_exp": 15.2,
+    "attempts_max": 21,
     "p_reach": 1.0,
-    "worker_h": 3.0,
-    "elapsed_h": 3.2,
+    "worker_h": 2.4,
+    "elapsed_h": 2.5,
     "worker_h_if_unblocked": null,
-    "how_pc": "1 at this level + model ratio 1.33 from 229 attempts",
+    "how_pc": "3 at this level + model ratio 1.33 from 231 attempts",
     "how_mac": "Strata: PC only"
    },
    {
@@ -10122,7 +10148,7 @@
     "worker_h": 2.9,
     "elapsed_h": 3.0,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 1.33 from 229 attempts on this machine",
+    "how_pc": "model ratio 1.33 from 231 attempts on this machine",
     "how_mac": "Strata: PC only"
    },
    {
@@ -11264,7 +11290,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-27T09:34+01:00",
+  "updated": "2026-10-27T09:39+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11608,9 +11634,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 139.33,
+  "hours_up": 139.42,
   "spent_eur": 183.65,
-  "gpu_hours": 213.4,
+  "gpu_hours": 213.5,
   "servers_running": 1
  },
  "utility": [
@@ -11835,24 +11861,24 @@
   {
    "model": "strata-iq3s-64k",
    "front": "PC",
-   "task": "s2-ansible-feature-webrole-nginx",
+   "task": "s2-bash-bugfix-unit-hbd",
    "level": 12,
    "agent": "opencode",
    "attempt": "1",
-   "progress": "2/24",
-   "started": "2026-10-27T09:22:49+01:00"
+   "progress": "4/24",
+   "started": "2026-10-27T09:36:31+01:00"
   }
  ],
  "last_done": {
   "PC": {
    "model": "strata-iq3s-64k",
-   "task": "s2-ansible-feature-webrole-nginx",
+   "task": "s2-bash-bugfix-unit-hbd",
    "level": 12,
    "agent": "pi",
    "attempt": "1",
    "solved": true,
-   "wall_s": 600,
-   "ended": "2026-10-27T09:20:48+01:00"
+   "wall_s": 89,
+   "ended": "2026-10-27T09:36:09+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
