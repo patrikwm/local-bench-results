@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T01:45+01:00",
+ "generated": "2026-10-28T01:50+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -733,7 +733,7 @@
    "agent": "opencode",
    "level": 1,
    "solved": 2,
-   "attempts": 9,
+   "attempts": 10,
    "tasks": {
     "l1-cs-bugfix-invoiceno": {
      "solved": 1,
@@ -770,15 +770,19 @@
     "l1-java-bugfix-semver": {
      "solved": 0,
      "attempts": 1
+    },
+    "l1-java-feature-wordfreq": {
+     "solved": 0,
+     "attempts": 1
     }
    },
-   "median_s": 482.9,
-   "median_read": 107225,
-   "median_written": 2665,
+   "median_s": 476.9,
+   "median_read": 96971.0,
+   "median_written": 2643.5,
    "decode_tok_s": 6.0,
-   "gpu_w": 49.8,
+   "gpu_w": 53.1,
    "cpu_w": 165.0,
-   "wh_per_solved": 184.65,
+   "wh_per_solved": 190.01,
    "agent_version": "2.0.32"
   },
   {
@@ -9680,13 +9684,13 @@
  ],
  "progress": {
   "planned_max": 5142,
-  "project_pct": 83.6,
+  "project_pct": 83.7,
   "test_pct": 65.8,
   "pairs_full": 1986,
-  "pairs_tested": 1306,
+  "pairs_tested": 1307,
   "pairs_skipped": 355,
-  "eta_realistic_hours": 47.5,
-  "eta_pc_hours": 47.5,
+  "eta_realistic_hours": 47.4,
+  "eta_pc_hours": 47.4,
   "eta_cloud_hours": 14.1,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -9707,17 +9711,17 @@
    "3": 0.5,
    "4": 0.5
   },
-  "settled": 4302,
-  "graded_screening": 3085,
+  "settled": 4304,
+  "graded_screening": 3086,
   "settled_by_front": {
-   "pc": 1947,
-   "cloud": 2355
+   "pc": 1950,
+   "cloud": 2354
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 6.0,
-  "eta_hours": 186.0,
+  "pace_per_h": 6.3,
+  "eta_hours": 180.6,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -9725,28 +9729,28 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T01:45",
+  "generated": "2026-10-28T01:50",
   "queue_elapsed_h": {
-   "low": 50.5,
-   "mid": 61.4,
-   "high": 197.3
+   "low": 49.0,
+   "mid": 59.6,
+   "high": 190.9
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 46.3,
-     "mid": 57.2,
-     "high": 191.2
+     "low": 44.8,
+     "mid": 55.3,
+     "high": 184.8
     },
     "elapsed_h": {
-     "low": 50.5,
-     "mid": 61.4,
-     "high": 197.3
+     "low": 49.0,
+     "mid": 59.6,
+     "high": 190.9
     },
     "finish": {
-     "low": "2026-10-30T04:15",
-     "mid": "2026-10-30T15:11",
-     "high": "2026-11-05T07:03"
+     "low": "2026-10-30T02:50",
+     "mid": "2026-10-30T13:23",
+     "high": "2026-11-05T00:44"
     },
     "models": [
      [
@@ -9865,9 +9869,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T01:45",
-     "mid": "2026-10-28T01:45",
-     "high": "2026-10-28T01:45"
+     "low": "2026-10-28T01:50",
+     "mid": "2026-10-28T01:50",
+     "high": "2026-10-28T01:50"
     },
     "models": [],
     "gap_min": 0.85,
@@ -9884,36 +9888,36 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 50.5,
-    "with_mac_h": 50.5
+    "pc_alone_h": 49.0,
+    "with_mac_h": 49.0
    },
    "mid": {
-    "pc_alone_h": 61.4,
-    "with_mac_h": 61.4
+    "pc_alone_h": 59.6,
+    "with_mac_h": 59.6
    },
    "high": {
-    "pc_alone_h": 197.3,
-    "with_mac_h": 197.3
+    "pc_alone_h": 190.9,
+    "with_mac_h": 190.9
    }
   },
   "slots": {
-   "executed": 3126,
-   "skipped: majority stop": 966,
+   "executed": 3127,
+   "skipped: majority stop": 967,
    "skipped: model eliminated at an earlier level": 802,
    "skipped: level ended early (probe / level stop)": 296,
-   "open: assigned": 234,
+   "open: assigned": 232,
    "open: conditional": 408,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
   },
   "pairs": {
    "total": 1944,
-   "decided by attempts": 1296,
+   "decided by attempts": 1297,
    "settled by a rule (never decided)": 417,
-   "open": 231
+   "open": 230
   },
   "expected_attempts": {
-   "assigned": 164.5,
+   "assigned": 163.3,
    "conditional": 156.8,
    "blocked": 0
   },
@@ -10269,8 +10273,8 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 26,
-    "busy_pct": 73
+    "attempts_finished": 27,
+    "busy_pct": 74
    },
    "cloud": {
     "attempts_finished": 0,
@@ -10295,8 +10299,8 @@
     "worker_h": 0.2,
     "elapsed_h": 0.3,
     "worker_h_if_unblocked": null,
-    "how_pc": "prior ratio 1.69 (no attempts yet)",
-    "how_mac": "prior ratio 5.06 (no attempts yet)"
+    "how_pc": "prior ratio 1.63 (no attempts yet)",
+    "how_mac": "prior ratio 4.88 (no attempts yet)"
    },
    {
     "model": "ornith35b-q8-128k",
@@ -10311,8 +10315,8 @@
     "worker_h": 0.2,
     "elapsed_h": 0.3,
     "worker_h_if_unblocked": null,
-    "how_pc": "prior ratio 1.88 (no attempts yet)",
-    "how_mac": "prior ratio 5.64 (no attempts yet)"
+    "how_pc": "prior ratio 1.81 (no attempts yet)",
+    "how_mac": "prior ratio 5.43 (no attempts yet)"
    },
    {
     "model": "mellum21-q8-128k",
@@ -10337,14 +10341,14 @@
     "machine": "pc",
     "blocked": null,
     "note": "",
-    "attempts_exp": 38.4,
-    "attempts_max": 61,
+    "attempts_exp": 37.2,
+    "attempts_max": 59,
     "p_reach": 1.0,
-    "worker_h": 6.8,
-    "elapsed_h": 7.2,
+    "worker_h": 6.3,
+    "elapsed_h": 6.7,
     "worker_h_if_unblocked": null,
-    "how_pc": "17 at this level + model ratio 2.89 from 17 attempts",
-    "how_mac": "prior ratio 10.40 (no attempts yet)"
+    "how_pc": "18 at this level + model ratio 2.77 from 18 attempts",
+    "how_mac": "prior ratio 9.98 (no attempts yet)"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10356,11 +10360,11 @@
     "attempts_exp": 60.8,
     "attempts_max": 84,
     "p_reach": 0.77,
-    "worker_h": 15.6,
-    "elapsed_h": 16.0,
+    "worker_h": 15.0,
+    "elapsed_h": 15.4,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 2.89 from 17 attempts on this machine",
-    "how_mac": "prior ratio 10.40 (no attempts yet)"
+    "how_pc": "model ratio 2.77 from 18 attempts on this machine",
+    "how_mac": "prior ratio 9.98 (no attempts yet)"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10372,11 +10376,11 @@
     "attempts_exp": 17.5,
     "attempts_max": 24,
     "p_reach": 0.77,
-    "worker_h": 2.8,
-    "elapsed_h": 3.0,
+    "worker_h": 2.7,
+    "elapsed_h": 2.9,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 2.89 from 17 attempts on this machine",
-    "how_mac": "prior ratio 10.40 (no attempts yet)"
+    "how_pc": "model ratio 2.77 from 18 attempts on this machine",
+    "how_mac": "prior ratio 9.98 (no attempts yet)"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10388,11 +10392,11 @@
     "attempts_exp": 18.0,
     "attempts_max": 24,
     "p_reach": 0.41,
-    "worker_h": 2.6,
-    "elapsed_h": 2.7,
+    "worker_h": 2.5,
+    "elapsed_h": 2.6,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 2.89 from 17 attempts on this machine",
-    "how_mac": "prior ratio 10.40 (no attempts yet)"
+    "how_pc": "model ratio 2.77 from 18 attempts on this machine",
+    "how_mac": "prior ratio 9.98 (no attempts yet)"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10404,11 +10408,11 @@
     "attempts_exp": 17.1,
     "attempts_max": 24,
     "p_reach": 0.31,
-    "worker_h": 2.9,
-    "elapsed_h": 3.0,
+    "worker_h": 2.8,
+    "elapsed_h": 2.9,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 2.89 from 17 attempts on this machine",
-    "how_mac": "prior ratio 10.40 (no attempts yet)"
+    "how_pc": "model ratio 2.77 from 18 attempts on this machine",
+    "how_mac": "prior ratio 9.98 (no attempts yet)"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10420,11 +10424,11 @@
     "attempts_exp": 36.1,
     "attempts_max": 48,
     "p_reach": 0.15,
-    "worker_h": 10.1,
-    "elapsed_h": 10.1,
+    "worker_h": 9.7,
+    "elapsed_h": 9.7,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 2.89 from 17 attempts on this machine",
-    "how_mac": "prior ratio 10.40 (no attempts yet)"
+    "how_pc": "model ratio 2.77 from 18 attempts on this machine",
+    "how_mac": "prior ratio 9.98 (no attempts yet)"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -10916,15 +10920,15 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 17,
+    "attempts": 18,
     "attempts_solved": 4,
-    "median_s": 470.8,
-    "decode_tok_s": 6.9,
-    "gpu_w": 54.7,
-    "cpu_w": 164.4,
-    "energy_wh": 655.5,
-    "wh_per_solved": 163.89,
-    "energy_attempts": 17,
+    "median_s": 403.8,
+    "decode_tok_s": 7.0,
+    "gpu_w": 54.8,
+    "cpu_w": 164.5,
+    "energy_wh": 666.3,
+    "wh_per_solved": 166.57,
+    "energy_attempts": 18,
     "side_load_attempts": 0
    }
   },
@@ -11572,7 +11576,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T01:45+01:00",
+  "updated": "2026-10-28T01:50+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -11916,9 +11920,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 155.51,
+  "hours_up": 155.6,
   "spent_eur": 183.65,
-  "gpu_hours": 229.6,
+  "gpu_hours": 229.7,
   "servers_running": 1
  },
  "utility": [
@@ -12143,12 +12147,12 @@
   {
    "model": "devstral2-q4km-64k",
    "front": "PC",
-   "task": "l1-java-feature-wordfreq",
+   "task": "l1-java-tests-jobqueue",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "2",
-   "progress": "18/100",
-   "started": "2026-10-28T01:43:14+01:00"
+   "progress": "19/100",
+   "started": "2026-10-28T01:46:57+01:00"
   }
  ],
  "last_done": {
@@ -12156,11 +12160,11 @@
    "model": "devstral2-q4km-64k",
    "task": "l1-java-feature-wordfreq",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "2",
    "solved": false,
-   "wall_s": 142,
-   "ended": "2026-10-28T01:42:21+01:00"
+   "wall_s": 174,
+   "ended": "2026-10-28T01:46:04+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
