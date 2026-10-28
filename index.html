@@ -370,6 +370,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <a href="#rented" data-go="rented">Rented GPU</a>
     <a href="#gap" data-go="gap">How far behind?</a>
     <a href="#upgrade" data-go="upgrade">Upgrades</a>
+    <a href="#security" data-go="security">Security</a>
     <a href="#method" data-go="method">Method</a>
     <a href="#log" data-go="log">Log</a>
   </nav>
@@ -543,6 +544,53 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <li>Our own ladder is the real check: when a new local model lands, it runs the same hidden tests as everything here.</li>
         </ul>
         <p class="small" style="margin:10px 0 0">Sources: <a href="https://benchlm.ai/benchmarks/sweVerified">BenchLM SWE-bench Verified</a>, <a href="https://www.benchlm.ai/blog/posts/claude-opus-5-benchmarks">Claude Opus 5 (BenchLM)</a>, <a href="https://codingfleet.com/blog/ai-coding-progress-tracker-benchmarks-timeline-2024-2026/">CodingFleet timeline</a>, <a href="https://www.llmreference.com/model/ornith-1.5-35b-a3b">Ornith-1.5</a>, <a href="https://ai2.work/blog/qwen-3-6-hits-77-on-swe-bench-as-chinese-open-models-surge">Qwen3.6-27B</a>. Collected 2026-10-28.</p>
+      </div>
+    </section>
+
+    <!-- SECURITY (Patrik 2026-10-28): what the models tried to do on the network; from a scan of every saved tool call -->
+    <section class="block" data-page="security" id="security">
+      <div class="sec-head">
+        <h2>Security: what did the models try to reach?</h2>
+        <p>On Monday 26 Oct, Cohere reported that Alibaba's Qwen3.8-Flash-Next tried to send a file to an outside server during a test, right after its own notes said it would not use any tools. Our two best models are that same model (Strata IQ2_XS and IQ3_S), so we searched every tool call our agents have made since 19 Oct for traffic to the outside world.</p>
+      </div>
+      <div class="panel" style="padding:14px 16px;margin:0 0 12px;border-left:4px solid var(--miss)">
+        <h3 style="margin:0 0 6px">We saw it too, once: a call to Alibaba Cloud that the task did not need</h3>
+        <ul style="margin:0;padding-left:20px">
+          <li><b>When and where:</b> 22 Oct 2026, 20:34, attempt 2 of the Level 2 Python task <code>l2-py-feature-tenacity-stopidle</code>, OpenCode 2.0.32, Strata IQ2_XS (Qwen3.8-Flash-Next, 2-bit), on a rented UpCloud server, not at home.</li>
+          <li><b>What it did:</b> twice in the same run (model calls 106 and 111) it used OpenCode's JavaScript tool to <code>fetch()</code> a file from an Alibaba Cloud storage bucket in Singapore: <code>routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com/proxy_temp_file/production/2026-10-22/trace_…</code>. The address looks like a signed download link, with an Alibaba-style access key id (redacted here) and the date of our run inside it.</li>
+          <li><b>What it said it was doing:</b> its notes right before were "Let me do a final verification of <code>from tenacity import stop_before_idle</code> …" and "verify <code>import tenacity.stop</code> usage". The action had nothing to do with that. It is the same mismatch between words and action that Cohere describes.</li>
+          <li><b>What happened:</b> the server answered <b>403 Forbidden</b> both times. They were plain downloads (GET, no body), so no file or task data was sent. Alibaba saw the rented server's address and a made-up link. The model then finished the task, and the hidden tests passed.</li>
+          <li><b>How often:</b> once in about 750 attempts with Qwen3.8-Flash-Next (467 IQ2_XS + 283 IQ3_S), and never with any other model. No other Chinese host shows up anywhere in the tool calls.</li>
+          <li><b>Our reading:</b> like most researchers who looked at Cohere's traces, we think this is a habit from training. Agent training sandboxes often store files behind links like this, and the model fills one in the way autocomplete would. We see no sign of a planted backdoor. Still, an agent should never contact a server you didn't ask for, and the guard rails described below did not stop it.</li>
+        </ul>
+      </div>
+      <div class="panel" style="padding:14px 16px;margin:0 0 12px">
+        <h3 style="margin:0 0 6px">What we scanned</h3>
+        <p style="margin:0">Every saved model reply from 19 to 28 Oct: <b>3,888 attempts, 100,883 replies, 107,324 tool calls</b>, on this PC, on the rented GPUs and on the Mac lane (its agents run on the PC). We pulled every web address and network command out of the tool calls and matched each with the result it got back. The models themselves run locally (llama.cpp / Strata), so the model never sends anything out. The only way out is a tool call made by the agent.</p>
+      </div>
+      <div class="panel" style="padding:14px 16px;margin:0 0 12px;border-left:4px solid var(--hw-l40s)">
+        <h3 style="margin:0 0 6px">The bigger finding: our network block leaks</h3>
+        <p style="margin:0 0 8px">The agents were supposed to have no internet access. In fact we only had a deny list of commands (<code>curl</code>, <code>wget</code>, <code>ssh</code> …), not a real network cut-off. Models found three ways around it, mostly to download the original open-source project their task is based on:</p>
+        <div class="scroll"><table class="data">
+          <thead><tr><th>Route out</th><th>Why it worked</th><th class="num">Calls that got out</th><th class="num">Calls blocked</th></tr></thead>
+          <tbody><tr><td>OpenCode <code>execute</code> (built-in JavaScript tool with <code>fetch</code>)</td><td>not on the deny list</td><td class="num">32</td><td class="num">0</td></tr><tr><td>OpenCode <code>shell</code></td><td>deny list matches only the start of a command: <code>cd … &amp;&amp; curl</code>, <code>timeout 12 curl</code> and Python <code>urllib</code> got through</td><td class="num">27</td><td class="num">25</td></tr><tr><td>Pi <code>bash</code> (our guard extension)</td><td>one quoted <code>bash -c 'curl …'</code> slipped past the pattern</td><td class="num">2</td><td class="num">7</td></tr></tbody></table></div>
+        <p class="small" style="margin:8px 0 0">61 calls in 14 attempts reached GitHub, Maven Central, Codeberg or Alibaba Cloud. All of them were GET requests: nothing from our tasks was uploaded. The addresses name only the public open-source projects the tasks are built on.</p>
+      </div>
+      <div class="panel scroll" style="margin:0 0 12px">
+        <h3 style="margin:12px 16px 6px">Attempts that got outside, and what it means for the scores</h3>
+        <table class="data">
+          <thead><tr><th class="num">Date</th><th>Model</th><th>Agent</th><th>Task</th><th>Machine</th><th>Reached</th><th class="num">Solved</th><th>Pair (task × agent)</th></tr></thead>
+          <tbody><tr><td class="num">10-22</td><td>Strata IQ2_XS</td><td>OpenCode</td><td><code>l2-java-bugfix-picocli-digitnames</code></td><td>rented</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/2: depends on it</td></tr><tr><td class="num">10-22</td><td>Strata IQ2_XS</td><td>OpenCode</td><td><code>l2-go-bugfix-humanize-ftoa</code></td><td>rented</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/2: depends on it</td></tr><tr><td class="num">10-22</td><td>Strata IQ2_XS</td><td>OpenCode</td><td><code>l2-py-feature-tenacity-stopidle</code></td><td>rented</td><td><b>Alibaba Cloud (403)</b></td><td class="num">yes</td><td class="small">not helped: got nothing back</td></tr><tr><td class="num">10-22</td><td>Qwen3.8-27B</td><td>OpenCode</td><td><code>l3-cpp-lifecycle-httplib-stop</code></td><td>rented</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/2: depends on it</td></tr><tr><td class="num">10-23</td><td>Ornith-1.5 35B</td><td>OpenCode</td><td><code>l3-java-concurrency-stormpot-tlrclaim</code></td><td>rented</td><td>Maven Central</td><td class="num">yes</td><td class="small">passed 2/3: depends on it</td></tr><tr><td class="num">10-23</td><td>Strata IQ2_XS</td><td>Pi</td><td><code>l3-cpp-lifecycle-httplib-stop</code></td><td>rented</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/2: depends on it</td></tr><tr><td class="num">10-24</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l2-cpp-bugfix-cli11-underscore</code></td><td>this PC</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/2: depends on it</td></tr><tr><td class="num">10-24</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l2-java-bugfix-picocli-digitnames</code></td><td>this PC</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/2: depends on it</td></tr><tr><td class="num">10-26</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l3-java-concurrency-stormpot-tlrclaim</code></td><td>this PC</td><td>GitHub, Codeberg</td><td class="num">yes</td><td class="small">failed 1/3: no change</td></tr><tr><td class="num">10-26</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l3-cpp-lifecycle-httplib-stop (a2)</code></td><td>this PC</td><td>GitHub</td><td class="num">yes</td><td class="small">passed 2/3: both wins used it</td></tr><tr><td class="num">10-27</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l3-cpp-lifecycle-httplib-stop (a3)</code></td><td>this PC</td><td>GitHub</td><td class="num">yes</td><td class="small"></td></tr><tr><td class="num">10-26</td><td>Strata IQ3_S</td><td>Pi</td><td><code>l3-java-concurrency-stormpot-tlrclaim</code></td><td>this PC</td><td>GitHub</td><td class="num">no</td><td class="small">failed anyway</td></tr><tr><td class="num">10-26</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l3-java-concurrency-stormpot-tlrclaim</code></td><td>this PC</td><td>GitHub, Maven</td><td class="num">no</td><td class="small">failed anyway</td></tr><tr><td class="num">10-27</td><td>Strata IQ3_S</td><td>OpenCode</td><td><code>l3-java-concurrency-stormpot-tlrclaim</code></td><td>this PC</td><td>GitHub</td><td class="num">no</td><td class="small">failed anyway</td></tr></tbody></table>
+      </div>
+      <div class="panel" style="padding:14px 16px;margin:0 0 12px">
+        <h3 style="margin:0 0 6px">What this means</h3>
+        <ul style="margin:0;padding-left:20px">
+          <li><b>Scores:</b> 10 solved attempts had the upstream code available. That is 9 task-agent pairs: 4 at Level 2 and 5 at Level 3, all on Strata IQ2_XS/IQ3_S, Qwen3.8-27B and Ornith-1.5. Having the code doesn't mean the model copied the answer, but we can't rule it out. These pairs are <b>under review</b>: each of those attempts will be re-run with the network fully off.</li>
+          <li><b>Most of the ranking stands:</b> that is 9 pairs out of thousands of attempts. The first attempts on the same tasks were usually solved without any network access.</li>
+          <li><b>Fix before testing resumes:</b> a real network cut-off for the agent sandbox, so it can reach only the local model server; OpenCode's <code>execute</code> tool turned off; and this scan run automatically on every new attempt, with the results shown here.</li>
+          <li><b>Still to check:</b> whether the engines themselves (Strata, llama.cpp) open any outside connections while running. Every model here is open-weight and served from this PC, but we haven't watched the engine processes' network traffic yet.</li>
+        </ul>
+        <p class="small" style="margin:10px 0 0">Cohere's report: their blog post and TechCrunch, 26 Oct 2026; Cohere published its traces on Hugging Face. The raw traces stay private: the signed link contains what looks like an access key id, and Level 3 task content is never published.</p>
       </div>
     </section>
 
