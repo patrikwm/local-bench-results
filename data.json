@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T23:14+01:00",
+ "generated": "2026-10-28T23:17+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -10661,7 +10661,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T23:14",
+  "generated": "2026-10-28T23:17",
   "queue_elapsed_h": {
    "low": 51.2,
    "mid": 62.2,
@@ -10680,9 +10680,9 @@
      "high": 186.9
     },
     "finish": {
-     "low": "2026-10-31T02:25",
-     "mid": "2026-10-31T13:27",
-     "high": "2026-11-05T18:08"
+     "low": "2026-10-31T02:28",
+     "mid": "2026-10-31T13:31",
+     "high": "2026-11-05T18:11"
     },
     "models": [
      [
@@ -10800,9 +10800,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T23:14",
-     "mid": "2026-10-28T23:14",
-     "high": "2026-10-28T23:14"
+     "low": "2026-10-28T23:17",
+     "mid": "2026-10-28T23:17",
+     "high": "2026-10-28T23:17"
     },
     "models": [],
     "gap_min": 0.85,
@@ -11206,7 +11206,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 4,
-    "busy_pct": 96
+    "busy_pct": 95
    },
    "cloud": {
     "attempts_finished": 0,
@@ -11214,7 +11214,7 @@
    },
    "mac": {
     "attempts_finished": 5,
-    "busy_pct": 22
+    "busy_pct": 21
    }
   },
   "items": [
@@ -12557,7 +12557,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T23:14+01:00",
+  "updated": "2026-10-28T23:18+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12901,9 +12901,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 177.0,
+  "hours_up": 177.06,
   "spent_eur": 183.65,
-  "gpu_hours": 251.1,
+  "gpu_hours": 251.2,
   "servers_running": 1
  },
  "utility": [
@@ -13124,7 +13124,18 @@
    "median_out_tokens": 19.5
   }
  ],
- "running": [],
+ "running": [
+  {
+   "model": "devstral2-q4km-64k",
+   "front": "PC",
+   "task": "l0-qualify",
+   "level": 0,
+   "agent": "pi",
+   "attempt": "warmup",
+   "progress": null,
+   "started": "2026-10-28T23:14:53+01:00"
+  }
+ ],
  "last_done": {
   "PC": {
    "model": "ornith35b-q8-128k",
