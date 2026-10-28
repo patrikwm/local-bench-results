@@ -329,6 +329,25 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .front b { font-weight: 650; }
 .front time { font-variant-numeric: tabular-nums; font-weight: 700; }
 .front .ok { color: var(--pass); font-weight: 700; } .front .no { color: var(--miss); font-weight: 700; }
+/* sidebar of pages (Patrik 2026-10-28): one view at a time */
+[data-page].off { display: none; }
+.side nav { display: flex; gap: 4px; }
+.side a { text-decoration: none; color: var(--ink-2); font-size: 14.5px; font-weight: 600; padding: 8px 12px; border-radius: 6px; white-space: nowrap; }
+.side a:hover { background: var(--rule-2); color: var(--ink); }
+.side a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+@media (min-width: 1000px) {
+  body { padding-left: 190px; }
+  .side { position: fixed; left: 0; top: 0; bottom: 0; width: 190px; padding: 68px 12px 12px; border-right: 1px solid var(--rule); background: var(--paper); z-index: 5; }
+  .side nav { flex-direction: column; }
+}
+@media (max-width: 999px) {
+  .side { position: sticky; top: 52px; z-index: 5; background: var(--paper); border-bottom: 1px solid var(--rule); padding: 6px 16px; overflow-x: auto; scrollbar-width: none; }
+}
+.chart text { fill: var(--ink-2); font-size: 12px; font-family: inherit; }
+.chart .lbl { fill: var(--ink); font-weight: 700; font-size: 12.5px; }
+.chart .grid { stroke: var(--rule-2); }
+.chart .axis { stroke: var(--rule); }
+.chart circle { stroke: var(--paper); stroke-width: 2px; }
 </style>
 </head>
 <body>
@@ -338,28 +357,27 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <a class="brand" href="#top">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g fill="currentColor"><rect x="2" y="13" width="4" height="4" rx="1"/><rect x="7" y="8" width="4" height="9" rx="1"/><rect x="12" y="2" width="4" height="15" rx="1"/></g></svg>Local Bench
     </a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#plan">Plan</a>
-      <a href="#ladder">Ladder</a>
-      <a href="#ranking">Ranking</a>
-      <a href="#matrix">Task matrix</a>
-      <a href="#agents">Pi vs OpenCode</a>
-      <a href="#speed">Speed</a>
-      <a href="#rented">Rented GPU</a>
-      <a href="#upgrade">Upgrade tiers</a>
-      <a href="#method">Method</a>
-      <a href="#tasks">Tasks</a>
-      <a href="#log">Log</a>
-    </nav>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">Theme</button>
   </div>
 </header>
+
+<aside class="side">
+  <nav aria-label="Pages">
+    <a href="#overview" data-go="overview">Overview</a>
+    <a href="#ranking" data-go="ranking">Ranking</a>
+    <a href="#speed" data-go="speed">Speed</a>
+    <a href="#rented" data-go="rented">Rented GPU</a>
+    <a href="#upgrade" data-go="upgrade">Upgrades</a>
+    <a href="#method" data-go="method">Method</a>
+    <a href="#log" data-go="log">Log</a>
+  </nav>
+</aside>
 
 <main id="top">
   <div class="wrap">
     <div id="error" class="err hidden"></div>
 
-    <section class="hero">
+    <section class="hero" data-page="overview">
       <h1>Can a gaming PC replace a paid AI coding subscription?</h1>
       <div class="hero-grid">
         <p class="lede">Open-weight models run on one desktop PC and drive two open-source coding agents, <strong>Pi</strong> and <strong>OpenCode</strong>, through the same real coding tasks. A hidden test suite decides pass or fail. No AI judge, no vibes.</p>
@@ -382,7 +400,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- PLAN -->
-    <section class="block" id="plan" style="padding-top:24px">
+    <section class="block" data-page="overview" id="plan" style="padding-top:24px">
       <div class="sec-head">
         <h2>The plan</h2>
         <p>Every model climbs level by level: a level is a filter, so only models that pass it get the next, more expensive one. Two machines work in parallel: this PC and a MacBook (M1 Max). The rented GPUs ran one model straight up the ladder each (paid by the hour); those runs are finished.</p>
@@ -399,7 +417,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- LADDER -->
-    <section class="block" id="ladder">
+    <section class="block" data-page="overview" id="ladder">
       <div class="sec-head">
         <h2>The ladder</h2>
         <p>Each model climbs from small tasks to one-night builds. A task with one agent is a pair; a pair passes when 2 of 3 attempts pass, and a level passes at 50 % of its pairs. A model stops at the first failed level; one that passes with under 65 % runs the next level as a probe first, and L3 needs 90 % of the L2 pairs.</p>
@@ -421,7 +439,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- RANKING -->
-    <section class="block" id="ranking">
+    <section class="block" data-page="ranking" id="ranking">
       <div class="sec-head">
         <h2>Level ranking</h2>
         <p id="rankIntro"></p>
@@ -432,7 +450,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- MATRIX -->
-    <section class="block" id="matrix">
+    <section class="block" data-page="ranking" id="matrix">
       <div class="sec-head">
         <h2>Which tasks beat which models</h2>
         <p>Attempts solved per Level 1 task, both agents together. The redder the cell, the more misses.</p>
@@ -442,7 +460,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- AGENTS -->
-    <section class="block" id="agents">
+    <section class="block" data-page="ranking" id="agents">
       <div class="sec-head">
         <h2>Pi vs OpenCode</h2>
         <p>Same model, same tasks, same settings. Pi reads a fraction of the tokens OpenCode does and is usually faster; the solve rates stay close.</p>
@@ -451,7 +469,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- SPEED -->
-    <section class="block" id="speed">
+    <section class="block" data-page="speed" id="speed">
       <div class="sec-head">
         <h2>Speed: same file, three machines</h2>
         <p>Estimated seconds for one model call deep in an agent task: read the new part of the prompt (median 671 tokens; 94 % of prompt tokens come from the cache) and write 500 tokens at 16k context. Shorter is better; differences under about 10 % are a tie. All on llama.cpp b11685.</p>
@@ -460,7 +478,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- QUICK JOBS -->
-    <section class="block" id="quick">
+    <section class="block" data-page="speed" id="quick">
       <div class="sec-head">
         <h2>Quick jobs</h2>
         <p>One prompt, one answer, no agent: fix Markdown, extract JSON, write a commit message. Every answer is checked exactly. The goal is a routing table: the smallest model that is good enough for each kind of job.</p>
@@ -469,7 +487,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- RENTED -->
-    <section class="block" id="rented">
+    <section class="block" data-page="rented" id="rented">
       <div class="sec-head">
         <h2>Rented GPU run</h2>
         <p>The models slowest on this PC, pushed through every level on rented servers (one RTX PRO 6000 and up to four L40S at UpCloud, Helsinki), one model per server. Only the engine runs there; agents and grading stay in home sandboxes. Pass/fail is comparable to the PC; time is not, and energy is not measured.</p>
@@ -481,12 +499,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <h3 style="margin:0">Server log</h3>
             <span>
               <button class="btn ghost" type="button" data-ev="run_events" aria-pressed="true" style="padding:4px 10px;font-size:13px">Runs</button>
-              <button class="btn ghost" type="button" data-ev="vm_events" aria-    <!-- UPGRADE (Patrik 2026-10-28): tier list of personal upgrades that unlock a better model; independent board only -->
-    <section class="block" id="upgrade">
+              <button class="btn ghost" type="button" data-ev="vm_events" aria-pressed="false" style="padding:4px 10px;font-size:13px">Servers</button>
+            </span>
+          </div>
+          <div class="events" id="events" tabindex="0" aria-label="Server event log"></div>
+        </div>
+      </div>
+      <div class="panel scroll"><table class="data" id="rentTable"></table></div>
+    </section>
+
+    <!-- UPGRADE (Patrik 2026-10-28): tier list of personal upgrades that unlock a better model; independent board only -->
+    <section class="block" data-page="upgrade" id="upgrade">
       <div class="sec-head">
         <h2>Upgrade tier list</h2>
         <p>Personal hardware, one desk, no data centre: which upgrade gets a <strong>smarter</strong> model than this PC runs, and by how much. Upgrades that only run today's models faster are left out. Scores are from one independent board, <a href="https://benchlm.ai/md/benchmarks/valsterminalbench21.md">Vals Terminal-Bench 2.1</a> (same harness for every model), not from our own ladder.</p>
       </div>
+      <figure class="panel" style="padding:14px 16px;margin:0 0 12px"><h3 style="margin:0 0 4px">Cost vs. terminal skill</h3><p class="small" style="margin:0 0 8px">Terminal-Bench 2.1 (Vals), higher is better. The dashed line is this PC today. The jump comes at ~$9–11k; paying more after that buys nothing.</p><svg class="chart" viewBox="0 0 720 330" style="width:100%;max-width:780px;display:block" role="img" aria-label="Upgrade cost against Terminal-Bench 2.1 score; the table below has the same numbers"><text x="56" y="18">score</text><line class="grid" x1="56" x2="700" y1="284" y2="284"/><text x="48" y="288" text-anchor="end">50</text><line class="grid" x1="56" x2="700" y1="201" y2="201"/><text x="48" y="205" text-anchor="end">60</text><line class="grid" x1="56" x2="700" y1="117" y2="117"/><text x="48" y="121" text-anchor="end">70</text><line class="grid" x1="56" x2="700" y1="34" y2="34"/><text x="48" y="38" text-anchor="end">80</text><text x="56" y="304" text-anchor="middle">owned</text><text x="235" y="304" text-anchor="middle">$5k</text><text x="414" y="304" text-anchor="middle">$10k</text><text x="593" y="304" text-anchor="middle">$15k</text><line class="axis" x1="56" x2="700" y1="284" y2="284"/><line x1="56" x2="700" y1="214" y2="214" stroke="var(--muted)" stroke-dasharray="4 4"/><g><title>Now: this PC, owned: Terminal-Bench 2.1 58.4</title><circle cx="56" cy="214" r="14" fill="transparent" stroke="none"/><circle cx="56" cy="214" r="6" fill="var(--muted)"/><text class="lbl" x="66" y="234" text-anchor="start">Now · Qwen3.8-27B 58.4</text></g><g><title>A: 2 × DGX Spark, ~$9.4k: Terminal-Bench 2.1 76.4</title><circle cx="392" cy="64" r="14" fill="transparent" stroke="none"/><circle cx="392" cy="64" r="6" fill="#d68910"/><text class="lbl" x="398" y="86" text-anchor="end">A · 2 × DGX Spark</text></g><g><title>S: Mac Studio 256 GB, $10.8k: Terminal-Bench 2.1 76.4</title><circle cx="442" cy="64" r="14" fill="transparent" stroke="none"/><circle cx="442" cy="64" r="6" fill="#c0392b"/><text class="lbl" x="442" y="50" text-anchor="middle">S · Mac Studio 256 GB</text></g><g><title>C: RTX PRO 6000 in this PC, ~€13k (≈ $14k): Terminal-Bench 2.1 76.4</title><circle cx="557" cy="64" r="14" fill="transparent" stroke="none"/><circle cx="557" cy="64" r="6" fill="#7f8c8d"/><text class="lbl" x="543" y="50" text-anchor="start">C · RTX PRO 6000</text></g><g><title>B: Mac Studio 512 GB, ~$16.5k (est.): Terminal-Bench 2.1 74.5</title><circle cx="646" cy="80" r="14" fill="transparent" stroke="none"/><circle cx="646" cy="80" r="6" fill="#2e86c1"/><text class="lbl" x="666" y="102" text-anchor="end">B · Mac Studio 512 GB</text></g></svg></figure>
       <div class="panel scroll"><table class="data">
         <thead><tr><th>Tier</th><th>Hardware</th><th class="num">Cost</th><th>Best model it runs</th><th class="num">Terminal-Bench 2.1</th><th class="num">Gain</th><th class="num">Speed</th></tr></thead>
         <tbody>
@@ -510,12 +538,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
     </section>
 
-3b">Ornith-1.5</a> (via BenchLM); prices: <a href="https://computingforgeeks.com/dgx-spark-vs-strix-halo-vs-mac-studio/">128 GB boxes</a>, <a href="https://www.digitalcitizen.life/ddr5-ram-prices-surge-in-2026-as-32gb-kits-reach-450-amid-global-memory-shortage/">DDR5</a>. Collected 2026-10-28.</p>
-      </div>
-    </section>
-
     <!-- EXPERIMENTS -->
-    <section class="block" id="experiments">
+    <section class="block" data-page="method" id="experiments">
       <div class="sec-head">
         <h2>Sampling experiments</h2>
         <p>Same model and tasks with different sampling: nothing sent (Strata then decodes greedy), a repetition penalty, the maker's recommended settings, and a plan-first prompt. All main results use each maker's settings.</p>
@@ -524,7 +548,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- WEAK -->
-    <section class="block" id="weak">
+    <section class="block" data-page="ranking" id="weak">
       <div class="sec-head">
         <h2>Not selected for Level 3</h2>
         <p>L3 costs the most time, so only models with 90 %+ of their L2 pairs get it. This is a budget rule, not a verdict: 90 % of 28 pairs is 26, so one pair can decide it.</p>
@@ -533,7 +557,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- METHOD -->
-    <section class="block" id="method">
+    <section class="block" data-page="method" id="method">
       <div class="sec-head">
         <h2>How this is tested</h2>
       </div>
@@ -573,7 +597,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- TASKS -->
-    <section class="block" id="tasks">
+    <section class="block" data-page="method" id="tasks">
       <div class="sec-head">
         <h2>Tasks</h2>
         <p>Every task is proven before it runs: the starting code fails, a reference fix passes, and at least two typical wrong fixes are caught.</p>
@@ -587,7 +611,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </section>
 
     <!-- LOG -->
-    <section class="block" id="log">
+    <section class="block" data-page="log" id="log">
       <div class="sec-head"><h2>Mission log</h2></div>
       <div class="log" id="logList"></div>
     </section>
@@ -1146,6 +1170,19 @@ ${s.solved}/${s.att} attempts solved${tm}${on(s.machines)}${cTip}`;
   });
 
   load().then(render).catch(e => { const el = $("error"); el.textContent = e.message; el.classList.remove("hidden"); console.error(e); });
+})();
+</script>
+<script>
+(() => {
+  const pages = [...new Set([...document.querySelectorAll("[data-page]")].map(e => e.dataset.page))];
+  function go() {
+    const h = decodeURIComponent(location.hash.slice(1)), el = h ? document.getElementById(h) : null;
+    const page = pages.includes(h) ? h : el?.closest("[data-page]")?.dataset.page || "overview";
+    document.querySelectorAll("[data-page]").forEach(e => e.classList.toggle("off", e.dataset.page !== page));
+    document.querySelectorAll(".side a").forEach(a => a.dataset.go === page ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+    if (el && !pages.includes(h)) el.scrollIntoView(); else window.scrollTo(0, 0);  // an old section link scrolls to its section
+  }
+  addEventListener("hashchange", go); go();
 })();
 </script>
 </body>
