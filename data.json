@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T22:27+01:00",
+ "generated": "2026-10-28T22:32+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -10556,8 +10556,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 3.3,
-  "eta_hours": 285.9,
+  "pace_per_h": 2.6,
+  "eta_hours": 350.8,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -10565,7 +10565,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T22:27",
+  "generated": "2026-10-28T22:32",
   "queue_elapsed_h": {
    "low": 51.7,
    "mid": 62.8,
@@ -10584,9 +10584,9 @@
      "high": 185.3
     },
     "finish": {
-     "low": "2026-10-31T02:06",
-     "mid": "2026-10-31T13:15",
-     "high": "2026-11-05T15:46"
+     "low": "2026-10-31T02:11",
+     "mid": "2026-10-31T13:21",
+     "high": "2026-11-05T15:52"
     },
     "models": [
      [
@@ -10705,9 +10705,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T22:27",
-     "mid": "2026-10-28T22:27",
-     "high": "2026-10-28T22:27"
+     "low": "2026-10-28T22:32",
+     "mid": "2026-10-28T22:32",
+     "high": "2026-10-28T22:32"
     },
     "models": [],
     "gap_min": 0.85,
@@ -11105,15 +11105,15 @@
   "last6h": {
    "pc": {
     "attempts_finished": 6,
-    "busy_pct": 72
+    "busy_pct": 71
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 10,
-    "busy_pct": 28
+    "attempts_finished": 6,
+    "busy_pct": 27
    }
   },
   "items": [
@@ -12472,7 +12472,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T22:27+01:00",
+  "updated": "2026-10-28T22:32+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12816,9 +12816,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 176.21,
+  "hours_up": 176.3,
   "spent_eur": 183.65,
-  "gpu_hours": 250.3,
+  "gpu_hours": 250.4,
   "servers_running": 1
  },
  "utility": [
