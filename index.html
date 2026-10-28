@@ -343,7 +343,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a href="#agents">Pi vs OpenCode</a>
       <a href="#speed">Speed</a>
       <a href="#rented">Rented GPU</a>
-      <a href="#upgrade">Bigger hardware</a>
+      <a href="#upgrade">Upgrade?</a>
       <a href="#method">Method</a>
       <a href="#tasks">Tasks</a>
       <a href="#log">Log</a>
@@ -487,38 +487,29 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="panel scroll"><table class="data" id="rentTable"></table></div>
     </section>
 
-    <!-- UPGRADE (Patrik 2026-10-28): what bigger hardware would let us test; published scores only, not our runs -->
+    <!-- UPGRADE (Patrik 2026-10-28): realistic home upgrades only (a few thousand euros); published scores, not our runs -->
     <section class="block" id="upgrade">
       <div class="sec-head">
-        <h2>If we had bigger hardware</h2>
-        <p>Which stronger open models more memory would let us run at home, what that costs, and what the makers report they score. <strong>None of these numbers are ours</strong>: they are vendor-reported (model cards) or from one public leaderboard, with different harnesses, so a gap of a few points means little. The real test would be our own ladder.</p>
+        <h2>What a home upgrade would buy</h2>
+        <p>Upgrades a normal person could make for a few thousand euros, the open models they would let us run, and what the makers report those score. <strong>None of these numbers are ours</strong>: they come from model cards, with different harnesses, so a gap of a few points means little. The real test would be our own ladder.</p>
       </div>
       <div class="panel scroll"><table class="data">
-        <thead><tr><th>Upgrade</th><th>Cost (Oct 2026)</th><th class="num">Memory</th><th>Best model it unlocks</th><th class="num">SWE-bench Verified</th><th class="num">Terminal-Bench 2.1</th></tr></thead>
+        <thead><tr><th>Upgrade</th><th>Cost (Oct 2026)</th><th class="num">Memory</th><th>What it lets us run</th><th class="num">SWE-bench Verified</th></tr></thead>
         <tbody>
-          <tr class="group"><td colspan="6">Now: this PC (RTX 4080 16 GB + 64 GB RAM) and the Mac (64 GB)</td></tr>
-          <tr><td>—</td><td>owned</td><td class="num">~80 GB</td><td>Ornith-1.5 35B-A3B · Qwen3.8-27B · Laguna S 2.1</td><td class="num">79.0 <span class="small">Ornith</span></td><td class="num">73.0 <span class="small">Qwen3.8-27B</span><br>70.2 <span class="small">Laguna</span></td></tr>
-          <tr class="group"><td colspan="6">1 · More RAM in this PC</td></tr>
-          <tr><td>4 × 48 GB DDR5 (192 GB)</td><td>~€3–4k <span class="small">(estimate: RAM prices are high in 2026; 4 sticks run slower, ~3600–4000 MT/s)</span></td><td class="num">~208 GB</td><td>DeepSeek-V4-Flash (284B, 13B active) · MiniMax M3 (427B, 23B active, ~2–3 bit)</td><td class="num">79.0 · 80.5</td><td class="num">– <span class="small">(V4-Flash: 56.9 on TB 2.0)</span></td></tr>
-          <tr class="group"><td colspan="6">2 · Bigger GPU</td></tr>
-          <tr><td>RTX 5090 32 GB</td><td>$4.3–6.8k</td><td class="num">32 + 64 GB</td><td>Same models as now, faster and at better quality (less squeezed)</td><td class="num">≈ now</td><td class="num">≈ now</td></tr>
-          <tr><td>RTX PRO 6000 Blackwell 96 GB</td><td>$12.4–13.3k</td><td class="num">96 + 64 GB</td><td>DeepSeek-V4-Flash at ~2–3 bit; today's models at full quality</td><td class="num">79.0</td><td class="num">–</td></tr>
-          <tr class="group"><td colspan="6">3 · Unified-memory box</td></tr>
-          <tr><td>Strix Halo / DGX Spark / Mac Studio, 128 GB</td><td>$3.4–7k</td><td class="num">128 GB</td><td>Roughly what the PC already runs; quieter, less power</td><td class="num">≈ now</td><td class="num">≈ now</td></tr>
-          <tr><td>Mac Studio M5 Ultra 512 GB</td><td>~$18k <span class="small">(unconfirmed)</span></td><td class="num">512 GB</td><td>DeepSeek V4.1 Flash-1017 (552B + 196B memory, 8–16B active) · GLM-5.3 (753B, 4-bit)</td><td class="num">–</td><td class="num">88.2 <span class="small">GLM-5.3</span></td></tr>
-          <tr class="group"><td colspan="6">4 · Frontier-class open models</td></tr>
-          <tr><td>2 × Mac Studio 512 GB or an 8-GPU server</td><td>$36k+</td><td class="num">700 GB–1.5 TB</td><td>Kimi K3 (2.8T, ~2 bit) · DeepSeek-V4-Pro (1.6T) · Meta Muse Spark Open (816B)</td><td class="num">80.6 <span class="small">V4-Pro</span></td><td class="num">88.3 <span class="small">K3</span><br>76.4 <span class="small">Muse</span></td></tr>
+          <tr><td><b>Now</b>: RTX 4080 16 GB + 64 GB RAM (and the 64 GB Mac)</td><td>owned</td><td class="num">~80 GB</td><td>Ornith-1.5 35B-A3B · Qwen3.8-27B · Laguna S 2.1 · Strata (Qwen3.8-Flash-Next)</td><td class="num">79.0 <span class="small">Ornith</span></td></tr>
+          <tr><td><b>More RAM</b>: 4 × 48 GB DDR5 = 192 GB</td><td>~€3–4k <span class="small">(estimate; RAM prices are high in 2026, and 4 sticks run slower)</span></td><td class="num">~208 GB</td><td>DeepSeek-V4-Flash (284B, 13B active) · MiniMax M3 (427B, ~2–3 bit)</td><td class="num">79.0 · 80.5</td></tr>
+          <tr><td><b>Bigger GPU</b>: RTX 5090 32 GB</td><td>$4.3–6.8k</td><td class="num">32 + 64 GB</td><td>The same models as now, faster and less squeezed (higher quant)</td><td class="num">≈ now</td></tr>
+          <tr><td><b>128 GB box</b>: AMD Strix Halo / NVIDIA DGX Spark / Mac Studio</td><td>$3.4–7k</td><td class="num">128 GB</td><td>About what the PC already runs; quieter and less power</td><td class="num">≈ now</td></tr>
         </tbody>
       </table></div>
       <div class="panel" style="padding:14px 16px;margin-top:12px">
-        <h3 style="margin:0 0 6px">What the upgrade would buy</h3>
+        <h3 style="margin:0 0 6px">The short answer</h3>
         <ul style="margin:0;padding-left:20px">
-          <li><b>Code fixes (SWE-bench Verified): almost nothing.</b> Ornith-1.5 on this PC reports 79.0; the best model 192 GB unlocks reports 79–80.5.</li>
-          <li><b>Terminal work (Terminal-Bench 2.1): about +15 points</b>, 73 → 88, but only at the 512 GB tier (GLM-5.3, Kimi K3), about $18k and up.</li>
-          <li><b>DeepSeek V4.1 Flash-1017</b> leads the public DeepSWE v1.1 board: 77.0 %, against ~74 % for Claude Opus 5 and ~69 % for Kimi K3 and GLM-5.3 (mini-swe-agent, data 2026-09-22). It is "efficient" because only 8–16B parameters work per token, cheap through an API, but all of it must sit in memory: roughly 200–400 GB, so the 512 GB tier.</li>
-          <li>Most of these models are Chinese open-weight models: fine to run at home, never through their own APIs (our rule). Muse Spark Open is US-made but behind a gated licence.</li>
+          <li><b>A home upgrade buys speed and quality, not a smarter model.</b> The best model this PC already runs (Ornith-1.5) reports 79.0; the best that 192 GB of RAM unlocks reports 79–80.5.</li>
+          <li><b>The headline models are out of reach.</b> DeepSeek V4.1 Flash, GLM-5.3 and Kimi K3 lead the public boards, but need 200 GB to 1.5 TB of fast memory: tens of thousands of euros or a data centre.</li>
+          <li>So the question this channel asks stays the right one: what can the hardware you already own do?</li>
         </ul>
-        <p class="small" style="margin:10px 0 0">Terminal-Bench 2.0 and 2.1 are different tests; only 2.1 is compared here. Memory needs are our arithmetic from parameter counts, not published. Sources: model cards for <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash">DeepSeek-V4-Flash</a>, <a href="https://huggingface.co/MiniMaxAI/MiniMax-M3">MiniMax M3</a>, <a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3</a>, <a href="https://huggingface.co/moonshotai/Kimi-K3">Kimi K3</a>, <a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen3.8-27B</a>; <a href="https://benchlm.ai/models/ornith-1-5-35b-a3b">Ornith-1.5</a> (via BenchLM); <a href="https://poolside.ai/blog/introducing-laguna-s-2-1">Laguna S 2.1</a>; <a href="https://morphllm.com/deepseek-v4">DeepSeek-V4-Pro</a> (via Morph); <a href="https://thenewstack.io/meta-muse-spark-open/">Muse Spark Open</a>; prices: <a href="https://computingforgeeks.com/dgx-spark-vs-strix-halo-vs-mac-studio/">unified-memory boxes</a>, <a href="https://wccftech.com/nvidia-96-gb-rtx-pro-6000-blackwell-price-hits-13250-over-50-percent-hike/">RTX PRO 6000</a>, <a href="https://www.digitalcitizen.life/ddr5-ram-prices-surge-in-2026-as-32gb-kits-reach-450-amid-global-memory-shortage/">DDR5</a>. Collected 2026-10-28.</p>
+        <p class="small" style="margin:10px 0 0">Memory needs are our arithmetic from parameter counts, not published. Sources: model cards for <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash">DeepSeek-V4-Flash</a> and <a href="https://huggingface.co/MiniMaxAI/MiniMax-M3">MiniMax M3</a>; <a href="https://benchlm.ai/models/ornith-1-5-35b-a3b">Ornith-1.5</a> (via BenchLM); prices: <a href="https://computingforgeeks.com/dgx-spark-vs-strix-halo-vs-mac-studio/">128 GB boxes</a>, <a href="https://www.digitalcitizen.life/ddr5-ram-prices-surge-in-2026-as-32gb-kits-reach-450-amid-global-memory-shortage/">DDR5</a>. Collected 2026-10-28.</p>
       </div>
     </section>
 
