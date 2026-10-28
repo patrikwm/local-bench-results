@@ -585,11 +585,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="panel" style="padding:14px 16px;margin:0 0 12px">
         <h3 style="margin:0 0 6px">What this means</h3>
         <ul style="margin:0;padding-left:20px">
-          <li><b>Scores:</b> 10 solved attempts had the upstream code available. That is 9 task-agent pairs: 4 at Level 2 and 5 at Level 3, all on Strata IQ2_XS/IQ3_S, Qwen3.8-27B and Ornith-1.5. Having the code doesn't mean the model copied the answer, but we can't rule it out. These pairs are <b>under review</b>: each of those attempts will be re-run with the network fully off.</li>
+          <li><b>Scores:</b> 10 solved attempts had the upstream code available. That is 9 task-agent pairs: 4 at Level 2 and 5 at Level 3, all on Strata IQ2_XS/IQ3_S, Qwen3.8-27B and Ornith-1.5. Having the code doesn't mean the model copied the answer, but we can't rule it out. These pairs are <b>under review</b>: the 10 attempts have been set aside and are re-running first, on this PC with the network cut off, before the normal queue continues. The pairs update as each one finishes.</li>
           <li><b>Most of the ranking stands:</b> that is 9 pairs out of thousands of attempts. The first attempts on the same tasks were usually solved without any network access.</li>
-          <li><b>Fix before testing resumes:</b> a real network cut-off for the agent sandbox, so it can reach only the local model server; OpenCode's <code>execute</code> tool turned off; and this scan run automatically on every new attempt, with the results shown here.</li>
-          <li><b>Still to check:</b> whether the engines themselves (Strata, llama.cpp) open any outside connections while running. Every model here is open-weight and served from this PC, but we haven't watched the engine processes' network traffic yet.</li>
+          <li><b>Fixed (28 Oct, before testing resumed at 16:15):</b> the sandbox now has a real network cut-off (a firewall in the sandbox, for every user and for Docker containers). Only the local model server and the task's own containers can be reached, and grading is cut off too. Tested: GitHub, a plain IP, Python and Node downloads and containers are all refused, while the model server still answers. We kept OpenCode's <code>execute</code> tool: with no network it can't reach anything, and changing the agent's setup in the middle of the ladder would split its results from earlier ones.</li>
+          <li><b>Scanned automatically from now on:</b> every new attempt records the outside hosts the model tried (it can't reach them any more), shown live below.</li>
+          <li><b>Being checked:</b> whether the engines themselves (Strata, llama.cpp) open any outside connections. For the first 6 hours of testing, their connections are logged every 10 minutes.</li>
         </ul>
+        <p id="secLive" style="margin:10px 0 0;padding:8px 10px;background:var(--pass-bg);border-radius:6px">Live scan: loading…</p>
         <p class="small" style="margin:10px 0 0">Cohere's report: their blog post and TechCrunch, 26 Oct 2026; Cohere published its traces on Hugging Face. The raw traces stay private: the signed link contains what looks like an access key id, and Level 3 task content is never published.</p>
       </div>
     </section>
@@ -788,6 +790,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     const rentChip = (k) => isRent(k) ? `<span class="chip" title="Engine ran on a rented GPU">rented${/L40S/.test(M[k]?.name || "") ? " L40S" : " GPU"}</span>` : "";
     const tasksByLevel = {};
     d.tasks.forEach(t => (tasksByLevel[t.level] ||= []).push(t));
+    const sec = d.security, secEl = document.getElementById("secLive");
+    if (sec && secEl) secEl.innerHTML = `<b>${sec.locked}</b> attempts have run with the network cut off; ` + (sec.tried.length
+      ? `the model still tried an outside host in <b>${sec.tried.length}</b>: ` + sec.tried.map(t => `${esc(mName(t.model))} (${esc(t.agent)}, <code>${esc(t.task)}</code>): ${t.hosts.map(esc).join(", ")}`).join("; ")
+      : "none of them tried to reach an outside host.");
     const mk = d.rows.filter(r => r.variant === "mk" || r.level === 0);
     const summary = Object.fromEntries(d.models_summary.filter(s => s.variant === "mk").map(s => [s.model, s.l1_v2]));
 
