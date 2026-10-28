@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T21:56+01:00",
+ "generated": "2026-10-28T22:01+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -10556,8 +10556,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 6.7,
-  "eta_hours": 162.9,
+  "pace_per_h": 5.6,
+  "eta_hours": 186.8,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -10565,7 +10565,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T21:56",
+  "generated": "2026-10-28T22:01",
   "queue_elapsed_h": {
    "low": 51.7,
    "mid": 62.8,
@@ -10584,9 +10584,9 @@
      "high": 185.3
     },
     "finish": {
-     "low": "2026-10-31T01:36",
-     "mid": "2026-10-31T12:45",
-     "high": "2026-11-05T15:16"
+     "low": "2026-10-31T01:41",
+     "mid": "2026-10-31T12:50",
+     "high": "2026-11-05T15:21"
     },
     "models": [
      [
@@ -10705,9 +10705,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T21:56",
-     "mid": "2026-10-28T21:56",
-     "high": "2026-10-28T21:56"
+     "low": "2026-10-28T22:01",
+     "mid": "2026-10-28T22:01",
+     "high": "2026-10-28T22:01"
     },
     "models": [],
     "gap_min": 0.85,
@@ -11104,16 +11104,16 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 8,
-    "busy_pct": 80
+    "attempts_finished": 7,
+    "busy_pct": 79
    },
    "cloud": {
     "attempts_finished": 0,
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 22,
-    "busy_pct": 32
+    "attempts_finished": 18,
+    "busy_pct": 31
    }
   },
   "items": [
@@ -12472,7 +12472,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T21:56+01:00",
+  "updated": "2026-10-28T22:01+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12816,9 +12816,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 175.7,
+  "hours_up": 175.79,
   "spent_eur": 183.65,
-  "gpu_hours": 249.8,
+  "gpu_hours": 249.9,
   "servers_running": 1
  },
  "utility": [
