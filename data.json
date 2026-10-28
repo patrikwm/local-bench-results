@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T17:20+01:00",
+ "generated": "2026-10-28T17:25+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -10554,7 +10554,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T17:20",
+  "generated": "2026-10-28T17:25",
   "queue_elapsed_h": {
    "low": 44.9,
    "mid": 54.0,
@@ -10573,9 +10573,9 @@
      "high": 173.1
     },
     "finish": {
-     "low": "2026-10-30T14:16",
-     "mid": "2026-10-30T23:21",
-     "high": "2026-11-04T22:24"
+     "low": "2026-10-30T14:22",
+     "mid": "2026-10-30T23:26",
+     "high": "2026-11-04T22:29"
     },
     "models": [
      [
@@ -10696,13 +10696,13 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T17:20",
-     "mid": "2026-10-28T17:20",
-     "high": "2026-10-28T17:20"
+     "low": "2026-10-28T17:25",
+     "mid": "2026-10-28T17:25",
+     "high": "2026-10-28T17:25"
     },
     "models": [],
     "gap_min": 0.85,
-    "block_min": 5.4,
+    "block_min": 5.6,
     "idle_last24h_h": 39.6
    }
   },
@@ -11092,7 +11092,7 @@
    },
    "mac": {
     "attempts_finished": 23,
-    "busy_pct": 13
+    "busy_pct": 14
    }
   },
   "items": [
@@ -11737,9 +11737,9 @@
     "median_s": 321.5
    },
    "Mac": {
-    "solved": 0,
-    "attempts": 1,
-    "median_s": 901.0
+    "solved": 1,
+    "attempts": 2,
+    "median_s": 577.5
    }
   },
   "qwen3-14b-64k": {
@@ -12439,7 +12439,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T17:20+01:00",
+  "updated": "2026-10-28T17:25+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12783,9 +12783,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 171.1,
+  "hours_up": 171.18,
   "spent_eur": 183.65,
-  "gpu_hours": 245.2,
+  "gpu_hours": 245.3,
   "servers_running": 1
  },
  "utility": [
@@ -13020,12 +13020,12 @@
   {
    "model": "devstral2-q4km-64k-mac",
    "front": "Mac",
-   "task": "l0-qualify",
-   "level": 0,
+   "task": "l1-py-tests-roombook",
+   "level": 1,
    "agent": "opencode",
-   "attempt": "warmup",
-   "progress": null,
-   "started": "2026-10-28T17:14:53+01:00"
+   "attempt": "3",
+   "progress": "32/48",
+   "started": "2026-10-28T17:20:21+01:00"
   }
  ],
  "last_done": {
