@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T17:45+01:00",
+ "generated": "2026-10-28T17:46+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -10051,7 +10051,8 @@
     "calls": 1,
     "hosts": [
      "raw.githubusercontent.com"
-    ]
+    ],
+    "blocked": []
    },
    {
     "run": "20261028-162824_l0-qualify_opencode_qwen36-35b-q4kxl-llama-64k-mac-mk_a1",
@@ -10077,158 +10078,7 @@
       "count": 6
      },
      {
-      "dst": "185.125.188.58",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.188.59",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.188.54",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.188.57",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.188.55",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.188.60",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
       "dst": "4.225.11.194",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 1
-     }
-    ]
-   },
-   {
-    "run": "20261028-162949_l0-qualify_pi_qwen36-35b-q4kxl-llama-64k-mac-mk_a2",
-    "model": "qwen36-35b-q4kxl-llama-64k-mac",
-    "agent": "pi",
-    "task": "l0-qualify",
-    "calls": 0,
-    "hosts": [],
-    "ports": [],
-    "blocked": [
-     {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.188.59",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.188.60",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.188.54",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.188.55",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.188.57",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.188.58",
       "proto": "TCP",
       "port": 443,
       "where": "sandbox",
@@ -10246,48 +10096,6 @@
     "ports": [],
     "blocked": [
      {
-      "dst": "185.125.188.58",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 7
-     },
-     {
-      "dst": "185.125.188.60",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 7
-     },
-     {
-      "dst": "185.125.188.55",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 7
-     },
-     {
-      "dst": "185.125.188.59",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 7
-     },
-     {
-      "dst": "185.125.188.57",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 7
-     },
-     {
-      "dst": "185.125.188.54",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 7
-     },
-     {
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
@@ -10302,76 +10110,9 @@
       "count": 3
      },
      {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 3
-     },
-     {
       "dst": "4.225.11.194",
       "proto": "TCP",
       "port": 443,
-      "where": "sandbox",
-      "count": 1
-     }
-    ]
-   },
-   {
-    "run": "20261028-163348_l0-qualify_pi_qwen36-35b-q4kxl-llama-64k-mac-mk_a3",
-    "model": "qwen36-35b-q4kxl-llama-64k-mac",
-    "agent": "pi",
-    "task": "l0-qualify",
-    "calls": 0,
-    "hosts": [],
-    "ports": [],
-    "blocked": [
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 1
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
       "where": "sandbox",
       "count": 1
      }
@@ -10387,48 +10128,6 @@
     "ports": [],
     "blocked": [
      {
-      "dst": "185.125.188.60",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 12
-     },
-     {
-      "dst": "185.125.188.58",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 12
-     },
-     {
-      "dst": "185.125.188.55",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 12
-     },
-     {
-      "dst": "185.125.188.57",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 12
-     },
-     {
-      "dst": "185.125.188.54",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 12
-     },
-     {
-      "dst": "185.125.188.59",
-      "proto": "TCP",
-      "port": 443,
-      "where": "sandbox",
-      "count": 12
-     },
-     {
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
@@ -10439,34 +10138,6 @@
       "dst": "104.20.32.17",
       "proto": "TCP",
       "port": 443,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 6
-     },
-     {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
       "where": "sandbox",
       "count": 6
      }
@@ -10496,34 +10167,6 @@
       "port": 443,
       "where": "sandbox",
       "count": 6
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 5
-     },
-     {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 5
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 5
-     },
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 5
      }
     ]
    },
@@ -10549,34 +10192,6 @@
       "port": 443,
       "where": "sandbox",
       "count": 15
-     },
-     {
-      "dst": "185.125.190.58",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 4
-     },
-     {
-      "dst": "185.125.190.57",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 4
-     },
-     {
-      "dst": "185.125.190.56",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 4
-     },
-     {
-      "dst": "91.189.91.157",
-      "proto": "UDP",
-      "port": 123,
-      "where": "sandbox",
-      "count": 4
      }
     ]
    }
@@ -10629,7 +10244,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T17:45",
+  "generated": "2026-10-28T17:46",
   "queue_elapsed_h": {
    "low": 44.8,
    "mid": 53.8,
@@ -10648,9 +10263,9 @@
      "high": 172.9
     },
     "finish": {
-     "low": "2026-10-30T14:31",
-     "mid": "2026-10-30T23:36",
-     "high": "2026-11-04T22:39"
+     "low": "2026-10-30T14:32",
+     "mid": "2026-10-30T23:37",
+     "high": "2026-11-04T22:40"
     },
     "models": [
      [
@@ -10771,9 +10386,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T17:45",
-     "mid": "2026-10-28T17:45",
-     "high": "2026-10-28T17:45"
+     "low": "2026-10-28T17:46",
+     "mid": "2026-10-28T17:46",
+     "high": "2026-10-28T17:46"
     },
     "models": [],
     "gap_min": 0.85,
@@ -12548,7 +12163,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T17:45+01:00",
+  "updated": "2026-10-28T17:46+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12892,9 +12507,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 171.52,
+  "hours_up": 171.54,
   "spent_eur": 183.65,
-  "gpu_hours": 245.6,
+  "gpu_hours": 245.7,
   "servers_running": 1
  },
  "utility": [
