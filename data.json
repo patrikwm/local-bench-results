@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T16:34+01:00",
+ "generated": "2026-10-28T16:36+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -4522,18 +4522,18 @@
    "variant": "mk",
    "agent": "pi",
    "level": 0,
-   "solved": 1,
-   "attempts": 2,
+   "solved": 2,
+   "attempts": 3,
    "tasks": {
     "l0-qualify": {
-     "solved": 1,
-     "attempts": 2
+     "solved": 2,
+     "attempts": 3
     }
    },
-   "median_s": 28.0,
-   "median_read": 16880.0,
-   "median_written": 1284.5,
-   "decode_tok_s": 55.4,
+   "median_s": 30.0,
+   "median_read": 17007,
+   "median_written": 1299,
+   "decode_tok_s": 58.2,
    "gpu_w": null,
    "cpu_w": null,
    "wh_per_solved": null,
@@ -10019,7 +10019,7 @@
   }
  ],
  "security": {
-  "locked": 25,
+  "locked": 26,
   "tried": [
    {
     "run": "20261028-154355_l3-cpp-lifecycle-httplib-stop_pi_strata-iq2xs-128k-mk_a1",
@@ -10315,6 +10315,45 @@
       "count": 1
      }
     ]
+   },
+   {
+    "run": "20261028-163348_l0-qualify_pi_qwen36-35b-q4kxl-llama-64k-mac-mk_a3",
+    "model": "qwen36-35b-q4kxl-llama-64k-mac",
+    "agent": "pi",
+    "task": "l0-qualify",
+    "calls": 0,
+    "hosts": [],
+    "ports": [],
+    "blocked": [
+     {
+      "dst": "185.125.190.57",
+      "proto": "UDP",
+      "port": 123,
+      "where": "sandbox",
+      "count": 1
+     },
+     {
+      "dst": "91.189.91.157",
+      "proto": "UDP",
+      "port": 123,
+      "where": "sandbox",
+      "count": 1
+     },
+     {
+      "dst": "185.125.190.58",
+      "proto": "UDP",
+      "port": 123,
+      "where": "sandbox",
+      "count": 1
+     },
+     {
+      "dst": "185.125.190.56",
+      "proto": "UDP",
+      "port": 123,
+      "where": "sandbox",
+      "count": 1
+     }
+    ]
    }
   ]
  },
@@ -10356,8 +10395,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 5.8,
-  "eta_hours": 183.2,
+  "pace_per_h": 6.1,
+  "eta_hours": 178.0,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -10365,7 +10404,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T16:34",
+  "generated": "2026-10-28T16:36",
   "queue_elapsed_h": {
    "low": 45.4,
    "mid": 54.5,
@@ -10384,9 +10423,9 @@
      "high": 173.7
     },
     "finish": {
-     "low": "2026-10-30T13:57",
-     "mid": "2026-10-30T23:01",
-     "high": "2026-11-04T22:14"
+     "low": "2026-10-30T13:59",
+     "mid": "2026-10-30T23:03",
+     "high": "2026-11-04T22:16"
     },
     "models": [
      [
@@ -10508,9 +10547,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T16:34",
-     "mid": "2026-10-28T16:34",
-     "high": "2026-10-28T16:34"
+     "low": "2026-10-28T16:36",
+     "mid": "2026-10-28T16:36",
+     "high": "2026-10-28T16:36"
     },
     "models": [],
     "gap_min": 0.85,
@@ -10897,7 +10936,7 @@
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 22,
+    "attempts_finished": 23,
     "busy_pct": 9
    }
   },
@@ -12256,7 +12295,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T16:34+01:00",
+  "updated": "2026-10-28T16:36+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12600,9 +12639,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 170.33,
+  "hours_up": 170.36,
   "spent_eur": 183.65,
-  "gpu_hours": 244.4,
+  "gpu_hours": 244.5,
   "servers_running": 1
  },
  "utility": [
@@ -12833,16 +12872,6 @@
    "attempt": "1",
    "progress": "1/5",
    "started": "2026-10-28T16:08:32+01:00"
-  },
-  {
-   "model": "qwen36-35b-q4kxl-llama-64k-mac",
-   "front": "Mac",
-   "task": "l0-qualify",
-   "level": 0,
-   "agent": "pi",
-   "attempt": "3",
-   "progress": "5/6",
-   "started": "2026-10-28T16:33:48+01:00"
   }
  ],
  "last_done": {
@@ -12880,11 +12909,11 @@
    "model": "qwen36-35b-q4kxl-llama-64k-mac",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "opencode",
-   "attempt": "2",
+   "agent": "pi",
+   "attempt": "3",
    "solved": true,
-   "wall_s": 75,
-   "ended": "2026-10-28T16:31:47+01:00"
+   "wall_s": 46,
+   "ended": "2026-10-28T16:34:31+01:00"
   }
  },
  "fronts_off": {
