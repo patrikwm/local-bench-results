@@ -10288,8 +10288,8 @@
     },
     "finish": {
      "low": "2026-10-30T14:36",
-     "mid": "2026-10-30T23:40",
-     "high": "2026-11-04T22:43"
+     "mid": "2026-10-30T23:41",
+     "high": "2026-11-04T22:44"
     },
     "models": [
      [
@@ -12531,7 +12531,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 171.59,
+  "hours_up": 171.61,
   "spent_eur": 183.65,
   "gpu_hours": 245.7,
   "servers_running": 1
