@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T17:46+01:00",
+ "generated": "2026-10-28T17:50+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -10067,22 +10067,28 @@
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 6
+      "count": 6,
+      "who": "agent"
      },
      {
       "dst": "104.20.32.17",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 6
+      "count": 6,
+      "who": "agent"
      },
      {
       "dst": "4.225.11.194",
       "proto": "TCP",
       "port": 443,
+      "uid": 0,
       "where": "sandbox",
-      "count": 1
+      "count": 1,
+      "who": "agent"
      }
     ]
    },
@@ -10099,22 +10105,28 @@
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 3
+      "count": 3,
+      "who": "agent"
      },
      {
       "dst": "104.20.32.17",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 3
+      "count": 3,
+      "who": "agent"
      },
      {
       "dst": "4.225.11.194",
       "proto": "TCP",
       "port": 443,
+      "uid": 0,
       "where": "sandbox",
-      "count": 1
+      "count": 1,
+      "who": "agent"
      }
     ]
    },
@@ -10131,15 +10143,19 @@
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 6
+      "count": 6,
+      "who": "agent"
      },
      {
       "dst": "104.20.32.17",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 6
+      "count": 6,
+      "who": "agent"
      }
     ]
    },
@@ -10158,15 +10174,19 @@
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 6
+      "count": 6,
+      "who": "agent"
      },
      {
       "dst": "104.20.32.17",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 6
+      "count": 6,
+      "who": "agent"
      }
     ]
    },
@@ -10183,15 +10203,19 @@
       "dst": "104.20.32.17",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 15
+      "count": 15,
+      "who": "agent"
      },
      {
       "dst": "172.66.173.149",
       "proto": "TCP",
       "port": 443,
+      "uid": 1000,
       "where": "sandbox",
-      "count": 15
+      "count": 15,
+      "who": "agent"
      }
     ]
    }
@@ -10244,7 +10268,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T17:46",
+  "generated": "2026-10-28T17:50",
   "queue_elapsed_h": {
    "low": 44.8,
    "mid": 53.8,
@@ -10263,9 +10287,9 @@
      "high": 172.9
     },
     "finish": {
-     "low": "2026-10-30T14:32",
-     "mid": "2026-10-30T23:37",
-     "high": "2026-11-04T22:40"
+     "low": "2026-10-30T14:36",
+     "mid": "2026-10-30T23:40",
+     "high": "2026-11-04T22:43"
     },
     "models": [
      [
@@ -10386,9 +10410,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T17:46",
-     "mid": "2026-10-28T17:46",
-     "high": "2026-10-28T17:46"
+     "low": "2026-10-28T17:50",
+     "mid": "2026-10-28T17:50",
+     "high": "2026-10-28T17:50"
     },
     "models": [],
     "gap_min": 0.85,
@@ -12163,7 +12187,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T17:46+01:00",
+  "updated": "2026-10-28T17:50+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12507,7 +12531,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 171.54,
+  "hours_up": 171.59,
   "spent_eur": 183.65,
   "gpu_hours": 245.7,
   "servers_running": 1
