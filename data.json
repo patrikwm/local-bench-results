@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T17:50+01:00",
+ "generated": "2026-10-28T17:56+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -968,6 +968,28 @@
    "cpu_w": null,
    "wh_per_solved": null,
    "agent_version": "2.0.32"
+  },
+  {
+   "model": "devstral2-q4km-64k-mac",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 1,
+   "solved": 0,
+   "attempts": 1,
+   "tasks": {
+    "l1-rs-tests-shipping-rates": {
+     "solved": 0,
+     "attempts": 1
+    }
+   },
+   "median_s": 1201.6,
+   "median_read": 290202,
+   "median_written": 13665,
+   "decode_tok_s": 12.6,
+   "gpu_w": null,
+   "cpu_w": null,
+   "wh_per_solved": null,
+   "agent_version": "1.3.0"
   },
   {
    "model": "devstral2-q4km-64k-upcloud",
@@ -10041,7 +10063,7 @@
   }
  ],
  "security": {
-  "locked": 30,
+  "locked": 31,
   "tried": [
    {
     "run": "20261028-154355_l3-cpp-lifecycle-httplib-stop_pi_strata-iq2xs-128k-mk_a1",
@@ -10218,18 +10240,47 @@
       "who": "agent"
      }
     ]
+   },
+   {
+    "run": "20261028-173221_l1-rs-tests-shipping-rates_pi_devstral2-q4km-64k-mac-mk_a3",
+    "model": "devstral2-q4km-64k-mac",
+    "agent": "pi",
+    "task": "l1-rs-tests-shipping-rates",
+    "calls": 0,
+    "hosts": [],
+    "ports": [],
+    "blocked": [
+     {
+      "dst": "172.66.173.149",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 10,
+      "who": "agent"
+     },
+     {
+      "dst": "104.20.32.17",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 10,
+      "who": "agent"
+     }
+    ]
    }
   ]
  },
  "progress": {
   "planned_max": 5142,
   "project_pct": 85.0,
-  "test_pct": 67.1,
+  "test_pct": 67.2,
   "pairs_full": 1986,
-  "pairs_tested": 1333,
+  "pairs_tested": 1334,
   "pairs_skipped": 355,
-  "eta_realistic_hours": 45.1,
-  "eta_pc_hours": 45.1,
+  "eta_realistic_hours": 45.0,
+  "eta_pc_hours": 45.0,
   "eta_cloud_hours": 12.2,
   "rented_servers": 1,
   "eta_realistic_by_level": {
@@ -10250,17 +10301,17 @@
    "3": 0.2,
    "4": 0.5
   },
-  "settled": 4354,
-  "graded_screening": 3117,
+  "settled": 4355,
+  "graded_screening": 3118,
   "settled_by_front": {
-   "pc": 2042,
+   "pc": 2043,
    "cloud": 2312
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 7.0,
-  "eta_hours": 160.0,
+  "pace_per_h": 7.2,
+  "eta_hours": 156.2,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -10268,28 +10319,28 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-28T17:50",
+  "generated": "2026-10-28T17:56",
   "queue_elapsed_h": {
-   "low": 44.8,
-   "mid": 53.8,
-   "high": 172.9
+   "low": 44.6,
+   "mid": 53.7,
+   "high": 172.7
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 40.6,
-     "mid": 49.7,
-     "high": 167.0
+     "low": 40.4,
+     "mid": 49.5,
+     "high": 166.8
     },
     "elapsed_h": {
-     "low": 44.8,
-     "mid": 53.8,
-     "high": 172.9
+     "low": 44.6,
+     "mid": 53.7,
+     "high": 172.7
     },
     "finish": {
-     "low": "2026-10-30T14:36",
-     "mid": "2026-10-30T23:41",
-     "high": "2026-11-04T22:44"
+     "low": "2026-10-30T14:31",
+     "mid": "2026-10-30T23:35",
+     "high": "2026-11-04T22:39"
     },
     "models": [
      [
@@ -10410,9 +10461,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-28T17:50",
-     "mid": "2026-10-28T17:50",
-     "high": "2026-10-28T17:50"
+     "low": "2026-10-28T17:56",
+     "mid": "2026-10-28T17:56",
+     "high": "2026-10-28T17:56"
     },
     "models": [],
     "gap_min": 0.85,
@@ -10429,24 +10480,24 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 44.8,
-    "with_mac_h": 44.8
+    "pc_alone_h": 44.6,
+    "with_mac_h": 44.6
    },
    "mid": {
-    "pc_alone_h": 53.8,
-    "with_mac_h": 53.8
+    "pc_alone_h": 53.7,
+    "with_mac_h": 53.7
    },
    "high": {
-    "pc_alone_h": 172.9,
-    "with_mac_h": 172.9
+    "pc_alone_h": 172.7,
+    "with_mac_h": 172.7
    }
   },
   "slots": {
-   "executed": 3158,
+   "executed": 3159,
    "skipped: majority stop": 986,
    "skipped: model eliminated at an earlier level": 802,
    "skipped: level ended early (probe / level stop)": 296,
-   "open: assigned": 180,
+   "open: assigned": 179,
    "open: blocked": 2,
    "open: conditional": 408,
    "plan_total": 5832,
@@ -10454,12 +10505,12 @@
   },
   "pairs": {
    "total": 1944,
-   "decided by attempts": 1323,
+   "decided by attempts": 1324,
    "settled by a rule (never decided)": 417,
-   "open": 204
+   "open": 203
   },
   "expected_attempts": {
-   "assigned": 132.4,
+   "assigned": 131.4,
    "conditional": 156.7,
    "blocked": 0.3
   },
@@ -10805,8 +10856,8 @@
     "busy_pct": 0
    },
    "mac": {
-    "attempts_finished": 24,
-    "busy_pct": 17
+    "attempts_finished": 25,
+    "busy_pct": 23
    }
   },
   "items": [
@@ -10897,14 +10948,14 @@
     "machine": "pc",
     "blocked": null,
     "note": "",
-    "attempts_exp": 4.0,
-    "attempts_max": 4,
+    "attempts_exp": 3.0,
+    "attempts_max": 3,
     "p_reach": 1.0,
-    "worker_h": 0.7,
-    "elapsed_h": 0.8,
+    "worker_h": 0.5,
+    "elapsed_h": 0.6,
     "worker_h_if_unblocked": null,
     "how_pc": "measured (52 at this level)",
-    "how_mac": "1 at this level + model ratio 8.42 from 1 attempts"
+    "how_mac": "2 at this level + model ratio 7.95 from 2 attempts"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10920,7 +10971,7 @@
     "elapsed_h": 14.7,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.66 from 52 attempts on this machine",
-    "how_mac": "model ratio 8.42 from 1 attempts on this machine"
+    "how_mac": "model ratio 7.95 from 2 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10936,7 +10987,7 @@
     "elapsed_h": 2.8,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.66 from 52 attempts on this machine",
-    "how_mac": "model ratio 8.42 from 1 attempts on this machine"
+    "how_mac": "model ratio 7.95 from 2 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10952,7 +11003,7 @@
     "elapsed_h": 2.5,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.66 from 52 attempts on this machine",
-    "how_mac": "model ratio 8.42 from 1 attempts on this machine"
+    "how_mac": "model ratio 7.95 from 2 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10968,7 +11019,7 @@
     "elapsed_h": 2.8,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.66 from 52 attempts on this machine",
-    "how_mac": "model ratio 8.42 from 1 attempts on this machine"
+    "how_mac": "model ratio 7.95 from 2 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -10984,7 +11035,7 @@
     "elapsed_h": 9.1,
     "worker_h_if_unblocked": null,
     "how_pc": "model ratio 2.66 from 52 attempts on this machine",
-    "how_mac": "model ratio 8.42 from 1 attempts on this machine"
+    "how_mac": "model ratio 7.95 from 2 attempts on this machine"
    },
    {
     "model": "strata-iq3s-64k",
@@ -11516,10 +11567,10 @@
     "pairs_expected": 24,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 1,
+    "attempts": 2,
     "attempts_solved": 1,
-    "median_s": 634.2,
-    "decode_tok_s": 12.8,
+    "median_s": 917.9,
+    "decode_tok_s": 12.7,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -11531,10 +11582,10 @@
     "pairs_expected": 56,
     "pairs_decided": 0,
     "pairs_passed": 0,
-    "attempts": 1,
+    "attempts": 2,
     "attempts_solved": 1,
-    "median_s": 634.2,
-    "decode_tok_s": 12.8,
+    "median_s": 917.9,
+    "decode_tok_s": 12.7,
     "gpu_w": null,
     "cpu_w": null,
     "energy_wh": null,
@@ -12187,7 +12238,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-28T17:50+01:00",
+  "updated": "2026-10-28T17:56+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12531,9 +12582,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 171.61,
+  "hours_up": 171.69,
   "spent_eur": 183.65,
-  "gpu_hours": 245.7,
+  "gpu_hours": 245.8,
   "servers_running": 1
  },
  "utility": [
@@ -12770,10 +12821,10 @@
    "front": "Mac",
    "task": "l1-rs-tests-shipping-rates",
    "level": 1,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "3",
-   "progress": "39/48",
-   "started": "2026-10-28T17:32:21+01:00"
+   "progress": "40/48",
+   "started": "2026-10-28T17:53:37+01:00"
   }
  ],
  "last_done": {
@@ -12809,13 +12860,13 @@
   },
   "Mac": {
    "model": "devstral2-q4km-64k-mac",
-   "task": "l1-py-tests-roombook",
+   "task": "l1-rs-tests-shipping-rates",
    "level": 1,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "3",
-   "solved": true,
-   "wall_s": 634,
-   "ended": "2026-10-28T17:31:00+01:00"
+   "solved": false,
+   "wall_s": 1202,
+   "ended": "2026-10-28T17:52:25+01:00"
   }
  },
  "fronts_off": {
