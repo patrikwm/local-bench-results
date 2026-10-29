@@ -28,6 +28,7 @@
   --focus: #2f6fe4;
   --hatch: rgba(21,35,58,.08);
   --hw-pc: #8a96a8; --hw-mac: #2f6fe4; --hw-l40s: #d98a00; --hw-rtx: #6a4bc4;
+  --wip: #dce8ff; --wip-ink: #1d4fb8;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -49,6 +50,7 @@
     --focus: #7aa7ff;
     --hatch: rgba(231,236,244,.07);
     --hw-pc: #8795ab; --hw-mac: #7aa7ff; --hw-l40s: #f0b04a; --hw-rtx: #a990f2;
+    --wip: #1d3360; --wip-ink: #a9c6ff;
   }
 }
 :root[data-theme="dark"] {
@@ -57,6 +59,7 @@
   --miss-bg: #43202c; --rent: #a990f2; --rent-bg: #2a2348; --todo: #1b2740; --bar: #e7ecf4;
   --focus: #7aa7ff; --hatch: rgba(231,236,244,.07);
   --hw-pc: #8795ab; --hw-mac: #7aa7ff; --hw-l40s: #f0b04a; --hw-rtx: #a990f2;
+  --wip: #1d3360; --wip-ink: #a9c6ff;
 }
 
 * { box-sizing: border-box; }
@@ -177,6 +180,8 @@ h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; font-variation-settings
 .cell.empty { background: var(--todo); color: var(--muted); }
 .cell.skip { background: repeating-linear-gradient(135deg, var(--hatch) 0 5px, transparent 5px 10px), var(--todo); color: var(--muted); font-size: 11.5px; }
 .cell.probe { outline: 1.5px dashed currentColor; outline-offset: -4px; }
+.cell.wip { background: var(--wip); color: var(--wip-ink); }
+.cell.wip .p { font-size: 14px; }
 .cell .tick { position: absolute; top: 4px; right: 6px; font-size: 11px; font-weight: 800; }
 .ladder-note { padding: 10px 16px 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule-2); }
 .scale { display: inline-flex; border-radius: 4px; overflow: hidden; vertical-align: middle; margin: 0 6px; }
@@ -432,7 +437,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <span class="scale" aria-hidden="true" id="ladderScale"></span>
             0 % → 100 %, split at the 50 % pass line</span>
           <span><b style="color:var(--pass)">✓</b> level passed</span>
-          <span>Dashed: one probe attempt per task so far, or L0 from the warm-ups (attempt share shown)</span>
+          <span><i class="hwkey" style="background:var(--wip);border-color:var(--wip-ink)"></i>Blue: work started, no pair decided yet (solved / attempts so far)</span>
+          <span>Dashed: L0 from the warm-ups (attempt share shown)</span>
           <span>Ran on: <i class="hwkey" style="border-color:var(--hw-mac)"></i>Mac <i class="hwkey" style="border-color:var(--hw-l40s)"></i>rented L40S <i class="hwkey" style="border-color:var(--hw-rtx)"></i>rented RTX PRO 6000; no ring: this PC; a split ring: several machines (<i class="hwkey" style="border-color:var(--hw-pc)"></i>PC part)</span>
           <span>◆ same files on another engine: hover for its numbers</span>
           <span>Hover a tile for its counts, times and machines; a slowly pulsing tile is running right now</span>
@@ -988,7 +994,8 @@ ${m}: ${wu[m].solved}/${wu[m].attempts} solved, median ${Math.round(wu[m].median
 Median attempt time: ${Math.round(s.median_s)} s` : "";
         if (s.decided === 0) {
           const ap = pct(s.solved, s.att);
-          html += `<td class="cell probe anim${hc}" style="${heat(ap)}${delay}${hs}" title="${esc(`${LNAME[l]}: ${s.solved}/${s.att} attempts solved, no pair decided yet (probe)${tm}${on(s.machines)}${cTip}`)}"><span class="p">${ap}%</span>${cMark}</td>`;
+          // blue: work done but no pair decided yet (Patrik 2026-10-29), so it is not read as a result
+          html += `<td class="cell wip anim${hc}" style="${delay}${hs}" title="${esc(`${LNAME[l]}: work started, ${s.solved}/${s.att} attempts solved (${ap}%), no pair decided yet: a pair needs 2 of 3${tm}${on(s.machines)}${cTip}`)}"><span class="p">${s.solved}/${s.att}</span>${cMark}</td>`;
           return;
         }
         const pp = pct(s.passed, s.decided);
