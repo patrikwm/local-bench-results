@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T06:43+01:00",
+ "generated": "2026-10-29T06:48+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -974,10 +974,14 @@
    "variant": "mk",
    "agent": "pi",
    "level": 2,
-   "solved": 7,
-   "attempts": 7,
+   "solved": 8,
+   "attempts": 8,
    "tasks": {
     "l2-cpp-bugfix-cli11-underscore": {
+     "solved": 1,
+     "attempts": 1
+    },
+    "l2-cpp-feature-cli11-multipleof": {
      "solved": 1,
      "attempts": 1
     },
@@ -1006,13 +1010,13 @@
      "attempts": 1
     }
    },
-   "median_s": 2700.3,
-   "median_read": 821360,
-   "median_written": 8385,
-   "decode_tok_s": 3.8,
+   "median_s": 2700.6,
+   "median_read": 863014.5,
+   "median_written": 7770.5,
+   "decode_tok_s": 3.6,
    "gpu_w": 45.8,
-   "cpu_w": 166.6,
-   "wh_per_solved": 138.42,
+   "cpu_w": 167.6,
+   "wh_per_solved": 141.37,
    "agent_version": "1.3.0"
   },
   {
@@ -10187,7 +10191,7 @@
   }
  ],
  "security": {
-  "locked": 46,
+  "locked": 47,
   "tried": [
    {
     "run": "20261028-154355_l3-cpp-lifecycle-httplib-stop_pi_strata-iq2xs-128k-mk_a1",
@@ -10708,6 +10712,242 @@
       "who": "agent"
      }
     ]
+   },
+   {
+    "run": "20261029-055958_l2-cpp-feature-cli11-multipleof_pi_devstral2-q4km-64k-mk_a1",
+    "model": "devstral2-q4km-64k",
+    "agent": "pi",
+    "task": "l2-cpp-feature-cli11-multipleof",
+    "calls": 0,
+    "hosts": [],
+    "ports": [],
+    "blocked": [
+     {
+      "dst": "91.189.91.81",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.91.82",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "185.125.190.82",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.92.22",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "185.125.190.81",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.92.24",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.91.83",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.92.23",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "185.125.190.83",
+      "proto": "TCP",
+      "port": 80,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 2,
+      "who": "agent"
+     },
+     {
+      "dst": "104.20.45.190",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "172.66.150.169",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "52.84.50.4",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "52.84.50.9",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "52.84.50.112",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "52.84.50.77",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "34.245.102.249",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "34.244.58.147",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "54.154.251.197",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "34.253.181.30",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "3.254.173.149",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.91.47",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "91.189.91.46",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "185.125.190.24",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "185.125.190.75",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     },
+     {
+      "dst": "185.125.190.23",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 42,
+      "where": "sandbox",
+      "count": 1,
+      "who": "agent"
+     }
+    ]
    }
   ]
  },
@@ -10740,17 +10980,17 @@
    "3": 0.43,
    "4": 0.5
   },
-  "settled": 4370,
-  "graded_screening": 3133,
+  "settled": 4371,
+  "graded_screening": 3134,
   "settled_by_front": {
-   "pc": 2061,
+   "pc": 2062,
    "cloud": 2309
   },
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 1.4,
-  "eta_hours": 597.2,
+  "pace_per_h": 1.6,
+  "eta_hours": 518.1,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -10758,28 +10998,28 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-29T06:43",
+  "generated": "2026-10-29T06:48",
   "queue_elapsed_h": {
-   "low": 63.7,
-   "mid": 77.9,
-   "high": 228.7
+   "low": 64.5,
+   "mid": 78.9,
+   "high": 232.3
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 59.3,
-     "mid": 73.5,
-     "high": 222.5
+     "low": 60.2,
+     "mid": 74.6,
+     "high": 226.1
     },
     "elapsed_h": {
-     "low": 63.7,
-     "mid": 77.9,
-     "high": 228.7
+     "low": 64.5,
+     "mid": 78.9,
+     "high": 232.3
     },
     "finish": {
-     "low": "2026-10-31T22:25",
-     "mid": "2026-11-01T12:35",
-     "high": "2026-11-07T19:25"
+     "low": "2026-10-31T23:20",
+     "mid": "2026-11-01T13:43",
+     "high": "2026-11-07T23:04"
     },
     "models": [
      [
@@ -10897,9 +11137,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-29T06:43",
-     "mid": "2026-10-29T06:43",
-     "high": "2026-10-29T06:43"
+     "low": "2026-10-29T06:48",
+     "mid": "2026-10-29T06:48",
+     "high": "2026-10-29T06:48"
     },
     "models": [],
     "gap_min": 0.85,
@@ -10916,24 +11156,24 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 63.7,
-    "with_mac_h": 63.7
+    "pc_alone_h": 64.5,
+    "with_mac_h": 64.5
    },
    "mid": {
-    "pc_alone_h": 77.9,
-    "with_mac_h": 77.9
+    "pc_alone_h": 78.9,
+    "with_mac_h": 78.9
    },
    "high": {
-    "pc_alone_h": 228.7,
-    "with_mac_h": 228.7
+    "pc_alone_h": 232.3,
+    "with_mac_h": 232.3
    }
   },
   "slots": {
-   "executed": 3174,
+   "executed": 3175,
    "skipped: majority stop": 986,
    "skipped: model eliminated at an earlier level": 802,
    "skipped: level ended early (probe / level stop)": 296,
-   "open: assigned": 273,
+   "open: assigned": 272,
    "open: blocked": 1,
    "open: conditional": 300,
    "plan_total": 5832,
@@ -10946,7 +11186,7 @@
    "open": 198
   },
   "expected_attempts": {
-   "assigned": 196.5,
+   "assigned": 195.5,
    "conditional": 104.0,
    "blocked": 0.2
   },
@@ -11293,7 +11533,7 @@
    "worker_h_per_model": {
     "pc": 64,
     "mac": [
-     116,
+     117,
      237
     ],
     "note": "PC level means; Mac 1.82x (measured, Qwen3-Coder) to 3.7x (dense models); Strata on the Mac 4-5x; plus up to 24 h of L4 per model and machine"
@@ -11302,8 +11542,8 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 7,
-    "busy_pct": 67
+    "attempts_finished": 8,
+    "busy_pct": 78
    },
    "cloud": {
     "attempts_finished": 0,
@@ -11328,8 +11568,8 @@
     "worker_h": 0.2,
     "elapsed_h": 0.3,
     "worker_h_if_unblocked": null,
-    "how_pc": "prior ratio 1.54 (no attempts yet)",
-    "how_mac": "prior ratio 4.61 (no attempts yet)"
+    "how_pc": "prior ratio 1.53 (no attempts yet)",
+    "how_mac": "prior ratio 4.60 (no attempts yet)"
    },
    {
     "model": "ornith35b-q8-128k",
@@ -11361,7 +11601,7 @@
     "elapsed_h": 0.2,
     "worker_h_if_unblocked": null,
     "how_pc": "measured (128 at this level)",
-    "how_mac": "model ratio 6.01 from 8 attempts on this machine"
+    "how_mac": "model ratio 5.99 from 8 attempts on this machine"
    },
    {
     "model": "qwen38-27b-q4km-64k",
@@ -11386,14 +11626,14 @@
     "machine": "pc",
     "blocked": null,
     "note": "",
-    "attempts_exp": 52.8,
-    "attempts_max": 76,
+    "attempts_exp": 51.8,
+    "attempts_max": 75,
     "p_reach": 1.0,
-    "worker_h": 29.1,
-    "elapsed_h": 29.6,
+    "worker_h": 29.6,
+    "elapsed_h": 30.0,
     "worker_h_if_unblocked": null,
-    "how_pc": "8 at this level + model ratio 3.17 from 60 attempts",
-    "how_mac": "model ratio 7.66 from 5 attempts on this machine"
+    "how_pc": "9 at this level + model ratio 3.23 from 61 attempts",
+    "how_mac": "model ratio 7.77 from 5 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -11408,8 +11648,8 @@
     "worker_h": 4.1,
     "elapsed_h": 4.3,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 3.17 from 60 attempts on this machine",
-    "how_mac": "model ratio 7.66 from 5 attempts on this machine"
+    "how_pc": "model ratio 3.23 from 61 attempts on this machine",
+    "how_mac": "model ratio 7.77 from 5 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -11421,11 +11661,11 @@
     "attempts_exp": 18.0,
     "attempts_max": 24,
     "p_reach": 0.54,
-    "worker_h": 3.8,
-    "elapsed_h": 3.9,
+    "worker_h": 3.9,
+    "elapsed_h": 4.0,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 3.17 from 60 attempts on this machine",
-    "how_mac": "model ratio 7.66 from 5 attempts on this machine"
+    "how_pc": "model ratio 3.23 from 61 attempts on this machine",
+    "how_mac": "model ratio 7.77 from 5 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -11437,11 +11677,11 @@
     "attempts_exp": 17.1,
     "attempts_max": 24,
     "p_reach": 0.4,
-    "worker_h": 4.2,
+    "worker_h": 4.3,
     "elapsed_h": 4.3,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 3.17 from 60 attempts on this machine",
-    "how_mac": "model ratio 7.66 from 5 attempts on this machine"
+    "how_pc": "model ratio 3.23 from 61 attempts on this machine",
+    "how_mac": "model ratio 7.77 from 5 attempts on this machine"
    },
    {
     "model": "devstral2-q4km-64k",
@@ -11453,11 +11693,11 @@
     "attempts_exp": 36.0,
     "attempts_max": 48,
     "p_reach": 0.2,
-    "worker_h": 15.5,
-    "elapsed_h": 15.6,
+    "worker_h": 15.8,
+    "elapsed_h": 15.9,
     "worker_h_if_unblocked": null,
-    "how_pc": "model ratio 3.17 from 60 attempts on this machine",
-    "how_mac": "model ratio 7.66 from 5 attempts on this machine"
+    "how_pc": "model ratio 3.23 from 61 attempts on this machine",
+    "how_mac": "model ratio 7.77 from 5 attempts on this machine"
    },
    {
     "model": "laguna-s21-iq4xs-64k",
@@ -11485,8 +11725,8 @@
     "attempts_exp": 60.8,
     "attempts_max": 84,
     "p_reach": 0.79,
-    "worker_h": 4.1,
-    "elapsed_h": 4.5,
+    "worker_h": 4.2,
+    "elapsed_h": 4.6,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 0.65 (no attempts yet)",
     "how_mac": "prior ratio 1.95 (no attempts yet)"
@@ -12654,7 +12894,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-29T06:43+01:00",
+  "updated": "2026-10-29T06:48+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -12998,9 +13238,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 184.48,
+  "hours_up": 184.56,
   "spent_eur": 183.65,
-  "gpu_hours": 258.6,
+  "gpu_hours": 258.7,
   "servers_running": 1
  },
  "utility": [
@@ -13227,22 +13467,22 @@
    "front": "PC",
    "task": "l2-cpp-feature-cli11-multipleof",
    "level": 2,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "9/84",
-   "started": "2026-10-29T05:59:58+01:00"
+   "progress": "10/84",
+   "started": "2026-10-29T06:46:21+01:00"
   }
  ],
  "last_done": {
   "PC": {
    "model": "devstral2-q4km-64k",
-   "task": "l2-cpp-bugfix-cli11-underscore",
+   "task": "l2-cpp-feature-cli11-multipleof",
    "level": 2,
-   "agent": "opencode",
+   "agent": "pi",
    "attempt": "1",
-   "solved": false,
-   "wall_s": 2086,
-   "ended": "2026-10-29T05:58:32+01:00"
+   "solved": true,
+   "wall_s": 2702,
+   "ended": "2026-10-29T06:44:56+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
