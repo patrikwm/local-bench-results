@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T00:27+01:00",
+ "generated": "2026-10-31T00:32+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -11443,7 +11443,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-31T00:27",
+  "generated": "2026-10-31T00:32",
   "queue_elapsed_h": {
    "low": 52.8,
    "mid": 64.4,
@@ -11462,9 +11462,9 @@
      "high": 199.2
     },
     "finish": {
-     "low": "2026-11-02T05:17",
-     "mid": "2026-11-02T16:48",
-     "high": "2026-11-08T07:40"
+     "low": "2026-11-02T05:22",
+     "mid": "2026-11-02T16:53",
+     "high": "2026-11-08T07:45"
     },
     "models": [
      [
@@ -11579,13 +11579,13 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-31T00:27",
-     "mid": "2026-10-31T00:27",
-     "high": "2026-10-31T00:27"
+     "low": "2026-10-31T00:32",
+     "mid": "2026-10-31T00:32",
+     "high": "2026-10-31T00:32"
     },
     "models": [],
     "gap_min": 0.85,
-    "block_min": 6.5,
+    "block_min": 6.7,
     "idle_last24h_h": 52.1
    }
   },
@@ -11999,7 +11999,7 @@
    },
    "mac": {
     "attempts_finished": 8,
-    "busy_pct": 25
+    "busy_pct": 26
    }
   },
   "items": [
@@ -12558,9 +12558,9 @@
     "median_s": 227.3
    },
    "Mac": {
-    "solved": 2,
-    "attempts": 4,
-    "median_s": 577.5
+    "solved": 3,
+    "attempts": 5,
+    "median_s": 256.5
    }
   },
   "qwen3-14b-64k": {
@@ -13294,7 +13294,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-31T00:27+01:00",
+  "updated": "2026-10-31T00:32+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -13638,9 +13638,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 226.22,
+  "hours_up": 226.3,
   "spent_eur": 183.65,
-  "gpu_hours": 300.3,
+  "gpu_hours": 300.4,
   "servers_running": 1
  },
  "utility": [
@@ -13877,10 +13877,10 @@
    "front": "Mac",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "warmup",
    "progress": null,
-   "started": "2026-10-31T00:26:21+01:00"
+   "started": "2026-10-31T00:31:17+01:00"
   }
  ],
  "last_done": {
