@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T07:52+01:00",
+ "generated": "2026-10-31T07:57+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -12192,7 +12192,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-10-31T07:52",
+  "generated": "2026-10-31T07:57",
   "queue_elapsed_h": {
    "low": 55.7,
    "mid": 61.9,
@@ -12211,9 +12211,9 @@
      "high": 191.2
     },
     "finish": {
-     "low": "2026-11-02T15:35",
-     "mid": "2026-11-02T21:48",
-     "high": "2026-11-08T07:04"
+     "low": "2026-11-02T15:40",
+     "mid": "2026-11-02T21:53",
+     "high": "2026-11-08T07:09"
     },
     "models": [
      [
@@ -12328,9 +12328,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-10-31T07:52",
-     "mid": "2026-10-31T07:52",
-     "high": "2026-10-31T07:52"
+     "low": "2026-10-31T07:57",
+     "mid": "2026-10-31T07:57",
+     "high": "2026-10-31T07:57"
     },
     "models": [],
     "gap_min": 0.85,
@@ -12740,7 +12740,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 7,
-    "busy_pct": 79
+    "busy_pct": 78
    },
    "cloud": {
     "attempts_finished": 0,
@@ -14043,7 +14043,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-10-31T07:52+01:00",
+  "updated": "2026-10-31T07:57+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -14387,7 +14387,7 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 233.64,
+  "hours_up": 233.72,
   "spent_eur": 183.65,
   "gpu_hours": 307.8,
   "servers_running": 1
@@ -14610,7 +14610,18 @@
    "median_out_tokens": 19.5
   }
  ],
- "running": [],
+ "running": [
+  {
+   "model": "devstral2-q4km-64k",
+   "front": "PC",
+   "task": "l2-py-feature-tenacity-stopidle",
+   "level": 2,
+   "agent": "opencode",
+   "attempt": "1",
+   "progress": "13/75",
+   "started": "2026-10-31T07:55:15+01:00"
+  }
+ ],
  "last_done": {
   "PC": {
    "model": "devstral2-q4km-64k",
