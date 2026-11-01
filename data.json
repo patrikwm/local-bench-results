@@ -13002,7 +13002,7 @@
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 29.8,
+     "low": 29.7,
      "mid": 35.9,
      "high": 139.1
     },
@@ -13541,7 +13541,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 0,
-    "busy_pct": 1
+    "busy_pct": 2
    },
    "cloud": {
     "attempts_finished": 0,
@@ -13564,7 +13564,7 @@
     "attempts_max": 2,
     "p_reach": 1.0,
     "worker_h": 0.2,
-    "elapsed_h": 0.2,
+    "elapsed_h": 0.3,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 1.38 (no attempts yet)",
     "how_mac": "prior ratio 4.13 (no attempts yet)"
@@ -13790,7 +13790,7 @@
     "worker_h": 0.5,
     "elapsed_h": 0.6,
     "worker_h_if_unblocked": null,
-    "how_pc": "PC warm-ups of this model (11)",
+    "how_pc": "PC warm-ups of this model (12)",
     "how_mac": "not planned on the Mac"
    },
    {
@@ -14103,9 +14103,9 @@
     "median_s": 45.0
    },
    "PC": {
-    "solved": 10,
-    "attempts": 11,
-    "median_s": 260.5
+    "solved": 11,
+    "attempts": 12,
+    "median_s": 215.3
    },
    "Mac": {
     "solved": 4,
@@ -15411,18 +15411,7 @@
    "median_out_tokens": 19.5
   }
  ],
- "running": [
-  {
-   "model": "devstral2-q4km-64k",
-   "front": "PC",
-   "task": "l0-qualify",
-   "level": 0,
-   "agent": "opencode",
-   "attempt": "warmup",
-   "progress": null,
-   "started": "2026-11-01T23:05:48+01:00"
-  }
- ],
+ "running": [],
  "last_done": {
   "PC": {
    "model": "devstral2-q4km-64k",
