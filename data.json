@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T06:34+01:00",
+ "generated": "2026-11-02T06:39+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -6762,21 +6762,21 @@
    "variant": "mk",
    "agent": "opencode",
    "level": 0,
-   "solved": 1,
-   "attempts": 1,
+   "solved": 2,
+   "attempts": 3,
    "tasks": {
     "l0-qualify": {
-     "solved": 1,
-     "attempts": 1
+     "solved": 2,
+     "attempts": 3
     }
    },
-   "median_s": 64.1,
-   "median_read": 39929,
-   "median_written": 1195,
+   "median_s": 60.1,
+   "median_read": 39610,
+   "median_written": 1043,
    "decode_tok_s": 32.1,
-   "gpu_w": 57.5,
-   "cpu_w": 108.8,
-   "wh_per_solved": 2.96,
+   "gpu_w": 59.6,
+   "cpu_w": 106.3,
+   "wh_per_solved": 4.04,
    "agent_version": "2.0.32"
   },
   {
@@ -6807,20 +6807,20 @@
    "agent": "pi",
    "level": 0,
    "solved": 0,
-   "attempts": 2,
+   "attempts": 3,
    "tasks": {
     "l0-qualify": {
      "solved": 0,
-     "attempts": 2
+     "attempts": 3
     }
    },
-   "median_s": 39.0,
-   "median_read": 10862.5,
-   "median_written": 720.0,
-   "decode_tok_s": 33.9,
-   "gpu_w": 56.8,
-   "cpu_w": 105.0,
-   "wh_per_solved": 3.49,
+   "median_s": 44.0,
+   "median_read": 12362,
+   "median_written": 765,
+   "decode_tok_s": 33.8,
+   "gpu_w": 60.0,
+   "cpu_w": 107.2,
+   "wh_per_solved": 6.4,
    "agent_version": "1.3.0"
   },
   {
@@ -10889,7 +10889,7 @@
   }
  ],
  "security": {
-  "locked": 175,
+  "locked": 178,
   "tried": [
    {
     "run": "20261028-154355_l3-cpp-lifecycle-httplib-stop_pi_strata-iq2xs-128k-mk_a1",
@@ -14691,6 +14691,64 @@
       "who": "agent"
      }
     ]
+   },
+   {
+    "run": "20261102-063413_l0-qualify_opencode_qwen3codernext-q4km-128k-mk_a2",
+    "model": "qwen3codernext-q4km-128k",
+    "agent": "opencode",
+    "task": "l0-qualify",
+    "calls": 0,
+    "hosts": [],
+    "ports": [],
+    "blocked": [
+     {
+      "dst": "172.66.173.149",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 3,
+      "who": "agent"
+     },
+     {
+      "dst": "104.20.32.17",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 3,
+      "who": "agent"
+     }
+    ]
+   },
+   {
+    "run": "20261102-063626_l0-qualify_opencode_qwen3codernext-q4km-128k-mk_a3",
+    "model": "qwen3codernext-q4km-128k",
+    "agent": "opencode",
+    "task": "l0-qualify",
+    "calls": 0,
+    "hosts": [],
+    "ports": [],
+    "blocked": [
+     {
+      "dst": "172.66.173.149",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 3,
+      "who": "agent"
+     },
+     {
+      "dst": "104.20.32.17",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 3,
+      "who": "agent"
+     }
+    ]
    }
   ]
  },
@@ -14732,8 +14790,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 14.9,
-  "eta_hours": 85.9,
+  "pace_per_h": 15.6,
+  "eta_hours": 84.2,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -14741,28 +14799,28 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-02T06:34",
+  "generated": "2026-11-02T06:39",
   "queue_elapsed_h": {
-   "low": 16.0,
-   "mid": 19.3,
-   "high": 49.1
+   "low": 15.9,
+   "mid": 19.1,
+   "high": 49.0
   },
   "machines": {
    "pc": {
     "worker_h": {
-     "low": 13.5,
-     "mid": 16.7,
+     "low": 13.4,
+     "mid": 16.6,
      "high": 45.4
     },
     "elapsed_h": {
-     "low": 16.0,
-     "mid": 19.3,
-     "high": 49.1
+     "low": 15.9,
+     "mid": 19.1,
+     "high": 49.0
     },
     "finish": {
-     "low": "2026-11-02T22:36",
-     "mid": "2026-11-03T01:50",
-     "high": "2026-11-04T07:43"
+     "low": "2026-11-02T22:32",
+     "mid": "2026-11-03T01:46",
+     "high": "2026-11-04T07:39"
     },
     "models": [
      [
@@ -14774,12 +14832,6 @@
        "S2",
        "S3",
        "L3",
-       "L0"
-      ]
-     ],
-     [
-      "qwen3codernext-q4km-128k",
-      [
        "L0"
       ]
      ],
@@ -14818,9 +14870,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-02T06:34",
-     "mid": "2026-11-02T06:34",
-     "high": "2026-11-02T06:34"
+     "low": "2026-11-02T06:39",
+     "mid": "2026-11-02T06:39",
+     "high": "2026-11-02T06:39"
     },
     "models": [],
     "gap_min": 0.85,
@@ -14837,16 +14889,16 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 16.0,
-    "with_mac_h": 16.0
+    "pc_alone_h": 15.9,
+    "with_mac_h": 15.9
    },
    "mid": {
-    "pc_alone_h": 19.3,
-    "with_mac_h": 19.3
+    "pc_alone_h": 19.1,
+    "with_mac_h": 19.1
    },
    "high": {
-    "pc_alone_h": 49.1,
-    "with_mac_h": 49.1
+    "pc_alone_h": 49.0,
+    "with_mac_h": 49.0
    }
   },
   "slots": {
@@ -15253,7 +15305,7 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 65,
+    "attempts_finished": 68,
     "busy_pct": 81
    },
    "cloud": {
@@ -15377,22 +15429,6 @@
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 0.65 (no attempts yet)",
     "how_mac": "prior ratio 1.94 (no attempts yet)"
-   },
-   {
-    "model": "qwen3codernext-q4km-128k",
-    "level": "L0",
-    "status": "assigned",
-    "machine": "pc",
-    "blocked": null,
-    "note": "speed glance",
-    "attempts_exp": 3,
-    "attempts_max": 3,
-    "p_reach": 1.0,
-    "worker_h": 0.1,
-    "elapsed_h": 0.1,
-    "worker_h_if_unblocked": null,
-    "how_pc": "PC warm-ups of this model (4)",
-    "how_mac": "not planned on the Mac"
    },
    {
     "model": "gptoss120b-a2-128k",
@@ -16411,7 +16447,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-02T06:34+01:00",
+  "updated": "2026-11-02T06:39+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -16755,9 +16791,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 280.33,
+  "hours_up": 280.42,
   "spent_eur": 183.65,
-  "gpu_hours": 354.4,
+  "gpu_hours": 354.5,
   "servers_running": 1
  },
  "utility": [
@@ -16980,14 +17016,14 @@
  ],
  "running": [
   {
-   "model": "qwen3codernext-q4km-128k",
+   "model": "gptoss120b-a2-128k",
    "front": "PC",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "opencode",
-   "attempt": "2",
-   "progress": "4/6",
-   "started": "2026-11-02T06:34:13+01:00"
+   "agent": "pi",
+   "attempt": "warmup",
+   "progress": null,
+   "started": "2026-11-02T06:38:47+01:00"
   }
  ],
  "last_done": {
@@ -16995,11 +17031,11 @@
    "model": "qwen3codernext-q4km-128k",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "pi",
-   "attempt": "2",
+   "agent": "opencode",
+   "attempt": "3",
    "solved": false,
-   "wall_s": 34,
-   "ended": "2026-11-02T06:33:59+01:00"
+   "wall_s": 60,
+   "ended": "2026-11-02T06:37:22+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
