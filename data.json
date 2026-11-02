@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T07:20+01:00",
+ "generated": "2026-11-02T07:25+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -9579,6 +9579,28 @@
    "model": "strata-iq3s-64k",
    "variant": "mk",
    "agent": "opencode",
+   "level": 0,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "l0-qualify": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 138.6,
+   "median_read": 151538,
+   "median_written": 7555,
+   "decode_tok_s": 68.4,
+   "gpu_w": 141.4,
+   "cpu_w": 167.8,
+   "wh_per_solved": 11.9,
+   "agent_version": "2.0.32"
+  },
+  {
+   "model": "strata-iq3s-64k",
+   "variant": "mk",
+   "agent": "opencode",
    "level": 1,
    "solved": 55,
    "attempts": 57,
@@ -10999,7 +11021,7 @@
   }
  ],
  "security": {
-  "locked": 191,
+  "locked": 192,
   "tried": [
    {
     "run": "20261028-154355_l3-cpp-lifecycle-httplib-stop_pi_strata-iq2xs-128k-mk_a1",
@@ -15033,6 +15055,35 @@
       "who": "agent"
      }
     ]
+   },
+   {
+    "run": "20261102-071808_l0-qualify_opencode_strata-iq3s-64k-mk_a1",
+    "model": "strata-iq3s-64k",
+    "agent": "opencode",
+    "task": "l0-qualify",
+    "calls": 0,
+    "hosts": [],
+    "ports": [],
+    "blocked": [
+     {
+      "dst": "104.20.32.17",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 3,
+      "who": "agent"
+     },
+     {
+      "dst": "172.66.173.149",
+      "proto": "TCP",
+      "port": 443,
+      "uid": 1000,
+      "where": "sandbox",
+      "count": 3,
+      "who": "agent"
+     }
+    ]
    }
   ]
  },
@@ -15074,8 +15125,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 18.2,
-  "eta_hours": 79.1,
+  "pace_per_h": 18.4,
+  "eta_hours": 78.7,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -15083,10 +15134,10 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-02T07:20",
+  "generated": "2026-11-02T07:25",
   "queue_elapsed_h": {
    "low": 15.4,
-   "mid": 18.7,
+   "mid": 18.6,
    "high": 48.5
   },
   "machines": {
@@ -15098,13 +15149,13 @@
     },
     "elapsed_h": {
      "low": 15.4,
-     "mid": 18.7,
+     "mid": 18.6,
      "high": 48.5
     },
     "finish": {
-     "low": "2026-11-02T22:46",
-     "mid": "2026-11-03T01:59",
-     "high": "2026-11-04T07:53"
+     "low": "2026-11-02T22:49",
+     "mid": "2026-11-03T02:03",
+     "high": "2026-11-04T07:56"
     },
     "models": [
      [
@@ -15142,9 +15193,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-02T07:20",
-     "mid": "2026-11-02T07:20",
-     "high": "2026-11-02T07:20"
+     "low": "2026-11-02T07:25",
+     "mid": "2026-11-02T07:25",
+     "high": "2026-11-02T07:25"
     },
     "models": [],
     "gap_min": 0.85,
@@ -15165,8 +15216,8 @@
     "with_mac_h": 15.4
    },
    "mid": {
-    "pc_alone_h": 18.7,
-    "with_mac_h": 18.7
+    "pc_alone_h": 18.6,
+    "with_mac_h": 18.6
    },
    "high": {
     "pc_alone_h": 48.5,
@@ -15577,7 +15628,7 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 79,
+    "attempts_finished": 80,
     "busy_pct": 76
    },
    "cloud": {
@@ -15709,8 +15760,8 @@
     "machine": "pc",
     "blocked": null,
     "note": "speed glance",
-    "attempts_exp": 5,
-    "attempts_max": 5,
+    "attempts_exp": 4,
+    "attempts_max": 4,
     "p_reach": 1.0,
     "worker_h": 0.1,
     "elapsed_h": 0.2,
@@ -16687,7 +16738,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-02T07:20+01:00",
+  "updated": "2026-11-02T07:25+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -17031,9 +17082,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 281.1,
+  "hours_up": 281.18,
   "spent_eur": 183.65,
-  "gpu_hours": 355.2,
+  "gpu_hours": 355.3,
   "servers_running": 1
  },
  "utility": [
@@ -17260,10 +17311,10 @@
    "front": "PC",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "opencode",
-   "attempt": "1",
-   "progress": "2/6",
-   "started": "2026-11-02T07:18:08+01:00"
+   "agent": "pi",
+   "attempt": "2",
+   "progress": "3/6",
+   "started": "2026-11-02T07:21:24+01:00"
   }
  ],
  "last_done": {
@@ -17271,11 +17322,11 @@
    "model": "strata-iq3s-64k",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
    "solved": true,
-   "wall_s": 48,
-   "ended": "2026-11-02T07:17:43+01:00"
+   "wall_s": 139,
+   "ended": "2026-11-02T07:20:22+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
