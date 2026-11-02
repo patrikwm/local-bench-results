@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T02:54+01:00",
+ "generated": "2026-11-02T02:59+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -13438,37 +13438,30 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-02T02:54",
+  "generated": "2026-11-02T02:59",
   "queue_elapsed_h": {
-   "low": 18.9,
-   "mid": 22.1,
-   "high": 52.2
+   "low": 18.8,
+   "mid": 22.0,
+   "high": 51.9
   },
   "machines": {
    "pc": {
     "worker_h": {
      "low": 15.3,
-     "mid": 18.6,
-     "high": 47.5
+     "mid": 18.5,
+     "high": 47.2
     },
     "elapsed_h": {
-     "low": 18.9,
-     "mid": 22.1,
-     "high": 52.2
+     "low": 18.8,
+     "mid": 22.0,
+     "high": 51.9
     },
     "finish": {
-     "low": "2026-11-02T21:48",
-     "mid": "2026-11-03T01:02",
-     "high": "2026-11-04T07:09"
+     "low": "2026-11-02T21:47",
+     "mid": "2026-11-03T01:01",
+     "high": "2026-11-04T06:53"
     },
     "models": [
-     [
-      "qwen3codernext-q4km-128k",
-      [
-       "L1",
-       "L0"
-      ]
-     ],
      [
       "laguna-s21-iq4xs-64k",
       [
@@ -13536,6 +13529,12 @@
       ]
      ],
      [
+      "qwen3codernext-q4km-128k",
+      [
+       "L0"
+      ]
+     ],
+     [
       "gptoss120b-a2-128k",
       [
        "L0"
@@ -13570,9 +13569,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-02T02:54",
-     "mid": "2026-11-02T02:54",
-     "high": "2026-11-02T02:54"
+     "low": "2026-11-02T02:59",
+     "mid": "2026-11-02T02:59",
+     "high": "2026-11-02T02:59"
     },
     "models": [],
     "gap_min": 0.85,
@@ -13589,38 +13588,38 @@
     "high": 0.0
    },
    "low": {
-    "pc_alone_h": 18.9,
-    "with_mac_h": 18.9
+    "pc_alone_h": 18.8,
+    "with_mac_h": 18.8
    },
    "mid": {
-    "pc_alone_h": 22.1,
-    "with_mac_h": 22.1
+    "pc_alone_h": 22.0,
+    "with_mac_h": 22.0
    },
    "high": {
-    "pc_alone_h": 52.2,
-    "with_mac_h": 52.2
+    "pc_alone_h": 51.9,
+    "with_mac_h": 51.9
    }
   },
   "slots": {
-   "executed": 3239,
+   "executed": 3240,
    "skipped: majority stop": 1009,
    "skipped: model eliminated at an earlier level": 898,
    "skipped: level ended early (probe / level stop)": 312,
-   "open: assigned": 169,
    "open: blocked": 1,
+   "open: assigned": 168,
    "open: conditional": 204,
    "plan_total": 5832,
    "extra_attempts_not_in_plan": 7
   },
   "pairs": {
    "total": 1944,
-   "decided by attempts": 1361,
+   "decided by attempts": 1362,
    "settled by a rule (never decided)": 457,
-   "open": 126
+   "open": 125
   },
   "expected_attempts": {
-   "assigned": 122.2,
-   "conditional": 80.6,
+   "assigned": 121.2,
+   "conditional": 81.6,
    "blocked": 0.2
   },
   "completed_levels": [
@@ -13755,6 +13754,12 @@
     "level": "L1",
     "status": "completed",
     "result": "failed"
+   },
+   {
+    "model": "qwen3codernext-q4km-128k",
+    "level": "L1",
+    "status": "completed",
+    "result": "passed"
    },
    {
     "model": "qwen3codernext-q4km-128k",
@@ -13999,8 +14004,8 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 8,
-    "busy_pct": 55
+    "attempts_finished": 9,
+    "busy_pct": 61
    },
    "cloud": {
     "attempts_finished": 0,
@@ -14012,22 +14017,6 @@
    }
   },
   "items": [
-   {
-    "model": "qwen3codernext-q4km-128k",
-    "level": "L1",
-    "status": "assigned",
-    "machine": "pc",
-    "blocked": null,
-    "note": "",
-    "attempts_exp": 1.0,
-    "attempts_max": 1,
-    "p_reach": 1.0,
-    "worker_h": 0.1,
-    "elapsed_h": 0.2,
-    "worker_h_if_unblocked": null,
-    "how_pc": "1 at this level + model ratio 2.02 from 1 attempts",
-    "how_mac": "prior ratio 6.05 (no attempts yet)"
-   },
    {
     "model": "qwen38-27b-q4km-64k",
     "level": "L3",
@@ -14069,7 +14058,7 @@
     "note": "",
     "attempts_exp": 60.8,
     "attempts_max": 84,
-    "p_reach": 0.81,
+    "p_reach": 0.82,
     "worker_h": 7.0,
     "elapsed_h": 7.5,
     "worker_h_if_unblocked": null,
@@ -14085,7 +14074,7 @@
     "note": "",
     "attempts_exp": 17.5,
     "attempts_max": 24,
-    "p_reach": 0.81,
+    "p_reach": 0.82,
     "worker_h": 0.7,
     "elapsed_h": 0.8,
     "worker_h_if_unblocked": null,
@@ -14117,8 +14106,8 @@
     "note": "",
     "attempts_exp": 17.1,
     "attempts_max": 24,
-    "p_reach": 0.3,
-    "worker_h": 0.6,
+    "p_reach": 0.31,
+    "worker_h": 0.7,
     "elapsed_h": 0.7,
     "worker_h_if_unblocked": null,
     "how_pc": "prior ratio 0.65 (no attempts yet)",
@@ -15312,7 +15301,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-02T02:54+01:00",
+  "updated": "2026-11-02T03:00+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -15656,9 +15645,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 276.67,
+  "hours_up": 276.76,
   "spent_eur": 183.65,
-  "gpu_hours": 350.8,
+  "gpu_hours": 350.9,
   "servers_running": 1
  },
  "utility": [
@@ -15879,18 +15868,7 @@
    "median_out_tokens": 19.5
   }
  ],
- "running": [
-  {
-   "model": "qwen3codernext-q4km-128k",
-   "front": "PC",
-   "task": "l1-ts-tests-lrucache",
-   "level": 1,
-   "agent": "opencode",
-   "attempt": "3",
-   "progress": "46/46",
-   "started": "2026-11-02T02:38:55+01:00"
-  }
- ],
+ "running": [],
  "last_done": {
   "PC": {
    "model": "qwen3codernext-q4km-128k",
