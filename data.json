@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T03:45+01:00",
+ "generated": "2026-11-02T03:50+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -918,6 +918,28 @@
    "cpu_w": 151.9,
    "wh_per_solved": 231.65,
    "agent_version": "2.0.32"
+  },
+  {
+   "model": "devstral2-q4km-64k",
+   "variant": "mk",
+   "agent": "pi",
+   "level": 0,
+   "solved": 1,
+   "attempts": 1,
+   "tasks": {
+    "l0-qualify": {
+     "solved": 1,
+     "attempts": 1
+    }
+   },
+   "median_s": 104.1,
+   "median_read": 13389,
+   "median_written": 849,
+   "decode_tok_s": 8.6,
+   "gpu_w": 55.3,
+   "cpu_w": 140.1,
+   "wh_per_solved": 5.65,
+   "agent_version": "1.3.0"
   },
   {
    "model": "devstral2-q4km-64k",
@@ -10537,7 +10559,7 @@
   }
  ],
  "security": {
-  "locked": 130,
+  "locked": 131,
   "tried": [
    {
     "run": "20261028-154355_l3-cpp-lifecycle-httplib-stop_pi_strata-iq2xs-128k-mk_a1",
@@ -13742,8 +13764,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 4.9,
-  "eta_hours": 163.4,
+  "pace_per_h": 5.1,
+  "eta_hours": 158.2,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -13751,26 +13773,26 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-02T03:45",
+  "generated": "2026-11-02T03:51",
   "queue_elapsed_h": {
    "low": 18.2,
-   "mid": 21.5,
-   "high": 51.3
+   "mid": 21.4,
+   "high": 51.2
   },
   "machines": {
    "pc": {
     "worker_h": {
      "low": 14.9,
-     "mid": 18.2,
-     "high": 46.9
+     "mid": 18.1,
+     "high": 46.8
     },
     "elapsed_h": {
      "low": 18.2,
-     "mid": 21.5,
-     "high": 51.3
+     "mid": 21.4,
+     "high": 51.2
     },
     "finish": {
-     "low": "2026-11-02T21:59",
+     "low": "2026-11-02T22:00",
      "mid": "2026-11-03T01:13",
      "high": "2026-11-04T07:05"
     },
@@ -13870,9 +13892,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-02T03:45",
-     "mid": "2026-11-02T03:45",
-     "high": "2026-11-02T03:45"
+     "low": "2026-11-02T03:51",
+     "mid": "2026-11-02T03:51",
+     "high": "2026-11-02T03:51"
     },
     "models": [],
     "gap_min": 0.85,
@@ -13893,12 +13915,12 @@
     "with_mac_h": 18.2
    },
    "mid": {
-    "pc_alone_h": 21.5,
-    "with_mac_h": 21.5
+    "pc_alone_h": 21.4,
+    "with_mac_h": 21.4
    },
    "high": {
-    "pc_alone_h": 51.3,
-    "with_mac_h": 51.3
+    "pc_alone_h": 51.2,
+    "with_mac_h": 51.2
    }
   },
   "slots": {
@@ -14305,7 +14327,7 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 21,
+    "attempts_finished": 22,
     "busy_pct": 70
    },
    "cloud": {
@@ -14437,8 +14459,8 @@
     "machine": "pc",
     "blocked": null,
     "note": "speed glance",
-    "attempts_exp": 6,
-    "attempts_max": 6,
+    "attempts_exp": 5,
+    "attempts_max": 5,
     "p_reach": 1.0,
     "worker_h": 0.4,
     "elapsed_h": 0.5,
@@ -15570,7 +15592,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-02T03:45+01:00",
+  "updated": "2026-11-02T03:51+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -15914,9 +15936,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 277.52,
+  "hours_up": 277.61,
   "spent_eur": 183.65,
-  "gpu_hours": 351.6,
+  "gpu_hours": 351.7,
   "servers_running": 1
  },
  "utility": [
@@ -16143,22 +16165,22 @@
    "front": "PC",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "pi",
+   "agent": "opencode",
    "attempt": "1",
-   "progress": "1/6",
-   "started": "2026-11-02T03:45:23+01:00"
+   "progress": "2/6",
+   "started": "2026-11-02T03:47:57+01:00"
   }
  ],
  "last_done": {
   "PC": {
-   "model": "mellum21-q8-128k",
+   "model": "devstral2-q4km-64k",
    "task": "l0-qualify",
    "level": 0,
-   "agent": "opencode",
-   "attempt": "3",
+   "agent": "pi",
+   "attempt": "1",
    "solved": true,
-   "wall_s": 178,
-   "ended": "2026-11-02T03:37:55+01:00"
+   "wall_s": 104,
+   "ended": "2026-11-02T03:47:04+01:00"
   },
   "RTX PRO 6000": {
    "model": "devstral2-q4km-64k-upcloud",
