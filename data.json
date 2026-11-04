@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-04T09:24+01:00",
+ "generated": "2026-11-04T09:29+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -16463,8 +16463,8 @@
   "pace_window_h": 6,
   "running_since": "2026-10-19T22:01",
   "screening_since": "2026-10-20T10:57",
-  "pace_per_h": 3.7,
-  "eta_hours": 188.7,
+  "pace_per_h": 3.5,
+  "eta_hours": 198.1,
   "eta_l4_hours": 48.0,
   "models_out": [
    "glm47flash-q8-128k",
@@ -16472,7 +16472,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-04T09:24",
+  "generated": "2026-11-04T09:29",
   "queue_elapsed_h": {
    "low": 60.2,
    "mid": 70.6,
@@ -16491,9 +16491,9 @@
      "high": 199.4
     },
     "finish": {
-     "low": "2026-11-06T21:37",
-     "mid": "2026-11-07T08:00",
-     "high": "2026-11-12T16:48"
+     "low": "2026-11-06T21:42",
+     "mid": "2026-11-07T08:05",
+     "high": "2026-11-12T16:53"
     },
     "models": [
      [
@@ -16524,9 +16524,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-04T09:24",
-     "mid": "2026-11-04T09:24",
-     "high": "2026-11-04T09:24"
+     "low": "2026-11-04T09:29",
+     "mid": "2026-11-04T09:29",
+     "high": "2026-11-04T09:29"
     },
     "models": [],
     "gap_min": 0.85,
@@ -16959,8 +16959,8 @@
   "pc_sysadmin": "ok",
   "last6h": {
    "pc": {
-    "attempts_finished": 17,
-    "busy_pct": 59
+    "attempts_finished": 16,
+    "busy_pct": 58
    },
    "cloud": {
     "attempts_finished": 0,
@@ -18078,7 +18078,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-04T09:24+01:00",
+  "updated": "2026-11-04T09:29+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -18422,9 +18422,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 331.17,
+  "hours_up": 331.25,
   "spent_eur": 183.65,
-  "gpu_hours": 405.3,
+  "gpu_hours": 405.4,
   "servers_running": 1
  },
  "utility": [
