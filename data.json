@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T23:30+01:00",
+ "generated": "2026-11-05T23:35+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -16472,7 +16472,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-05T23:30",
+  "generated": "2026-11-05T23:35",
   "queue_elapsed_h": {
    "low": 60.2,
    "mid": 70.6,
@@ -16491,9 +16491,9 @@
      "high": 199.4
     },
     "finish": {
-     "low": "2026-11-08T11:43",
-     "mid": "2026-11-08T22:06",
-     "high": "2026-11-14T06:54"
+     "low": "2026-11-08T11:49",
+     "mid": "2026-11-08T22:11",
+     "high": "2026-11-14T07:00"
     },
     "models": [
      [
@@ -16509,7 +16509,7 @@
      ]
     ],
     "gap_min": 0.55,
-    "block_min": 4.1,
+    "block_min": 4.2,
     "idle_last24h_h": 40.0
    },
    "mac": {
@@ -16524,9 +16524,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-05T23:30",
-     "mid": "2026-11-05T23:30",
-     "high": "2026-11-05T23:30"
+     "low": "2026-11-05T23:35",
+     "mid": "2026-11-05T23:35",
+     "high": "2026-11-05T23:35"
     },
     "models": [],
     "gap_min": 0.85,
@@ -16960,7 +16960,7 @@
   "last6h": {
    "pc": {
     "attempts_finished": 0,
-    "busy_pct": 2
+    "busy_pct": 5
    },
    "cloud": {
     "attempts_finished": 0,
@@ -17254,9 +17254,9 @@
   },
   "laguna-s21-iq4xs-64k": {
    "PC": {
-    "solved": 5,
-    "attempts": 5,
-    "median_s": 256.5
+    "solved": 6,
+    "attempts": 6,
+    "median_s": 366.6
    }
   }
  },
@@ -18078,7 +18078,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-05T23:30+01:00",
+  "updated": "2026-11-05T23:35+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -18422,9 +18422,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 369.27,
+  "hours_up": 369.35,
   "spent_eur": 183.65,
-  "gpu_hours": 443.4,
+  "gpu_hours": 443.5,
   "servers_running": 1
  },
  "utility": [
@@ -18649,12 +18649,12 @@
   {
    "model": "laguna-s21-iq4xs-64k",
    "front": "PC",
-   "task": "l0-qualify",
-   "level": 0,
+   "task": "l1-rs-bugfix-duration-units",
+   "level": 1,
    "agent": "opencode",
-   "attempt": "warmup",
-   "progress": null,
-   "started": "2026-11-05T23:21:49+01:00"
+   "attempt": "1",
+   "progress": "1/126",
+   "started": "2026-11-05T23:30:37+01:00"
   }
  ],
  "last_done": {
