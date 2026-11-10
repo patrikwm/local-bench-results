@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10T20:35+01:00",
+ "generated": "2026-11-10T20:41+01:00",
  "hardware": "i7-13700KF, 64 GB DDR5, RTX 4080 16 GB, Windows 11 + WSL2 (agents sandboxed in WSL)",
  "models": {
   "strata-coder-iq1m-128k": {
@@ -17352,7 +17352,7 @@
   ]
  },
  "forecast": {
-  "generated": "2026-11-10T20:35",
+  "generated": "2026-11-10T20:41",
   "queue_elapsed_h": {
    "low": 59.0,
    "mid": 70.0,
@@ -17371,9 +17371,9 @@
      "high": 204.7
     },
     "finish": {
-     "low": "2026-11-13T07:37",
-     "mid": "2026-11-13T18:38",
-     "high": "2026-11-19T09:16"
+     "low": "2026-11-13T07:42",
+     "mid": "2026-11-13T18:43",
+     "high": "2026-11-19T09:21"
     },
     "models": [
      [
@@ -17404,9 +17404,9 @@
      "high": 0.0
     },
     "finish": {
-     "low": "2026-11-10T20:35",
-     "mid": "2026-11-10T20:35",
-     "high": "2026-11-10T20:35"
+     "low": "2026-11-10T20:41",
+     "mid": "2026-11-10T20:41",
+     "high": "2026-11-10T20:41"
     },
     "models": [],
     "gap_min": 0.85,
@@ -18958,7 +18958,7 @@
   }
  ],
  "cloud": {
-  "updated": "2026-11-10T20:36+01:00",
+  "updated": "2026-11-10T20:41+01:00",
   "provider": "UpCloud",
   "zone": "fi-hel2",
   "plan": "GPU-16xCPU-80GB-1xRTXPRO6000",
@@ -19302,9 +19302,9 @@
    "14:11:27 chain: devstral engine up (coherence ok)",
    "14:11:29 chain: start cloud-devstral-l1: pi on pve2, opencode on pve1"
   ],
-  "hours_up": 486.36,
+  "hours_up": 486.44,
   "spent_eur": 183.65,
-  "gpu_hours": 560.5,
+  "gpu_hours": 560.6,
   "servers_running": 1
  },
  "utility": [
